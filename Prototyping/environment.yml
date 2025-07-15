@@ -1,0 +1,17 @@
+name: vqa-rag
+
+channels:
+  - conda-forge
+  - defaults 
+ 
+  
+dependencies:
+  - python=3.11
+  - jupyterlab
+  - ipykernel
+  - pandas
+  - numpy
+  - scikit-learn
+  - pytorch
+  - torchvision
+  - transformers
