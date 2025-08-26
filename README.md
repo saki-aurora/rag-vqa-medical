@@ -38,7 +38,7 @@ A series of milestones structure the thesis, covering **data exploration, model 
 
 ---
 
-### 3. **VQA Research Timeline**  
+### 3. **Evolution of Visual Question Answering (VQA): 2014–2025**  
 The timeline of VQA research.  
 
 ![VQA Timeline](Timeline/ThesisVQA.png)  
