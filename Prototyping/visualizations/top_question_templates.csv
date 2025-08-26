@@ -1,0 +1,21 @@
+question_norm,count
+have all polyps been removed,3945
+is this finding easy to detect,3941
+is there text,3941
+is there a green/black box artefact,3940
+what type of procedure is the image taken from,3939
+how many instrumnets are in the image,3555
+how many findings are present,3429
+what type of polyp is present,3331
+what is the size of the polyp,3258
+where in the image is the instrument,3154
+are there any instruments in the image? check all that are present,3148
+how many polyps are in the image,3134
+what color is the abnormality? if more than one separate with ;,3125
+where in the image is the abnormality,3112
+are there any abnormalities in the image? check all that are present,3100
+does this image contain any finding,2500
+where in the image is the anatomical landmark,2158
+are there any anatomical landmarks in the image? check all that are present,2000
+what color is the anatomical landmark? if more than one separate with ;,88
+none,51
