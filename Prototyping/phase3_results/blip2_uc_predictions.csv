@@ -1,0 +1,31 @@
+model,img_id,img_path,question,ground_truth,predicted,bleu
+blip2,cla820gmps647071u1ctnfhp0,./images/cla820gmps647071u1ctnfhp0.jpg,Where in the image is the instrument?,none,Where in the image is the instrument?,0.0
+blip2,cla820gmms5zv071u5yw05he4,./images/cla820gmms5zv071u5yw05he4.jpg,What is the size of the polyp?,none,What is the size of the polyp?,0.0
+blip2,cla820gl1s3q3071udvtaggoi,./images/cla820gl1s3q3071udvtaggoi.jpg,Is there a green/black box artefact?,yes,Is there a green/black box artefact?,0.0
+blip2,cla820gmzs6gn071ua9ul7wji,./images/cla820gmzs6gn071ua9ul7wji.jpg,How many findings are present?,1,How many findings are present?,0.0
+blip2,cla820gm2s57z071uewjf8x03,./images/cla820gm2s57z071uewjf8x03.jpg,Have all polyps been removed?,not relevant,Have all polyps been removed?,0.0
+blip2,cla820glts4xr071u9foy06vh,./images/cla820glts4xr071u9foy06vh.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,Are there any abnormalities in the image? Check all that are present.,0.0
+blip2,cla820gmfs5or071u3sdpg32k,./images/cla820gmfs5or071u3sdpg32k.jpg,How many findings are present?,1,How many findings are present?,0.0
+blip2,cla820glrs4v7071ufojf8iiu,./images/cla820glrs4v7071ufojf8iiu.jpg,Where in the image is the anatomical landmark?,none,Where in the image is the anatomical landmark?,0.0
+blip2,cla820gl1s3on071u1e7gbeh0,./images/cla820gl1s3on071u1e7gbeh0.jpg,What type of polyp is present?,none,What type of polyp is present?,0.0
+blip2,cla820gm8s5f3071ugiqd2fod,./images/cla820gm8s5f3071ugiqd2fod.jpg,Have all polyps been removed?,not relevant,Have all polyps been removed?,0.0
+blip2,cla820gl2s3q7071u7ej2fp2n,./images/cla820gl2s3q7071u7ej2fp2n.jpg,Is there text?,yes,Is there text?,0.0
+blip2,cla820gm1s56f071u6z4x5v2k,./images/cla820gm1s56f071u6z4x5v2k.jpg,Is there a green/black box artefact?,no,Is there a green/black box artefact?,0.0
+blip2,cla820gm5s5bb071u0cc7gqjg,./images/cla820gm5s5bb071u0cc7gqjg.jpg,How many instrumnets are in the image?,0,How many instrumnets are in the image?,0.0
+blip2,cla820glgs4ff071u8us5dw3j,./images/cla820glgs4ff071u8us5dw3j.jpg,Is this finding easy to detect?,yes,Is this finding easy to detect?,0.0
+blip2,cla820gmys6f3071u1oh36llx,./images/cla820gmys6f3071u1oh36llx.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,Where in the image is the abnormality?,0.0
+blip2,cla820glhs4hn071u98a08qev,./images/cla820glhs4hn071u98a08qev.jpg,What type of polyp is present?,none,What type of polyp is present?,0.0
+blip2,cla820gmts68r071u3rz09961,./images/cla820gmts68r071u3rz09961.jpg,Where in the image is the anatomical landmark?,none,Where in the image is the anatomical landmark?,0.0
+blip2,cla820gl0s3o7071u4ouwcitb,./images/cla820gl0s3o7071u4ouwcitb.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,Are there any abnormalities in the image? Check all that are present.,0.0
+blip2,cla820glps4sn071u8jz47vj9,./images/cla820glps4sn071u8jz47vj9.jpg,Is this finding easy to detect?,yes,Is this finding easy to detect?,0.0
+blip2,cla820glts4xf071uhw7u4dwm,./images/cla820glts4xf071uhw7u4dwm.jpg,How many findings are present?,1,How many findings are present?,0.0
+blip2,cla820glxs52b071u7xpqf5xc,./images/cla820glxs52b071u7xpqf5xc.jpg,Where in the image is the instrument?,none,Where in the image is the instrument?,0.0
+blip2,cla820gles4bj071u6rxicrf7,./images/cla820gles4bj071u6rxicrf7.jpg,Where in the image is the instrument?,none,Where in the image is the instrument?,0.0
+blip2,cla820glbs477071u6xqddb6d,./images/cla820glbs477071u6xqddb6d.jpg,Where in the image is the instrument?,none,Where in the image is the instrument?,0.0
+blip2,cla820gmds5m3071ud5wma2c6,./images/cla820gmds5m3071ud5wma2c6.jpg,Are there any instruments in the image? Check all that are present.,none,Are there any instruments in the image? Check all that are present.,0.0
+blip2,cla820glws51b071u5gzk6x1i,./images/cla820glws51b071u5gzk6x1i.jpg,How many findings are present?,1,How many findings are present?,0.0
+blip2,cla820glks4m3071ubdpv709c,./images/cla820glks4m3071ubdpv709c.jpg,What color is the abnormality? If more than one separate with ;,pink; red,What color is the abnormality? If more than one separate with ;,0.0
+blip2,cla820gl6s3xb071ufo9e9qg4,./images/cla820gl6s3xb071ufo9e9qg4.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,What color is the abnormality? If more than one separate with ;,0.0
+blip2,cla820glds49v071u08w57r94,./images/cla820glds49v071u08w57r94.jpg,What type of procedure is the image taken from?,colonoscopy,What type of procedure is the image taken from?,0.0
+blip2,cla820gl1s3pv071u6kb331te,./images/cla820gl1s3pv071u6kb331te.jpg,Is there a green/black box artefact?,yes,Is there a green/black box artefact?,0.0
+blip2,cla820gmms5yv071udj0ngman,./images/cla820gmms5yv071udj0ngman.jpg,How many instrumnets are in the image?,0,How many instrumnets are in the image?,0.0
