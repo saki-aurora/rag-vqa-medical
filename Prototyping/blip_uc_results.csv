@@ -1,0 +1,21 @@
+img_id,question,ground_truth,predicted,bleu
+cla820gmps647071u1ctnfhp0,Where in the image is the instrument?,none,where in the image is the instrument?,0
+cla820gmms5zv071u5yw05he4,What is the size of the polyp?,none,what is the size of the polyp?,0
+cla820gl1s3q3071udvtaggoi,Is there a green/black box artefact?,yes,is there a green / black box artefact?,0
+cla820gmzs6gn071ua9ul7wji,How many findings are present?,1,how many findings are present?,0
+cla820gm2s57z071uewjf8x03,Have all polyps been removed?,not relevant,have all polyps been removed?,0
+cla820glts4xr071u9foy06vh,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,are there any abnormalities in the image? check all that are present. 5,0
+cla820gmfs5or071u3sdpg32k,How many findings are present?,1,how many findings are present?,0
+cla820glrs4v7071ufojf8iiu,Where in the image is the anatomical landmark?,none,where in the image is the anatomical landmark?,0
+cla820gl1s3on071u1e7gbeh0,What type of polyp is present?,none,what type of polyp is present?,0
+cla820gm8s5f3071ugiqd2fod,Have all polyps been removed?,not relevant,have all polyps been removed?,0
+cla820gl2s3q7071u7ej2fp2n,Is there text?,yes,is there text? on it,0
+cla820gm1s56f071u6z4x5v2k,Is there a green/black box artefact?,no,is there a green / black box artefact?,0
+cla820gm5s5bb071u0cc7gqjg,How many instrumnets are in the image?,0,how many instrumnets are in the image?,0
+cla820glgs4ff071u8us5dw3j,Is this finding easy to detect?,yes,is this finding easy to detect?,0
+cla820gmys6f3071u1oh36llx,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,where in the image is the abnormality?,0
+cla820glhs4hn071u98a08qev,What type of polyp is present?,none,what type of polyp is present?,0
+cla820gmts68r071u3rz09961,Where in the image is the anatomical landmark?,none,where in the image is the anatomical landmark?,0
+cla820gl0s3o7071u4ouwcitb,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,are there any abnormalities in the image? check all that are present.,0
+cla820glps4sn071u8jz47vj9,Is this finding easy to detect?,yes,is this finding easy to detect?,0
+cla820glts4xf071uhw7u4dwm,How many findings are present?,1,how many findings are present?,0
