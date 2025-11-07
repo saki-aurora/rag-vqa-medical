@@ -1,0 +1,4 @@
+question,model,EM,off_by_1,MAE,RMSE
+How many polyps are present?,BLIP-2 (ZS),,,,
+How many polyps are present?,BLIP-VQA,,,,
+How many polyps are present?,ViLT (vqa),0.0,1.0,1.0,1.0

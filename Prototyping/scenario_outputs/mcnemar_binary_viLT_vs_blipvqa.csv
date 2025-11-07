@@ -1,0 +1,2 @@
+question,A,B,b01,b10,statistic,p_value
+Is there active bleeding visible?,ViLT (vqa),BLIP-VQA,0,0,inf,0.0
