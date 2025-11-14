@@ -1,0 +1,838 @@
+Benchmarking Visual Question Answering Methods
+for IBD in Colonoscopy
+Sarthak Kaushik
+
+Dr. Sabah Mohammad
+
+Dr. Jinan Fiaidhi
+
+Comp. Sci. Dept. / Lakehead University Comp. Sci. Dept. / Lakehead University Comp. Sci. Dept. / Lakehead University
+Thunder Bay, Canada
+Thunder Bay, Canada
+Thunder Bay, Canada
+Email: jfiaidhi@lakeheadu.ca
+Email: sabah.mohammed@lakeheadu.ca
+Email: skaushi1@lakeheadu.ca
+
+Abstract—Clinical endoscopy for inflammatory bowel disease
+(IBD) often requires fast, reliable answers to image-grounded
+questions (e.g., presence of bleeding, tool visibility, severity
+grades). While medical visual question answering (VQA) has
+advanced quickly, it remains unclear which technique families are most dependable for colonoscopy images. This paper
+presents a focused, head-to-head comparison on the KvasirVQA dataset spanning legacy to bleeding-edge approaches: (i)
+sanity baselines (random/majority, question-only, image-only),
+(ii) classic CNN+RNN fusion, (iii) ViT+BERT cross-attention,
+(iv) CLIP-style fusion, and (v) vision-language models (VLMs)
+such as BLIP-2/LLaVA with lightweight LoRA/QLoRA finetuning. We standardize an evaluation protocol with fixed stratified train/validation/test splits, answer normalization, and perquestion-type metrics—Accuracy for closed-ended queries, Exact
+Match (EM) and token-level F1 for short free-form answers,
+with BLEU/ROUGE reported as secondary—augmented by calibration and compute/latency reporting. Statistical significance
+is assessed using bootstrap confidence intervals and McNemar
+tests on paired predictions. Empirically, ViT-based co-attention
+models tend to outperform CNN/RNN on closed-ended tasks,
+whereas LoRA-tuned VLMs provide the strongest EM/F1 on
+attribute-style questions at a higher inference cost; focal loss and
+endoscopy-specific pretraining further improve presence/yes-no
+performance, with modest gains from higher image resolution.
+We release code, fixed splits, and analysis scripts to support
+reproducible IBD-VQA research and to guide subsequent finetuning studies.
+Index Terms—Medical VQA, IBD, Endoscopy, Kvasir-VQA,
+Transformers, Vision-Language Models.
+
+I. I NTRODUCTION
+Inflammatory bowel disease (IBD) care relies heavily on
+colonoscopy to assess mucosal pathology, monitor treatment
+response, and guide therapeutic decisions. In routine practice, endoscopists must answer image-grounded questions
+rapidly—Is there active bleeding? Are ulcers present? What is
+the endoscopic severity grade? Is an instrument occluding the
+view?—often under time pressure and with substantial interobserver variability. Visual Question Answering (VQA) offers
+a principled way to frame these needs: given an endoscopic
+image and a natural-language question, return a concise,
+clinically meaningful answer.
+Despite rapid progress in general-domain VQA and multimodal learning, it is unclear which technique families are most
+reliable for colonoscopy. IBD endoscopy presents domainspecific challenges: subtle, small-scale mucosal cues; longtailed answer distributions; short, closed-set responses for
+
+many clinical questions mixed with free-form attribute descriptions; and terminology ambiguity that can confound naive
+string matching. Moreover, published medical-VQA models
+report results under differing data splits, normalizations, and
+metrics, complicating fair comparison.
+The Kvasir-VQA benchmark provides a common substrate
+for empirical study, with questions spanning yes/no (presence),
+counting, attribute/classification, and short free-form answers
+over colonoscopic imagery. Yet, the field lacks a focused,
+apples-to-apples evaluation that spans the spectrum from
+legacy fusion baselines to modern vision–language models
+(VLMs), and that reports per–question-type performance with
+statistical rigor and compute considerations.
+This paper. We present a systematic, head-to-head comparison of representative VQA technique families for IBD endoscopy on Kvasir-VQA, progressing from legacy to bleedingedge approaches. Concretely, we evaluate: (i) sanity baselines (random/majority, question-only, image-only), (ii) classic CNN+RNN fusion, (iii) ViT+BERT cross-attention, (iv)
+CLIP-style fusion, and (v) VLMs (e.g., BLIP-2/LLaVA) with
+lightweight LoRA/QLoRA fine-tuning. To ensure scientific
+comparability, we standardize the evaluation protocol and
+release code and fixed splits.
+Contributions. Our main contributions are:
+• A unified evaluation protocol for Kvasir-VQA with stratified train/validation/test splits, answer normalization, and
+per–question-type reporting.
+• A head-to-head benchmark covering five model families,
+from CNN+RNN fusion to ViT-based co-attention and
+LoRA-tuned VLMs.
+• Comprehensive metrics: Accuracy for closed-ended questions; Exact Match (EM) and token-level F1 for short
+free-form answers; BLEU/ROUGE as secondary; plus
+calibration and compute/latency reporting.
+• Statistical analysis with bootstrap confidence intervals
+and McNemar tests for paired accuracy comparisons,
+enabling significance-qualified claims.
+• Ablations on domain pretraining, loss design (e.g., focal
+loss), image resolution, and fine-tuning strategy (full vs
+adapters/LoRA), illuminating what actually matters for
+IBD-VQA.
+• An error analysis that highlights failure modes by
+question type and informs practical guidance on when
+
+lightweight classifiers suffice and when VLMs are justified.
+The remainder of the paper reviews related work, details
+the dataset and tasks, describes the model families, outlines
+the experimental setup, and reports quantitative and qualitative results, followed by discussion and recommendations for
+subsequent fine-tuning studies.
+
+TABLE I
+T EMPLATES , SIZES , AND SPLIT CARDINALITIES USED IN ALL
+EXPERIMENTS .
+Template (Type)
+
+Total
+
+Train
+
+Val
+
+Test
+
+is there text (Yes/No)
+what type of polyp is present (Attr.)
+
+2,952
+2,342
+
+2,066
+1,637
+
+443
+352
+
+443
+352
+
+Yes/No train label balance: yes=1,844, no=222 (macro–F1 reported
+accordingly).
+
+II. R ELATED W ORK
+General VQA. Early VQA systems paired a CNN image
+encoder with an RNN/LSTM question encoder and a shallow
+fusion head [1]. Subsequent models introduced attention and
+richer fusion, including hierarchical/co-attention [2], bilinear
+pooling (e.g., BAN) [3], and bottom-up/top-down attention
+that leveraged object features [4]. Transformer-era approaches
+replaced RNNs with cross-attention between visual and textual
+tokens and benefited from stronger visual backbones such
+as ViT [5]. In parallel, contrastive pretraining (e.g., CLIP)
+enabled transferable vision–language representations that can
+be adapted to VQA with lightweight heads [6].
+Vision–Language Models (VLMs). Large-scale pretraining
+has recently yielded powerful VLMs that can perform openended captioning and VQA with minimal task-specific supervision. Representative families include BLIP/BLIP-2 (frozen
+vision encoder + Q-Former + LLM) [7], [8], LLaVA (CLIP
+vision encoder aligned to an instruction-tuned LLM) [9],
+and Flamingo-style architectures with gated cross-attention for
+few-shot multimodal learning [10]. These models enable freeform answers and rationale generation, but their computational
+cost and domain-shift sensitivity motivate careful, domainspecific evaluation.
+Medical VQA. Medical VQA datasets such as VQARAD (radiology) [11], SLAKE (biomedical images with
+structured knowledge) [12], and PathVQA (histopathology)
+[13] have been used to adapt general VQA techniques via
+supervised fine-tuning, knowledge-aware modules, and answer normalization. Reported metrics vary (accuracy, EM/F1,
+BLEU/ROUGE), and many works differ in splits and preprocessing, complicating head-to-head comparison. Domainspecific ambiguity (synonyms, abbreviations) further stresses
+evaluation protocols.
+Endoscopy/IBD and Kvasir resources. In gastrointestinal endoscopy, open datasets such as HyperKvasir (broad
+GI imagery) [14], Kvasir-SEG (polyp segmentation) [15],
+and Kvasir-Instrument (tool detection/segmentation) [16] underpin detection and classification tasks. The Kvasir-VQA
+benchmark extends this line to question answering over
+colonoscopic frames, covering yes/no (presence), counting,
+attribute/classification, and short free-form questions ( [17];
+sometimes accompanied by a difficulty-stratified subset).
+While individual papers have reported results with selected
+architectures, a unified comparison across classical fusion
+baselines, ViT-based cross-attention, CLIP-style fusion, and
+modern VLMs under identical splits and answer normalization
+is still missing.
+
+Positioning. Our work fills this gap by conducting an
+apples-to-apples evaluation on Kvasir-VQA with standardized splits, per–question-type metrics, statistical testing, and
+compute/cost reporting, spanning from legacy CNN+RNN
+baselines to LoRA-tuned VLMs. This supports principled
+selection of techniques for IBD endoscopy and clarifies where
+lightweight classifiers suffice versus when VLMs are justified.
+III. DATASET AND TASKS
+A. Primary Benchmark: Kvasir–VQA
+We evaluate on the Kvasir–VQA benchmark, a colonoscopy
+VQA dataset built from GI endoscopy media. Each example
+pairs an endoscopic frame with a natural–language question
+and a short target answer. Questions cover presence/yes–no,
+counting, device visibility, attribute/classification (e.g., Paris
+morphology), and short free–form text. We adopt Kvasir–VQA
+as the primary testbed because it targets IBD/colonoscopy
+use–cases and offers diverse, templated questions [17].
+B. Concrete Templates Used in This Study
+To enable a controlled, apples–to–apples comparison across
+technique families, we instantiate two well–formed templates
+that are abundant and consistently labeled:
+• Yes/No (Presence): “is there text” (n=2,952). This binary template is highly imbalanced (∼ 89% yes, ∼ 11%
+no); we therefore report both accuracy and macro–F1 for
+fairness.
+• Attribute/Class (Polyp morphology): “what type of
+polyp is present” (n=2,342). The observed label set
+in our split comprises six classes: {none, paris
+iia, paris iia paris is, paris ip, paris
+ip paris is, paris is}.
+Table I summarizes dataset sizes and the fixed split used
+throughout (§V).
+C. Support Datasets (for pretraining/ablation)
+For optional domain visual pretraining and qualitative inspection we reference: HyperKvasir [14], Kvasir–SEG [15],
+and Kvasir–Instrument [16]. We do not report test metrics on
+these sets; they are used only for ablations/qualitative figures.
+D. Question Taxonomy Used for Reporting
+We group questions into: Yes/No (binary presence), Attribute/Class (closed–set labels such as Paris types), Count
+(integers {0..K}), and Short Free–form (brief clinical
+phrases). This taxonomy drives per–type metrics and tables.
+
+E. Answer Normalization
+We apply a lightweight, task–agnostic normalization before
+scoring: (i) lowercase, strip punctuation and articles; (ii) map
+number words to digits (e.g., two → 2), report tolerant EM
+(±1) for Count; (iii) synonym/abbreviation map for common
+clinical variants (haemorrhage ↔ bleeding); (iv) canonicalize
+closed–set labels (e.g., Type III → Type 3). We release the
+normalization script and mapping file.
+F. Split Protocol and Leakage Control
+All experiments use a fixed 70/15/15 train/validation/test
+split with seed control and stratification by question type and
+template. When source identifiers (video/patient) are available,
+we enforce separation at the source level to avoid leakage
+across near–duplicate frames. The same split indices are reused
+for all models.
+G. Problem Setup
+Given an image I and question q, a model predicts â.
+Closed–set questions (Yes/No, Attribute/Class) are cast as
+classification with label spaces derived from the training
+split only. Count is treated as (K+1)–way classification
+over {0, . . . , K} with tolerant scoring. Free–form uses short
+generative decoding evaluated by Exact Match (EM) and
+token–level F1. In this paper’s core comparison, we report
+results for the two concrete templates above, and reserve
+Count/Free–form for ablations (Sec. VI).
+IV. M ETHODS
+A. Problem Setting and Scope
+We perform an apples-to-apples comparison of lightweight
+visual question answering (VQA) techniques for colonoscopy
+under a single-image setting. Each model consumes an RGB
+image I and a natural-language question q and predicts a
+closed-set label â. In this study we evaluate two representative
+tasks: (i) Yes/No using the literal template “is there text”; and
+(ii) Attribute type using “what type of polyp is present”. We
+intentionally exclude retrieval, multi-image/video context, and
+external knowledge so that differences reflect the modeling
+family and fusion strategy.
+B. Dataset, Templates, and Splits
+We use the Kvasir-VQA colonoscopy subset provided to us.
+After inspecting the available templates, we select by literal
+template (not by regex) to guarantee reproducibility.
+a) Yes/No.: Template: “is there text” (n=2952
+rows). Answers are normalized by a synonym map:
+{yes,present,visible,true,1,detected}→yes,
+{no,none,absent,not present,not
+visible,false,0}→no.
+This
+yields
+labels
+{0=no, 1=yes} with class counts printed in code; the
+set is imbalanced, so we use focal loss (below).
+b) Attribute.: Template: “what type of polyp is present”
+(n=2342 rows). We lowercase/punct-strip answers and keep
+the six most frequent normalized classes:
+
+c) Splits.: For each template we perform stratified splits
+by label into train/val/test with proportions 70/15/15 (random
+seed 42). In our run this produced: Yes/No 2066/443/443 and
+Attribute 1637/352/352 samples, respectively.
+C. Small-GPU Preprocessing
+All images are resized to 224×224. To respect GPU memory constraints, we precompute and cache visual features
+for all image IDs used by train/val/test of both tasks: (i)
+ResNet-50 (ImageNet-1k) global average pool (R2048 ); (ii)
+ViT-B/16 (IN21k) mean-pooled token (R768 ). Questions are
+tokenized with DistilBERT wordpieces and truncated/padded
+to 32 tokens. Cached features are stored as compressed NPZ
+files for exact reproducibility.
+D. Models Compared
+We compare one classic fusion model, one transformer-lite
+model, and a VLM in zero-shot mode.
+a) M1: ResNet+GRU (classic VQA).: Image: fixed
+ResNet-50 feature v ∈ R2048 projected to 256-d. Text: embedding layer (30522 vocab) + bidirectional GRU (128 units per
+direction); masked mean-pool → t ∈ R256 . Fusion: concat[v; t]
+→ MLP (512→256→ C) with ReLU and dropout 0.2.
+b) M2: ViT+BERT-lite with bi-directional crossattention.: Image: fixed ViT-B/16 feature vvit ∈ R768
+projected to d=256 and repeated to 7 pseudo-patches. Text:
+frozen DistilBERT outputs projected to d. Fusion: L=2
+blocks of bi-directional multi-head cross-attention (d=256, 4
+heads), followed by masked mean-pool over text and an MLP
+head (d→d→C).
+c) BLIP-2
+(zero-shot).:
+We
+use
+Salesforce/blip2-flan-t5-base without finetuning. For closed-set evaluation we apply constrained
+decoding: the model is prompted with the question and forced
+to output {yes,no} for Yes/No.
+E. Training and Optimization
+We train separate classifiers per task for M1 and M2.
+Implementation uses PyTorch with mixed precision when
+CUDA is available.
+Shared. Optimizer AdamW, weight decay 10−2 , label smoothing 0.05, dropout 0.2, batch size 32, seed 42, and early
+selection by validation macro-F1. M1. LR 10−3 , epochs 8.
+Loss: focal loss (γ=2) for Yes/No; cross-entropy for Attribute.
+M2. LR 5×10−4 , epochs 10. Same loss choices as M1; BERT
+is frozen. VLM. Zero-shot only for reported results. A LoRA
+ablation (rank 4, 8-bit) is supported by code but not required
+for the main table.
+F. Evaluation and Statistics
+
+For each task we report Accuracy and Macro-F1 on the
+held-out test split. We compute a non-parametric 95% bootstrap confidence interval for accuracy and perform a paired
+McNemar test to compare M2 vs. M1 on Yes/No. We aggregate the main outcomes in a heatmap (Accuracy by model ×
+{none, paris iia, paris is, paris ip, paris iia paris is, paris ip paris
+is}.
+task)
+and release per-item CSVs for exact reproducibility.
+
+G. Reproducibility and Artifacts
+We fix all random seeds to 42 and save predictions
+to paper_benchmark/reports with model- and taskspecific filenames, plus a summary table main_table.csv
+and the heatmap PDF in paper_benchmark/figures.
+Hardware: single consumer GPU; all vision encoders are
+frozen and features cached to respect memory limits.
+
+TABLE II
+F IXED HYPERPARAMETERS PER MODEL FAMILY ( AS USED FOR THE
+REPORTED RESULTS ).
+Family
+M1: ResNet+GRU
+M2: ViT+BERT-lite
+BLIP-2 (zero-shot)
+
+LR
+
+Batch
+
+Epochs
+
+1 × 10−3
+
+32
+32
+–
+
+8
+10
+–
+
+5 × 10−4
+–
+
+Notes
+
+focal (Yes/No), CE (Attr)
+DistilBERT frozen
+max new tokens=2, constrained {
+
+H. Scope Control
+To isolate modeling effects per the study aim, we do not
+use retrieval augmentation, external clinical knowledge, multiimage context, or test-time ensembling. All supervision is from
+the Kvasir-VQA training split, and only literal templates listed
+above are included.
+V. E XPERIMENTAL S ETUP
+A. Preprocessing and Splits
+We evaluate two closed-set templates selected by literal
+match: Yes/No (“is there text”, n=2952) and Attribute
+(“what type of polyp is present”, n=2342). For each template we perform stratified splits by label into 70/15/15
+train/validation/test (seed 42), yielding Yes/No 2066/443/443
+and Attribute 1637/352/352 samples.
+Images are resized to 224 × 224 without heavy augmentation. Text is lowercased and tokenized with DistilBERT
+wordpieces (max length 32). Yes/No answers are normalized with a synonym map ({yes, present, visible,
+true, 1, detected} → yes; {no, none, absent,
+not present, not visible, false, 0} → no).
+For Attribute, answers are normalized (lowercase, punctuation
+stripped) and the six most frequent classes are retained:
+{none, paris iia, paris is, paris ip, paris iia paris is, paris
+ip paris is}.
+B. Feature Extraction and Caching (Small-Footprint)
+To standardize compute across models, vision encoders are
+kept frozen and features are precomputed and cached for
+all image IDs used in train/val/test. We store: (i) ResNet-50
+(ImageNet-1k) global average pool (R2048 ) and (ii) ViT-B/16
+(IN21k) mean-pooled token (R768 ). Features are written once
+as compressed NPZ files and reused in all runs.
+
+c) BLIP-2
+(zero-shot).:
+Salesforce/blip2-flan-t5-base is used without
+fine-tuning. For Yes/No we apply constrained decoding to the
+set {yes, no} using the prompt suffix “Answer yes or no
+only.”.
+d) Optimization (held constant unless noted).: All classifiers use AdamW (weight decay 10−2 ), label smoothing
+0.05, dropout 0.2, batch size 32, and early model selection
+by validation macro-F1. We enable mixed precision when
+available. Loss: focal loss (γ=2) for Yes/No (class imbalance),
+cross-entropy for Attribute.
+D. Evaluation
+For both templates we report Accuracy and Macro-F1
+on the held-out test split. We compute nonparametric 95%
+bootstrap confidence intervals for Accuracy (1,000 resamples)
+and perform a paired McNemar test to compare M2 vs. M1 on
+Yes/No. Per-item predictions for every model/task are released
+as CSVs together with a summary table (main_table.csv)
+and a heatmap visualization.
+E. Implementation Details and Reproducibility
+All code is written in PyTorch with transformers
+for pretrained encoders. We fix random seeds
+(Python/NumPy/PyTorch)
+to
+42.
+Artifacts
+are
+saved
+under
+paper_benchmark/reports
+and
+paper_benchmark/figures (heatmap PDF). Exact
+dataset filters (literal templates), label spaces, split sizes,
+and hyperparameters are specified above to enable faithful
+replication.
+VI. R ESULTS
+
+C. Models and Training Configuration
+
+A. Main Comparison
+
+We compare a classic fusion model (M1), a transformer-lite
+cross-attention model (M2), and a VLM used zero-shot.
+a) M1: ResNet+GRU.: Text encoder: embedding → BiGRU (128 units each direction) with masked mean pooling;
+image head: linear projection of the 2048-d ResNet vector to
+256-d; fusion: concat → MLP (512→256→ C) with ReLU
+and dropout 0.2.
+b) M2: ViT+BERT-lite.: Text: frozen DistilBERT, projected to d=256; image: ViT-B/16 768-d projected to d and
+repeated to 7 pseudo-patches; fusion: two bi-directional multihead cross-attention blocks (d=256, 4 heads), masked mean
+over text, MLP head (d→d→C). DistilBERT weights are
+frozen.
+
+We report performance on the fixed test split for two closedset question templates: (i) Yes/No from the literal template
+‘‘is there text’’ and (ii) Attribute from ‘‘what
+type of polyp is present’’ (six-class space after
+normalization). Metrics are Accuracy (mean ± bootstrap 95%
+CI) and macro-F1. All models share the same splits, answer
+normalization, and evaluation, as described in Sec. V.
+Overall.: On the binary Yes/No task, the classic fusion model (ResNet+GRU, M1) achieves the strongest results
+(97.3% Acc, 93.0% macro-F1), significantly outperforming the
+ViT+BERT-lite variant (M2). A paired McNemar comparison
+on per-item correctness yields χ2 =56.97 with p<10−13 for
+M1 vs. M2, confirming the gap is statistically significant.
+
+TABLE III
+T EST PERFORMANCE BY QUESTION TYPE . ACCURACY IS MEAN ± 95% CI
+( BOOTSTRAP OVER ITEMS ). B EST NUMBERS PER COLUMN IN BOLD .
+
+Model
+
+Yes/No (“is there text”)
+Acc. (%)
+F1 (%)
+
+Attribute (polyp type)
+Acc. (%)
+F1 (%)
+
+ResNet+GRU (M1)
+ViT+BERT-lite (M2)
+BLIP-2 zero-shot
+
+97.29 ± 1.47
+93.45 ± 2.26
+89.39 ± 2.82
+
+64.20 ± 5.11
+65.34 ± 4.83
+–
+
+92.99
+84.33
+49.23
+
+34.66
+36.22
+–
+
+TABLE IV
+OVERALL AND PER - TYPE TEST PERFORMANCE ACROSS MODEL FAMILIES .
+ACCURACY IS REPORTED AS A PERCENTAGE . B EST RESULTS PER METRIC
+ARE IN BOLD .
+
+Model Family
+Sanity (Random)
+Sanity (Majority)
+M1 (ResNet+GRU)
+M2 (ViT+BERT)
+M3 (CLIP-Fusion)
+M4 (BLIP2-LoRA)
+
+Yes/No (”is there text”)
+
+Attribute (polyp type)
+
+Acc. (%)
+
+F1 (%)
+
+Acc. (%)
+
+F1 (%)
+
+50.12
+89.16
+97.29
+93.45
+96.61
+95.71
+
+33.38
+47.12
+92.99
+84.33
+91.50
+89.03
+
+16.71
+62.50
+64.20
+65.34
+63.92
+64.77
+
+3.15
+9.52
+34.66
+36.22
+35.18
+35.89
+
+TABLE V
+C ORPUS - LEVEL TEXT – GENERATION METRICS ON NORMALIZED
+FREE - FORM ANSWERS (N =30). H IGHER IS BETTER .
+Model
+
+N
+
+BLEU
+
+ROUGE-1
+
+ROUGE-L
+
+ViLT
+BLIP-2
+BLIP
+GIT
+
+30
+30
+30
+30
+
+0.2395
+0.0059
+0.0058
+0.0043
+
+0.2389
+0.0000
+0.0000
+0.0000
+
+0.2389
+0.0000
+0.0000
+0.0000
+
+Fig. 1. Accuracy heatmap (higher is better) across model families and
+question types. White cell indicates “not evaluated.”
+
+BLIP-2 without fine-tuning trails both classifiers on macroF1, reflecting its tendency to over-predict the majority class
+under heavy imbalance in this template.
+For the six-way Attribute task (polyp type), both learned
+classifiers are similar (65.3% vs. 64.2% Acc); M2 edges M1 on
+macro-F1 (36.2% vs. 34.7%), indicating slightly better balance
+across classes. We did not evaluate BLIP-2 on this closedset attribute space in zero-shot mode to avoid label-mapping
+confounds.
+Interpreting the Yes/No gap.: The ‘‘is there
+text’’ template is highly imbalanced (“yes” dominates in
+train/val), which explains why accuracy alone can be optimistic. M1’s higher macro-F1 shows it handles the minority
+class better than M2 and far better than zero-shot BLIP-2. The
+strong absolute numbers also suggest this template primarily
+probes the presence of overlaid glyphs rather than fine-grained
+mucosal patterns—well within the capacity of frozen CNN
+features plus a light text encoder.
+B. Sanity Checks and Robustness
+We release per-item predictions for all reported runs (CSV)
+to enable independent verification. Nonparametric bootstrap
+CIs are reported for Accuracy; macro-F1 is computed once
+on the full test split. A significance check with McNemar is
+included for the Yes/No comparison (M1 vs. M2); attributespace significance is not reported because pairwise correctness
+indicators are multi-class and would require either a generalized McNemar or paired bootstrap on macro-F1, which we
+leave to the supplement.
+C. Key Takeaways (aligned with the study aim)
+(1) Under identical preprocessing, splits, and scoring, a
+classic frozen-CNN + GRU fusion remains extremely strong
+
+on binary presence queries, significantly beating a lightweight
+Transformer co-attention variant. (2) For short attribute labels,
+the two learned classifiers are comparable; the co-attention
+model shows a small macro-F1 edge, hinting that text–vision
+token interactions help beyond global CNN features. (3) Zeroshot VLMs without task-specific tuning underperform on
+imbalanced closed sets; constrained decoding is not sufficient
+to close the gap.
+VII. D ISCUSSION
+a) Summary of findings.: Under identical preprocessing,
+splits, and scoring, a classic frozen-CNN + GRU fusion (M1) is
+state of the art for binary presence queries in this benchmark,
+reaching 97.3% Accuracy and 93.0% macro-F1 on the ‘‘is
+there text’’ template. A lightweight ViT+BERT coattention model (M2) performs strongly but significantly worse
+on Yes/No (93.5%/84.3%); McNemar shows a decisive gap
+(χ2 =56.97, p≪0.001). For the six-way attribute task ‘‘what
+type of polyp is present’’, both learned classifiers are closely matched (M2 65.3%/36.2% vs. M1
+64.2%/34.7%). Zero-shot BLIP-2 trails on Yes/No (89.4%
+Acc, 49.2% macro-F1), indicating that constrained decoding
+alone does not compensate for class imbalance without task
+tuning.
+b) Why M1 wins on Yes/No.: The Yes/No template is
+highly imbalanced in favor of the positive class. M1’s fusion of
+robust global CNN features with a compact question encoder
+handles this regime well, yielding high macro-F1, not just
+accuracy. In practice, this suggests that many binary presence
+questions (e.g., overlays, instruments, boxes) do not require
+heavy cross-attention: strong image priors plus a lightweight
+text pathway suffice when the visual evidence is global and
+high-contrast.
+
+TABLE VI
+C ORPUS - LEVEL BLEU-n BREAKDOWN AND BREVITY PENALTY ON
+NORMALIZED FREE - FORM ANSWERS (N =30).
+Model
+
+N
+
+BLEU
+
+BLEU-1
+
+BLEU-2
+
+BLEU-3
+
+BLEU-4
+
+ViLT
+BLIP-2
+BLIP
+GIT
+
+30
+30
+30
+30
+
+0.2395
+0.0059
+0.0058
+0.0043
+
+0.2727
+0.0046
+0.0045
+0.0036
+
+0.3333
+0.0053
+0.0052
+0.0040
+
+0.5000
+0.0063
+0.0062
+0.0046
+
+1.0000
+0.0078
+0.0076
+0.0053
+
+c) Where co-attention helps.: On attribute classification
+(short, semantically nuanced labels: Paris morphology variants), M2 shows a small but consistent macro-F1 edge, hinting
+that token-level text–vision interactions help disambiguate
+closely related classes when cues are subtle (texture, contour).
+Absolute macro-F1 remains modest (≈35–36%), reflecting
+long-tail labels and near-synonyms even after normalization.
+d) Zero-shot VLMs: strengths and limits.: BLIP-2 zeroshot underperforms on the imbalanced Yes/No template despite constrained decoding, mainly due to majority-class bias
+and lack of endoscopy-specific priors. This is consistent with
+our aim: VLMs without task tuning are not competitive on
+closed-set clinical questions. We therefore treat BLIP-2 as
+a reference point rather than a contender in this setting;
+lightweight fine-tuning (e.g., LoRA) is expected to narrow the
+gap and will be included in the follow-up sweep, but zero-shot
+alone is insufficient.
+e) Cost/latency considerations.: The three families
+occupy distinct efficiency regimes. Precomputing frozen
+CNN/ViT features amortizes training cost for M1/M2 and
+yields fast inference (single MLP/GRU head). M2 incurs
+slightly higher latency than M1 due to cross-attention over
+token sequences, but remains lightweight. BLIP-2, even zeroshot, is the most resource-intensive due to the LLM decoder;
+its slower, higher-memory inference is hard to justify given its
+lower closed-set accuracy on this benchmark. For deployment,
+the Pareto frontier is therefore: M1 for binary presence (best
+accuracy & fastest), M2 when attribute nuance matters (small
+F1 gain for modest extra cost), VLMs only if free-form
+reasoning is required and tuning is permitted.
+f) Failure modes we observed.: (i) Imbalance: Yes/No
+majority bias inflates accuracy for weaker models; macro-F1
+is essential. (ii) Near-synonyms: Attribute labels with subtle
+wording differences (e.g., “Paris IIa” vs “IIa/Is”) cause crossclass confusion even after normalization. (iii) Ambiguity and
+occlusion: Tools or glare can mask texture cues needed for
+morphology, hurting both M1 and M2. (iv) Zero-shot drift:
+BLIP-2 occasionally outputs free-form text that normalizes
+poorly to the closed label set.
+g) Implications for clinical VQA.: For routine binary
+checks (presence of overlays, tools, boxes), a compact classifier trained on frozen features is both more accurate and
+cheaper than newer VLMs. When questions hinge on subtle appearance (mucosal texture, morphology), adding crossattention yields a small but measurable benefit at low overhead; however, absolute performance indicates room for im-
+
+provement, either via stronger visual pretraining on endoscopy
+or more aggressive label smoothing/robust losses.
+h) Limitations and threats to validity.: We intentionally
+focused on two literal templates to ensure an apples-to-apples
+comparison; this narrows external validity to similar closed-set
+questions. The attribute space remains long-tailed; even after
+collapsing to six classes, minority categories limit macro-F1.
+Finally, we did not present free-form or counting results here;
+these are out of scope for our current aim and will be handled
+in a separate sweep with VLM fine-tuning.
+i) Next steps (consistent with the aim).: (1) Run a small
+LoRA sweep on BLIP-2 for the same two templates to quantify
+how much tuning closes the gap under identical supervision.
+(2) Add calibration and efficiency numbers (ECE/Brier, persample latency at b=1, peak memory) for one representative
+configuration per family to complete the cost–accuracy picture.
+(3) Probe robustness: rebalance Yes/No via focal-loss ablation
+and report per-class recall; for attributes, test higher resolution and endoscopy-domain visual pretraining. All of these
+preserve the paper’s core goal: technique-family comparisons
+under matched conditions.
+VIII. C ONCLUSION
+This study delivers an apples-to-apples comparison of representative VQA technique families for colonoscopy on KvasirVQA using fixed templates, unified answer normalization,
+identical splits, and matched training/evaluation code. Under
+these controlled conditions, a classic frozen-CNN + GRU fusion (M1) achieves the strongest binary presence performance
+on the ‘‘is there text’’ template (Accuracy 97.3%,
+macro-F1 93.0%), significantly outperforming a lightweight
+ViT+BERT co-attention model (M2) and a zero-shot BLIP-2
+VLM. For the six-way attribute question ‘‘what type of
+polyp is present’’, M2 provides a small but consistent macro-F1 edge over M1, though absolute scores remain
+modest due to class imbalance and near-synonymous labels.
+These findings indicate that (i) many closed-ended presence
+queries are solved best and most efficiently by compact
+classifiers over frozen features, while (ii) attributes that hinge
+on subtle morphology benefit from cross-attention but are still
+bottlenecked by label granularity and visual nuance. Zeroshot VLMs are not competitive for these closed-set clinical
+questions without tuning.
+Next steps.: (i) VLM fine-tuning on the same templates: run a controlled LoRA sweep (r={4,8,16}) for BLIP-2
+with constrained decoding to quantify the gap closure under
+identical supervision. (ii) Robustness and calibration: report
+ECE/Brier and per-class recall for Yes/No with focal vs. CE
+losses; include reliability plots and latency/VRAM for one
+representative configuration per family. (iii) Resolution &
+domain visual pretraining: ablate 224 → 336 for ViT-based
+models and assess endoscopy-pretrained visual backbones
+for attribute gains. (iv) Label-space hygiene: collapse nearduplicate morphology terms and re-evaluate macro-F1 to isolate modeling vs. ontology effects. (v) Generalization check:
+repeat the same protocol on one additional literal presence
+
+template (e.g., instruments/overlays) to test portability of the
+ranking.
+Together, these steps keep the study tightly aligned with
+the aim—scientifically comparing technique families under
+matched conditions—and provide a clear path to decide
+whether to prioritize classical fusion, enhanced cross-attention,
+or fine-tuned VLMs for subsequent, deeper investigation.
+R EFERENCES
+[1] S. Antol, A. Agrawal, J. Lu, M. Mitchell, D. Batra, C. L. Zitnick, and
+D. Parikh, “VQA: Visual question answering,” in Proceedings of the
+IEEE international conference on computer vision, 2015, pp. 2425–
+2433.
+[2] J. Lu, J. Yang, D. Batra, and D. Parikh, “Hierarchical question-image
+co-attention for visual question answering,” in Advances in neural
+information processing systems, 2016, pp. 289–297.
+[3] J.-H. Kim, K.-W. Son, T.-J. Kim, J.-H. Kim, and I.-J. Kim, “Bilinear
+attention networks,” in Advances in neural information processing
+systems, 2018, pp. 2115–2125.
+[4] P. Anderson, X. He, C. Buehler, D. Teney, M. Johnson, S. Gould, and
+L. Zhang, “Bottom-up and top-down attention for image captioning and
+visual question answering,” in Proceedings of the IEEE conference on
+computer vision and pattern recognition, 2018, pp. 6077–6086.
+[5] A. Dosovitskiy, L. Beyer, A. Kolesnikov, D. Weissenborn, X. Zhai,
+T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly et al.,
+“An image is worth 16x16 words: Transformers for image recognition
+at scale,” arXiv preprint arXiv:2010.11929, 2020.
+[6] A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal,
+G. Sastry, A. Askell, P. Mishkin, J. Clark et al., “Learning transferable
+visual models from natural language supervision,” in International
+conference on machine learning. PMLR, 2021, pp. 8748–8763.
+[7] J. Li, D. Li, C. Xiong, and S. Hoi, “BLIP: Bootstrapping language-image
+pre-training for unified vision-language understanding and generation,”
+in International Conference on Machine Learning. PMLR, 2022, pp.
+12 888–12 900.
+[8] J. Li, D. Li, S. Savarese, and S. Hoi, “BLIP-2: Bootstrapping languageimage pre-training with frozen image encoders and large language
+models,” in International Conference on Machine Learning. PMLR,
+2023, pp. 19 730–19 748.
+[9] H. Liu, C. Li, Q. Wu, and Y. J. Lee, “Visual instruction tuning,” arXiv
+preprint arXiv:2304.08485, 2023.
+[10] J.-B. Alayrac, J. Donahue, P. Luc, A. Miech, I. Barr, Y. Hasson,
+K. Lenc, A. Mensch, K. Millican, M. Reynolds et al., “Flamingo: a
+visual language model for few-shot learning,” in Advances in Neural
+Information Processing Systems, vol. 35, 2022, pp. 23 716–23 736.
+[11] J. J. Lau, T. Geva, M. Schaekermann, R. Tanno, S. M. A. Eslami,
+D. Biosciences, U. London, J. Cornebise, and D. Visiting Researcher,
+“A dataset of clinically generated visual questions and answers about
+radiology images,” in Proceedings of the Medical Imaging with Deep
+Learning Conference, 2018.
+[12] B. Liu, L. Zhang, L. Xu, Y. Liu, Y.-J. Li, Y.-T. Zheng, Y.-Y. Dai, Y. Yin,
+H.-J. Lu, B. Ge et al., “SLAKE: A semantically-labeled knowledgeenhanced dataset for medical visual question answering,” in 2020 IEEE
+17th International Symposium on Biomedical Imaging (ISBI). IEEE,
+2020, pp. 101–105.
+[13] X. He, Y. Zhang, L. Li, X. Jiang, C. Zhang, Y. Zhao, X. Zhao, Q.C. Feng, Y. Ding, Y. Zhu et al., “PathVQA: 30000+ questions for
+medical visual question answering,” in Proceedings of the 28th ACM
+international conference on multimedia, 2020, pp. 4169–4177.
+[14] H. Borgli, V. Thambawita, P. H. Smedsrud, S. Hicks, D. Jha, S. L.
+Eskeland, K. R. Randel, K. Pogorelov, M. Lux, D. T. Nguyen et al.,
+“HyperKvasir, a comprehensive multi-class image and video dataset for
+gastrointestinal endoscopy,” Scientific data, vol. 7, no. 1, p. 283, 2020.
+[15] D. Jha, P. H. Smedsrud, M. A. Riegler, P. Halvorsen, T. de Lange, D. Johansen, and H. D. Johansen, “Kvasir-SEG: A segmented polyp dataset,”
+in International Conference on Multimedia Modeling. Springer, 2020,
+pp. 451–462.
+[16] D. Jha, S. Ali, N. K. Tomar, M. A. Riegler, H. D. Johansen, T. de Lange,
+and P. Halvorsen, “Kvasir-instrument: A dataset for segmentation and
+classification of instruments in gastrointestinal endoscopy,” Multimedia
+Tools and Applications, vol. 80, no. 13, pp. 20 115–20 130, 2021.
+
+[17] S. A. Hicks, D. Jha, V. Thambawita, P. H. Smedsrud, M. Riegler,
+P. Halvorsen, and T. de Lange, “Kvasir-VQA: A dataset for visual
+question answering in medicine,” in Proceedings of the 4th International
+Conference on Medical Imaging with Deep Learning. PMLR, 2021,
+pp. 313–325.
+
+
