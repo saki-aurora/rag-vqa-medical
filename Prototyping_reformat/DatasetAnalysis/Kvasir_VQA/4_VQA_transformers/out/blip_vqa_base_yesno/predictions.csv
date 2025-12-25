@@ -1,0 +1,501 @@
+img_id,question,answer,y_true,pred_raw,y_pred,is_unknown,correct
+cl8k2u1r81fqb08329oh34t3c,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r81fqj08324i3z2eua,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gm6s5cb071u6dbacwxh,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmls5xj071uarbihlni,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qx1feb0832ex93hgt4,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820glts4x7071u15zj93it,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmfs5or071u3sdpg32k,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rd1fzn0832e4tkd8py,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmks5vr071ubza08sdw,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rh1g57083294xncaia,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glys53n071uhthh6bvs,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clb0lbx1ddqac086ugku182z7,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gmhs5rr071u3ba0f0er,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbx1kdqk4086u99sg7gsc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1re1g1b08326nmsba31,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clbnxtog9bn56074caqp82mfe,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rs1gmz0832gbam70cr,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820glns4pr071u1pnkdizs,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwyldo9c086u9s2lgel8,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtofcblx6074ccj6gbpz9,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmws6d7071u107x0f3p,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gm5s5bf071u6yppfvdo,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtowu6umm079o5vqa8tqv,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmhs5rb071u542the9d,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwyhdo4s086ubwcg7iiu,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtonbara90755f4gvaoac,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rp1ghz0832hpfh4js8,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qp1f2j083240px7ykd,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qs1f6b0832by4sd9wa,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gmqs65j071u3fib56er,Is there text?,no,no,is there text? answer with only yes or no. 25 %,unknown,1,0
+clb0lbwy8dnso086ub9xpgwww,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820glus4z7071u8ibo003f,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtoghbnkq074c8rfnerg3,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtogabn7e074c9fo94pk3,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx1edqc8086u1irz56gc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtonmarrh0755e9x564r6,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtonlarqp0755ei9cds9t,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r41fl308320op47ip3,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwyadnwc086ua6dmeyak,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtonjarmd07555ivxhfmf,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r41fl308320op47ip3,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qx1fff0832dezz6pwk,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwzcdp08086u1tnn800j,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qf1esn08326ec518st,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtowt6uii079oa1wc8m1j,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtof4blgq074chaar181a,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qt1f7v08322bld3wb2,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbx1gdqf4086u27tobv8b,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwz7douk086ua2g19kcf,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ro1ggr083243ex3ksv,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmhs5qv071u9bum40jl,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtonwasc50755bmfla6lg,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rn1gff08326wqk8amg,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtoevbl0y074cehag0syd,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glhs4g7071ud1217l9u,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gles4bj071u6rxicrf7,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtow96tj2079o294tcnhk,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmls5yb071ugt229jm2,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx1pdqss086uhi0pctas,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rn1gfb0832c3k4bt07,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmos63b071ucfr74ie6,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rb1fvr083227vggwmk,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1py1e9j0832eo7z5beh,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 25,unknown,1,0
+clbnxtow56tbq079o0p4d02us,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl5s3vv071u18ipbr2h,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rr1glb0832245d8pr0,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtofbblvm074c2r8md4wg,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtogfbnhi074ceumy9adj,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwybdnys086udgmag3y4,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzhdp6k086udcq3afpc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gn6s6mj071ufu065dcx,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwybdnxs086ubb915hl6,Is there text?,yes,yes,is there text? answer with only yes or no. 20,unknown,1,0
+cla820gmls5wz071u2rajex2s,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1err0832hp5137b1,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtofvbmc2074c24os7zqo,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtonzashd0755gz5895o8,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtogbbn8i074c05xac4x1,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtog0bmmq074c9rndatnq,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glfs4df071u98r5gart,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtonkarop0755ht09cudz,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtoxs6waa079oeeccc5kp,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtonvas9t0755h0os6uy9,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmqs65r071uc9zodhx6,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwzbdozg086udcex6tc8,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pv1e4j08320fao8oka,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qj1exf0832aav65cug,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q51eiz08322qkyaaye,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx1kdql8086u4dg7e1ln,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glgs4fr071u8va312m9,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwzbdozw086u9zy9dpwm,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qy1fg30832960f4ubv,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r81fqn08321b8xdbvb,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clbnxtonmarsh07556p1rd08b,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmts69r071u43ysgnkv,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s51gu708320h7regdq,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q11edn0832arm43l15,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwzqdph8086u0xcbg904,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r91fsb08325g8y43wy,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qh1evn0832hvvuf1ba,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzqdphw086u1knh2eh6,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r61fof0832fe7qg6lc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pu1e37083257oa5xt6,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtowx6usi079ofi2belms,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s31grb08322hx09n53,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qq1f2z08321wur88n7,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820gn5s6kn071u8pacbjav,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtoxi6vty079o0q43gf9c,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r51flj0832fhenefrm,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtofvbmca074c4tkvgmos,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pz1eab08320whn998o,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rd1fyn08320lz31fk2,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtow86tie079ofemof5ag,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtoewbl2m074c4kyjfana,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwycdnzg086uepiv8icn,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1po1dxn08328vz50fyd,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwyvdoj8086ucu98a8mz,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbx1gdqeg086uhvew0qjo,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glbs45n071ubr5deoxc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwzqdph0086uh8q59002,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtoggbnjm074c438jgot1,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qq1f330832hwyu7xde,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820glrs4ur071ufq038xj6,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gn4s6jn071uaxcb24w9,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q01ebb083259ia67bc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtogcbnay074c9bis0pph,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl7s3yv071u0z3o93jw,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwy9dnuc086u6rbd1c6e,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r31fj70832dpks1mmi,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtonlarqt0755guowcfhx,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmks5wr071u4vun8yst,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gles4b3071uf3ys5xf3,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pz1ean083282b5as79,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rq1gkj08326tj60rq6,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gl8s423071u90jodevy,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rb1fvr083227vggwmk,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s11gov0832d3iqg2tz,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ra1ftj0832buwyhmyc,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwykdo7k086u98ml94me,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820glks4ln071u6ufy4pd9,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s71gwf08322vzy3rpc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwzndpdk086u6cav78xl,Is there text?,no,no,is there text? answer with only yes or no. 25 %,unknown,1,0
+clb0lbx03dpy4086uh8di5jc5,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ra1ftb08327dm9ccl5,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820gl2s3rj071u5pabhsg1,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbx1jdqjc086uer73buqw,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtog8bn3a074c8i6t0qed,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtoevbkze074c0lu3c1zb,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qh1evz08324f4h7mql,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q41ehn08323yd3a1gq,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qr1f5b083206pj0825,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx1mdqn8086u94co0384,Is there text?,yes,yes,is there text? answer with only yes or no. 20,unknown,1,0
+clbnxtoxg6vp2079odbv122xt,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gm9s5gn071u2yjzh6u7,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtoetbkvu074che0qavuw,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1po1dyj08325qvkfpfy,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r61fo70832f7tc9jmw,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtowt6uk6079o7r59h8xq,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1eqr0832ec9eaikw,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwyldo9k086udzl7593i,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbx07dq5g086u6fqj9ddc,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1px1e8708320vdq1kuv,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1py1e970832b2trgjim,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gn6s6lz071u7srk70v5,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmus6az071u6d044g0a,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwz1dooo086u4hkga5fn,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gl6s3x7071u8n2ibyi4,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ro1ggz0832egsj6ny7,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwy7dnrk086ug93i0rm3,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtog9bn5u074cfazwbd6h,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gn3s6ib071ufzld88d1,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rg1g470832ewjkhwrs,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clbnxtongarh907556xd44k5h,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1re1g0308323bo95y7k,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtof7blme074c9vnn0kin,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gm3s58n071ucq812p13,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glms4of071u2gl38xwr,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gl7s3zj071uadm3dpxy,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwz6dotc086udjvldd3j,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q01ebv08327ebv2khq,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gl4s3v7071u0fac2ztj,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzmdpc0086u7trt6yt2,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820glas43z071ud31lel1f,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwypdoe0086uha67a3by,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtofablu2074c0nvygv1p,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glps4sf071u3ckud9nv,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s31grj08329mr9409l,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rk1gaz08321cy426p6,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rj1g8z0832bqte1znp,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rh1g6f0832dohu7p97,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rp1gi70832csdda8p7,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gm9s5g7071uay192fb7,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx1ndqpo086ubdnyd1yc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtonjarld0755c3lfduaq,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtogebnfi074chjue0wys,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pv1e5j08325pk11s24,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820gn3s6if071u2efz098u,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtow86tgy079o655gbnmj,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl2s3rn071u23tn2cc2,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qt1f8b083297364u9l,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbx01dpv0086uernw7j6s,Is there text?,yes,yes,is there text? answer with only yes or no. 20,unknown,1,0
+clb0lbwzcdp04086u2ers8b4l,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glys537071u1anh57fb,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s41gsz083292kq3hf4,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qk1ey70832cye0fh94,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzadoyg086u671x4ucx,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gl9s42b071uhcii678h,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbx1ddqa8086u2w6mfpx0,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtowv6upi079o00uccx1t,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwy9dnv0086u8q2oc9r9,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtogebnfq074ceqiicfiz,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtow76tg6079o67j70bbc,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ro1ggj0832332weon6,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx1jdqjg086udu7z0rzf,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtofcblye074c23a1gl71,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qq1f3n08325d33cse7,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qc1eov083221k12fra,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q51eif08321wv3dfaa,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820glos4rf071u3785a7n1,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gmss683071u621obu0s,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwzwdpo0086uhb1n18dn,Is there text?,yes,yes,is there text? answer with only yes or no. 20,unknown,1,0
+cl8k2u1re1g0f083216lt8w98,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxton5ar3107551qy8camm,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl3s3sv071u3qhw492a,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rr1glb0832245d8pr0,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1py1e8j0832618n9noj,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtowc6tqm079o7nyz54si,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmvs6c7071u67zzc336,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qd1eqj0832arj00yw7,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+cl8k2u1qp1f1b0832e5og40wl,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q31efn08327zz3hzqc,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r41fkr08329dxqfkbp,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pv1e5j08325pk11s24,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gn4s6jb071u969ba8m3,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtoffbm3a074c11b37tl1,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glns4pj071u5zlyfwpr,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rc1fx30832amc695py,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qu1fan0832627323ys,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzbdoyw086u4a997ipc,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtown6u5q079o67nq1ag7,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtofdbm0m074c1ojwhoyb,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl8s41b071u9jv628nz,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rm1gdf08322c548w2q,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtog1bmp6074c3goa507h,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwzsdpjk086u7mzo6gnv,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s41gtv08320ad64qcd,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820glas44r071ubx640diy,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtowv6uny079ohm0lgygq,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glis4j7071u8wd17ygy,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gn3s6iv071u8qs4b8eb,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rs1gmn0832cwqb4w10,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtofbblwi074cdvw20gul,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s81gxz0832fmgd2t3q,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx00dpu8086u2er0f56d,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtof9blqq074c47612dhv,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gmps64b071u1y023dw7,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtow56tci079oghtta7xy,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glls4n7071uew2z0t79,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gmss67z071u5qbncwa3,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx1hdqgg086u57l30yjt,Is there text?,yes,yes,is there text? answer with only yes or no. 20,unknown,1,0
+clbnxtof8blpy074c2fgg7px3,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl3s3tb071ue9wz6a16,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwztdpl0086u81dm72kp,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s21gqf08326be08lw5,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ps1e0r08324assa60v,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qd1epf083290jn05a0,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwyndobs086u9eb1ckwb,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gm5s5bj071ubj8qhjyk,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gm1s57f071ubbs03fi2,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gmqs64z071udouv858a,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glvs4zr071u0uk12gji,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1erf08322me4a5yv,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s51gu308324cplhtm9,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gl7s3zb071u5wdp4sgs,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbx06dq4k086uer1zeoql,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q31egf0832a34z2u29,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clbnxtof2blc6074c1p6k7u0s,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtowx6usy079o0x4ye2lx,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx1edqc0086u0xjn03dq,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtonyasgp0755eqg9f29y,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r71foj08320sbx3zqj,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtows6uhu079o91rehaar,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glts4xj071u5m9x8znu,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwybdnxo086ug5o9dg4w,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ps1e0f0832c8tj1flj,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qb1enj0832bxe6b7mo,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r51fmv08320cwj4mcx,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwzgdp5o086u4t968knj,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rl1gbv08329a8n8h9i,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r81frj08324xv53jew,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwz6dotg086u3vp53hr9,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gl9s42r071uerl988wi,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gl2s3qf071u1ndiftcx,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtonuas8p0755csuzg0qf,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glcs47f071udxha58s0,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwz8dovk086ub9nk6cas,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gmps63f071u2cjfhr2b,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzndpdc086u6dzhdh2t,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qz1fhr0832ehhk25dr,Is there text?,no,no,is there text? answer with only yes or no. 25 %,unknown,1,0
+cla820gm7s5dj071uewzs3j6l,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rd1fyz0832ht7da4zs,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r31fj70832dpks1mmi,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rm1geb0832g6x6c4bp,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820glos4qz071u3xorao72,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtog8bn3i074c7x6abmrz,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxton2aqyh0755g02lenrz,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glrs4v7071ufojf8iiu,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbx07dq5s086u5f4sfy08,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r31fiz0832duwaht8l,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwzgdp5s086u8a4qh105,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820glts4xb071uaie56hx1,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gmss67j071uaqp2dhsa,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qj1exz083283vfacxk,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q51eiv08326j957i82,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rf1g370832fs5b22rm,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1py1e8z0832gv1t14hb,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gl1s3pj071u0wta8adz,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r51fmr08320lkwhxz1,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxton4ar0d0755f2lo0d1l,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx01dpv0086uernw7j6s,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 20,unknown,1,0
+clb0lbwzndpdk086u6cav78xl,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gl5s3vz071ua6uggyz6,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtoxk6vyu079oc9jmgtlz,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ra1fur0832fdp69ntz,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rg1g4r0832c07xflsw,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbx04dq08086ue4sqd8yq,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtows6uha079o979cc83q,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwy8dnto086uh9rt9e4a,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rr1gl30832apep1dr0,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pn1dwj0832bf4714ye,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbx09dq9c086u59a8dwgv,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rn1gfv08329igrhf83,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwzqdphs086u4w261xr7,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qv1fbr08329d4afgs9,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtoxh6vrq079o7at8gosc,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glzs54f071u9ct1hd4x,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clb0lbwyrdofw086u8ij845kq,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtoeybl6q074ccf0z5utu,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl8s41f071u1zb7hwyy,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbx1fdqdk086u1q8j7h2h,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rb1fvn08323t0w4toj,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gmqs65z071uaj197630,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s71gx7083240gwfvv0,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwzudplw086u4uo411n7,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ps1e0z0832ex969caq,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gmos637071u7bd8b3ow,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+cla820gm3s593071uczd0d0bf,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820glhs4h3071udw551juj,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clbnxtof0bl9y074cfqsg7u0v,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rp1gj70832c9h3h0kj,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rn1gf708326j5r4wu2,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r81fr3083290119sfn,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rc1fx7083295gpgxz0,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtow66td6079o6edsh1v9,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820gl0s3oj071u5qln6oim,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rq1gjn0832duoj7ifs,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r71fon0832ck0fghmu,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtowr6uf2079o9f17drwg,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glss4wr071u9rbsg5ki,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rq1gjz0832cpmb1w6x,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbx1ddqag086u4kb82hrg,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gm0s56b071ucja7f2bl,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtog2bmri074cazms2am5,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glxs52n071u9674doxk,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q21eev0832gm2j64j6,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820gmzs6gz071ud05s3twl,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gl7s3zz071u3y0y2yxs,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qu1f9n08329n830vkj,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwzkdpac086ug5peh8vr,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 23,unknown,1,0
+cl8k2u1py1e9n08323ib9897h,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwykdo7c086u42rybqm8,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clb0lbwzodpeo086u3mqu69to,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+cl8k2u1rk1gaj0832eoqw0njl,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtowq6ub6079o96ju1xct,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtoerbkri074cd86r23dp,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx01dpug086ubdogccs2,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qq1f2n0832eo3v63aq,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwzbdoyw086u4a997ipc,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwybdnyc086u615667vs,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gn7s6nb071u382u7155,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwyqdoes086u4j7cgh9q,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzqdpgs086udym11lca,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtoeubkya074ce4xhe4sq,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwzsdpjg086u2y2s3f2l,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gmys6fn071uf4cp0f8g,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1px1e7n0832e7p6db2g,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s71gwv08321e39ec5z,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwyadnw8086u11ci1485,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmhs5r7071u0jxl775h,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbx1gdqew086ud6zo2xmk,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glhs4g7071ud1217l9u,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rp1giv0832eo3o2ax1,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+cla820glzs54n071u2ojhbs6l,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwyddo2g086u98qfenit,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx03dpyg086u4g58d4qc,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwyzdomk086u3kct35ar,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwycdo0s086u5t968y1p,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clbnxtowz6uxy079o58dz3eik,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s71gx30832hzj38n7w,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gmes5nn071u4li1c0zd,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qk1ezn0832fzc5hr77,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clb0lbwz7dotw086ua7bn8p2i,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbwzfdp4c086u9bec6mn2,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r71fpf0832b9of8q9y,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clb0lbwzydpr0086u5pgn9b0b,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmjs5uj071uan8m7p41,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwyudoig086uav6q2f4t,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820glss4vz071ua1jw6jco,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwyedo38086ufhqs47rj,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ri1g7j0832h5d770bm,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtofdbm0a074c33kl1cdf,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rm1ge308327e69ccxj,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+clbnxtondard50755achv1nwf,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwy9dnuw086uf7h250uk,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwyjdo70086udxu2avwc,Is there text?,yes,yes,is there text? answer with only yes or no. 20,unknown,1,0
+cl8k2u1pz1eaf083297p0e991,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1s31gsj083269hx1tjd,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qb1emr0832h6yy6zw4,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwzndpd4086u78j89vms,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gmms5yr071u23ef9pdb,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820glgs4fz071ucke45065,Is there text?,no,no,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1err0832hp5137b1,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clbnxtox16v2y079og9bearq7,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtowr6uey079o1mi7cbyc,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxton7ar550755g0vya8dk,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q01eb70832b47m8x2x,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmbs5in071u7b4zc3oz,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qu1fa308321htyc330,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1er708327ktw8dys,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r81frj08324xv53jew,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gl7s3yr071u9kft4435,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtog3bmsa074cbesw1m7m,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx08dq8s086u5gmy9f0b,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzfdp3o086uhiisb4vi,Have all polyps been removed?,yes,yes,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820glis4jj071ub5c57d9g,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtowq6uby079ofx61bpkw,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx1ldqls086uau3sh2cg,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx06dq3s086u47ms360v,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzidp7o086u77v11dqa,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtox46vba079o85tncleh,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glzs54v071u4zcc03z2,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmms5z3071ufc5u32iq,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtox66vgu079o25gcgcrz,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1erf08322me4a5yv,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gl2s3rb071u76w10eu7,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cla820gl1s3p3071udi3n74jf,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gm8s5ez071u424s0vjg,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820glcs48b071ueoc59q55,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwykdo7g086uh5h91quq,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qh1evr08325op6gs1q,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbwzadoy8086u7rog5t28,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pn1dxb0832dcxd14tf,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ro1gh708327o7x4w30,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clb0lbx1jdqj4086u99qshtn4,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gl1s3pz071u4zyd0ilb,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clbnxtofybmhy074cd8cecjuc,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx1pdqtk086u5ktqbaih,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwzpdpfo086udo7tdj2v,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rs1gmz0832gbam70cr,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820glms4of071u2gl38xwr,Is there text?,yes,yes,is there text? answer with only yes or no. 25 %,unknown,1,0
+cla820gmgs5p7071u49yd2qp7,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rc1fxf0832739le3t8,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qc1eof08328fkx645x,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820gmgs5q3071udmfyendc,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtox76viu079o3jhofhwq,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwzidp7w086u9bpq7y7v,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwycdo0w086uaqj2gpim,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pt1e230832e7xl2t9h,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ri1g6z0832bhcvbzco,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rc1fxj08320z30bgrq,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clb0lbx1ldqlg086ugolibrhh,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gljs4k7071u3s8vhkea,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtox36v8i079o5ziudgk3,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtow66tdm079o76ajgly6,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbwzrdpio086ubuf1c6c7,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+clb0lbwyido5c086u435iaf17,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1pr1dz3083207epgrr5,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtonyasfh0755awhzbj1w,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clb0lbx00dpt0086uf4907020,Is there text?,yes,yes,is there text? answer with only yes or no. 20,unknown,1,0
+clb0lbx07dq6o086u3l89663z,Is there a green/black box artefact?,no,no,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1q31egr0832cjtpdq9u,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clb0lbwyido4w086u1nlae1h8,Is this finding easy to detect?,no,no,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmjs5v3071u9fltescr,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r31fjb0832bw8d83oy,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+clbnxtofybmhq074c6i4sgfkt,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cla820glps4rz071u6kspddxw,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1erj08324s8i042l,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cl8k2u1ry1gob0832f8bw0zni,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cla820gmss68f071u24pp1gt4,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820glys53b071u411hdznp,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qe1er708327ktw8dys,Is this finding easy to detect?,yes,yes,is this finding easy to detect? answer with only yes or no. 5,unknown,1,0
+cl8k2u1rl1gcf0832gud17465,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cl8k2u1r61fob083282xpdnf5,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qa1elj08329yf8alew,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+cla820gl8s41v071u7owiec1u,Is there text?,yes,yes,is there text? answer with only yes or no. 5,unknown,1,0
+cla820gm6s5c7071u8qxfg8mk,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0
+clbnxtoxn6w6q079o00h02ele,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qx1fef0832b8vzh7wv,Have all polyps been removed?,no,no,have all polyps been removed? answer with only yes or no. 5,unknown,1,0
+clbnxtogfbnhy074caon6aas0,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+clbnxtonsas3l075548ze9whw,Does this image contain any finding?,no,no,does this image contain any finding? answer with only yes or no. 5,unknown,1,0
+cl8k2u1qj1exf0832aav65cug,Is there a green/black box artefact?,yes,yes,is there a green / black box artefact? answer with only yes or no. 5,unknown,1,0

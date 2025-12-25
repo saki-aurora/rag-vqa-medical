@@ -1,0 +1,11 @@
+              precision    recall  f1-score   support
+
+        List     1.0000    0.9952    0.9976       419
+     None/NA     1.0000    1.0000    1.0000      1129
+     Numeric     1.0000    1.0000    1.0000       596
+       Token     0.9800    1.0000    0.9899       637
+      Yes/No     1.0000    0.9816    0.9907       597
+
+    accuracy                         0.9962      3378
+   macro avg     0.9960    0.9954    0.9956      3378
+weighted avg     0.9962    0.9962    0.9962      3378
