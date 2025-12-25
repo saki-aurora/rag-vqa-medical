@@ -1,0 +1,26 @@
+{
+  "model_id": "Salesforce/blip-vqa-base",
+  "device": "cpu",
+  "task": "Yes/No forced-choice",
+  "n_used": 1000,
+  "accuracy": 0.514,
+  "macro_f1": 0.491129315977283,
+  "per_class": {
+    "no": {
+      "precision": 0.471875,
+      "recall": 0.32264957264957267,
+      "f1": 0.383248730964467,
+      "support": 468
+    },
+    "yes": {
+      "precision": 0.5338235294117647,
+      "recall": 0.6823308270676691,
+      "f1": 0.599009900990099,
+      "support": 532
+    }
+  },
+  "runtime_seconds": 660.4260940551758,
+  "seed": 42,
+  "max_n": 1000,
+  "used_test_split_only": false
+}

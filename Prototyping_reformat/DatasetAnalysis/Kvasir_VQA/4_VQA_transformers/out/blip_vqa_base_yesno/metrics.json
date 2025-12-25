@@ -1,0 +1,22 @@
+{
+  "model_id": "Salesforce/blip-vqa-base",
+  "device": "cpu",
+  "n_used": 500,
+  "runtime_seconds": 269.54893136024475,
+  "accuracy_including_unknown_as_wrong": 0.0,
+  "coverage_non_unknown": 0.0,
+  "unknown_rate": 1.0,
+  "accuracy_on_covered_only": 0.0,
+  "macro_f1_on_covered_only": 0.0,
+  "per_class_on_covered_only": {
+    "no": {},
+    "yes": {}
+  },
+  "gen_params": {
+    "max_new_tokens": 3,
+    "num_beams": 5,
+    "do_sample": false,
+    "early_stopping": true
+  },
+  "seed": 42
+}

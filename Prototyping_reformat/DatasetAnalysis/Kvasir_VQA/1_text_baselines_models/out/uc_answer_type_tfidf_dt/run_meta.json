@@ -1,0 +1,6 @@
+{
+  "n_total": 16890,
+  "n_test": 3378,
+  "model": "tfidf + decision_tree(max_depth=5)",
+  "task": "UC answer_type"
+}
