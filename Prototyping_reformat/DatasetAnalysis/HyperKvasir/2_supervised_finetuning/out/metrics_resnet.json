@@ -1,26 +1,26 @@
 {
   "barretts": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
+    "precision": 0.25,
+    "recall": 0.25,
+    "f1-score": 0.25,
     "support": 4.0
   },
   "barretts-short-segment": {
-    "precision": 0.2,
-    "recall": 0.4,
-    "f1-score": 0.26666666666666666,
+    "precision": 1.0,
+    "recall": 0.2,
+    "f1-score": 0.3333333333333333,
     "support": 5.0
   },
   "bbps-0-1": {
-    "precision": 0.9682539682539683,
-    "recall": 0.9384615384615385,
-    "f1-score": 0.953125,
+    "precision": 0.9841269841269841,
+    "recall": 0.9538461538461539,
+    "f1-score": 0.96875,
     "support": 65.0
   },
   "bbps-2-3": {
-    "precision": 0.9642857142857143,
-    "recall": 0.9391304347826087,
-    "f1-score": 0.9515418502202643,
+    "precision": 0.9724770642201835,
+    "recall": 0.9217391304347826,
+    "f1-score": 0.9464285714285714,
     "support": 115.0
   },
   "cecum": {
@@ -30,27 +30,27 @@
     "support": 101.0
   },
   "dyed-lifted-polyps": {
-    "precision": 0.9696969696969697,
-    "recall": 0.96,
-    "f1-score": 0.964824120603015,
+    "precision": 0.946236559139785,
+    "recall": 0.88,
+    "f1-score": 0.9119170984455959,
     "support": 100.0
   },
   "dyed-resection-margins": {
-    "precision": 0.96,
-    "recall": 0.9696969696969697,
-    "f1-score": 0.964824120603015,
+    "precision": 0.8867924528301887,
+    "recall": 0.9494949494949495,
+    "f1-score": 0.9170731707317074,
     "support": 99.0
   },
   "esophagitis-a": {
-    "precision": 0.4074074074074074,
-    "recall": 0.825,
-    "f1-score": 0.5454545454545454,
+    "precision": 0.5142857142857142,
+    "recall": 0.45,
+    "f1-score": 0.48,
     "support": 40.0
   },
   "esophagitis-b-d": {
-    "precision": 0.7777777777777778,
-    "recall": 0.2692307692307692,
-    "f1-score": 0.4,
+    "precision": 0.5517241379310345,
+    "recall": 0.6153846153846154,
+    "f1-score": 0.5818181818181818,
     "support": 26.0
   },
   "hemorrhoids": {
@@ -60,51 +60,51 @@
     "support": 1.0
   },
   "ileum": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
+    "precision": 0.3333333333333333,
+    "recall": 1.0,
+    "f1-score": 0.5,
     "support": 1.0
   },
   "impacted-stool": {
-    "precision": 0.6666666666666666,
+    "precision": 0.6,
     "recall": 0.9230769230769231,
-    "f1-score": 0.7741935483870968,
+    "f1-score": 0.7272727272727273,
     "support": 13.0
   },
   "polyps": {
     "precision": 1.0,
-    "recall": 0.970873786407767,
-    "f1-score": 0.9852216748768473,
+    "recall": 0.9805825242718447,
+    "f1-score": 0.9901960784313726,
     "support": 103.0
   },
   "pylorus": {
-    "precision": 0.970873786407767,
-    "recall": 1.0,
-    "f1-score": 0.9852216748768473,
+    "precision": 0.98,
+    "recall": 0.98,
+    "f1-score": 0.98,
     "support": 100.0
   },
   "retroflex-rectum": {
-    "precision": 0.9487179487179487,
-    "recall": 0.9487179487179487,
-    "f1-score": 0.9487179487179487,
+    "precision": 0.926829268292683,
+    "recall": 0.9743589743589743,
+    "f1-score": 0.95,
     "support": 39.0
   },
   "retroflex-stomach": {
-    "precision": 0.987012987012987,
+    "precision": 0.9743589743589743,
     "recall": 1.0,
-    "f1-score": 0.9934640522875817,
+    "f1-score": 0.987012987012987,
     "support": 76.0
   },
   "ulcerative-colitis-grade-0-1": {
-    "precision": 0.25,
-    "recall": 0.3333333333333333,
-    "f1-score": 0.2857142857142857,
+    "precision": 0.16666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.26666666666666666,
     "support": 3.0
   },
   "ulcerative-colitis-grade-1": {
-    "precision": 0.6111111111111112,
-    "recall": 0.55,
-    "f1-score": 0.5789473684210527,
+    "precision": 0.45454545454545453,
+    "recall": 0.5,
+    "f1-score": 0.47619047619047616,
     "support": 20.0
   },
   "ulcerative-colitis-grade-1-2": {
@@ -114,40 +114,40 @@
     "support": 1.0
   },
   "ulcerative-colitis-grade-2": {
-    "precision": 0.6785714285714286,
-    "recall": 0.4318181818181818,
-    "f1-score": 0.5277777777777778,
+    "precision": 0.52,
+    "recall": 0.29545454545454547,
+    "f1-score": 0.37681159420289856,
     "support": 44.0
   },
   "ulcerative-colitis-grade-2-3": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
+    "precision": 0.0625,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.10526315789473684,
     "support": 3.0
   },
   "ulcerative-colitis-grade-3": {
-    "precision": 0.2894736842105263,
-    "recall": 0.8461538461538461,
-    "f1-score": 0.43137254901960786,
+    "precision": 0.3333333333333333,
+    "recall": 0.15384615384615385,
+    "f1-score": 0.21052631578947367,
     "support": 13.0
   },
   "z-line": {
-    "precision": 0.9841269841269841,
-    "recall": 0.6666666666666666,
-    "f1-score": 0.7948717948717948,
+    "precision": 0.8144329896907216,
+    "recall": 0.8494623655913979,
+    "f1-score": 0.8315789473684211,
     "support": 93.0
   },
-  "accuracy": 0.8751173708920188,
+  "accuracy": 0.8629107981220657,
   "macro avg": {
-    "precision": 0.592351106267315,
-    "recall": 0.6070547568803281,
-    "f1-score": 0.5800886081912756,
+    "precision": 0.6200757366372195,
+    "recall": 0.6464063193765796,
+    "f1-score": 0.5991712311516583,
     "support": 1065.0
   },
   "weighted avg": {
-    "precision": 0.903512624775514,
-    "recall": 0.8751173708920188,
-    "f1-score": 0.8776422249181708,
+    "precision": 0.8743666183745421,
+    "recall": 0.8629107981220657,
+    "f1-score": 0.863929249534399,
     "support": 1065.0
   }
 }
