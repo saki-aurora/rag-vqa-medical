@@ -1,0 +1,501 @@
+split,img_id,image_path,question,answer,question_type,answer_type,orig_height,orig_width,pred_blip
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,eye
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,large
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Have all polyps been removed?,not relevant,,,576,720,bottom
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Is this finding easy to detect?,yes,,,576,720,yes
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Is there a green/black box artefact?,no,,,576,720,eye surgery
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Is there text?,yes,,,576,720,upper left
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,What type of polyp is present?,none,,,576,720,no
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,0
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,What is the size of the polyp?,none,,,576,720,lower left
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,How many findings are present?,1,,,576,720,orange
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,eye surgery
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,Where in the image is the anatomical landmark?,none,,,576,720,bottom
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl0s3nv071u4fgd7xgq,out/images/raw/cla820gl0s3nv071u4fgd7xgq.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,yes
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Is there text?,yes,,,576,720,eye surgery
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Is there a green/black box artefact?,yes,,,576,720,orange
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,yes
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Is this finding easy to detect?,no,,,576,720,large
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,What is the size of the polyp?,none,,,576,720,yes
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,How many findings are present?,1,,,576,720,upper right
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,eye
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,1
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,eye surgery
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,How many polyps are in the image?,0,,,576,720,1
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Have all polyps been removed?,not relevant,,,576,720,small
+raw,cla820gl0s3nz071uch6e0sas,out/images/raw/cla820gl0s3nz071uch6e0sas.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,no
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Is there text?,yes,,,576,720,no
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,What is the size of the polyp?,none,,,576,720,yes
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,plastic
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,no
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Is this finding easy to detect?,no,,,576,720,1
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,plastic
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Have all polyps been removed?,not relevant,,,576,720,upper left
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,How many polyps are in the image?,0,,,576,720,0
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,How many instrumnets are in the image?,0,,,576,720,orange
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Where in the image is the anatomical landmark?,none,,,576,720,red
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,large
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Is there a green/black box artefact?,no,,,576,720,yes
+raw,cla820gl0s3o3071ufxqh1brg,out/images/raw/cla820gl0s3o3071ufxqh1brg.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,How many findings are present?,1,,,576,720,lower right
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,How many instrumnets are in the image?,0,,,576,720,1
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Is there text?,yes,,,576,720,plastic
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,What type of polyp is present?,none,,,576,720,1
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Is this finding easy to detect?,yes,,,576,720,yes
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,plastic
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Is there a green/black box artefact?,no,,,576,720,upper left
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,no
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Where in the image is the anatomical landmark?,none,,,576,720,plastic
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,upper left
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,What is the size of the polyp?,none,,,576,720,yes
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,no
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl0s3o7071u4ouwcitb,out/images/raw/cla820gl0s3o7071u4ouwcitb.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Have all polyps been removed?,not relevant,,,576,720,upper left
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Is there a green/black box artefact?,no,,,576,720,upper left
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Where in the image is the anatomical landmark?,none,,,576,720,large
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,small
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,plastic
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,large
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Is this finding easy to detect?,no,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,What is the size of the polyp?,none,,,576,720,1
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,bottom
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl0s3ob071u5z04bn3r,out/images/raw/cla820gl0s3ob071u5z04bn3r.jpg,Is there text?,yes,,,576,720,yes
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,How many instrumnets are in the image?,0,,,576,720,large
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,bottom
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Is this finding easy to detect?,yes,,,576,720,large
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,1
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Where in the image is the instrument?,none,,,576,720,no
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,no
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,What is the size of the polyp?,none,,,576,720,orange
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Is there text?,yes,,,576,720,photoshop
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,How many polyps are in the image?,0,,,576,720,1
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,plastic
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Have all polyps been removed?,not relevant,,,576,720,surgery
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Is there a green/black box artefact?,no,,,576,720,1
+raw,cla820gl0s3of071u96ilg9hm,out/images/raw/cla820gl0s3of071u96ilg9hm.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,bottom
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,What is the size of the polyp?,none,,,576,720,no
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,orange
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Is there a green/black box artefact?,no,,,576,720,upper left
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Where in the image is the anatomical landmark?,none,,,576,720,1
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,How many instrumnets are in the image?,0,,,576,720,no
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Have all polyps been removed?,not relevant,,,576,720,plastic
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Is there text?,yes,,,576,720,plastic
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,How many polyps are in the image?,0,,,576,720,upper right
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Is this finding easy to detect?,yes,,,576,720,plastic
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,upper left
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,How many findings are present?,1,,,576,720,no
+raw,cla820gl0s3oj071u5qln6oim,out/images/raw/cla820gl0s3oj071u5qln6oim.jpg,Where in the image is the instrument?,none,,,576,720,upper left
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,lower right
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,How many polyps are in the image?,0,,,576,720,bottom
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,yes
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,What type of polyp is present?,none,,,576,720,white
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,pink
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,What is the size of the polyp?,none,,,576,720,no
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Have all polyps been removed?,not relevant,,,576,720,upper left
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Is this finding easy to detect?,yes,,,576,720,upper left
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Where in the image is the instrument?,none,,,576,720,upper right
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Is there a green/black box artefact?,no,,,576,720,yes
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,How many instrumnets are in the image?,0,,,576,720,eye surgery
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,How many findings are present?,1,,,576,720,upper left
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,eye
+raw,cla820gl1s3on071u1e7gbeh0,out/images/raw/cla820gl1s3on071u1e7gbeh0.jpg,Is there text?,yes,,,576,720,1
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,How many polyps are in the image?,0,,,576,720,no
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Is there a green/black box artefact?,no,,,576,720,1
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Is this finding easy to detect?,yes,,,576,720,plastic
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,no
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,1
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Where in the image is the instrument?,none,,,576,720,no
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,What is the size of the polyp?,none,,,576,720,pink
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,large
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,yes
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Where in the image is the anatomical landmark?,none,,,576,720,1
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,1
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,How many findings are present?,1,,,576,720,photography
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Is there text?,yes,,,576,720,plastic
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,How many instrumnets are in the image?,0,,,576,720,1
+raw,cla820gl1s3or071udurk9106,out/images/raw/cla820gl1s3or071udurk9106.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,What type of polyp is present?,none,,,576,720,teeth
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,How many polyps are in the image?,0,,,576,720,upper body shot
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,How many findings are present?,1,,,576,720,large
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Is there a green/black box artefact?,yes,,,576,720,1
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,no
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Is this finding easy to detect?,yes,,,576,720,orange
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,no
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Where in the image is the instrument?,none,,,576,720,no
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Is there text?,yes,,,576,720,yes
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,no
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,What is the size of the polyp?,none,,,576,720,orange
+raw,cla820gl1s3ov071u2b7h3r59,out/images/raw/cla820gl1s3ov071u2b7h3r59.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,How many findings are present?,1,,,1080,1350,small
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Is this finding easy to detect?,yes,,,1080,1350,yes
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,What type of polyp is present?,none,,,1080,1350,bottom
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,What is the size of the polyp?,none,,,1080,1350,no
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Are there any instruments in the image? Check all that are present.,none,,,1080,1350,no
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Where in the image is the anatomical landmark?,none,,,1080,1350,eye
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Have all polyps been removed?,not relevant,,,1080,1350,yes
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Where in the image is the instrument?,none,,,1080,1350,plastic
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,1080,1350,photoshop
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Is there a green/black box artefact?,no,,,1080,1350,2
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,How many instrumnets are in the image?,0,,,1080,1350,no
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,How many polyps are in the image?,0,,,1080,1350,yes
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,What type of procedure is the image taken from?,colonoscopy,,,1080,1350,yes
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,1080,1350,1
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,1080,1350,photoshop
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Is there text?,no,,,1080,1350,large
+raw,cla820gl1s3oz071u2ixjf7yk,out/images/raw/cla820gl1s3oz071u2ixjf7yk.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,1080,1350,plastic
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,large
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,What type of polyp is present?,none,,,576,720,no
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Have all polyps been removed?,not relevant,,,576,720,no
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white; yellow,,,576,720,2
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Is there text?,yes,,,576,720,no
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Is there a green/black box artefact?,no,,,576,720,yes
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,How many instrumnets are in the image?,0,,,576,720,no
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Is this finding easy to detect?,yes,,,576,720,yes
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Where in the image is the anatomical landmark?,none,,,576,720,no
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Where in the image is the abnormality?,center; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,How many polyps are in the image?,0,,,576,720,cooking
+raw,cla820gl1s3p3071udi3n74jf,out/images/raw/cla820gl1s3p3071udi3n74jf.jpg,What is the size of the polyp?,none,,,576,720,yes
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,What is the size of the polyp?,none,,,576,720,large
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,plastic
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,How many findings are present?,1,,,576,720,plastic
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,plastic
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,bottom
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,What type of polyp is present?,none,,,576,720,plastic
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,How many polyps are in the image?,0,,,576,720,pink
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Where in the image is the instrument?,none,,,576,720,large
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Is there a green/black box artefact?,no,,,576,720,1
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,1
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,1
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,How many instrumnets are in the image?,0,,,576,720,large
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Is there text?,yes,,,576,720,1
+raw,cla820gl1s3p7071u7m8c1gl7,out/images/raw/cla820gl1s3p7071u7m8c1gl7.jpg,Is this finding easy to detect?,yes,,,576,720,1
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,1
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Is there text?,yes,,,576,720,no
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Where in the image is the anatomical landmark?,none,,,576,720,no
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Is this finding easy to detect?,yes,,,576,720,upper left
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,What is the size of the polyp?,none,,,576,720,plastic
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,yes
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,How many findings are present?,1,,,576,720,plastic
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Is there a green/black box artefact?,no,,,576,720,1
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,Where in the image is the instrument?,none,,,576,720,bottom
+raw,cla820gl1s3pb071u45lb0snu,out/images/raw/cla820gl1s3pb071u45lb0snu.jpg,What type of polyp is present?,none,,,576,720,no
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Have all polyps been removed?,not relevant,,,576,720,orange
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Is there text?,yes,,,576,720,orange
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,no
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,How many polyps are in the image?,0,,,576,720,plastic
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,What type of polyp is present?,none,,,576,720,no
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,1
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,yes
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Where in the image is the anatomical landmark?,none,,,576,720,1
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,no
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Is there a green/black box artefact?,no,,,576,720,no
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Is this finding easy to detect?,yes,,,576,720,plastic
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,What is the size of the polyp?,none,,,576,720,yes
+raw,cla820gl1s3pf071ue7ja2fur,out/images/raw/cla820gl1s3pf071ue7ja2fur.jpg,Where in the image is the instrument?,none,,,576,720,eye
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Is there a green/black box artefact?,yes,,,576,720,yes
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,What is the size of the polyp?,none,,,576,720,1
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Is this finding easy to detect?,yes,,,576,720,plastic
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Where in the image is the instrument?,none,,,576,720,eye
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,How many findings are present?,1,,,576,720,lower left
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Where in the image is the anatomical landmark?,none,,,576,720,no
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,plastic
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Is there text?,no,,,576,720,1
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,How many instrumnets are in the image?,0,,,576,720,upper left
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,yes
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,lower right
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-right; upper-center; upper-left; upper-right,,,576,720,plastic
+raw,cla820gl1s3pj071u0wta8adz,out/images/raw/cla820gl1s3pj071u0wta8adz.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Is this finding easy to detect?,yes,,,576,720,eye surgery
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Where in the image is the instrument?,none,,,576,720,upper right
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-right; upper-center; upper-left; upper-right,,,576,720,large
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,1
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,eye surgery
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,How many findings are present?,1,,,576,720,photoshop
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Where in the image is the anatomical landmark?,none,,,576,720,orange
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Have all polyps been removed?,not relevant,,,576,720,lower right
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Is there a green/black box artefact?,yes,,,576,720,1
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,no
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Is there text?,yes,,,576,720,eye surgery
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3pn071u6vzxgsxv,out/images/raw/cla820gl1s3pn071u6vzxgsxv.jpg,What is the size of the polyp?,none,,,576,720,no
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,plastic
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,upper left
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,What is the size of the polyp?,none,,,576,720,1
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,What type of polyp is present?,none,,,576,720,bottom
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Have all polyps been removed?,not relevant,,,576,720,bottom
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-right; upper-center; upper-left; upper-right,,,576,720,plastic
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,red
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Is there a green/black box artefact?,yes,,,576,720,yes
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,How many findings are present?,1,,,576,720,1
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,How many polyps are in the image?,0,,,576,720,1
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Is this finding easy to detect?,yes,,,576,720,no
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,How many instrumnets are in the image?,0,,,576,720,1
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,1
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3pr071u2vi94r92,out/images/raw/cla820gl1s3pr071u2vi94r92.jpg,Is there text?,yes,,,576,720,1
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Where in the image is the instrument?,none,,,576,720,upper left
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Is this finding easy to detect?,yes,,,576,720,red
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Where in the image is the anatomical landmark?,none,,,576,720,large
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-right; upper-center; upper-left; upper-right,,,576,720,no
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,What is the size of the polyp?,none,,,576,720,no
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,How many findings are present?,1,,,576,720,large
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,How many polyps are in the image?,0,,,576,720,no
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Is there text?,no,,,576,720,orange
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,plastic
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,What type of polyp is present?,none,,,576,720,no
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,red
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,center
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Have all polyps been removed?,not relevant,,,576,720,eye surgery
+raw,cla820gl1s3pv071u6kb331te,out/images/raw/cla820gl1s3pv071u6kb331te.jpg,Is there a green/black box artefact?,yes,,,576,720,large
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Where in the image is the anatomical landmark?,none,,,576,720,1
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Is this finding easy to detect?,yes,,,576,720,orange
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,yes
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,What type of polyp is present?,none,,,576,720,bottom
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,What is the size of the polyp?,none,,,576,720,yes
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,How many polyps are in the image?,0,,,576,720,eye surgery
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Is there a green/black box artefact?,no,,,576,720,photoshop
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,How many instrumnets are in the image?,0,,,576,720,upper left
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Is there text?,yes,,,576,720,no
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Have all polyps been removed?,not relevant,,,576,720,1
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,large
+raw,cla820gl1s3pz071u4zyd0ilb,out/images/raw/cla820gl1s3pz071u4zyd0ilb.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,How many polyps are in the image?,0,,,576,720,pink
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,How many findings are present?,1,,,576,720,1
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,What color is the abnormality? If more than one separate with ;,pink; red; yellow; white,,,576,720,1
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,eye
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,What is the size of the polyp?,none,,,576,720,pink
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Have all polyps been removed?,not relevant,,,576,720,upper right
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Is there a green/black box artefact?,yes,,,576,720,yes
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Where in the image is the anatomical landmark?,none,,,576,720,no
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,orange
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,eye surgery
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Where in the image is the instrument?,none,,,576,720,lower right
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-right; upper-center; upper-left; upper-right,,,576,720,no
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Is this finding easy to detect?,yes,,,576,720,middle
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,Is there text?,yes,,,576,720,no
+raw,cla820gl1s3q3071udvtaggoi,out/images/raw/cla820gl1s3q3071udvtaggoi.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Is there text?,yes,,,576,720,no
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,What is the size of the polyp?,none,,,576,720,upper left
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Have all polyps been removed?,not relevant,,,576,720,1
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Is there a green/black box artefact?,no,,,576,720,1
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Where in the image is the instrument?,none,,,576,720,1
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Is this finding easy to detect?,no,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,upper right
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,How many polyps are in the image?,0,,,576,720,upper left
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Where in the image is the abnormality?,center; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,1
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,What color is the abnormality? If more than one separate with ;,pink; red; yellow; white,,,576,720,bottom right
+raw,cla820gl2s3q7071u7ej2fp2n,out/images/raw/cla820gl2s3q7071u7ej2fp2n.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,How many findings are present?,1,,,576,720,yes
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Is there a green/black box artefact?,yes,,,576,720,yes
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Where in the image is the anatomical landmark?,none,,,576,720,large
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Where in the image is the instrument?,none,,,576,720,upper right
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Is this finding easy to detect?,yes,,,576,720,yes
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,surgery
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,What is the size of the polyp?,none,,,576,720,red
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white; yellow,,,576,720,baking
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,What type of polyp is present?,none,,,576,720,1
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,How many instrumnets are in the image?,0,,,576,720,1
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Is there text?,yes,,,576,720,eye
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-right; upper-center; upper-left; upper-right,,,576,720,no
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Have all polyps been removed?,not relevant,,,576,720,2
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,How many polyps are in the image?,0,,,576,720,upper left
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl2s3qb071u5u6c3vmq,out/images/raw/cla820gl2s3qb071u5u6c3vmq.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,orange
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Is there text?,yes,,,576,720,eye surgery
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Is there a green/black box artefact?,no,,,576,720,large
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Where in the image is the anatomical landmark?,none,,,576,720,yes
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Have all polyps been removed?,not relevant,,,576,720,1
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,How many findings are present?,1,,,576,720,1
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,What type of polyp is present?,none,,,576,720,1
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,How many instrumnets are in the image?,0,,,576,720,no
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,What is the size of the polyp?,none,,,576,720,bottom
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,How many polyps are in the image?,0,,,576,720,upper left
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,large
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Is this finding easy to detect?,yes,,,576,720,yes
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,Where in the image is the abnormality?,center; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,1
+raw,cla820gl2s3qf071u1ndiftcx,out/images/raw/cla820gl2s3qf071u1ndiftcx.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,eye surgery
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,plastic
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,How many findings are present?,1,,,576,720,eye
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,no
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Have all polyps been removed?,not relevant,,,576,720,no
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-left; upper-right,,,576,720,bottom
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Where in the image is the instrument?,none,,,576,720,bottom
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,no
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,How many polyps are in the image?,0,,,576,720,lower right
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,What type of polyp is present?,none,,,576,720,photoshop
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Is there text?,yes,,,576,720,bottom
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Where in the image is the anatomical landmark?,none,,,576,720,no
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,What is the size of the polyp?,none,,,576,720,1
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,How many instrumnets are in the image?,0,,,576,720,top
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Is there a green/black box artefact?,no,,,576,720,plastic
+raw,cla820gl2s3qj071u9e3efd6z,out/images/raw/cla820gl2s3qj071u9e3efd6z.jpg,Is this finding easy to detect?,no,,,576,720,yes
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Is there text?,yes,,,576,720,1
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Is this finding easy to detect?,no,,,576,720,1
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,1
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Where in the image is the anatomical landmark?,none,,,576,720,1
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,What is the size of the polyp?,none,,,576,720,no
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,bottom
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Where in the image is the abnormality?,center; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,no
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,yes
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,What type of polyp is present?,none,,,576,720,no
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,How many findings are present?,1,,,576,720,large
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,large
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Is there a green/black box artefact?,no,,,576,720,1
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl2s3qn071ucguna2um,out/images/raw/cla820gl2s3qn071ucguna2um.jpg,Have all polyps been removed?,not relevant,,,576,720,upper left
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,How many polyps are in the image?,0,,,576,720,large
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Where in the image is the instrument?,none,,,576,720,yes
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,How many instrumnets are in the image?,0,,,576,720,1
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Where in the image is the anatomical landmark?,none,,,576,720,1
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Is there a green/black box artefact?,no,,,576,720,yes
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,How many findings are present?,1,,,576,720,upper left
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,no
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Is this finding easy to detect?,yes,,,576,720,no
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,eye surgery
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,yes
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,What color is the abnormality? If more than one separate with ;,pink; red,,,576,720,pink
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Is there text?,yes,,,576,720,no
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,What type of polyp is present?,none,,,576,720,upper right
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl2s3qr071u67g3c2fe,out/images/raw/cla820gl2s3qr071u67g3c2fe.jpg,What is the size of the polyp?,none,,,576,720,yes
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,How many findings are present?,1,,,576,720,1
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Is there text?,yes,,,576,720,upper left
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,What color is the abnormality? If more than one separate with ;,pink; red; yellow,,,576,720,red
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Have all polyps been removed?,not relevant,,,576,720,no
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Is there a green/black box artefact?,no,,,576,720,no
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Is this finding easy to detect?,yes,,,576,720,gray
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,What type of polyp is present?,none,,,576,720,yes
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,yes
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,How many polyps are in the image?,0,,,576,720,white
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,plastic
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Where in the image is the anatomical landmark?,none,,,576,720,bottom
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Where in the image is the instrument?,none,,,576,720,2
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,How many instrumnets are in the image?,0,,,576,720,1
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,What is the size of the polyp?,none,,,576,720,no
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,surgery
+raw,cla820gl2s3qv071udlxnflmq,out/images/raw/cla820gl2s3qv071udlxnflmq.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,yes
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Where in the image is the instrument?,none,,,576,720,large
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Is there a green/black box artefact?,yes,,,576,720,yes
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,What is the size of the polyp?,none,,,576,720,no
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Have all polyps been removed?,not relevant,,,576,720,yes
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Where in the image is the abnormality?,center; center-left; center-right; lower-center; lower-left; lower-right; upper-center; upper-left; upper-right,,,576,720,bottom
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Are there any instruments in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,How many findings are present?,1,,,576,720,no
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,How many polyps are in the image?,0,,,576,720,yes
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Is there text?,yes,,,576,720,yes
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,What type of polyp is present?,none,,,576,720,brown
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,1
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Where in the image is the anatomical landmark?,none,,,576,720,1
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,What type of procedure is the image taken from?,colonoscopy,,,576,720,upper left
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,What color is the abnormality? If more than one separate with ;,pink; red; white,,,576,720,no
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,How many instrumnets are in the image?,0,,,576,720,yes
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,large
+raw,cla820gl2s3qz071u9ed6awtv,out/images/raw/cla820gl2s3qz071u9ed6awtv.jpg,Is this finding easy to detect?,yes,,,576,720,yes
+raw,cla820gl2s3r3071u9bnjbpck,out/images/raw/cla820gl2s3r3071u9bnjbpck.jpg,Have all polyps been removed?,not relevant,,,576,720,no
+raw,cla820gl2s3r3071u9bnjbpck,out/images/raw/cla820gl2s3r3071u9bnjbpck.jpg,Are there any anatomical landmarks in the image? Check all that are present.,none,,,576,720,bottom
+raw,cla820gl2s3r3071u9bnjbpck,out/images/raw/cla820gl2s3r3071u9bnjbpck.jpg,Where in the image is the anatomical landmark?,none,,,576,720,upper right
+raw,cla820gl2s3r3071u9bnjbpck,out/images/raw/cla820gl2s3r3071u9bnjbpck.jpg,What color is the abnormality? If more than one separate with ;,pink; red; yellow; white,,,576,720,bottom
+raw,cla820gl2s3r3071u9bnjbpck,out/images/raw/cla820gl2s3r3071u9bnjbpck.jpg,How many findings are present?,1,,,576,720,eye surgery
+raw,cla820gl2s3r3071u9bnjbpck,out/images/raw/cla820gl2s3r3071u9bnjbpck.jpg,Are there any abnormalities in the image? Check all that are present.,ulcerative colitis,,,576,720,yes
+raw,cla820gl2s3r3071u9bnjbpck,out/images/raw/cla820gl2s3r3071u9bnjbpck.jpg,How many polyps are in the image?,0,,,576,720,no
