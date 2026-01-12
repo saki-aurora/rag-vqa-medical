@@ -1,0 +1,14 @@
+# Ignore notebook checkpoints
+**/.ipynb_checkpoints/
+
+# Ignore generated outputs and checkpoints across DatasetAnalysis
+Prototyping_reformat/DatasetAnalysis/**/out/
+Prototyping_reformat/DatasetAnalysis/**/checkpoints/
+
+# Common large artifacts
+*.npz
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+
