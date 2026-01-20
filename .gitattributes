@@ -1,3 +1,6 @@
 *.pt filter=lfs diff=lfs merge=lfs -text
+Prototyping_reformat/DatasetAnalysis/HyperKvasir/2_supervised_finetuning/out/best_vit.pt filter=lfs diff=lfs merge=lfs -text
+Prototyping_reformat/DatasetAnalysis/HyperKvasir/2_supervised_finetuning/out/best_resnet.pt filter=lfs diff=lfs merge=lfs -text
+Prototyping_reformat/DatasetAnalysis/HyperKvasir/2_supervised_finetuning/out/*.pt filter=lfs diff=lfs merge=lfs -text
 *.npz filter=lfs diff=lfs merge=lfs -text
 *.npy filter=lfs diff=lfs merge=lfs -text
