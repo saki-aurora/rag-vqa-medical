@@ -12,3 +12,8 @@ Prototyping_reformat/DatasetAnalysis/**/checkpoints/
 *.safetensors
 *.ckpt
 
+
+# generated artifacts
+reports/
+**/out/
+**/cache/
