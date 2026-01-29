@@ -1,5 +1,7 @@
 name: vqa-rag
 channels:
+  - rapidsai
+  - nvidia
   - conda-forge
 dependencies:
   - _openmp_mutex=4.5
@@ -213,6 +215,9 @@ dependencies:
   - pygments=2.19.2
   - pysocks=1.7.1
   - python=3.11.13
+  - cuda-version=12.8
+  - cuml
+  - cudf
   - python-dateutil=2.9.0.post0
   - python-fastjsonschema=2.21.1
   - python-gil=3.11.13

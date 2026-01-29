@@ -1,0 +1,82 @@
+Chat Context Summary (for handoff)
+Date: 2026-01-29
+Repo: /home/arcturus/Desktop/thesis/rag-vqa-medical
+Scope: Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1
+
+What was requested
+- Confirm all notebooks under Kvasir_VQA_x1 use correct dataset; GPU readiness; prep notebook should use GPU (optional) and later be made faster.
+- Fix Hugging Face rate‑limit issues by downloading datasets locally and working offline.
+- Make logs readable (single progress bar).
+- Address errors seen in dataset prep (429 rate limit, missing images after partial snapshot).
+- Align dataset prep with Kvasir‑VQA‑x1 README: use host dataset for images, x1 for QA pairs.
+- Verify dataset analysis notebook is aligned with prep outputs.
+
+Key findings
+- Only prep notebook directly used HF_DATASET=SimulaMet/Kvasir-VQA-x1.
+- Several BLIP baseline notebooks used SimulaMet‑HOST/Kvasir‑VQA (image host) which aligns with README but not with strict “x1 only” rule.
+- Dataset analysis notebook reads metadata_enriched.csv, derives answer_type/question_type locally.
+
+Major code changes
+1) Added a “Performance config” cell to all notebooks under Kvasir_VQA_x1:
+   - Sets thread env vars to 32 threads and torch thread settings.
+   - Enforces CUDA availability for GPU‑capable notebooks (REQUIRE_CUDA=True).
+   - CPU‑only notebooks keep REQUIRE_CUDA=False.
+
+2) Dataset prep notebook heavily modified:
+   File: Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb
+
+   Core behavior now:
+   - Uses HF_DATASET_ID = “SimulaMet/Kvasir‑VQA‑x1” for QA metadata.
+   - Uses HOST_IMAGE_DATASET_ID = “SimulaMet‑HOST/Kvasir‑VQA” for images (per README).
+   - Downloads local snapshots (avoid HF rate limits), single progress bar.
+   - Host images are downloaded once into out/images/all (unique by img_id).
+   - During metadata build, images come from out/images/all (no per‑image HF requests).
+   - Only falls back to HF URL images if USE_HOST_IMAGES=0.
+   - Uses dataset.map with num_proc=NUM_WORKERS for parallel processing.
+
+   Key env flags (set before running):
+   - USE_LOCAL_SNAPSHOT=1 (default)
+   - FORCE_SNAPSHOT_DOWNLOAD=1 to re-download x1 snapshot
+   - SNAPSHOT_MAX_WORKERS (default 2)
+   - USE_HOST_IMAGES=1 (default)  ← this is now the main image source
+   - HOST_SNAPSHOT_MAX_WORKERS (default 2)
+   - READ_IMAGE_SIZES=1 to compute orig_height/orig_width (slow)
+   - FORCE_CPU / GPU_IMAGE_PIPELINE for optional GPU round‑trip (disabled by default)
+
+   Snapshot downloads now use allow_patterns=["data/**","README.md"] to avoid downloading images from x1.
+
+   Important: after first successful run, output showed:
+   - Rows: 159,549
+   - Train: 143,594
+   - Test: 15,955
+   - Nulls: question_type/answer_type/orig_height/orig_width all null (expected; types are derived later, image sizes skipped).
+
+3) Blip2 finetune notebook:
+   - Removed CUDA_VISIBLE_DEVICES="" and set FORCE_CPU=False so GPU can be used.
+
+Errors encountered & resolutions
+- 429 Too Many Requests from HF: caused by per‑image URL fetches.
+  Fix: local snapshot + host image download; avoid decoding image URLs from x1 dataset.
+- FileNotFoundError: missing images in partial snapshot.
+  Fix: use host dataset for images; use allow_patterns so x1 snapshot only includes data/README.
+- VSCode “invalid JSON” error appeared in log but notebook now loads cleanly via JSON + nbformat.
+
+Dataset analysis notebook check
+File: Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/1_dataset_analysis/01_explore_dataset.ipynb
+- Reads 0_dataset_prep/out/metadata/metadata_enriched.csv.
+- Derives answer_type/question_type locally. No issues found.
+
+User-facing confirmations
+- Output row counts and splits align with dataset card (train/test only).
+- Non‑null columns: split, img_id, image_path, question, answer, question_class, complexity, original.
+
+Notes for next operator
+- If user wants strict “x1 only”, BLIP baseline notebooks still reference SimulaMet‑HOST/Kvasir‑VQA for images. That aligns with README but violates the earlier “x1 only” rule.
+- If user hits rate limits again, set SNAPSHOT_MAX_WORKERS=1 and HOST_SNAPSHOT_MAX_WORKERS=1, then re-run after cooldown.
+- If images missing, ensure host snapshot + out/images/all exists. Re-run with USE_HOST_IMAGES=1.
+
+File paths touched
+- Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb
+- Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/06_blip2_finetune/01_blip2_finetune.ipynb
+- All notebooks in Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1 (Performance config cell inserted)
+
