@@ -10,7 +10,7 @@ REPO_DIR="${REPO_DIR:-$WORKDIR/rag-vqa-medical}"
 REQ_FILE="${REQ_FILE:-$WORKDIR/requirements-vqa-rag.txt}"
 DATASET_URL="${DATASET_URL:-http://216.211.50.9:9090/5827695.zip}"
 DATASET_ZIP="${DATASET_ZIP:-$WORKDIR/5827695.zip}"
-DATASET_DIR="${DATASET_DIR:-$REPO_DIR/Prototyping_reformat/DatasetAnalysis/LIMUC}"
+DATASET_DIR="${DATASET_DIR:-$REPO_DIR/Datasets/LIMUC}"
 
 echo "[Blackwell] Using PyTorch NIGHTLY cu128 (CUDA 12.8) index"
 TORCH_INDEX_URL="https://download.pytorch.org/whl/nightly/cu128"
@@ -134,21 +134,32 @@ with zipfile.ZipFile(zip_path, "r") as z:
     else:
         z.extractall(out_dir)
 
-expected = out_dir / "0_dataset_prep"
-if not expected.exists():
-    # If the zip had a nested LIMUC/0_dataset_prep, move it up
-    nested = out_dir / "LIMUC" / "0_dataset_prep"
-    if nested.exists():
-        shutil.move(str(nested), str(expected))
-        # clean up empty LIMUC dir
+expected_dirs = [
+    out_dir / "train_and_validation_sets",
+    out_dir / "test_set",
+    out_dir / "patient_based_classified_images",
+]
+if any(p.exists() for p in expected_dirs):
+    print("✅ Found expected dataset folders in", out_dir)
+else:
+    # If the zip had a nested LIMUC/..., move it up
+    nested = out_dir / "LIMUC"
+    if nested.exists() and nested.is_dir():
+        for item in nested.iterdir():
+            dest = out_dir / item.name
+            if dest.exists():
+                if dest.is_dir():
+                    shutil.rmtree(dest)
+                else:
+                    dest.unlink()
+            shutil.move(str(item), str(dest))
         try:
-            (out_dir / "LIMUC").rmdir()
+            nested.rmdir()
         except Exception:
             pass
+        print("✅ Moved nested LIMUC contents into", out_dir)
     else:
-        print(f"⚠️  Did not find {expected}. Check the zip structure.")
-else:
-    print(f"✅ Found {expected}")
+        print("⚠️  Expected dataset folders not found. Check the zip structure.")
 PY
 fi
 
