@@ -17,3 +17,8 @@ Prototyping_reformat/DatasetAnalysis/**/checkpoints/
 reports/
 **/out/
 **/cache/
+
+# Re-creatable datasets (downloaded/derived data)
+Datasets/
+Datasets/**
+*.zip
