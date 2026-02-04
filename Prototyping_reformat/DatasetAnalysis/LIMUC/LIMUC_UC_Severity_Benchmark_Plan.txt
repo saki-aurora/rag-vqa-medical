@@ -1,0 +1,97 @@
+LIMUC UC Severity Benchmark Plan (Mayo Endoscopic Score)
+
+Goal
+- Build credible, thesis-aligned baselines for Ulcerative Colitis (UC) severity rating using LIMUC.
+- Primary focus: Mayo Endoscopic Score (MES) prediction (0–3 or dataset-specific label set).
+- Secondary (optional): regression + generative score+justification.
+
+0) Define the task correctly
+A. Primary task (recommended): Ordinal classification
+- Predict MES classes (typically 0–3).
+- Report ordinal-aware metrics (QWK, MAE) in addition to F1.
+
+B. Secondary task (optional): Regression
+- Predict continuous score in [0, 3] (or dataset range).
+- Report MAE / RMSE + Spearman correlation.
+
+C. Splits (important)
+- Prefer patient-level split if patient IDs exist.
+- If no patient IDs: deterministic split with fixed seed and documented split hash.
+- Keep a validation split for model selection; evaluate test once.
+
+1) Metrics to report (val + test)
+Must-have (classification)
+- Accuracy
+- Macro-F1 (critical under imbalance)
+- Weighted-F1
+- Balanced Accuracy
+- Per-class Precision/Recall/F1
+- Confusion matrix (val, test)
+
+Severity/ordinal-specific (high credibility)
+- Quadratic Weighted Kappa (QWK)
+- MAE between predicted score and true score (even for classification; treat labels as ordinal)
+Optional add-ons
+- AUROC (one-vs-rest), if you have calibrated probabilities
+- Calibration (ECE / reliability), optional but strong
+
+2) Models to run (minimal set that’s strong + finishable)
+Tier A: fast baselines (cheap, sanity-check)
+1) ResNet-50 frozen encoder + Logistic Regression (or Linear SVM)
+2) ViT frozen encoder + Logistic Regression
+3) CLIP frozen features + Linear/LogReg
+
+Tier B: core supervised baselines (the ones that matter most)
+4) ResNet-50 fine-tune (cross-entropy; class weights)
+5) ViT fine-tune (or Swin fine-tune — pick ONE to avoid scope creep)
+
+Tier C: Generative AI baseline (thesis-aligned)
+6) Modern VLM zero-shot: prompt to output MES score only (parse score; compute same metrics)
+   Example output format: "SCORE: 2"
+7) Optional: Modern VLM LoRA fine-tune to output:
+   "SCORE: {0..3}; REASON: ..."
+   Evaluate score metrics; optionally do lightweight justification review.
+
+Recommendation if time is tight:
+- Run Tier A + Tier B (4–5) + VLM zero-shot (6).
+Recommendation if you can afford one extra “big” run:
+- Add VLM LoRA fine-tune (7) OR add a GI-pretrained encoder baseline (if available).
+
+3) Folder / notebook layout (match existing repo conventions)
+Create:
+DatasetAnalysis/LIMUC/
+- 0_dataset_prep/
+  - 01_build_metadata_images_and_manifests.ipynb
+  - outputs: metadata_raw.csv, metadata_enriched.csv, label_map.csv, splits/
+- 1_frozen_encoders/
+  - resnet50_frozen_logreg.ipynb
+  - vit_frozen_logreg.ipynb
+  - clip_linear_baseline.ipynb
+- 2_supervised_finetuning/
+  - finetune_resnet50.ipynb
+  - finetune_vit_or_swin.ipynb
+- 3_vlm_severity/ (optional)
+  - vlm_zero_shot_mayo.ipynb
+  - vlm_lora_finetune_mayo.ipynb (optional)
+
+Output conventions (like your other datasets)
+- metrics_{train,val,test}.json
+- per_class_{val,test}.csv
+- confusion_{val,test}.png
+- pred_{val,test}.csv
+- run_meta.json (seed, split hash, model, hyperparams)
+
+4) Training details that protect your F1 (common failure points)
+- Use class-weighted cross-entropy (or focal loss) for imbalance.
+- Select checkpoint based on macro-F1 (not accuracy).
+- Light augmentations only (endoscopy is sensitive):
+  brightness/contrast, mild blur, small rotations/crops.
+- For ordinal classification: keep QWK as a headline metric.
+- Always do a quick “overfit sanity check” on a tiny subset to verify pipeline correctness.
+
+5) What “best baseline” should look like for your thesis conclusion
+- Strong numeric severity predictor: fine-tuned ViT or ResNet.
+- Generative component: VLM that outputs SCORE (+ optional REASON), feeding into your PICO interface.
+- Your contribution can then build on the strongest numeric baseline + the best generative wrapper.
+
+End of plan.
