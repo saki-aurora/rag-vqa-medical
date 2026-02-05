@@ -1,0 +1,348 @@
+Loading model: Qwen/Qwen2.5-VL-7B-Instruct
+Error displaying widget: model not found
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+Error displaying widget: model not found
+Error displaying widget: model not found
+model_type: qwen2_5_vl
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+Error displaying widget: model not found
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Wrote /workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/10_modern_vlm/out/qwen2_5_vl_zeroshot/predictions.jsonl
+Wrote /workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/10_modern_vlm/out/qwen2_5_vl_zeroshot/metrics.json
+Loading model: google/medgemma-4b-it
+---------------------------------------------------------------------------
+HTTPError                                 Traceback (most recent call last)
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/utils/_http.py:403, in hf_raise_for_status(response, endpoint_name)
+    402 try:
+--> 403     response.raise_for_status()
+    404 except HTTPError as e:
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/requests/models.py:1026, in Response.raise_for_status(self)
+   1025 if http_error_msg:
+-> 1026     raise HTTPError(http_error_msg, response=self)
+
+HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/google/medgemma-4b-it/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+GatedRepoError                            Traceback (most recent call last)
+File /workspace/vqa-rag/lib/python3.12/site-packages/transformers/utils/hub.py:470, in cached_files(path_or_repo_id, filenames, cache_dir, force_download, resume_download, proxies, token, revision, local_files_only, subfolder, repo_type, user_agent, _raise_exceptions_for_gated_repo, _raise_exceptions_for_missing_entries, _raise_exceptions_for_connection_errors, _commit_hash, **deprecated_kwargs)
+    468 if len(full_filenames) == 1:
+    469     # This is slightly better for only 1 file
+--> 470     hf_hub_download(
+    471         path_or_repo_id,
+    472         filenames[0],
+    473         subfolder=None if len(subfolder) == 0 else subfolder,
+    474         repo_type=repo_type,
+    475         revision=revision,
+    476         cache_dir=cache_dir,
+    477         user_agent=user_agent,
+    478         force_download=force_download,
+    479         proxies=proxies,
+    480         resume_download=resume_download,
+    481         token=token,
+    482         local_files_only=local_files_only,
+    483     )
+    484 else:
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:114, in validate_hf_hub_args.<locals>._inner_fn(*args, **kwargs)
+    112     kwargs = smoothly_deprecate_use_auth_token(fn_name=fn.__name__, has_token=has_token, kwargs=kwargs)
+--> 114 return fn(*args, **kwargs)
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/file_download.py:1007, in hf_hub_download(repo_id, filename, subfolder, repo_type, revision, library_name, library_version, cache_dir, local_dir, user_agent, force_download, proxies, etag_timeout, token, local_files_only, headers, endpoint, resume_download, force_filename, local_dir_use_symlinks)
+   1006 else:
+-> 1007     return _hf_hub_download_to_cache_dir(
+   1008         # Destination
+   1009         cache_dir=cache_dir,
+   1010         # File info
+   1011         repo_id=repo_id,
+   1012         filename=filename,
+   1013         repo_type=repo_type,
+   1014         revision=revision,
+   1015         # HTTP info
+   1016         endpoint=endpoint,
+   1017         etag_timeout=etag_timeout,
+   1018         headers=hf_headers,
+   1019         proxies=proxies,
+   1020         token=token,
+   1021         # Additional options
+   1022         local_files_only=local_files_only,
+   1023         force_download=force_download,
+   1024     )
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/file_download.py:1114, in _hf_hub_download_to_cache_dir(cache_dir, repo_id, filename, repo_type, revision, endpoint, etag_timeout, headers, proxies, token, local_files_only, force_download)
+   1113     # Otherwise, raise appropriate error
+-> 1114     _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+   1116 # From now on, etag, commit_hash, url and size are not None.
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/file_download.py:1655, in _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+   1650 elif isinstance(head_call_error, (RepositoryNotFoundError, GatedRepoError)) or (
+   1651     isinstance(head_call_error, HfHubHTTPError) and head_call_error.response.status_code == 401
+   1652 ):
+   1653     # Repo not found or gated => let's raise the actual error
+   1654     # Unauthorized => likely a token issue => let's raise the actual error
+-> 1655     raise head_call_error
+   1656 else:
+   1657     # Otherwise: most likely a connection issue or Hub downtime => let's warn the user
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/file_download.py:1543, in _get_metadata_or_catch_error(repo_id, filename, repo_type, revision, endpoint, proxies, etag_timeout, headers, token, local_files_only, relative_filename, storage_folder)
+   1542 try:
+-> 1543     metadata = get_hf_file_metadata(
+   1544         url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token, endpoint=endpoint
+   1545     )
+   1546 except EntryNotFoundError as http_error:
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:114, in validate_hf_hub_args.<locals>._inner_fn(*args, **kwargs)
+    112     kwargs = smoothly_deprecate_use_auth_token(fn_name=fn.__name__, has_token=has_token, kwargs=kwargs)
+--> 114 return fn(*args, **kwargs)
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/file_download.py:1460, in get_hf_file_metadata(url, token, proxies, timeout, library_name, library_version, user_agent, headers, endpoint)
+   1459 # Retrieve metadata
+-> 1460 r = _request_wrapper(
+   1461     method="HEAD",
+   1462     url=url,
+   1463     headers=hf_headers,
+   1464     allow_redirects=False,
+   1465     follow_relative_redirects=True,
+   1466     proxies=proxies,
+   1467     timeout=timeout,
+   1468 )
+   1469 hf_raise_for_status(r)
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/file_download.py:283, in _request_wrapper(method, url, follow_relative_redirects, **params)
+    282 if follow_relative_redirects:
+--> 283     response = _request_wrapper(
+    284         method=method,
+    285         url=url,
+    286         follow_relative_redirects=False,
+    287         **params,
+    288     )
+    290     # If redirection, we redirect only relative paths.
+    291     # This is useful in case of a renamed repository.
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/file_download.py:307, in _request_wrapper(method, url, follow_relative_redirects, **params)
+    306 response = http_backoff(method=method, url=url, **params)
+--> 307 hf_raise_for_status(response)
+    308 return response
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/huggingface_hub/utils/_http.py:420, in hf_raise_for_status(response, endpoint_name)
+    417     message = (
+    418         f"{response.status_code} Client Error." + "\n\n" + f"Cannot access gated repo for url {response.url}."
+    419     )
+--> 420     raise _format(GatedRepoError, message, response) from e
+    422 elif error_message == "Access to this resource is disabled.":
+
+GatedRepoError: 401 Client Error. (Request ID: Root=1-6984f3d2-2e77557c20d79b140ef9e285;35d5b14b-fbf9-401f-9688-d74b417f8c54)
+
+Cannot access gated repo for url https://huggingface.co/google/medgemma-4b-it/resolve/main/config.json.
+Access to model google/medgemma-4b-it is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+OSError                                   Traceback (most recent call last)
+Cell In[10], line 3
+      1 # Run all models
+      2 for cfg in MODEL_CONFIGS:
+----> 3     run_inference(cfg["name"], cfg["model_id"], manifest)
+
+Cell In[8], line 6, in run_inference(model_name, model_id, df)
+      3 out_dir.mkdir(parents=True, exist_ok=True)
+      5 print("Loading model:", model_id)
+----> 6 processor, model = load_model(model_id, require_cuda=REQUIRE_CUDA)
+      8 preds = []
+      9 for start in tqdm(range(0, len(df), BATCH_SIZE), desc=f"{model_name} gen"):
+
+Cell In[7], line 28, in load_model(model_id, require_cuda)
+     25     elif use_8bit:
+     26         quant_config = BitsAndBytesConfig(load_in_8bit=True)
+---> 28 processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=True)
+     29 config = AutoConfig.from_pretrained(model_id, trust_remote_code=True)
+     30 print("model_type:", getattr(config, "model_type", type(config)))
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/transformers/models/auto/processing_auto.py:346, in AutoProcessor.from_pretrained(cls, pretrained_model_name_or_path, **kwargs)
+    343 if processor_class is None:
+    344     # Otherwise, load config, if it can be loaded.
+    345     if not isinstance(config, PretrainedConfig):
+--> 346         config = AutoConfig.from_pretrained(
+    347             pretrained_model_name_or_path, trust_remote_code=trust_remote_code, **kwargs
+    348         )
+    350     # And check if the config contains the processor class.
+    351     processor_class = getattr(config, "processor_class", None)
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py:1197, in AutoConfig.from_pretrained(cls, pretrained_model_name_or_path, **kwargs)
+   1194 trust_remote_code = kwargs.pop("trust_remote_code", None)
+   1195 code_revision = kwargs.pop("code_revision", None)
+-> 1197 config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+   1198 has_remote_code = "auto_map" in config_dict and "AutoConfig" in config_dict["auto_map"]
+   1199 has_local_code = "model_type" in config_dict and config_dict["model_type"] in CONFIG_MAPPING
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/transformers/configuration_utils.py:608, in PretrainedConfig.get_config_dict(cls, pretrained_model_name_or_path, **kwargs)
+    606 original_kwargs = copy.deepcopy(kwargs)
+    607 # Get config dict associated with the base config file
+--> 608 config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+    609 if config_dict is None:
+    610     return {}, kwargs
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/transformers/configuration_utils.py:667, in PretrainedConfig._get_config_dict(cls, pretrained_model_name_or_path, **kwargs)
+    663 configuration_file = kwargs.pop("_configuration_file", CONFIG_NAME) if gguf_file is None else gguf_file
+    665 try:
+    666     # Load from local folder or from cache or download from model Hub and cache
+--> 667     resolved_config_file = cached_file(
+    668         pretrained_model_name_or_path,
+    669         configuration_file,
+    670         cache_dir=cache_dir,
+    671         force_download=force_download,
+    672         proxies=proxies,
+    673         resume_download=resume_download,
+    674         local_files_only=local_files_only,
+    675         token=token,
+    676         user_agent=user_agent,
+    677         revision=revision,
+    678         subfolder=subfolder,
+    679         _commit_hash=commit_hash,
+    680     )
+    681     if resolved_config_file is None:
+    682         return None, kwargs
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/transformers/utils/hub.py:312, in cached_file(path_or_repo_id, filename, **kwargs)
+    254 def cached_file(
+    255     path_or_repo_id: Union[str, os.PathLike],
+    256     filename: str,
+    257     **kwargs,
+    258 ) -> Optional[str]:
+    259     """
+    260     Tries to locate a file in a local folder and repo, downloads and cache it if necessary.
+    261 
+   (...)    310     ```
+    311     """
+--> 312     file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+    313     file = file[0] if file is not None else file
+    314     return file
+
+File /workspace/vqa-rag/lib/python3.12/site-packages/transformers/utils/hub.py:533, in cached_files(path_or_repo_id, filenames, cache_dir, force_download, resume_download, proxies, token, revision, local_files_only, subfolder, repo_type, user_agent, _raise_exceptions_for_gated_repo, _raise_exceptions_for_missing_entries, _raise_exceptions_for_connection_errors, _commit_hash, **deprecated_kwargs)
+    531     if not _raise_exceptions_for_gated_repo:
+    532         return None
+--> 533     raise OSError(
+    534         "You are trying to access a gated repo.\nMake sure to have access to it at "
+    535         f"https://huggingface.co/{path_or_repo_id}.\n{str(e)}"
+    536     ) from e
+    537 elif isinstance(e, LocalEntryNotFoundError):
+    538     if not _raise_exceptions_for_connection_errors:
+
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/google/medgemma-4b-it.
+401 Client Error. (Request ID: Root=1-6984f3d2-2e77557c20d79b140ef9e285;35d5b14b-fbf9-401f-9688-d74b417f8c54)
+
+Cannot access gated repo for url https://huggingface.co/google/medgemma-4b-it/resolve/main/config.json.
+Access to model google/medgemma-4b-it is restricted. You must have access to it and be authenticated to access it. Please log in.
