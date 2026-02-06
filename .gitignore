@@ -16,6 +16,8 @@ Prototyping_reformat/DatasetAnalysis/**/checkpoints/
 # generated artifacts
 reports/
 **/out/
+# Local env secrets
+.env
 **/cache/
 
 # Re-creatable datasets (downloaded/derived data)
