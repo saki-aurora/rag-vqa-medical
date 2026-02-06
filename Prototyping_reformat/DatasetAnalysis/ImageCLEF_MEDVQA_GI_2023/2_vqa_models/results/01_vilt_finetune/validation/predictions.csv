@@ -103,7 +103,7 @@ cl8k2u1q91ejz0832654jgqwx,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1q91ejz0832654jgqwx,What color is the abnormality?,red,pink,validation
 cl8k2u1q91ejz0832654jgqwx,What color is the anatomical landmark?,na,na,validation
 cl8k2u1q91ejz0832654jgqwx,What is the size of the polyp?,11-20mm,5-10mm,validation
-cl8k2u1q91ejz0832654jgqwx,What type of polyp is present?,paris ip,paris iia,validation
+cl8k2u1q91ejz0832654jgqwx,What type of polyp is present?,paris ip,paris is,validation
 cl8k2u1q91ejz0832654jgqwx,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1q91ejz0832654jgqwx,Where in the image is the abnormality?,center,center,validation
 cl8k2u1q91ejz0832654jgqwx,Where in the image is the anatomical landmark?,na,na,validation
@@ -180,7 +180,7 @@ clb0lbwytdohk086u8wb8bt1a,What type of polyp is present?,na,na,validation
 clb0lbwytdohk086u8wb8bt1a,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwytdohk086u8wb8bt1a,Where in the image is the abnormality?,na,na,validation
 clb0lbwytdohk086u8wb8bt1a,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwytdohk086u8wb8bt1a,Where in the image is the instrument?,upper-left,upper-left,validation
+clb0lbwytdohk086u8wb8bt1a,Where in the image is the instrument?,upper-left,center,validation
 clb0kvxv28zzg074y1d2xeu17,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxv28zzg074y1d2xeu17,Are there any anatomical landmarks in the image?,z-line,z-line,validation
 clb0kvxv28zzg074y1d2xeu17,Are there any instruments in the image?,na,na,validation
@@ -262,11 +262,11 @@ clb0lbwzidp78086u0nu8gwru,How many instrumnets are in the image?,2,1,validation
 clb0lbwzidp78086u0nu8gwru,How many polyps are in the image?,1,0,validation
 clb0lbwzidp78086u0nu8gwru,Is there a green/black box artefact?,yes,yes,validation
 clb0lbwzidp78086u0nu8gwru,Is there text?,yes,yes,validation
-clb0lbwzidp78086u0nu8gwru,Is this finding easy to detect?,no,yes,validation
+clb0lbwzidp78086u0nu8gwru,Is this finding easy to detect?,no,no,validation
 clb0lbwzidp78086u0nu8gwru,What color is the abnormality?,pink,pink,validation
 clb0lbwzidp78086u0nu8gwru,What color is the anatomical landmark?,na,na,validation
 clb0lbwzidp78086u0nu8gwru,What is the size of the polyp?,5-10mm,na,validation
-clb0lbwzidp78086u0nu8gwru,What type of polyp is present?,paris iia,na,validation
+clb0lbwzidp78086u0nu8gwru,What type of polyp is present?,paris iia,paris ip,validation
 clb0lbwzidp78086u0nu8gwru,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzidp78086u0nu8gwru,Where in the image is the abnormality?,center,center,validation
 clb0lbwzidp78086u0nu8gwru,Where in the image is the anatomical landmark?,na,na,validation
@@ -397,7 +397,7 @@ cla820glus4yj071udps24xeu,What is the size of the polyp?,na,na,validation
 cla820glus4yj071udps24xeu,What type of polyp is present?,na,na,validation
 cla820glus4yj071udps24xeu,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cla820glus4yj071udps24xeu,Where in the image is the abnormality?,center,center,validation
-cla820glus4yj071udps24xeu,Where in the image is the anatomical landmark?,lower-center,center,validation
+cla820glus4yj071udps24xeu,Where in the image is the anatomical landmark?,lower-center,na,validation
 cla820glus4yj071udps24xeu,Where in the image is the instrument?,na,na,validation
 clb0kvxuw8zt0074yfc365i0w,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxuw8zt0074yfc365i0w,Are there any anatomical landmarks in the image?,z-line,z-line,validation
@@ -476,17 +476,17 @@ clb0kvxv69060074y2isr622s,Where in the image is the instrument?,na,na,validation
 clb0lbwzbdp00086u80pr8a4d,Are there any abnormalities in the image?,no,polyp,validation
 clb0lbwzbdp00086u80pr8a4d,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwzbdp00086u80pr8a4d,Are there any instruments in the image?,biopsy forceps,biopsy forceps,validation
-clb0lbwzbdp00086u80pr8a4d,Have all polyps been removed?,na,no,validation
+clb0lbwzbdp00086u80pr8a4d,Have all polyps been removed?,na,na,validation
 clb0lbwzbdp00086u80pr8a4d,How many findings are present?,0,2,validation
 clb0lbwzbdp00086u80pr8a4d,How many instrumnets are in the image?,1,1,validation
-clb0lbwzbdp00086u80pr8a4d,How many polyps are in the image?,0,1,validation
+clb0lbwzbdp00086u80pr8a4d,How many polyps are in the image?,0,0,validation
 clb0lbwzbdp00086u80pr8a4d,Is there a green/black box artefact?,yes,yes,validation
 clb0lbwzbdp00086u80pr8a4d,Is there text?,yes,yes,validation
 clb0lbwzbdp00086u80pr8a4d,Is this finding easy to detect?,yes,yes,validation
-clb0lbwzbdp00086u80pr8a4d,What color is the abnormality?,na,red,validation
+clb0lbwzbdp00086u80pr8a4d,What color is the abnormality?,na,pink,validation
 clb0lbwzbdp00086u80pr8a4d,What color is the anatomical landmark?,na,na,validation
-clb0lbwzbdp00086u80pr8a4d,What is the size of the polyp?,na,5-10mm,validation
-clb0lbwzbdp00086u80pr8a4d,What type of polyp is present?,na,paris ip,validation
+clb0lbwzbdp00086u80pr8a4d,What is the size of the polyp?,na,na,validation
+clb0lbwzbdp00086u80pr8a4d,What type of polyp is present?,na,na,validation
 clb0lbwzbdp00086u80pr8a4d,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzbdp00086u80pr8a4d,Where in the image is the abnormality?,na,center,validation
 clb0lbwzbdp00086u80pr8a4d,Where in the image is the anatomical landmark?,na,na,validation
@@ -505,7 +505,7 @@ cl8k2u1pw1e5v083266q9ffow,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1pw1e5v083266q9ffow,What color is the abnormality?,pink,pink,validation
 cl8k2u1pw1e5v083266q9ffow,What color is the anatomical landmark?,na,na,validation
 cl8k2u1pw1e5v083266q9ffow,What is the size of the polyp?,11-20mm,5-10mm,validation
-cl8k2u1pw1e5v083266q9ffow,What type of polyp is present?,paris is,paris is,validation
+cl8k2u1pw1e5v083266q9ffow,What type of polyp is present?,paris is,paris iia,validation
 cl8k2u1pw1e5v083266q9ffow,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1pw1e5v083266q9ffow,Where in the image is the abnormality?,center,center,validation
 cl8k2u1pw1e5v083266q9ffow,Where in the image is the anatomical landmark?,na,na,validation
@@ -561,7 +561,7 @@ cl8k2u1pr1dyv08325mgz8gxa,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1pr1dyv08325mgz8gxa,What color is the abnormality?,pink,pink,validation
 cl8k2u1pr1dyv08325mgz8gxa,What color is the anatomical landmark?,na,na,validation
 cl8k2u1pr1dyv08325mgz8gxa,What is the size of the polyp?,11-20mm,5-10mm,validation
-cl8k2u1pr1dyv08325mgz8gxa,What type of polyp is present?,paris ip,paris iia,validation
+cl8k2u1pr1dyv08325mgz8gxa,What type of polyp is present?,paris ip,paris is,validation
 cl8k2u1pr1dyv08325mgz8gxa,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1pr1dyv08325mgz8gxa,Where in the image is the abnormality?,center-right,center,validation
 cl8k2u1pr1dyv08325mgz8gxa,Where in the image is the anatomical landmark?,na,na,validation
@@ -667,7 +667,7 @@ clb0lbwyldoa8086uhb9og7d0,How many instrumnets are in the image?,1,1,validation
 clb0lbwyldoa8086uhb9og7d0,How many polyps are in the image?,0,0,validation
 clb0lbwyldoa8086uhb9og7d0,Is there a green/black box artefact?,no,no,validation
 clb0lbwyldoa8086uhb9og7d0,Is there text?,yes,yes,validation
-clb0lbwyldoa8086uhb9og7d0,Is this finding easy to detect?,no,no,validation
+clb0lbwyldoa8086uhb9og7d0,Is this finding easy to detect?,no,yes,validation
 clb0lbwyldoa8086uhb9og7d0,What color is the abnormality?,na,na,validation
 clb0lbwyldoa8086uhb9og7d0,What color is the anatomical landmark?,na,na,validation
 clb0lbwyldoa8086uhb9og7d0,What is the size of the polyp?,na,na,validation
@@ -774,7 +774,7 @@ cl8k2u1qs1f6f0832arqr8c3u,How many findings are present?,1,1,validation
 cl8k2u1qs1f6f0832arqr8c3u,How many instrumnets are in the image?,0,0,validation
 cl8k2u1qs1f6f0832arqr8c3u,How many polyps are in the image?,1,1,validation
 cl8k2u1qs1f6f0832arqr8c3u,Is there a green/black box artefact?,no,no,validation
-cl8k2u1qs1f6f0832arqr8c3u,Is there text?,no,yes,validation
+cl8k2u1qs1f6f0832arqr8c3u,Is there text?,no,no,validation
 cl8k2u1qs1f6f0832arqr8c3u,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1qs1f6f0832arqr8c3u,What color is the abnormality?,pink,pink,validation
 cl8k2u1qs1f6f0832arqr8c3u,What color is the anatomical landmark?,na,na,validation
@@ -785,7 +785,7 @@ cl8k2u1qs1f6f0832arqr8c3u,Where in the image is the abnormality?,center,center,v
 cl8k2u1qs1f6f0832arqr8c3u,Where in the image is the anatomical landmark?,na,na,validation
 cl8k2u1qs1f6f0832arqr8c3u,Where in the image is the instrument?,na,na,validation
 cl8k2u1qs1f6f0832arqr8c3u,Where exactly in the image is the polyp located?,c,c,validation
-clb0lbwykdo7w086u2owp4tdj,Are there any abnormalities in the image?,no,polyp,validation
+clb0lbwykdo7w086u2owp4tdj,Are there any abnormalities in the image?,no,no,validation
 clb0lbwykdo7w086u2owp4tdj,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwykdo7w086u2owp4tdj,Are there any instruments in the image?,tube,tube,validation
 clb0lbwykdo7w086u2owp4tdj,Have all polyps been removed?,na,na,validation
@@ -807,7 +807,7 @@ clb0kvxv990bc074ybba3aows,Are there any abnormalities in the image?,oesophagitis
 clb0kvxv990bc074ybba3aows,Are there any anatomical landmarks in the image?,z-line,z-line,validation
 clb0kvxv990bc074ybba3aows,Are there any instruments in the image?,na,na,validation
 clb0kvxv990bc074ybba3aows,Have all polyps been removed?,na,na,validation
-clb0kvxv990bc074ybba3aows,How many findings are present?,2,2,validation
+clb0kvxv990bc074ybba3aows,How many findings are present?,2,1,validation
 clb0kvxv990bc074ybba3aows,How many instrumnets are in the image?,0,0,validation
 clb0kvxv990bc074ybba3aows,How many polyps are in the image?,0,0,validation
 clb0kvxv990bc074ybba3aows,Is there a green/black box artefact?,no,no,validation
@@ -819,7 +819,7 @@ clb0kvxv990bc074ybba3aows,What is the size of the polyp?,na,na,validation
 clb0kvxv990bc074ybba3aows,What type of polyp is present?,na,na,validation
 clb0kvxv990bc074ybba3aows,What type of procedure is the image taken from?,gastroscopy,gastroscopy,validation
 clb0kvxv990bc074ybba3aows,Where in the image is the abnormality?,center,center,validation
-clb0kvxv990bc074ybba3aows,Where in the image is the anatomical landmark?,center,center,validation
+clb0kvxv990bc074ybba3aows,Where in the image is the anatomical landmark?,center,na,validation
 clb0kvxv990bc074ybba3aows,Where in the image is the instrument?,na,na,validation
 cl8k2u1qx1fej0832167ihi2j,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1qx1fej0832167ihi2j,Are there any anatomical landmarks in the image?,no,no,validation
@@ -834,7 +834,7 @@ cl8k2u1qx1fej0832167ihi2j,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1qx1fej0832167ihi2j,What color is the abnormality?,red,pink,validation
 cl8k2u1qx1fej0832167ihi2j,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qx1fej0832167ihi2j,What is the size of the polyp?,5-10mm,5-10mm,validation
-cl8k2u1qx1fej0832167ihi2j,What type of polyp is present?,paris is,paris is,validation
+cl8k2u1qx1fej0832167ihi2j,What type of polyp is present?,paris is,paris iia,validation
 cl8k2u1qx1fej0832167ihi2j,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qx1fej0832167ihi2j,Where in the image is the abnormality?,center,center,validation
 cl8k2u1qx1fej0832167ihi2j,Where in the image is the anatomical landmark?,na,na,validation
@@ -950,15 +950,15 @@ clb0lbwyldo9o086u3irn7ej7,Where in the image is the anatomical landmark?,na,na,v
 clb0lbwyldo9o086u3irn7ej7,Where in the image is the instrument?,center,center,validation
 clb0lbwzfdp48086u570whcop,Are there any abnormalities in the image?,polyp,polyp,validation
 clb0lbwzfdp48086u570whcop,Are there any anatomical landmarks in the image?,no,no,validation
-clb0lbwzfdp48086u570whcop,Are there any instruments in the image?,biopsy forceps,biopsy forceps,validation
+clb0lbwzfdp48086u570whcop,Are there any instruments in the image?,biopsy forceps,polyp snare,validation
 clb0lbwzfdp48086u570whcop,Have all polyps been removed?,no,no,validation
-clb0lbwzfdp48086u570whcop,How many findings are present?,1,1,validation
+clb0lbwzfdp48086u570whcop,How many findings are present?,1,2,validation
 clb0lbwzfdp48086u570whcop,How many instrumnets are in the image?,1,1,validation
 clb0lbwzfdp48086u570whcop,How many polyps are in the image?,1,1,validation
 clb0lbwzfdp48086u570whcop,Is there a green/black box artefact?,no,no,validation
 clb0lbwzfdp48086u570whcop,Is there text?,yes,yes,validation
 clb0lbwzfdp48086u570whcop,Is this finding easy to detect?,no,yes,validation
-clb0lbwzfdp48086u570whcop,What color is the abnormality?,pink,pink,validation
+clb0lbwzfdp48086u570whcop,What color is the abnormality?,pink,red,validation
 clb0lbwzfdp48086u570whcop,What color is the anatomical landmark?,na,na,validation
 clb0lbwzfdp48086u570whcop,What is the size of the polyp?,>20mm,5-10mm,validation
 clb0lbwzfdp48086u570whcop,What type of polyp is present?,paris ip,paris ip,validation
@@ -979,7 +979,7 @@ cl8k2u1qk1eyn083275c38uo0,Is there text?,yes,yes,validation
 cl8k2u1qk1eyn083275c38uo0,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1qk1eyn083275c38uo0,What color is the abnormality?,red,pink,validation
 cl8k2u1qk1eyn083275c38uo0,What color is the anatomical landmark?,na,na,validation
-cl8k2u1qk1eyn083275c38uo0,What is the size of the polyp?,11-20mm,5-10mm,validation
+cl8k2u1qk1eyn083275c38uo0,What is the size of the polyp?,11-20mm,na,validation
 cl8k2u1qk1eyn083275c38uo0,What type of polyp is present?,paris is,na,validation
 cl8k2u1qk1eyn083275c38uo0,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qk1eyn083275c38uo0,Where in the image is the abnormality?,center,center,validation
@@ -995,7 +995,7 @@ clb0lbwz1doo8086u6jk81iuh,How many instrumnets are in the image?,1,1,validation
 clb0lbwz1doo8086u6jk81iuh,How many polyps are in the image?,0,0,validation
 clb0lbwz1doo8086u6jk81iuh,Is there a green/black box artefact?,no,no,validation
 clb0lbwz1doo8086u6jk81iuh,Is there text?,yes,yes,validation
-clb0lbwz1doo8086u6jk81iuh,Is this finding easy to detect?,yes,no,validation
+clb0lbwz1doo8086u6jk81iuh,Is this finding easy to detect?,yes,yes,validation
 clb0lbwz1doo8086u6jk81iuh,What color is the abnormality?,na,na,validation
 clb0lbwz1doo8086u6jk81iuh,What color is the anatomical landmark?,na,na,validation
 clb0lbwz1doo8086u6jk81iuh,What is the size of the polyp?,na,na,validation
@@ -1062,7 +1062,7 @@ clb0lbwz1doos086ua6d5d4je,Where in the image is the anatomical landmark?,na,na,v
 clb0lbwz1doos086ua6d5d4je,Where in the image is the instrument?,center,center,validation
 clb0lbwz4dors086u3ycpgtti,Are there any abnormalities in the image?,polyp,polyp,validation
 clb0lbwz4dors086u3ycpgtti,Are there any anatomical landmarks in the image?,no,no,validation
-clb0lbwz4dors086u3ycpgtti,Are there any instruments in the image?,biopsy forceps,polyp snare,validation
+clb0lbwz4dors086u3ycpgtti,Are there any instruments in the image?,biopsy forceps,biopsy forceps,validation
 clb0lbwz4dors086u3ycpgtti,Have all polyps been removed?,no,no,validation
 clb0lbwz4dors086u3ycpgtti,How many findings are present?,5,2,validation
 clb0lbwz4dors086u3ycpgtti,How many instrumnets are in the image?,1,1,validation
@@ -1070,7 +1070,7 @@ clb0lbwz4dors086u3ycpgtti,How many polyps are in the image?,4,1,validation
 clb0lbwz4dors086u3ycpgtti,Is there a green/black box artefact?,yes,yes,validation
 clb0lbwz4dors086u3ycpgtti,Is there text?,yes,yes,validation
 clb0lbwz4dors086u3ycpgtti,Is this finding easy to detect?,yes,yes,validation
-clb0lbwz4dors086u3ycpgtti,What color is the abnormality?,pink,pink,validation
+clb0lbwz4dors086u3ycpgtti,What color is the abnormality?,pink,red,validation
 clb0lbwz4dors086u3ycpgtti,What color is the anatomical landmark?,na,na,validation
 clb0lbwz4dors086u3ycpgtti,What is the size of the polyp?,11-20mm,5-10mm,validation
 clb0lbwz4dors086u3ycpgtti,What type of polyp is present?,na,paris ip,validation
@@ -1177,7 +1177,7 @@ clb0lbwzidp7o086u77v11dqa,How many findings are present?,0,0,validation
 clb0lbwzidp7o086u77v11dqa,How many instrumnets are in the image?,1,1,validation
 clb0lbwzidp7o086u77v11dqa,How many polyps are in the image?,0,0,validation
 clb0lbwzidp7o086u77v11dqa,Is there a green/black box artefact?,no,no,validation
-clb0lbwzidp7o086u77v11dqa,Is there text?,no,no,validation
+clb0lbwzidp7o086u77v11dqa,Is there text?,no,yes,validation
 clb0lbwzidp7o086u77v11dqa,Is this finding easy to detect?,yes,yes,validation
 clb0lbwzidp7o086u77v11dqa,What color is the abnormality?,na,na,validation
 clb0lbwzidp7o086u77v11dqa,What color is the anatomical landmark?,na,na,validation
@@ -1186,7 +1186,7 @@ clb0lbwzidp7o086u77v11dqa,What type of polyp is present?,na,na,validation
 clb0lbwzidp7o086u77v11dqa,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzidp7o086u77v11dqa,Where in the image is the abnormality?,na,na,validation
 clb0lbwzidp7o086u77v11dqa,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzidp7o086u77v11dqa,Where in the image is the instrument?,center,center,validation
+clb0lbwzidp7o086u77v11dqa,Where in the image is the instrument?,center,upper-left,validation
 clb0lbwzidp7o086u77v11dqa,Where exactly in the image is the instrument located?,c,c,validation
 cl8k2u1pw1e6708323y1papdi,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1pw1e6708323y1papdi,Are there any anatomical landmarks in the image?,no,no,validation
@@ -1348,7 +1348,7 @@ cl8k2u1pv1e5j08325pk11s24,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1pv1e5j08325pk11s24,What color is the abnormality?,pink,pink,validation
 cl8k2u1pv1e5j08325pk11s24,What color is the anatomical landmark?,na,na,validation
 cl8k2u1pv1e5j08325pk11s24,What is the size of the polyp?,< 5mm,5-10mm,validation
-cl8k2u1pv1e5j08325pk11s24,What type of polyp is present?,paris ip,paris is,validation
+cl8k2u1pv1e5j08325pk11s24,What type of polyp is present?,paris ip,paris iia,validation
 cl8k2u1pv1e5j08325pk11s24,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1pv1e5j08325pk11s24,Where in the image is the abnormality?,center,center,validation
 cl8k2u1pv1e5j08325pk11s24,Where in the image is the anatomical landmark?,na,na,validation
@@ -1440,7 +1440,7 @@ cl8k2u1qc1eo70832h1jaduea,Is this finding easy to detect?,no,yes,validation
 cl8k2u1qc1eo70832h1jaduea,What color is the abnormality?,orange,pink,validation
 cl8k2u1qc1eo70832h1jaduea,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qc1eo70832h1jaduea,What is the size of the polyp?,< 5mm,5-10mm,validation
-cl8k2u1qc1eo70832h1jaduea,What type of polyp is present?,paris iia,paris is,validation
+cl8k2u1qc1eo70832h1jaduea,What type of polyp is present?,paris iia,paris iia,validation
 cl8k2u1qc1eo70832h1jaduea,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qc1eo70832h1jaduea,Where in the image is the abnormality?,center,center,validation
 cl8k2u1qc1eo70832h1jaduea,Where in the image is the anatomical landmark?,na,na,validation
@@ -1459,7 +1459,7 @@ cl8k2u1qd1epv0832bvqu826o,Is this finding easy to detect?,no,yes,validation
 cl8k2u1qd1epv0832bvqu826o,What color is the abnormality?,pink,pink,validation
 cl8k2u1qd1epv0832bvqu826o,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qd1epv0832bvqu826o,What is the size of the polyp?,< 5mm,5-10mm,validation
-cl8k2u1qd1epv0832bvqu826o,What type of polyp is present?,paris iia,paris iia,validation
+cl8k2u1qd1epv0832bvqu826o,What type of polyp is present?,paris iia,paris is,validation
 cl8k2u1qd1epv0832bvqu826o,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qd1epv0832bvqu826o,Where in the image is the abnormality?,center,center,validation
 cl8k2u1qd1epv0832bvqu826o,Where in the image is the anatomical landmark?,na,na,validation
@@ -1667,22 +1667,22 @@ cl8k2u1qe1eqz083270vwe1zp,Where in the image is the abnormality?,lower-right,cen
 cl8k2u1qe1eqz083270vwe1zp,Where in the image is the anatomical landmark?,na,na,validation
 cl8k2u1qe1eqz083270vwe1zp,Where in the image is the instrument?,na,na,validation
 cl8k2u1qe1eqz083270vwe1zp,Where exactly in the image is the polyp located?,c,c,validation
-clb0lbwzbdozw086u9zy9dpwm,Are there any abnormalities in the image?,polyp,polyp,validation
+clb0lbwzbdozw086u9zy9dpwm,Are there any abnormalities in the image?,polyp,no,validation
 clb0lbwzbdozw086u9zy9dpwm,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwzbdozw086u9zy9dpwm,Are there any instruments in the image?,biopsy forceps,biopsy forceps,validation
-clb0lbwzbdozw086u9zy9dpwm,Have all polyps been removed?,no,no,validation
+clb0lbwzbdozw086u9zy9dpwm,Have all polyps been removed?,no,na,validation
 clb0lbwzbdozw086u9zy9dpwm,How many findings are present?,1,2,validation
 clb0lbwzbdozw086u9zy9dpwm,How many instrumnets are in the image?,1,1,validation
-clb0lbwzbdozw086u9zy9dpwm,How many polyps are in the image?,1,1,validation
+clb0lbwzbdozw086u9zy9dpwm,How many polyps are in the image?,1,0,validation
 clb0lbwzbdozw086u9zy9dpwm,Is there a green/black box artefact?,no,no,validation
 clb0lbwzbdozw086u9zy9dpwm,Is there text?,yes,yes,validation
-clb0lbwzbdozw086u9zy9dpwm,Is this finding easy to detect?,no,yes,validation
-clb0lbwzbdozw086u9zy9dpwm,What color is the abnormality?,pink,pink,validation
+clb0lbwzbdozw086u9zy9dpwm,Is this finding easy to detect?,no,no,validation
+clb0lbwzbdozw086u9zy9dpwm,What color is the abnormality?,pink,na,validation
 clb0lbwzbdozw086u9zy9dpwm,What color is the anatomical landmark?,na,na,validation
-clb0lbwzbdozw086u9zy9dpwm,What is the size of the polyp?,11-20mm,5-10mm,validation
+clb0lbwzbdozw086u9zy9dpwm,What is the size of the polyp?,11-20mm,na,validation
 clb0lbwzbdozw086u9zy9dpwm,What type of polyp is present?,na,paris ip,validation
 clb0lbwzbdozw086u9zy9dpwm,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
-clb0lbwzbdozw086u9zy9dpwm,Where in the image is the abnormality?,center,center,validation
+clb0lbwzbdozw086u9zy9dpwm,Where in the image is the abnormality?,center,na,validation
 clb0lbwzbdozw086u9zy9dpwm,Where in the image is the anatomical landmark?,na,na,validation
 clb0lbwzbdozw086u9zy9dpwm,Where in the image is the instrument?,lower-center,lower-right,validation
 clb0lbwzbdozw086u9zy9dpwm,Where exactly in the image is the instrument located?,c,c,validation
@@ -1833,10 +1833,10 @@ cla820gl5s3vz071ua6uggyz6,Where in the image is the anatomical landmark?,na,na,v
 cla820gl5s3vz071ua6uggyz6,Where in the image is the instrument?,na,na,validation
 cla820gm1s56n071u59x1e4fa,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
 cla820gm1s56n071u59x1e4fa,Are there any anatomical landmarks in the image?,na,na,validation
-cla820gm1s56n071u59x1e4fa,Are there any instruments in the image?,na,na,validation
+cla820gm1s56n071u59x1e4fa,Are there any instruments in the image?,na,biopsy forceps,validation
 cla820gm1s56n071u59x1e4fa,Have all polyps been removed?,na,na,validation
 cla820gm1s56n071u59x1e4fa,How many findings are present?,1,1,validation
-cla820gm1s56n071u59x1e4fa,How many instrumnets are in the image?,0,0,validation
+cla820gm1s56n071u59x1e4fa,How many instrumnets are in the image?,0,1,validation
 cla820gm1s56n071u59x1e4fa,How many polyps are in the image?,0,0,validation
 cla820gm1s56n071u59x1e4fa,Is there a green/black box artefact?,yes,yes,validation
 cla820gm1s56n071u59x1e4fa,Is there text?,yes,yes,validation
@@ -1848,7 +1848,7 @@ cla820gm1s56n071u59x1e4fa,What type of polyp is present?,na,na,validation
 cla820gm1s56n071u59x1e4fa,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cla820gm1s56n071u59x1e4fa,Where in the image is the abnormality?,center,center,validation
 cla820gm1s56n071u59x1e4fa,Where in the image is the anatomical landmark?,na,na,validation
-cla820gm1s56n071u59x1e4fa,Where in the image is the instrument?,na,na,validation
+cla820gm1s56n071u59x1e4fa,Where in the image is the instrument?,na,lower-right,validation
 clb0lbwyhdo3w086u7ffv8efl,Are there any abnormalities in the image?,no,no,validation
 clb0lbwyhdo3w086u7ffv8efl,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwyhdo3w086u7ffv8efl,Are there any instruments in the image?,tube,tube,validation
@@ -1898,7 +1898,7 @@ cl8k2u1po1dy308326selej7w,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1po1dy308326selej7w,What color is the abnormality?,pink,pink,validation
 cl8k2u1po1dy308326selej7w,What color is the anatomical landmark?,na,na,validation
 cl8k2u1po1dy308326selej7w,What is the size of the polyp?,< 5mm,5-10mm,validation
-cl8k2u1po1dy308326selej7w,What type of polyp is present?,paris is,paris iia,validation
+cl8k2u1po1dy308326selej7w,What type of polyp is present?,paris is,paris is,validation
 cl8k2u1po1dy308326selej7w,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1po1dy308326selej7w,Where in the image is the abnormality?,upper-center,center,validation
 cl8k2u1po1dy308326selej7w,Where in the image is the anatomical landmark?,na,na,validation
@@ -1966,7 +1966,7 @@ clb0lbwz4dork086uaoi03vs2,How many findings are present?,3,2,validation
 clb0lbwz4dork086uaoi03vs2,How many instrumnets are in the image?,1,1,validation
 clb0lbwz4dork086uaoi03vs2,How many polyps are in the image?,2,1,validation
 clb0lbwz4dork086uaoi03vs2,Is there a green/black box artefact?,yes,yes,validation
-clb0lbwz4dork086uaoi03vs2,Is there text?,no,no,validation
+clb0lbwz4dork086uaoi03vs2,Is there text?,no,yes,validation
 clb0lbwz4dork086uaoi03vs2,Is this finding easy to detect?,yes,yes,validation
 clb0lbwz4dork086uaoi03vs2,What color is the abnormality?,pink,red,validation
 clb0lbwz4dork086uaoi03vs2,What color is the anatomical landmark?,na,na,validation
@@ -2057,7 +2057,7 @@ clb0kvxvh90pk074ybg7y8ohv,How many findings are present?,2,2,validation
 clb0kvxvh90pk074ybg7y8ohv,How many instrumnets are in the image?,0,0,validation
 clb0kvxvh90pk074ybg7y8ohv,How many polyps are in the image?,0,0,validation
 clb0kvxvh90pk074ybg7y8ohv,Is there a green/black box artefact?,no,no,validation
-clb0kvxvh90pk074ybg7y8ohv,Is there text?,yes,yes,validation
+clb0kvxvh90pk074ybg7y8ohv,Is there text?,yes,no,validation
 clb0kvxvh90pk074ybg7y8ohv,Is this finding easy to detect?,no,no,validation
 clb0kvxvh90pk074ybg7y8ohv,What color is the abnormality?,pink,pink,validation
 clb0kvxvh90pk074ybg7y8ohv,What color is the anatomical landmark?,na,na,validation
@@ -2286,7 +2286,7 @@ cl8k2u1qa1elb0832f6z8a4lu,What type of polyp is present?,paris is,paris is,valid
 cl8k2u1qa1elb0832f6z8a4lu,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qa1elb0832f6z8a4lu,Where in the image is the abnormality?,upper-right,center,validation
 cl8k2u1qa1elb0832f6z8a4lu,Where in the image is the anatomical landmark?,na,na,validation
-cl8k2u1qa1elb0832f6z8a4lu,Where in the image is the instrument?,na,na,validation
+cl8k2u1qa1elb0832f6z8a4lu,Where in the image is the instrument?,na,center,validation
 cl8k2u1qa1elb0832f6z8a4lu,Where exactly in the image is the polyp located?,c,c,validation
 clb0lbwyudoi8086u1riyee8o,Are there any abnormalities in the image?,no,no,validation
 clb0lbwyudoi8086u1riyee8o,Are there any anatomical landmarks in the image?,no,no,validation
@@ -2333,7 +2333,7 @@ clb0lbwy9dnvg086u6xpod9qv,How many instrumnets are in the image?,1,1,validation
 clb0lbwy9dnvg086u6xpod9qv,How many polyps are in the image?,0,0,validation
 clb0lbwy9dnvg086u6xpod9qv,Is there a green/black box artefact?,no,no,validation
 clb0lbwy9dnvg086u6xpod9qv,Is there text?,yes,yes,validation
-clb0lbwy9dnvg086u6xpod9qv,Is this finding easy to detect?,no,yes,validation
+clb0lbwy9dnvg086u6xpod9qv,Is this finding easy to detect?,no,no,validation
 clb0lbwy9dnvg086u6xpod9qv,What color is the abnormality?,na,na,validation
 clb0lbwy9dnvg086u6xpod9qv,What color is the anatomical landmark?,na,na,validation
 clb0lbwy9dnvg086u6xpod9qv,What is the size of the polyp?,na,na,validation
@@ -2359,7 +2359,7 @@ clb0lbwzkdpa8086u5xkj8nyh,What type of polyp is present?,na,paris ip,validation
 clb0lbwzkdpa8086u5xkj8nyh,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzkdpa8086u5xkj8nyh,Where in the image is the abnormality?,na,center,validation
 clb0lbwzkdpa8086u5xkj8nyh,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzkdpa8086u5xkj8nyh,Where in the image is the instrument?,center,lower-right,validation
+clb0lbwzkdpa8086u5xkj8nyh,Where in the image is the instrument?,center,center,validation
 clb0lbwzkdpa8086u5xkj8nyh,Where exactly in the image is the instrument located?,c,c,validation
 cl8k2u1qo1f0r08325f6l18rt,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1qo1f0r08325f6l18rt,Are there any anatomical landmarks in the image?,no,no,validation
@@ -2374,7 +2374,7 @@ cl8k2u1qo1f0r08325f6l18rt,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1qo1f0r08325f6l18rt,What color is the abnormality?,pink,pink,validation
 cl8k2u1qo1f0r08325f6l18rt,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qo1f0r08325f6l18rt,What is the size of the polyp?,11-20mm,5-10mm,validation
-cl8k2u1qo1f0r08325f6l18rt,What type of polyp is present?,paris iia,paris is,validation
+cl8k2u1qo1f0r08325f6l18rt,What type of polyp is present?,paris iia,paris iia,validation
 cl8k2u1qo1f0r08325f6l18rt,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qo1f0r08325f6l18rt,Where in the image is the abnormality?,center,center,validation
 cl8k2u1qo1f0r08325f6l18rt,Where in the image is the anatomical landmark?,na,na,validation
@@ -2513,7 +2513,7 @@ clb0kvxvp912o074y4cwp1kiu,Are there any anatomical landmarks in the image?,z-lin
 clb0kvxvp912o074y4cwp1kiu,Are there any instruments in the image?,tube,na,validation
 clb0kvxvp912o074y4cwp1kiu,Have all polyps been removed?,na,na,validation
 clb0kvxvp912o074y4cwp1kiu,How many findings are present?,2,2,validation
-clb0kvxvp912o074y4cwp1kiu,How many instrumnets are in the image?,0,0,validation
+clb0kvxvp912o074y4cwp1kiu,How many instrumnets are in the image?,0,1,validation
 clb0kvxvp912o074y4cwp1kiu,How many polyps are in the image?,0,0,validation
 clb0kvxvp912o074y4cwp1kiu,Is there a green/black box artefact?,yes,no,validation
 clb0kvxvp912o074y4cwp1kiu,Is there text?,yes,yes,validation
@@ -2534,7 +2534,7 @@ clb0kvxvh90q0074ygar19fkz,How many findings are present?,2,2,validation
 clb0kvxvh90q0074ygar19fkz,How many instrumnets are in the image?,0,0,validation
 clb0kvxvh90q0074ygar19fkz,How many polyps are in the image?,0,0,validation
 clb0kvxvh90q0074ygar19fkz,Is there a green/black box artefact?,no,no,validation
-clb0kvxvh90q0074ygar19fkz,Is there text?,no,yes,validation
+clb0kvxvh90q0074ygar19fkz,Is there text?,no,no,validation
 clb0kvxvh90q0074ygar19fkz,Is this finding easy to detect?,no,no,validation
 clb0kvxvh90q0074ygar19fkz,What color is the abnormality?,pink,pink,validation
 clb0kvxvh90q0074ygar19fkz,What color is the anatomical landmark?,na,na,validation
@@ -2579,7 +2579,7 @@ clb0lbwzfdp4g086uc9o53o63,What type of polyp is present?,na,paris ip,validation
 clb0lbwzfdp4g086uc9o53o63,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzfdp4g086uc9o53o63,Where in the image is the abnormality?,na,center,validation
 clb0lbwzfdp4g086uc9o53o63,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzfdp4g086uc9o53o63,Where in the image is the instrument?,center,center,validation
+clb0lbwzfdp4g086uc9o53o63,Where in the image is the instrument?,center,lower-right,validation
 clb0lbwzfdp4g086uc9o53o63,Where exactly in the image is the instrument located?,c,c,validation
 clb0lbwy9dnvk086u0ck0e8vb,Are there any abnormalities in the image?,no,no,validation
 clb0lbwy9dnvk086u0ck0e8vb,Are there any anatomical landmarks in the image?,no,no,validation
@@ -2654,22 +2654,22 @@ cla820glps4rv071u8ch490cp,What type of procedure is the image taken from?,colono
 cla820glps4rv071u8ch490cp,Where in the image is the abnormality?,center,center,validation
 cla820glps4rv071u8ch490cp,Where in the image is the anatomical landmark?,center,na,validation
 cla820glps4rv071u8ch490cp,Where in the image is the instrument?,na,na,validation
-clb0lbwyudoi4086u01bp2p05,Are there any abnormalities in the image?,no,no,validation
+clb0lbwyudoi4086u01bp2p05,Are there any abnormalities in the image?,no,polyp,validation
 clb0lbwyudoi4086u01bp2p05,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwyudoi4086u01bp2p05,Are there any instruments in the image?,tube,tube,validation
-clb0lbwyudoi4086u01bp2p05,Have all polyps been removed?,na,na,validation
-clb0lbwyudoi4086u01bp2p05,How many findings are present?,1,0,validation
+clb0lbwyudoi4086u01bp2p05,Have all polyps been removed?,na,no,validation
+clb0lbwyudoi4086u01bp2p05,How many findings are present?,1,1,validation
 clb0lbwyudoi4086u01bp2p05,How many instrumnets are in the image?,1,1,validation
 clb0lbwyudoi4086u01bp2p05,How many polyps are in the image?,0,0,validation
 clb0lbwyudoi4086u01bp2p05,Is there a green/black box artefact?,no,no,validation
 clb0lbwyudoi4086u01bp2p05,Is there text?,yes,yes,validation
 clb0lbwyudoi4086u01bp2p05,Is this finding easy to detect?,yes,yes,validation
-clb0lbwyudoi4086u01bp2p05,What color is the abnormality?,na,na,validation
+clb0lbwyudoi4086u01bp2p05,What color is the abnormality?,na,red,validation
 clb0lbwyudoi4086u01bp2p05,What color is the anatomical landmark?,na,na,validation
-clb0lbwyudoi4086u01bp2p05,What is the size of the polyp?,na,na,validation
-clb0lbwyudoi4086u01bp2p05,What type of polyp is present?,na,na,validation
+clb0lbwyudoi4086u01bp2p05,What is the size of the polyp?,na,5-10mm,validation
+clb0lbwyudoi4086u01bp2p05,What type of polyp is present?,na,paris ip,validation
 clb0lbwyudoi4086u01bp2p05,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
-clb0lbwyudoi4086u01bp2p05,Where in the image is the abnormality?,na,na,validation
+clb0lbwyudoi4086u01bp2p05,Where in the image is the abnormality?,na,center,validation
 clb0lbwyudoi4086u01bp2p05,Where in the image is the anatomical landmark?,na,na,validation
 clb0lbwyudoi4086u01bp2p05,Where in the image is the instrument?,center,center,validation
 cl8k2u1qw1fdj08321tzt169d,Are there any abnormalities in the image?,polyp,polyp,validation
@@ -2693,22 +2693,22 @@ cl8k2u1qw1fdj08321tzt169d,Where in the image is the instrument?,na,na,validation
 cl8k2u1qw1fdj08321tzt169d,Where exactly in the image is the polyp located?,c,c,validation
 clb0lbwz7dou8086u7y68e7ak,Are there any abnormalities in the image?,polyp,polyp,validation
 clb0lbwz7dou8086u7y68e7ak,Are there any anatomical landmarks in the image?,no,no,validation
-clb0lbwz7dou8086u7y68e7ak,Are there any instruments in the image?,metal clip,tube,validation
+clb0lbwz7dou8086u7y68e7ak,Are there any instruments in the image?,metal clip,biopsy forceps,validation
 clb0lbwz7dou8086u7y68e7ak,Have all polyps been removed?,no,no,validation
-clb0lbwz7dou8086u7y68e7ak,How many findings are present?,2,1,validation
+clb0lbwz7dou8086u7y68e7ak,How many findings are present?,2,2,validation
 clb0lbwz7dou8086u7y68e7ak,How many instrumnets are in the image?,1,1,validation
 clb0lbwz7dou8086u7y68e7ak,How many polyps are in the image?,1,1,validation
 clb0lbwz7dou8086u7y68e7ak,Is there a green/black box artefact?,no,no,validation
 clb0lbwz7dou8086u7y68e7ak,Is there text?,yes,yes,validation
 clb0lbwz7dou8086u7y68e7ak,Is this finding easy to detect?,yes,yes,validation
-clb0lbwz7dou8086u7y68e7ak,What color is the abnormality?,red,red,validation
+clb0lbwz7dou8086u7y68e7ak,What color is the abnormality?,red,pink,validation
 clb0lbwz7dou8086u7y68e7ak,What color is the anatomical landmark?,na,na,validation
 clb0lbwz7dou8086u7y68e7ak,What is the size of the polyp?,11-20mm,5-10mm,validation
 clb0lbwz7dou8086u7y68e7ak,What type of polyp is present?,paris ip,paris ip,validation
 clb0lbwz7dou8086u7y68e7ak,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwz7dou8086u7y68e7ak,Where in the image is the abnormality?,center,center,validation
 clb0lbwz7dou8086u7y68e7ak,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwz7dou8086u7y68e7ak,Where in the image is the instrument?,center,center,validation
+clb0lbwz7dou8086u7y68e7ak,Where in the image is the instrument?,center,lower-right,validation
 clb0lbwz7dou8086u7y68e7ak,Where exactly in the image is the instrument located?,c,c,validation
 cl8k2u1qp1f1b0832e5og40wl,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1qp1f1b0832e5og40wl,Are there any anatomical landmarks in the image?,no,no,validation
@@ -2761,11 +2761,11 @@ cl8k2u1pu1e3v083257f95du5,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1pu1e3v083257f95du5,What color is the abnormality?,pink,pink,validation
 cl8k2u1pu1e3v083257f95du5,What color is the anatomical landmark?,na,na,validation
 cl8k2u1pu1e3v083257f95du5,What is the size of the polyp?,5-10mm,5-10mm,validation
-cl8k2u1pu1e3v083257f95du5,What type of polyp is present?,paris ip,paris iia,validation
+cl8k2u1pu1e3v083257f95du5,What type of polyp is present?,paris ip,paris ip,validation
 cl8k2u1pu1e3v083257f95du5,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1pu1e3v083257f95du5,Where in the image is the abnormality?,center,center,validation
 cl8k2u1pu1e3v083257f95du5,Where in the image is the anatomical landmark?,na,na,validation
-cl8k2u1pu1e3v083257f95du5,Where in the image is the instrument?,na,na,validation
+cl8k2u1pu1e3v083257f95du5,Where in the image is the instrument?,na,lower-right,validation
 cl8k2u1pu1e3v083257f95du5,Where exactly in the image is the polyp located?,c,c,validation
 clb0kvxvj90sk074y7s8cg5g1,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxvj90sk074y7s8cg5g1,Are there any anatomical landmarks in the image?,z-line,z-line,validation
@@ -2805,11 +2805,11 @@ cl8k2u1qh1evf083295nk05e6,Where in the image is the anatomical landmark?,na,na,v
 cl8k2u1qh1evf083295nk05e6,Where in the image is the instrument?,na,na,validation
 cl8k2u1qh1evf083295nk05e6,Where exactly in the image is the polyp located?,c,c,validation
 cla820gl3s3t3071udcwfd8g1,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
-cla820gl3s3t3071udcwfd8g1,Are there any anatomical landmarks in the image?,na,no,validation
+cla820gl3s3t3071udcwfd8g1,Are there any anatomical landmarks in the image?,na,na,validation
 cla820gl3s3t3071udcwfd8g1,Are there any instruments in the image?,na,na,validation
 cla820gl3s3t3071udcwfd8g1,Have all polyps been removed?,na,na,validation
 cla820gl3s3t3071udcwfd8g1,How many findings are present?,1,1,validation
-cla820gl3s3t3071udcwfd8g1,How many instrumnets are in the image?,0,1,validation
+cla820gl3s3t3071udcwfd8g1,How many instrumnets are in the image?,0,0,validation
 cla820gl3s3t3071udcwfd8g1,How many polyps are in the image?,0,0,validation
 cla820gl3s3t3071udcwfd8g1,Is there a green/black box artefact?,no,no,validation
 cla820gl3s3t3071udcwfd8g1,Is there text?,yes,yes,validation
@@ -2913,7 +2913,7 @@ clb0lbwzldpb8086uhpdl974n,What type of polyp is present?,na,na,validation
 clb0lbwzldpb8086uhpdl974n,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzldpb8086uhpdl974n,Where in the image is the abnormality?,na,na,validation
 clb0lbwzldpb8086uhpdl974n,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzldpb8086uhpdl974n,Where in the image is the instrument?,center,lower-right,validation
+clb0lbwzldpb8086uhpdl974n,Where in the image is the instrument?,center,center,validation
 clb0lbwzldpb8086uhpdl974n,Where exactly in the image is the instrument located?,c,c,validation
 clb0kvxvj90sw074y65neasey,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxvj90sw074y65neasey,Are there any anatomical landmarks in the image?,z-line,z-line,validation
@@ -2936,21 +2936,21 @@ clb0kvxvj90sw074y65neasey,Where in the image is the instrument?,na,na,validation
 clb0lbwzidp7c086u77jyb2a7,Are there any abnormalities in the image?,no,polyp,validation
 clb0lbwzidp7c086u77jyb2a7,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwzidp7c086u77jyb2a7,Are there any instruments in the image?,metal clip,biopsy forceps,validation
-clb0lbwzidp7c086u77jyb2a7,Have all polyps been removed?,na,no,validation
+clb0lbwzidp7c086u77jyb2a7,Have all polyps been removed?,na,na,validation
 clb0lbwzidp7c086u77jyb2a7,How many findings are present?,0,2,validation
 clb0lbwzidp7c086u77jyb2a7,How many instrumnets are in the image?,2,1,validation
-clb0lbwzidp7c086u77jyb2a7,How many polyps are in the image?,0,1,validation
+clb0lbwzidp7c086u77jyb2a7,How many polyps are in the image?,0,0,validation
 clb0lbwzidp7c086u77jyb2a7,Is there a green/black box artefact?,yes,no,validation
 clb0lbwzidp7c086u77jyb2a7,Is there text?,yes,yes,validation
 clb0lbwzidp7c086u77jyb2a7,Is this finding easy to detect?,no,yes,validation
-clb0lbwzidp7c086u77jyb2a7,What color is the abnormality?,na,red,validation
+clb0lbwzidp7c086u77jyb2a7,What color is the abnormality?,na,pink,validation
 clb0lbwzidp7c086u77jyb2a7,What color is the anatomical landmark?,na,na,validation
-clb0lbwzidp7c086u77jyb2a7,What is the size of the polyp?,na,5-10mm,validation
-clb0lbwzidp7c086u77jyb2a7,What type of polyp is present?,na,paris ip,validation
+clb0lbwzidp7c086u77jyb2a7,What is the size of the polyp?,na,na,validation
+clb0lbwzidp7c086u77jyb2a7,What type of polyp is present?,na,na,validation
 clb0lbwzidp7c086u77jyb2a7,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzidp7c086u77jyb2a7,Where in the image is the abnormality?,na,center,validation
 clb0lbwzidp7c086u77jyb2a7,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzidp7c086u77jyb2a7,Where in the image is the instrument?,center,center,validation
+clb0lbwzidp7c086u77jyb2a7,Where in the image is the instrument?,center,lower-right,validation
 clb0lbwzidp7c086u77jyb2a7,Where exactly in the image is the instrument located?,c,c,validation
 cla820glls4mn071u0jbea274,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
 cla820glls4mn071u0jbea274,Are there any anatomical landmarks in the image?,na,na,validation
@@ -3118,10 +3118,10 @@ clb0lbwyldo90086u0s2i7vch,Where in the image is the anatomical landmark?,na,na,v
 clb0lbwyldo90086u0s2i7vch,Where in the image is the instrument?,upper-right,upper-left,validation
 clb0kvxv08zws074ye2mb9yh8,Are there any abnormalities in the image?,oesophagitis,no,validation
 clb0kvxv08zws074ye2mb9yh8,Are there any anatomical landmarks in the image?,z-line,z-line,validation
-clb0kvxv08zws074ye2mb9yh8,Are there any instruments in the image?,na,tube,validation
+clb0kvxv08zws074ye2mb9yh8,Are there any instruments in the image?,na,na,validation
 clb0kvxv08zws074ye2mb9yh8,Have all polyps been removed?,na,na,validation
 clb0kvxv08zws074ye2mb9yh8,How many findings are present?,2,0,validation
-clb0kvxv08zws074ye2mb9yh8,How many instrumnets are in the image?,0,0,validation
+clb0kvxv08zws074ye2mb9yh8,How many instrumnets are in the image?,0,1,validation
 clb0kvxv08zws074ye2mb9yh8,How many polyps are in the image?,0,0,validation
 clb0kvxv08zws074ye2mb9yh8,Is there a green/black box artefact?,no,no,validation
 clb0kvxv08zws074ye2mb9yh8,Is there text?,yes,no,validation
@@ -3130,7 +3130,7 @@ clb0kvxv08zws074ye2mb9yh8,What color is the abnormality?,pink,pink,validation
 clb0kvxv08zws074ye2mb9yh8,What color is the anatomical landmark?,pink,na,validation
 clb0kvxv08zws074ye2mb9yh8,What is the size of the polyp?,na,na,validation
 clb0kvxv08zws074ye2mb9yh8,What type of polyp is present?,na,na,validation
-clb0kvxv08zws074ye2mb9yh8,What type of procedure is the image taken from?,gastroscopy,colonoscopy,validation
+clb0kvxv08zws074ye2mb9yh8,What type of procedure is the image taken from?,gastroscopy,gastroscopy,validation
 clb0kvxv08zws074ye2mb9yh8,Where in the image is the abnormality?,center,center,validation
 clb0kvxv08zws074ye2mb9yh8,Where in the image is the anatomical landmark?,center,na,validation
 clb0kvxv08zws074ye2mb9yh8,Where in the image is the instrument?,na,na,validation
@@ -3190,7 +3190,7 @@ clb0kvxuw8zso074y5o6v9jyk,Where in the image is the anatomical landmark?,center,
 clb0kvxuw8zso074y5o6v9jyk,Where in the image is the instrument?,na,na,validation
 clb0lbwzgdp5c086u7gfg55wl,Are there any abnormalities in the image?,polyp,ulcerative colitis,validation
 clb0lbwzgdp5c086u7gfg55wl,Are there any anatomical landmarks in the image?,no,na,validation
-clb0lbwzgdp5c086u7gfg55wl,Are there any instruments in the image?,tube,tube,validation
+clb0lbwzgdp5c086u7gfg55wl,Are there any instruments in the image?,tube,biopsy forceps,validation
 clb0lbwzgdp5c086u7gfg55wl,Have all polyps been removed?,no,na,validation
 clb0lbwzgdp5c086u7gfg55wl,How many findings are present?,1,1,validation
 clb0lbwzgdp5c086u7gfg55wl,How many instrumnets are in the image?,1,1,validation
@@ -3205,7 +3205,7 @@ clb0lbwzgdp5c086u7gfg55wl,What type of polyp is present?,paris ip,na,validation
 clb0lbwzgdp5c086u7gfg55wl,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzgdp5c086u7gfg55wl,Where in the image is the abnormality?,center,center,validation
 clb0lbwzgdp5c086u7gfg55wl,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzgdp5c086u7gfg55wl,Where in the image is the instrument?,center,center,validation
+clb0lbwzgdp5c086u7gfg55wl,Where in the image is the instrument?,center,lower-right,validation
 clb0lbwzgdp5c086u7gfg55wl,Where exactly in the image is the instrument located?,c,c,validation
 cl8k2u1q31egn08328zhldsq9,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1q31egn08328zhldsq9,Are there any anatomical landmarks in the image?,no,no,validation
@@ -3232,18 +3232,18 @@ clb0lbwzadoyk086ucwll82o6,Are there any instruments in the image?,polyp snare,bi
 clb0lbwzadoyk086ucwll82o6,Have all polyps been removed?,no,no,validation
 clb0lbwzadoyk086ucwll82o6,How many findings are present?,2,2,validation
 clb0lbwzadoyk086ucwll82o6,How many instrumnets are in the image?,1,1,validation
-clb0lbwzadoyk086ucwll82o6,How many polyps are in the image?,1,1,validation
+clb0lbwzadoyk086ucwll82o6,How many polyps are in the image?,1,0,validation
 clb0lbwzadoyk086ucwll82o6,Is there a green/black box artefact?,no,no,validation
 clb0lbwzadoyk086ucwll82o6,Is there text?,yes,yes,validation
 clb0lbwzadoyk086ucwll82o6,Is this finding easy to detect?,yes,yes,validation
 clb0lbwzadoyk086ucwll82o6,What color is the abnormality?,pink,red,validation
 clb0lbwzadoyk086ucwll82o6,What color is the anatomical landmark?,na,na,validation
-clb0lbwzadoyk086ucwll82o6,What is the size of the polyp?,11-20mm,5-10mm,validation
+clb0lbwzadoyk086ucwll82o6,What is the size of the polyp?,11-20mm,na,validation
 clb0lbwzadoyk086ucwll82o6,What type of polyp is present?,paris is,paris ip,validation
 clb0lbwzadoyk086ucwll82o6,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzadoyk086ucwll82o6,Where in the image is the abnormality?,center,center,validation
 clb0lbwzadoyk086ucwll82o6,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzadoyk086ucwll82o6,Where in the image is the instrument?,lower-center,lower-right,validation
+clb0lbwzadoyk086ucwll82o6,Where in the image is the instrument?,lower-center,center,validation
 clb0lbwzadoyk086ucwll82o6,Where exactly in the image is the instrument located?,c,c,validation
 cla820gljs4kz071uaa8h1tjs,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
 cla820gljs4kz071uaa8h1tjs,Are there any anatomical landmarks in the image?,na,na,validation
@@ -3289,7 +3289,7 @@ cl8k2u1q31efv08328avgbbq2,How many findings are present?,1,1,validation
 cl8k2u1q31efv08328avgbbq2,How many instrumnets are in the image?,0,0,validation
 cl8k2u1q31efv08328avgbbq2,How many polyps are in the image?,1,1,validation
 cl8k2u1q31efv08328avgbbq2,Is there a green/black box artefact?,yes,yes,validation
-cl8k2u1q31efv08328avgbbq2,Is there text?,no,yes,validation
+cl8k2u1q31efv08328avgbbq2,Is there text?,no,no,validation
 cl8k2u1q31efv08328avgbbq2,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1q31efv08328avgbbq2,What color is the abnormality?,white,pink,validation
 cl8k2u1q31efv08328avgbbq2,What color is the anatomical landmark?,na,na,validation
@@ -3308,7 +3308,7 @@ clb0kvxus8zo8074y6pz410z6,How many findings are present?,2,2,validation
 clb0kvxus8zo8074y6pz410z6,How many instrumnets are in the image?,0,0,validation
 clb0kvxus8zo8074y6pz410z6,How many polyps are in the image?,0,0,validation
 clb0kvxus8zo8074y6pz410z6,Is there a green/black box artefact?,no,no,validation
-clb0kvxus8zo8074y6pz410z6,Is there text?,no,yes,validation
+clb0kvxus8zo8074y6pz410z6,Is there text?,no,no,validation
 clb0kvxus8zo8074y6pz410z6,Is this finding easy to detect?,no,no,validation
 clb0kvxus8zo8074y6pz410z6,What color is the abnormality?,pink,pink,validation
 clb0kvxus8zo8074y6pz410z6,What color is the anatomical landmark?,pink,na,validation
@@ -3350,7 +3350,7 @@ cl8k2u1qd1epr08324y2de7o6,Is this finding easy to detect?,no,yes,validation
 cl8k2u1qd1epr08324y2de7o6,What color is the abnormality?,red,pink,validation
 cl8k2u1qd1epr08324y2de7o6,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qd1epr08324y2de7o6,What is the size of the polyp?,5-10mm,5-10mm,validation
-cl8k2u1qd1epr08324y2de7o6,What type of polyp is present?,paris is,paris is,validation
+cl8k2u1qd1epr08324y2de7o6,What type of polyp is present?,paris is,paris iia,validation
 cl8k2u1qd1epr08324y2de7o6,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qd1epr08324y2de7o6,Where in the image is the abnormality?,center,center,validation
 cl8k2u1qd1epr08324y2de7o6,Where in the image is the anatomical landmark?,na,na,validation
@@ -3364,7 +3364,7 @@ clb0kvxus8zp4074yhyue52t1,How many findings are present?,1,2,validation
 clb0kvxus8zp4074yhyue52t1,How many instrumnets are in the image?,0,0,validation
 clb0kvxus8zp4074yhyue52t1,How many polyps are in the image?,0,0,validation
 clb0kvxus8zp4074yhyue52t1,Is there a green/black box artefact?,no,no,validation
-clb0kvxus8zp4074yhyue52t1,Is there text?,yes,yes,validation
+clb0kvxus8zp4074yhyue52t1,Is there text?,yes,no,validation
 clb0kvxus8zp4074yhyue52t1,Is this finding easy to detect?,no,no,validation
 clb0kvxus8zp4074yhyue52t1,What color is the abnormality?,pink,pink,validation
 clb0kvxus8zp4074yhyue52t1,What color is the anatomical landmark?,na,na,validation
@@ -3378,13 +3378,13 @@ cl8k2u1q41ei308324h7dbir8,Are there any abnormalities in the image?,polyp,polyp,
 cl8k2u1q41ei308324h7dbir8,Are there any anatomical landmarks in the image?,no,no,validation
 cl8k2u1q41ei308324h7dbir8,Are there any instruments in the image?,polyp snare,polyp snare,validation
 cl8k2u1q41ei308324h7dbir8,Have all polyps been removed?,no,no,validation
-cl8k2u1q41ei308324h7dbir8,How many findings are present?,1,1,validation
+cl8k2u1q41ei308324h7dbir8,How many findings are present?,1,2,validation
 cl8k2u1q41ei308324h7dbir8,How many instrumnets are in the image?,1,1,validation
 cl8k2u1q41ei308324h7dbir8,How many polyps are in the image?,1,1,validation
 cl8k2u1q41ei308324h7dbir8,Is there a green/black box artefact?,yes,yes,validation
 cl8k2u1q41ei308324h7dbir8,Is there text?,yes,yes,validation
 cl8k2u1q41ei308324h7dbir8,Is this finding easy to detect?,yes,yes,validation
-cl8k2u1q41ei308324h7dbir8,What color is the abnormality?,red,pink,validation
+cl8k2u1q41ei308324h7dbir8,What color is the abnormality?,red,red,validation
 cl8k2u1q41ei308324h7dbir8,What color is the anatomical landmark?,na,na,validation
 cl8k2u1q41ei308324h7dbir8,What is the size of the polyp?,11-20mm,5-10mm,validation
 cl8k2u1q41ei308324h7dbir8,What type of polyp is present?,paris is,paris ip,validation
@@ -3442,7 +3442,7 @@ cl8k2u1qr1f4f0832gm1oaw8q,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1qr1f4f0832gm1oaw8q,What color is the abnormality?,pink,pink,validation
 cl8k2u1qr1f4f0832gm1oaw8q,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qr1f4f0832gm1oaw8q,What is the size of the polyp?,>20mm,5-10mm,validation
-cl8k2u1qr1f4f0832gm1oaw8q,What type of polyp is present?,paris is,paris iia,validation
+cl8k2u1qr1f4f0832gm1oaw8q,What type of polyp is present?,paris is,paris is,validation
 cl8k2u1qr1f4f0832gm1oaw8q,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qr1f4f0832gm1oaw8q,Where in the image is the abnormality?,center,center,validation
 cl8k2u1qr1f4f0832gm1oaw8q,Where in the image is the anatomical landmark?,na,na,validation
@@ -3465,7 +3465,7 @@ clb0lbwy8dnt4086uavvubxta,What type of polyp is present?,na,na,validation
 clb0lbwy8dnt4086uavvubxta,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwy8dnt4086uavvubxta,Where in the image is the abnormality?,na,na,validation
 clb0lbwy8dnt4086uavvubxta,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwy8dnt4086uavvubxta,Where in the image is the instrument?,center,center,validation
+clb0lbwy8dnt4086uavvubxta,Where in the image is the instrument?,center,upper-left,validation
 clb0kvxv08zxo074y796bdumg,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxv08zxo074y796bdumg,Are there any anatomical landmarks in the image?,z-line,z-line,validation
 clb0kvxv08zxo074y796bdumg,Are there any instruments in the image?,na,na,validation
@@ -3511,7 +3511,7 @@ clb0lbwzgdp5s086u8a4qh105,How many findings are present?,0,0,validation
 clb0lbwzgdp5s086u8a4qh105,How many instrumnets are in the image?,1,1,validation
 clb0lbwzgdp5s086u8a4qh105,How many polyps are in the image?,0,0,validation
 clb0lbwzgdp5s086u8a4qh105,Is there a green/black box artefact?,no,no,validation
-clb0lbwzgdp5s086u8a4qh105,Is there text?,yes,yes,validation
+clb0lbwzgdp5s086u8a4qh105,Is there text?,yes,no,validation
 clb0lbwzgdp5s086u8a4qh105,Is this finding easy to detect?,yes,yes,validation
 clb0lbwzgdp5s086u8a4qh105,What color is the abnormality?,na,na,validation
 clb0lbwzgdp5s086u8a4qh105,What color is the anatomical landmark?,na,na,validation
@@ -3722,10 +3722,10 @@ clb0lbwyhdo40086ugrxk5zbw,What type of polyp is present?,na,na,validation
 clb0lbwyhdo40086ugrxk5zbw,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwyhdo40086ugrxk5zbw,Where in the image is the abnormality?,na,na,validation
 clb0lbwyhdo40086ugrxk5zbw,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwyhdo40086ugrxk5zbw,Where in the image is the instrument?,center,center,validation
+clb0lbwyhdo40086ugrxk5zbw,Where in the image is the instrument?,center,upper-left,validation
 clb0lbwz6dots086u2z0sfssz,Are there any abnormalities in the image?,polyp,polyp,validation
 clb0lbwz6dots086u2z0sfssz,Are there any anatomical landmarks in the image?,no,no,validation
-clb0lbwz6dots086u2z0sfssz,Are there any instruments in the image?,polyp snare,biopsy forceps,validation
+clb0lbwz6dots086u2z0sfssz,Are there any instruments in the image?,polyp snare,polyp snare,validation
 clb0lbwz6dots086u2z0sfssz,Have all polyps been removed?,no,no,validation
 clb0lbwz6dots086u2z0sfssz,How many findings are present?,2,2,validation
 clb0lbwz6dots086u2z0sfssz,How many instrumnets are in the image?,1,1,validation
@@ -3816,7 +3816,7 @@ clb0lbwzjdp8c086uawi78ty1,What type of polyp is present?,na,na,validation
 clb0lbwzjdp8c086uawi78ty1,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzjdp8c086uawi78ty1,Where in the image is the abnormality?,na,na,validation
 clb0lbwzjdp8c086uawi78ty1,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzjdp8c086uawi78ty1,Where in the image is the instrument?,upper-right,center,validation
+clb0lbwzjdp8c086uawi78ty1,Where in the image is the instrument?,upper-right,upper-left,validation
 clb0lbwzjdp8c086uawi78ty1,Where exactly in the image is the instrument located?,c,c,validation
 cl8k2u1qk1eyr0832f0il8my4,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1qk1eyr0832f0il8my4,Are there any anatomical landmarks in the image?,no,no,validation
@@ -3831,7 +3831,7 @@ cl8k2u1qk1eyr0832f0il8my4,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1qk1eyr0832f0il8my4,What color is the abnormality?,pink,pink,validation
 cl8k2u1qk1eyr0832f0il8my4,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qk1eyr0832f0il8my4,What is the size of the polyp?,>20mm,5-10mm,validation
-cl8k2u1qk1eyr0832f0il8my4,What type of polyp is present?,paris is,paris iia,validation
+cl8k2u1qk1eyr0832f0il8my4,What type of polyp is present?,paris is,paris is,validation
 cl8k2u1qk1eyr0832f0il8my4,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qk1eyr0832f0il8my4,Where in the image is the abnormality?,upper-left,center,validation
 cl8k2u1qk1eyr0832f0il8my4,Where in the image is the anatomical landmark?,na,na,validation
@@ -3908,7 +3908,7 @@ clb0lbwy7dnqo086uhnyj96b9,What type of polyp is present?,na,na,validation
 clb0lbwy7dnqo086uhnyj96b9,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwy7dnqo086uhnyj96b9,Where in the image is the abnormality?,na,na,validation
 clb0lbwy7dnqo086uhnyj96b9,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwy7dnqo086uhnyj96b9,Where in the image is the instrument?,center,center,validation
+clb0lbwy7dnqo086uhnyj96b9,Where in the image is the instrument?,center,upper-left,validation
 clb0kvxvd90io074y2o7785y9,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxvd90io074y2o7785y9,Are there any anatomical landmarks in the image?,z-line,z-line,validation
 clb0kvxvd90io074y2o7785y9,Are there any instruments in the image?,na,na,validation
@@ -4036,24 +4036,24 @@ cla820gl2s3qn071ucguna2um,What type of procedure is the image taken from?,colono
 cla820gl2s3qn071ucguna2um,Where in the image is the abnormality?,center,center,validation
 cla820gl2s3qn071ucguna2um,Where in the image is the anatomical landmark?,na,na,validation
 cla820gl2s3qn071ucguna2um,Where in the image is the instrument?,na,na,validation
-clb0lbwzgdp50086ugqk40oxz,Are there any abnormalities in the image?,polyp,polyp,validation
+clb0lbwzgdp50086ugqk40oxz,Are there any abnormalities in the image?,polyp,ulcerative colitis,validation
 clb0lbwzgdp50086ugqk40oxz,Are there any anatomical landmarks in the image?,no,no,validation
-clb0lbwzgdp50086ugqk40oxz,Are there any instruments in the image?,metal clip,tube,validation
-clb0lbwzgdp50086ugqk40oxz,Have all polyps been removed?,no,no,validation
-clb0lbwzgdp50086ugqk40oxz,How many findings are present?,1,1,validation
+clb0lbwzgdp50086ugqk40oxz,Are there any instruments in the image?,metal clip,biopsy forceps,validation
+clb0lbwzgdp50086ugqk40oxz,Have all polyps been removed?,no,na,validation
+clb0lbwzgdp50086ugqk40oxz,How many findings are present?,1,2,validation
 clb0lbwzgdp50086ugqk40oxz,How many instrumnets are in the image?,1,1,validation
-clb0lbwzgdp50086ugqk40oxz,How many polyps are in the image?,1,1,validation
+clb0lbwzgdp50086ugqk40oxz,How many polyps are in the image?,1,0,validation
 clb0lbwzgdp50086ugqk40oxz,Is there a green/black box artefact?,yes,yes,validation
 clb0lbwzgdp50086ugqk40oxz,Is there text?,yes,yes,validation
 clb0lbwzgdp50086ugqk40oxz,Is this finding easy to detect?,no,yes,validation
 clb0lbwzgdp50086ugqk40oxz,What color is the abnormality?,pink,pink,validation
 clb0lbwzgdp50086ugqk40oxz,What color is the anatomical landmark?,na,na,validation
-clb0lbwzgdp50086ugqk40oxz,What is the size of the polyp?,>20mm,5-10mm,validation
-clb0lbwzgdp50086ugqk40oxz,What type of polyp is present?,paris is,paris ip,validation
+clb0lbwzgdp50086ugqk40oxz,What is the size of the polyp?,>20mm,na,validation
+clb0lbwzgdp50086ugqk40oxz,What type of polyp is present?,paris is,na,validation
 clb0lbwzgdp50086ugqk40oxz,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzgdp50086ugqk40oxz,Where in the image is the abnormality?,center,center,validation
 clb0lbwzgdp50086ugqk40oxz,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzgdp50086ugqk40oxz,Where in the image is the instrument?,center,center,validation
+clb0lbwzgdp50086ugqk40oxz,Where in the image is the instrument?,center,lower-right,validation
 clb0lbwzgdp50086ugqk40oxz,Where exactly in the image is the instrument located?,c,c,validation
 cl8k2u1pt1e1b0832cbbuemcc,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1pt1e1b0832cbbuemcc,Are there any anatomical landmarks in the image?,no,no,validation
@@ -4063,7 +4063,7 @@ cl8k2u1pt1e1b0832cbbuemcc,How many findings are present?,1,1,validation
 cl8k2u1pt1e1b0832cbbuemcc,How many instrumnets are in the image?,0,0,validation
 cl8k2u1pt1e1b0832cbbuemcc,How many polyps are in the image?,1,1,validation
 cl8k2u1pt1e1b0832cbbuemcc,Is there a green/black box artefact?,yes,yes,validation
-cl8k2u1pt1e1b0832cbbuemcc,Is there text?,no,yes,validation
+cl8k2u1pt1e1b0832cbbuemcc,Is there text?,no,no,validation
 cl8k2u1pt1e1b0832cbbuemcc,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1pt1e1b0832cbbuemcc,What color is the abnormality?,pink,pink,validation
 cl8k2u1pt1e1b0832cbbuemcc,What color is the anatomical landmark?,na,na,validation
@@ -4147,22 +4147,22 @@ clb0kvxvj90tk074y2njo1q8n,What type of procedure is the image taken from?,gastro
 clb0kvxvj90tk074y2njo1q8n,Where in the image is the abnormality?,center,center,validation
 clb0kvxvj90tk074y2njo1q8n,Where in the image is the anatomical landmark?,center,center,validation
 clb0kvxvj90tk074y2njo1q8n,Where in the image is the instrument?,na,na,validation
-clb0lbwzedp2w086u5jh4a47v,Are there any abnormalities in the image?,no,polyp,validation
+clb0lbwzedp2w086u5jh4a47v,Are there any abnormalities in the image?,no,no,validation
 clb0lbwzedp2w086u5jh4a47v,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwzedp2w086u5jh4a47v,Are there any instruments in the image?,biopsy forceps,biopsy forceps,validation
-clb0lbwzedp2w086u5jh4a47v,Have all polyps been removed?,na,no,validation
-clb0lbwzedp2w086u5jh4a47v,How many findings are present?,0,2,validation
+clb0lbwzedp2w086u5jh4a47v,Have all polyps been removed?,na,na,validation
+clb0lbwzedp2w086u5jh4a47v,How many findings are present?,0,0,validation
 clb0lbwzedp2w086u5jh4a47v,How many instrumnets are in the image?,1,1,validation
-clb0lbwzedp2w086u5jh4a47v,How many polyps are in the image?,0,1,validation
+clb0lbwzedp2w086u5jh4a47v,How many polyps are in the image?,0,0,validation
 clb0lbwzedp2w086u5jh4a47v,Is there a green/black box artefact?,yes,yes,validation
 clb0lbwzedp2w086u5jh4a47v,Is there text?,no,no,validation
-clb0lbwzedp2w086u5jh4a47v,Is this finding easy to detect?,no,yes,validation
-clb0lbwzedp2w086u5jh4a47v,What color is the abnormality?,na,red,validation
+clb0lbwzedp2w086u5jh4a47v,Is this finding easy to detect?,no,no,validation
+clb0lbwzedp2w086u5jh4a47v,What color is the abnormality?,na,na,validation
 clb0lbwzedp2w086u5jh4a47v,What color is the anatomical landmark?,na,na,validation
-clb0lbwzedp2w086u5jh4a47v,What is the size of the polyp?,na,5-10mm,validation
+clb0lbwzedp2w086u5jh4a47v,What is the size of the polyp?,na,na,validation
 clb0lbwzedp2w086u5jh4a47v,What type of polyp is present?,na,paris ip,validation
 clb0lbwzedp2w086u5jh4a47v,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
-clb0lbwzedp2w086u5jh4a47v,Where in the image is the abnormality?,na,na,validation
+clb0lbwzedp2w086u5jh4a47v,Where in the image is the abnormality?,na,center,validation
 clb0lbwzedp2w086u5jh4a47v,Where in the image is the anatomical landmark?,na,na,validation
 clb0lbwzedp2w086u5jh4a47v,Where in the image is the instrument?,center,center,validation
 clb0lbwzedp2w086u5jh4a47v,Where exactly in the image is the instrument located?,c,c,validation
@@ -4197,7 +4197,7 @@ cl8k2u1pw1e6f0832g26obqdx,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1pw1e6f0832g26obqdx,What color is the abnormality?,pink,pink,validation
 cl8k2u1pw1e6f0832g26obqdx,What color is the anatomical landmark?,na,na,validation
 cl8k2u1pw1e6f0832g26obqdx,What is the size of the polyp?,< 5mm,5-10mm,validation
-cl8k2u1pw1e6f0832g26obqdx,What type of polyp is present?,paris iia,paris iia,validation
+cl8k2u1pw1e6f0832g26obqdx,What type of polyp is present?,paris iia,paris is,validation
 cl8k2u1pw1e6f0832g26obqdx,What type of procedure is the image taken from?,gastroscopy,colonoscopy,validation
 cl8k2u1pw1e6f0832g26obqdx,Where in the image is the abnormality?,center,center,validation
 cl8k2u1pw1e6f0832g26obqdx,Where in the image is the anatomical landmark?,center,na,validation
@@ -4265,7 +4265,7 @@ cl8k2u1ps1e0z0832ex969caq,Have all polyps been removed?,no,no,validation
 cl8k2u1ps1e0z0832ex969caq,How many findings are present?,1,1,validation
 cl8k2u1ps1e0z0832ex969caq,How many instrumnets are in the image?,0,1,validation
 cl8k2u1ps1e0z0832ex969caq,How many polyps are in the image?,1,1,validation
-cl8k2u1ps1e0z0832ex969caq,Is there a green/black box artefact?,no,no,validation
+cl8k2u1ps1e0z0832ex969caq,Is there a green/black box artefact?,no,yes,validation
 cl8k2u1ps1e0z0832ex969caq,Is there text?,yes,yes,validation
 cl8k2u1ps1e0z0832ex969caq,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1ps1e0z0832ex969caq,What color is the abnormality?,pink,pink,validation
@@ -4488,7 +4488,7 @@ clb0lbwz8dovs086u7yeq9o4m,How many polyps are in the image?,1,1,validation
 clb0lbwz8dovs086u7yeq9o4m,Is there a green/black box artefact?,no,no,validation
 clb0lbwz8dovs086u7yeq9o4m,Is there text?,yes,yes,validation
 clb0lbwz8dovs086u7yeq9o4m,Is this finding easy to detect?,yes,yes,validation
-clb0lbwz8dovs086u7yeq9o4m,What color is the abnormality?,pink,pink,validation
+clb0lbwz8dovs086u7yeq9o4m,What color is the abnormality?,pink,red,validation
 clb0lbwz8dovs086u7yeq9o4m,What color is the anatomical landmark?,na,na,validation
 clb0lbwz8dovs086u7yeq9o4m,What is the size of the polyp?,>20mm,5-10mm,validation
 clb0lbwz8dovs086u7yeq9o4m,What type of polyp is present?,paris is,paris ip,validation
@@ -4520,7 +4520,7 @@ clb0lbwyadnx4086u7i6da7zp,Are there any abnormalities in the image?,no,no,valida
 clb0lbwyadnx4086u7i6da7zp,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwyadnx4086u7i6da7zp,Are there any instruments in the image?,no,tube,validation
 clb0lbwyadnx4086u7i6da7zp,Have all polyps been removed?,na,na,validation
-clb0lbwyadnx4086u7i6da7zp,How many findings are present?,0,1,validation
+clb0lbwyadnx4086u7i6da7zp,How many findings are present?,0,0,validation
 clb0lbwyadnx4086u7i6da7zp,How many instrumnets are in the image?,1,1,validation
 clb0lbwyadnx4086u7i6da7zp,How many polyps are in the image?,0,0,validation
 clb0lbwyadnx4086u7i6da7zp,Is there a green/black box artefact?,no,no,validation
@@ -4533,7 +4533,7 @@ clb0lbwyadnx4086u7i6da7zp,What type of polyp is present?,na,na,validation
 clb0lbwyadnx4086u7i6da7zp,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwyadnx4086u7i6da7zp,Where in the image is the abnormality?,na,na,validation
 clb0lbwyadnx4086u7i6da7zp,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwyadnx4086u7i6da7zp,Where in the image is the instrument?,upper-right,na,validation
+clb0lbwyadnx4086u7i6da7zp,Where in the image is the instrument?,upper-right,upper-left,validation
 clb0kvxur8zng074yhcpp2sx8,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxur8zng074yhcpp2sx8,Are there any anatomical landmarks in the image?,z-line,z-line,validation
 clb0kvxur8zng074yhcpp2sx8,Are there any instruments in the image?,na,na,validation
@@ -4615,7 +4615,7 @@ cl8k2u1px1e770832dlnb3mpn,How many findings are present?,1,1,validation
 cl8k2u1px1e770832dlnb3mpn,How many instrumnets are in the image?,0,0,validation
 cl8k2u1px1e770832dlnb3mpn,How many polyps are in the image?,1,1,validation
 cl8k2u1px1e770832dlnb3mpn,Is there a green/black box artefact?,yes,yes,validation
-cl8k2u1px1e770832dlnb3mpn,Is there text?,no,no,validation
+cl8k2u1px1e770832dlnb3mpn,Is there text?,no,yes,validation
 cl8k2u1px1e770832dlnb3mpn,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1px1e770832dlnb3mpn,What color is the abnormality?,pink,pink,validation
 cl8k2u1px1e770832dlnb3mpn,What color is the anatomical landmark?,na,na,validation
@@ -4751,7 +4751,7 @@ cla820glis4i7071uayhe7zjh,What is the size of the polyp?,na,na,validation
 cla820glis4i7071uayhe7zjh,What type of polyp is present?,na,na,validation
 cla820glis4i7071uayhe7zjh,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cla820glis4i7071uayhe7zjh,Where in the image is the abnormality?,center,center,validation
-cla820glis4i7071uayhe7zjh,Where in the image is the anatomical landmark?,na,center,validation
+cla820glis4i7071uayhe7zjh,Where in the image is the anatomical landmark?,na,na,validation
 cla820glis4i7071uayhe7zjh,Where in the image is the instrument?,na,na,validation
 clb0kvxvc90go074y4erzha8j,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxvc90go074y4erzha8j,Are there any anatomical landmarks in the image?,z-line,z-line,validation
@@ -4975,17 +4975,17 @@ cl8k2u1pz1e9v0832ejsrguso,Where exactly in the image is the polyp located?,c,c,v
 clb0lbwz7dov0086ug7bieal6,Are there any abnormalities in the image?,polyp,polyp,validation
 clb0lbwz7dov0086ug7bieal6,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwz7dov0086ug7bieal6,Are there any instruments in the image?,tube,biopsy forceps,validation
-clb0lbwz7dov0086ug7bieal6,Have all polyps been removed?,no,no,validation
+clb0lbwz7dov0086ug7bieal6,Have all polyps been removed?,no,na,validation
 clb0lbwz7dov0086ug7bieal6,How many findings are present?,2,2,validation
 clb0lbwz7dov0086ug7bieal6,How many instrumnets are in the image?,1,1,validation
-clb0lbwz7dov0086ug7bieal6,How many polyps are in the image?,1,1,validation
+clb0lbwz7dov0086ug7bieal6,How many polyps are in the image?,1,0,validation
 clb0lbwz7dov0086ug7bieal6,Is there a green/black box artefact?,no,no,validation
 clb0lbwz7dov0086ug7bieal6,Is there text?,yes,yes,validation
 clb0lbwz7dov0086ug7bieal6,Is this finding easy to detect?,yes,yes,validation
 clb0lbwz7dov0086ug7bieal6,What color is the abnormality?,pink,red,validation
 clb0lbwz7dov0086ug7bieal6,What color is the anatomical landmark?,na,na,validation
-clb0lbwz7dov0086ug7bieal6,What is the size of the polyp?,11-20mm,5-10mm,validation
-clb0lbwz7dov0086ug7bieal6,What type of polyp is present?,paris ip,paris ip,validation
+clb0lbwz7dov0086ug7bieal6,What is the size of the polyp?,11-20mm,na,validation
+clb0lbwz7dov0086ug7bieal6,What type of polyp is present?,paris ip,na,validation
 clb0lbwz7dov0086ug7bieal6,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwz7dov0086ug7bieal6,Where in the image is the abnormality?,center,center,validation
 clb0lbwz7dov0086ug7bieal6,Where in the image is the anatomical landmark?,na,na,validation
@@ -5027,11 +5027,11 @@ clb0kvxvq913g074y9aq0aw5d,What type of procedure is the image taken from?,gastro
 clb0kvxvq913g074y9aq0aw5d,Where in the image is the abnormality?,center,center,validation
 clb0kvxvq913g074y9aq0aw5d,Where in the image is the anatomical landmark?,center,center,validation
 clb0kvxvq913g074y9aq0aw5d,Where in the image is the instrument?,na,na,validation
-clb0lbwzhdp6c086u7q7gdibw,Are there any abnormalities in the image?,polyp,polyp,validation
+clb0lbwzhdp6c086u7q7gdibw,Are there any abnormalities in the image?,polyp,no,validation
 clb0lbwzhdp6c086u7q7gdibw,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwzhdp6c086u7q7gdibw,Are there any instruments in the image?,biopsy forceps,biopsy forceps,validation
-clb0lbwzhdp6c086u7q7gdibw,Have all polyps been removed?,no,no,validation
-clb0lbwzhdp6c086u7q7gdibw,How many findings are present?,1,2,validation
+clb0lbwzhdp6c086u7q7gdibw,Have all polyps been removed?,no,na,validation
+clb0lbwzhdp6c086u7q7gdibw,How many findings are present?,1,0,validation
 clb0lbwzhdp6c086u7q7gdibw,How many instrumnets are in the image?,1,1,validation
 clb0lbwzhdp6c086u7q7gdibw,How many polyps are in the image?,1,0,validation
 clb0lbwzhdp6c086u7q7gdibw,Is there a green/black box artefact?,yes,yes,validation
@@ -5081,7 +5081,7 @@ clb0lbwz1doo4086uazzjcg1m,What type of polyp is present?,na,na,validation
 clb0lbwz1doo4086uazzjcg1m,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwz1doo4086uazzjcg1m,Where in the image is the abnormality?,na,na,validation
 clb0lbwz1doo4086uazzjcg1m,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwz1doo4086uazzjcg1m,Where in the image is the instrument?,center,center,validation
+clb0lbwz1doo4086uazzjcg1m,Where in the image is the instrument?,center,upper-left,validation
 cla820gl3s3sv071u3qhw492a,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
 cla820gl3s3sv071u3qhw492a,Are there any anatomical landmarks in the image?,na,na,validation
 cla820gl3s3sv071u3qhw492a,Are there any instruments in the image?,na,na,validation
@@ -5110,12 +5110,12 @@ cla820gm0s55j071u4btx7fzh,How many polyps are in the image?,0,0,validation
 cla820gm0s55j071u4btx7fzh,Is there a green/black box artefact?,no,no,validation
 cla820gm0s55j071u4btx7fzh,Is there text?,yes,yes,validation
 cla820gm0s55j071u4btx7fzh,Is this finding easy to detect?,yes,no,validation
-cla820gm0s55j071u4btx7fzh,What color is the abnormality?,pink,pink,validation
+cla820gm0s55j071u4btx7fzh,What color is the abnormality?,pink,na,validation
 cla820gm0s55j071u4btx7fzh,What color is the anatomical landmark?,na,na,validation
 cla820gm0s55j071u4btx7fzh,What is the size of the polyp?,na,na,validation
 cla820gm0s55j071u4btx7fzh,What type of polyp is present?,na,na,validation
 cla820gm0s55j071u4btx7fzh,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
-cla820gm0s55j071u4btx7fzh,Where in the image is the abnormality?,center,center,validation
+cla820gm0s55j071u4btx7fzh,Where in the image is the abnormality?,center,na,validation
 cla820gm0s55j071u4btx7fzh,Where in the image is the anatomical landmark?,na,na,validation
 cla820gm0s55j071u4btx7fzh,Where in the image is the instrument?,lower-right,lower-right,validation
 clb0lbwz0donc086uf6678ypk,Are there any abnormalities in the image?,no,no,validation
@@ -5302,10 +5302,10 @@ cla820glfs4e3071ucwo1fphn,Where in the image is the anatomical landmark?,na,na,v
 cla820glfs4e3071ucwo1fphn,Where in the image is the instrument?,na,na,validation
 cla820glgs4er071udnzn4r9b,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
 cla820glgs4er071udnzn4r9b,Are there any anatomical landmarks in the image?,na,na,validation
-cla820glgs4er071udnzn4r9b,Are there any instruments in the image?,metal clip,tube,validation
+cla820glgs4er071udnzn4r9b,Are there any instruments in the image?,metal clip,na,validation
 cla820glgs4er071udnzn4r9b,Have all polyps been removed?,na,na,validation
 cla820glgs4er071udnzn4r9b,How many findings are present?,1,1,validation
-cla820glgs4er071udnzn4r9b,How many instrumnets are in the image?,1,1,validation
+cla820glgs4er071udnzn4r9b,How many instrumnets are in the image?,1,0,validation
 cla820glgs4er071udnzn4r9b,How many polyps are in the image?,0,0,validation
 cla820glgs4er071udnzn4r9b,Is there a green/black box artefact?,no,no,validation
 cla820glgs4er071udnzn4r9b,Is there text?,yes,yes,validation
@@ -5317,7 +5317,7 @@ cla820glgs4er071udnzn4r9b,What type of polyp is present?,na,na,validation
 cla820glgs4er071udnzn4r9b,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cla820glgs4er071udnzn4r9b,Where in the image is the abnormality?,center,center,validation
 cla820glgs4er071udnzn4r9b,Where in the image is the anatomical landmark?,na,na,validation
-cla820glgs4er071udnzn4r9b,Where in the image is the instrument?,lower-right,lower-right,validation
+cla820glgs4er071udnzn4r9b,Where in the image is the instrument?,lower-right,na,validation
 clb0kvxvk90vc074y037obpbz,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
 clb0kvxvk90vc074y037obpbz,Are there any anatomical landmarks in the image?,z-line,z-line,validation
 clb0kvxvk90vc074y037obpbz,Are there any instruments in the image?,na,na,validation
@@ -5346,12 +5346,12 @@ clb0lbwzhdp6k086udcq3afpc,How many polyps are in the image?,0,0,validation
 clb0lbwzhdp6k086udcq3afpc,Is there a green/black box artefact?,no,no,validation
 clb0lbwzhdp6k086udcq3afpc,Is there text?,yes,yes,validation
 clb0lbwzhdp6k086udcq3afpc,Is this finding easy to detect?,no,no,validation
-clb0lbwzhdp6k086udcq3afpc,What color is the abnormality?,na,pink,validation
+clb0lbwzhdp6k086udcq3afpc,What color is the abnormality?,na,na,validation
 clb0lbwzhdp6k086udcq3afpc,What color is the anatomical landmark?,na,na,validation
 clb0lbwzhdp6k086udcq3afpc,What is the size of the polyp?,na,na,validation
 clb0lbwzhdp6k086udcq3afpc,What type of polyp is present?,na,na,validation
 clb0lbwzhdp6k086udcq3afpc,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
-clb0lbwzhdp6k086udcq3afpc,Where in the image is the abnormality?,na,center,validation
+clb0lbwzhdp6k086udcq3afpc,Where in the image is the abnormality?,na,na,validation
 clb0lbwzhdp6k086udcq3afpc,Where in the image is the anatomical landmark?,na,na,validation
 clb0lbwzhdp6k086udcq3afpc,Where in the image is the instrument?,lower-center,lower-right,validation
 clb0lbwzhdp6k086udcq3afpc,Where exactly in the image is the instrument located?,c,c,validation
@@ -5391,7 +5391,7 @@ clb0lbwyhdo4s086ubwcg7iiu,What type of procedure is the image taken from?,colono
 clb0lbwyhdo4s086ubwcg7iiu,Where in the image is the abnormality?,na,na,validation
 clb0lbwyhdo4s086ubwcg7iiu,Where in the image is the anatomical landmark?,na,na,validation
 clb0lbwyhdo4s086ubwcg7iiu,Where in the image is the instrument?,center,center,validation
-clb0lbwzfdp3o086uhiisb4vi,Are there any abnormalities in the image?,no,polyp,validation
+clb0lbwzfdp3o086uhiisb4vi,Are there any abnormalities in the image?,no,no,validation
 clb0lbwzfdp3o086uhiisb4vi,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwzfdp3o086uhiisb4vi,Are there any instruments in the image?,biopsy forceps,biopsy forceps,validation
 clb0lbwzfdp3o086uhiisb4vi,Have all polyps been removed?,yes,na,validation
@@ -5400,7 +5400,7 @@ clb0lbwzfdp3o086uhiisb4vi,How many instrumnets are in the image?,2,1,validation
 clb0lbwzfdp3o086uhiisb4vi,How many polyps are in the image?,0,0,validation
 clb0lbwzfdp3o086uhiisb4vi,Is there a green/black box artefact?,no,no,validation
 clb0lbwzfdp3o086uhiisb4vi,Is there text?,yes,yes,validation
-clb0lbwzfdp3o086uhiisb4vi,Is this finding easy to detect?,no,yes,validation
+clb0lbwzfdp3o086uhiisb4vi,Is this finding easy to detect?,no,no,validation
 clb0lbwzfdp3o086uhiisb4vi,What color is the abnormality?,na,na,validation
 clb0lbwzfdp3o086uhiisb4vi,What color is the anatomical landmark?,na,na,validation
 clb0lbwzfdp3o086uhiisb4vi,What is the size of the polyp?,na,na,validation
@@ -5408,7 +5408,7 @@ clb0lbwzfdp3o086uhiisb4vi,What type of polyp is present?,na,na,validation
 clb0lbwzfdp3o086uhiisb4vi,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzfdp3o086uhiisb4vi,Where in the image is the abnormality?,na,na,validation
 clb0lbwzfdp3o086uhiisb4vi,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwzfdp3o086uhiisb4vi,Where in the image is the instrument?,center,lower-right,validation
+clb0lbwzfdp3o086uhiisb4vi,Where in the image is the instrument?,center,center,validation
 clb0lbwzfdp3o086uhiisb4vi,Where exactly in the image is the instrument located?,c,c,validation
 cl8k2u1qc1eob08325j4e3zf7,Are there any abnormalities in the image?,polyp,polyp,validation
 cl8k2u1qc1eob08325j4e3zf7,Are there any anatomical landmarks in the image?,no,no,validation
@@ -5704,7 +5704,7 @@ cl8k2u1q51ejb0832cwyf32qe,Where in the image is the instrument?,na,na,validation
 cl8k2u1q51ejb0832cwyf32qe,Where exactly in the image is the polyp located?,c,c,validation
 clb0lbwzcdp10086u6id843er,Are there any abnormalities in the image?,polyp,polyp,validation
 clb0lbwzcdp10086u6id843er,Are there any anatomical landmarks in the image?,no,no,validation
-clb0lbwzcdp10086u6id843er,Are there any instruments in the image?,tube,no,validation
+clb0lbwzcdp10086u6id843er,Are there any instruments in the image?,tube,tube,validation
 clb0lbwzcdp10086u6id843er,Have all polyps been removed?,no,no,validation
 clb0lbwzcdp10086u6id843er,How many findings are present?,2,1,validation
 clb0lbwzcdp10086u6id843er,How many instrumnets are in the image?,1,1,validation
@@ -5795,9 +5795,9 @@ cla820glhs4hr071uhjwycgv7,What type of procedure is the image taken from?,colono
 cla820glhs4hr071uhjwycgv7,Where in the image is the abnormality?,center,center,validation
 cla820glhs4hr071uhjwycgv7,Where in the image is the anatomical landmark?,na,na,validation
 cla820glhs4hr071uhjwycgv7,Where in the image is the instrument?,na,na,validation
-clb0kvxvr9150074y1gfae1xg,Are there any abnormalities in the image?,oesophagitis,no,validation
-clb0kvxvr9150074y1gfae1xg,Are there any anatomical landmarks in the image?,z-line,no,validation
-clb0kvxvr9150074y1gfae1xg,Are there any instruments in the image?,na,tube,validation
+clb0kvxvr9150074y1gfae1xg,Are there any abnormalities in the image?,oesophagitis,oesophagitis,validation
+clb0kvxvr9150074y1gfae1xg,Are there any anatomical landmarks in the image?,z-line,z-line,validation
+clb0kvxvr9150074y1gfae1xg,Are there any instruments in the image?,na,na,validation
 clb0kvxvr9150074y1gfae1xg,Have all polyps been removed?,na,na,validation
 clb0kvxvr9150074y1gfae1xg,How many findings are present?,2,0,validation
 clb0kvxvr9150074y1gfae1xg,How many instrumnets are in the image?,0,1,validation
@@ -5853,7 +5853,7 @@ clb0lbwz2dop8086u88hc32e0,Are there any abnormalities in the image?,no,no,valida
 clb0lbwz2dop8086u88hc32e0,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwz2dop8086u88hc32e0,Are there any instruments in the image?,tube,tube,validation
 clb0lbwz2dop8086u88hc32e0,Have all polyps been removed?,na,na,validation
-clb0lbwz2dop8086u88hc32e0,How many findings are present?,1,1,validation
+clb0lbwz2dop8086u88hc32e0,How many findings are present?,1,0,validation
 clb0lbwz2dop8086u88hc32e0,How many instrumnets are in the image?,1,1,validation
 clb0lbwz2dop8086u88hc32e0,How many polyps are in the image?,0,0,validation
 clb0lbwz2dop8086u88hc32e0,Is there a green/black box artefact?,no,no,validation
@@ -5908,7 +5908,7 @@ cla820gl2s3qf071u1ndiftcx,Are there any anatomical landmarks in the image?,na,na
 cla820gl2s3qf071u1ndiftcx,Are there any instruments in the image?,na,na,validation
 cla820gl2s3qf071u1ndiftcx,Have all polyps been removed?,na,na,validation
 cla820gl2s3qf071u1ndiftcx,How many findings are present?,1,1,validation
-cla820gl2s3qf071u1ndiftcx,How many instrumnets are in the image?,0,1,validation
+cla820gl2s3qf071u1ndiftcx,How many instrumnets are in the image?,0,0,validation
 cla820gl2s3qf071u1ndiftcx,How many polyps are in the image?,0,0,validation
 cla820gl2s3qf071u1ndiftcx,Is there a green/black box artefact?,no,no,validation
 cla820gl2s3qf071u1ndiftcx,Is there text?,yes,yes,validation
@@ -6065,7 +6065,7 @@ cla820glvs4zv071u65ys033y,What is the size of the polyp?,na,na,validation
 cla820glvs4zv071u65ys033y,What type of polyp is present?,na,na,validation
 cla820glvs4zv071u65ys033y,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cla820glvs4zv071u65ys033y,Where in the image is the abnormality?,center,center,validation
-cla820glvs4zv071u65ys033y,Where in the image is the anatomical landmark?,na,na,validation
+cla820glvs4zv071u65ys033y,Where in the image is the anatomical landmark?,na,center,validation
 cla820glvs4zv071u65ys033y,Where in the image is the instrument?,na,na,validation
 cla820glls4mv071u765tggf2,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
 cla820glls4mv071u765tggf2,Are there any anatomical landmarks in the image?,na,na,validation
@@ -6191,7 +6191,7 @@ cl8k2u1qr1f4r08323y3d4mne,Is this finding easy to detect?,no,yes,validation
 cl8k2u1qr1f4r08323y3d4mne,What color is the abnormality?,pink,pink,validation
 cl8k2u1qr1f4r08323y3d4mne,What color is the anatomical landmark?,na,na,validation
 cl8k2u1qr1f4r08323y3d4mne,What is the size of the polyp?,5-10mm,5-10mm,validation
-cl8k2u1qr1f4r08323y3d4mne,What type of polyp is present?,paris is,paris is,validation
+cl8k2u1qr1f4r08323y3d4mne,What type of polyp is present?,paris is,paris iia,validation
 cl8k2u1qr1f4r08323y3d4mne,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qr1f4r08323y3d4mne,Where in the image is the abnormality?,lower-left,center,validation
 cl8k2u1qr1f4r08323y3d4mne,Where in the image is the anatomical landmark?,na,na,validation
@@ -6324,20 +6324,20 @@ clb0lbwyhdo4g086u91yqfb54,What type of polyp is present?,na,na,validation
 clb0lbwyhdo4g086u91yqfb54,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwyhdo4g086u91yqfb54,Where in the image is the abnormality?,na,na,validation
 clb0lbwyhdo4g086u91yqfb54,Where in the image is the anatomical landmark?,na,na,validation
-clb0lbwyhdo4g086u91yqfb54,Where in the image is the instrument?,center,upper-left,validation
+clb0lbwyhdo4g086u91yqfb54,Where in the image is the instrument?,center,center,validation
 clb0lbwzddp2c086uexa16ca8,Are there any abnormalities in the image?,polyp,polyp,validation
 clb0lbwzddp2c086uexa16ca8,Are there any anatomical landmarks in the image?,no,no,validation
-clb0lbwzddp2c086uexa16ca8,Are there any instruments in the image?,polyp snare,polyp snare,validation
-clb0lbwzddp2c086uexa16ca8,Have all polyps been removed?,no,no,validation
+clb0lbwzddp2c086uexa16ca8,Are there any instruments in the image?,polyp snare,biopsy forceps,validation
+clb0lbwzddp2c086uexa16ca8,Have all polyps been removed?,no,na,validation
 clb0lbwzddp2c086uexa16ca8,How many findings are present?,1,2,validation
 clb0lbwzddp2c086uexa16ca8,How many instrumnets are in the image?,2,1,validation
-clb0lbwzddp2c086uexa16ca8,How many polyps are in the image?,1,1,validation
+clb0lbwzddp2c086uexa16ca8,How many polyps are in the image?,1,0,validation
 clb0lbwzddp2c086uexa16ca8,Is there a green/black box artefact?,no,no,validation
 clb0lbwzddp2c086uexa16ca8,Is there text?,yes,yes,validation
 clb0lbwzddp2c086uexa16ca8,Is this finding easy to detect?,no,yes,validation
-clb0lbwzddp2c086uexa16ca8,What color is the abnormality?,pink,red,validation
+clb0lbwzddp2c086uexa16ca8,What color is the abnormality?,pink,na,validation
 clb0lbwzddp2c086uexa16ca8,What color is the anatomical landmark?,na,na,validation
-clb0lbwzddp2c086uexa16ca8,What is the size of the polyp?,11-20mm,5-10mm,validation
+clb0lbwzddp2c086uexa16ca8,What is the size of the polyp?,11-20mm,na,validation
 clb0lbwzddp2c086uexa16ca8,What type of polyp is present?,paris ip,paris ip,validation
 clb0lbwzddp2c086uexa16ca8,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzddp2c086uexa16ca8,Where in the image is the abnormality?,center,center,validation
@@ -6606,7 +6606,7 @@ cl8k2u1po1dy70832egig31sq,Have all polyps been removed?,no,no,validation
 cl8k2u1po1dy70832egig31sq,How many findings are present?,1,1,validation
 cl8k2u1po1dy70832egig31sq,How many instrumnets are in the image?,0,0,validation
 cl8k2u1po1dy70832egig31sq,How many polyps are in the image?,1,1,validation
-cl8k2u1po1dy70832egig31sq,Is there a green/black box artefact?,yes,no,validation
+cl8k2u1po1dy70832egig31sq,Is there a green/black box artefact?,yes,yes,validation
 cl8k2u1po1dy70832egig31sq,Is there text?,yes,yes,validation
 cl8k2u1po1dy70832egig31sq,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1po1dy70832egig31sq,What color is the abnormality?,pink,pink,validation
@@ -6709,20 +6709,20 @@ clb0kvxux8ztk074ydrosfmn4,What type of procedure is the image taken from?,gastro
 clb0kvxux8ztk074ydrosfmn4,Where in the image is the abnormality?,center,center,validation
 clb0kvxux8ztk074ydrosfmn4,Where in the image is the anatomical landmark?,center,center,validation
 clb0kvxux8ztk074ydrosfmn4,Where in the image is the instrument?,na,na,validation
-clb0lbwzjdp8k086ub14gh9l4,Are there any abnormalities in the image?,polyp,polyp,validation
+clb0lbwzjdp8k086ub14gh9l4,Are there any abnormalities in the image?,polyp,no,validation
 clb0lbwzjdp8k086ub14gh9l4,Are there any anatomical landmarks in the image?,no,no,validation
 clb0lbwzjdp8k086ub14gh9l4,Are there any instruments in the image?,biopsy forceps,tube,validation
-clb0lbwzjdp8k086ub14gh9l4,Have all polyps been removed?,no,no,validation
-clb0lbwzjdp8k086ub14gh9l4,How many findings are present?,1,1,validation
+clb0lbwzjdp8k086ub14gh9l4,Have all polyps been removed?,no,na,validation
+clb0lbwzjdp8k086ub14gh9l4,How many findings are present?,1,2,validation
 clb0lbwzjdp8k086ub14gh9l4,How many instrumnets are in the image?,2,1,validation
-clb0lbwzjdp8k086ub14gh9l4,How many polyps are in the image?,1,1,validation
+clb0lbwzjdp8k086ub14gh9l4,How many polyps are in the image?,1,0,validation
 clb0lbwzjdp8k086ub14gh9l4,Is there a green/black box artefact?,no,no,validation
 clb0lbwzjdp8k086ub14gh9l4,Is there text?,yes,yes,validation
 clb0lbwzjdp8k086ub14gh9l4,Is this finding easy to detect?,no,yes,validation
 clb0lbwzjdp8k086ub14gh9l4,What color is the abnormality?,pink,pink,validation
 clb0lbwzjdp8k086ub14gh9l4,What color is the anatomical landmark?,na,na,validation
-clb0lbwzjdp8k086ub14gh9l4,What is the size of the polyp?,11-20mm,5-10mm,validation
-clb0lbwzjdp8k086ub14gh9l4,What type of polyp is present?,paris ip,paris ip,validation
+clb0lbwzjdp8k086ub14gh9l4,What is the size of the polyp?,11-20mm,na,validation
+clb0lbwzjdp8k086ub14gh9l4,What type of polyp is present?,paris ip,na,validation
 clb0lbwzjdp8k086ub14gh9l4,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 clb0lbwzjdp8k086ub14gh9l4,Where in the image is the abnormality?,center,center,validation
 clb0lbwzjdp8k086ub14gh9l4,Where in the image is the anatomical landmark?,na,na,validation
@@ -6896,7 +6896,7 @@ clb0kvxve90jo074yhidc1v7m,Are there any anatomical landmarks in the image?,z-lin
 clb0kvxve90jo074yhidc1v7m,Are there any instruments in the image?,na,na,validation
 clb0kvxve90jo074yhidc1v7m,Have all polyps been removed?,na,na,validation
 clb0kvxve90jo074yhidc1v7m,How many findings are present?,2,2,validation
-clb0kvxve90jo074yhidc1v7m,How many instrumnets are in the image?,0,0,validation
+clb0kvxve90jo074yhidc1v7m,How many instrumnets are in the image?,0,1,validation
 clb0kvxve90jo074yhidc1v7m,How many polyps are in the image?,0,0,validation
 clb0kvxve90jo074yhidc1v7m,Is there a green/black box artefact?,no,no,validation
 clb0kvxve90jo074yhidc1v7m,Is there text?,no,no,validation
@@ -7082,7 +7082,7 @@ cl8k2u1qt1f7r08323i9bfggi,How many findings are present?,1,1,validation
 cl8k2u1qt1f7r08323i9bfggi,How many instrumnets are in the image?,0,0,validation
 cl8k2u1qt1f7r08323i9bfggi,How many polyps are in the image?,1,1,validation
 cl8k2u1qt1f7r08323i9bfggi,Is there a green/black box artefact?,no,no,validation
-cl8k2u1qt1f7r08323i9bfggi,Is there text?,yes,yes,validation
+cl8k2u1qt1f7r08323i9bfggi,Is there text?,yes,no,validation
 cl8k2u1qt1f7r08323i9bfggi,Is this finding easy to detect?,yes,yes,validation
 cl8k2u1qt1f7r08323i9bfggi,What color is the abnormality?,pink,pink,validation
 cl8k2u1qt1f7r08323i9bfggi,What color is the anatomical landmark?,na,na,validation
@@ -7281,7 +7281,7 @@ cl8k2u1qt1f8308323y41bu5k,Are there any anatomical landmarks in the image?,no,no
 cl8k2u1qt1f8308323y41bu5k,Are there any instruments in the image?,no,no,validation
 cl8k2u1qt1f8308323y41bu5k,Have all polyps been removed?,no,no,validation
 cl8k2u1qt1f8308323y41bu5k,How many findings are present?,1,1,validation
-cl8k2u1qt1f8308323y41bu5k,How many instrumnets are in the image?,0,0,validation
+cl8k2u1qt1f8308323y41bu5k,How many instrumnets are in the image?,0,1,validation
 cl8k2u1qt1f8308323y41bu5k,How many polyps are in the image?,1,1,validation
 cl8k2u1qt1f8308323y41bu5k,Is there a green/black box artefact?,no,no,validation
 cl8k2u1qt1f8308323y41bu5k,Is there text?,yes,yes,validation
@@ -7293,7 +7293,7 @@ cl8k2u1qt1f8308323y41bu5k,What type of polyp is present?,paris iia,paris is,vali
 cl8k2u1qt1f8308323y41bu5k,What type of procedure is the image taken from?,colonoscopy,colonoscopy,validation
 cl8k2u1qt1f8308323y41bu5k,Where in the image is the abnormality?,center,center,validation
 cl8k2u1qt1f8308323y41bu5k,Where in the image is the anatomical landmark?,na,na,validation
-cl8k2u1qt1f8308323y41bu5k,Where in the image is the instrument?,na,na,validation
+cl8k2u1qt1f8308323y41bu5k,Where in the image is the instrument?,na,center,validation
 cl8k2u1qt1f8308323y41bu5k,Where exactly in the image is the polyp located?,c,c,validation
 cla820gles4c3071u4ctg8u80,Are there any abnormalities in the image?,ulcerative colitis,ulcerative colitis,validation
 cla820gles4c3071u4ctg8u80,Are there any anatomical landmarks in the image?,na,na,validation

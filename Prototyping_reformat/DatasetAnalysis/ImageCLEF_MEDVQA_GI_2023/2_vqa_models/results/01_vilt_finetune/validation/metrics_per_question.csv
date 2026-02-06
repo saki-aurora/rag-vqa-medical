@@ -1,0 +1,21 @@
+question_id,n,accuracy,macro_f1
+Are there any abnormalities in the image?,400,0.95,0.7607389276962768
+Are there any anatomical landmarks in the image?,400,0.9425,0.6066706638013939
+Are there any instruments in the image?,400,0.9025,0.6170765718698746
+Have all polyps been removed?,400,0.9525,0.6296346976423605
+How many findings are present?,400,0.83,0.35179811257134447
+How many instrumnets are in the image?,400,0.945,0.6259732949748272
+How many polyps are in the image?,400,0.9275,0.2627002627002627
+Is there a green/black box artefact?,400,0.96,0.9540441176470589
+Is there text?,400,0.9725,0.9621729897953043
+Is this finding easy to detect?,400,0.8575,0.5695908358951837
+What color is the abnormality?,400,0.845,0.23230746856401308
+What color is the anatomical landmark?,400,0.9675,0.32782719186785264
+What is the size of the polyp?,400,0.75,0.2635664691781247
+What type of polyp is present?,400,0.8325,0.6031734247681999
+What type of procedure is the image taken from?,400,0.9975,0.9968563097792343
+Where exactly in the image is the instrument located?,43,1.0,1.0
+Where exactly in the image is the polyp located?,89,1.0,1.0
+Where in the image is the abnormality?,400,0.9175,0.18775058168480302
+Where in the image is the anatomical landmark?,400,0.9175,0.260517020486847
+Where in the image is the instrument?,400,0.8625,0.28273219949869133
