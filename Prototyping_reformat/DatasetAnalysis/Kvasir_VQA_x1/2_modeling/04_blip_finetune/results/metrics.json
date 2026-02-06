@@ -1,0 +1,7 @@
+{
+  "bleu": 0.2731093218021807,
+  "rougeL": 0.6129783502458841,
+  "model": "Salesforce/blip-vqa-base",
+  "split": "test",
+  "num_examples": 15955
+}
