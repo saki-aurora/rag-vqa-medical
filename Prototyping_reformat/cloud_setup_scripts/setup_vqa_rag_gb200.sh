@@ -108,7 +108,23 @@ fi
 # Verify CUDA works (this catches "no kernel image" early)
 python - <<'PY'
 import torch
+
+def parse_version(v: str):
+    core = str(v).split("+", 1)[0]
+    parts = []
+    for token in core.split("."):
+        digits = "".join(ch for ch in token if ch.isdigit())
+        parts.append(int(digits) if digits else 0)
+    while len(parts) < 3:
+        parts.append(0)
+    return tuple(parts[:3])
+
 print("Torch:", torch.__version__)
+if parse_version(torch.__version__) < (2, 6, 0):
+    raise SystemExit(
+        "ERROR: torch>=2.6 is required for Gemma3/MedGemma multimodal masking. "
+        "Re-run install with cu128 nightly wheels for GB200."
+    )
 print("CUDA available:", torch.cuda.is_available())
 if torch.cuda.is_available():
     print("GPU:", torch.cuda.get_device_name(0))
