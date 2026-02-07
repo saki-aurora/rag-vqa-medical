@@ -84,7 +84,7 @@ if command -v uv >/dev/null 2>&1; then
 fi
 
 # Stable PyTorch for H200
-$PIP_CMD install torch torchvision torchaudio --index-url "$TORCH_INDEX_URL"
+$PIP_CMD install --upgrade torch torchvision torchaudio --index-url "$TORCH_INDEX_URL"
 $PIP_CMD install -r "$REQ_FILE"
 
 python -m ipykernel install --user --name "$KERNEL_NAME" --display-name "$KERNEL_DISPLAY"
@@ -119,7 +119,25 @@ fi
 # Verify CUDA works (this catches "no kernel image" early)
 python - <<'PY'
 import torch
+
+def parse_version(v: str):
+    core = str(v).split("+", 1)[0]
+    parts = []
+    for token in core.split("."):
+        digits = "".join(ch for ch in token if ch.isdigit())
+        parts.append(int(digits) if digits else 0)
+    while len(parts) < 3:
+        parts.append(0)
+    return tuple(parts[:3])
+
 print("Torch:", torch.__version__)
+if parse_version(torch.__version__) < (2, 6, 0):
+    raise SystemExit(
+        "ERROR: torch>=2.6 is required for Gemma3/MedGemma multimodal masking. "
+        "Try installing nightly if stable wheels are older on this image: "
+        "pip install --upgrade --pre torch torchvision torchaudio --index-url "
+        "https://download.pytorch.org/whl/nightly/<cu121|cu128>"
+    )
 print("CUDA available:", torch.cuda.is_available())
 if torch.cuda.is_available():
     print("GPU:", torch.cuda.get_device_name(0))
