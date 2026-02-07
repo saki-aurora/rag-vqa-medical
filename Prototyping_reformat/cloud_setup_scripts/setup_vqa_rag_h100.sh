@@ -5,8 +5,10 @@ WORKDIR="${WORKDIR:-/workspace}"
 VENV_DIR="${VENV_DIR:-$WORKDIR/vqa-rag}"
 KERNEL_NAME="${KERNEL_NAME:-vqa-rag}"
 KERNEL_DISPLAY="${KERNEL_DISPLAY:-Python (vqa-rag)}"
+REPO_DIR="${REPO_DIR:-$WORKDIR/rag-vqa-medical}"
 
 REQ_FILE="${REQ_FILE:-$WORKDIR/requirements-vqa-rag.txt}"
+KVASIR_ROOT="${KVASIR_ROOT:-$REPO_DIR/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1}"
 
 mkdir -p "$WORKDIR"
 cd "$WORKDIR"
@@ -33,6 +35,9 @@ evaluate==0.4.6
 timm==1.0.22
 safetensors==0.5.3
 tokenizers==0.21.4
+peft==0.13.2
+sentencepiece==0.2.0
+python-dotenv==1.0.1
 
 scikit-learn==1.7.0
 pandas==2.3.1
@@ -69,7 +74,7 @@ if command -v uv >/dev/null 2>&1; then
 fi
 
 # Stable PyTorch for H100
-$PIP_CMD install torch torchvision torchaudio --index-url "$TORCH_INDEX_URL"
+$PIP_CMD install --upgrade torch torchvision torchaudio --index-url "$TORCH_INDEX_URL"
 $PIP_CMD install -r "$REQ_FILE"
 
 python -m ipykernel install --user --name "$KERNEL_NAME" --display-name "$KERNEL_DISPLAY"
@@ -80,11 +85,30 @@ export HF_HOME=$WORKDIR/.cache/huggingface
 export TRANSFORMERS_CACHE=$WORKDIR/.cache/huggingface/hub
 export HF_DATASETS_CACHE=$WORKDIR/.cache/huggingface/datasets
 export TORCH_HOME=$WORKDIR/.cache/torch
+export KVASIR_VQA_X1_ROOT=$KVASIR_ROOT
 EOF
 
 python - <<'PY'
 import torch
+
+def parse_version(v: str):
+    core = str(v).split("+", 1)[0]
+    parts = []
+    for token in core.split("."):
+        digits = "".join(ch for ch in token if ch.isdigit())
+        parts.append(int(digits) if digits else 0)
+    while len(parts) < 3:
+        parts.append(0)
+    return tuple(parts[:3])
+
 print("Torch:", torch.__version__)
+if parse_version(torch.__version__) < (2, 6, 0):
+    raise SystemExit(
+        "ERROR: torch>=2.6 is required for Gemma3/MedGemma multimodal masking. "
+        "Try nightly wheels if stable is older on your image: "
+        "pip install --upgrade --pre torch torchvision torchaudio --index-url "
+        "https://download.pytorch.org/whl/nightly/<cu121|cu128>"
+    )
 print("CUDA available:", torch.cuda.is_available())
 if torch.cuda.is_available():
     print("GPU:", torch.cuda.get_device_name(0))
