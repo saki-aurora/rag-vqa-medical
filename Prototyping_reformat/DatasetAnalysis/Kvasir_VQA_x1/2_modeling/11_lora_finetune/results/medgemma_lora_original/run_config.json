@@ -1,0 +1,22 @@
+{
+  "timestamp_utc": "2026-02-07T01:40:40.840087+00:00",
+  "variant": "original",
+  "model_id": "google/medgemma-4b-it",
+  "model_name": "medgemma",
+  "train_rows": 143594,
+  "eval_rows": 15955,
+  "batch_size": 12,
+  "eval_batch_size": 24,
+  "grad_accum": 2,
+  "epochs": 1,
+  "lr": 0.0002,
+  "max_length": 1024,
+  "max_new_tokens": 24,
+  "use_4bit": false,
+  "use_8bit": false,
+  "use_bf16": true,
+  "attn_impl": "sdpa",
+  "use_fast_processor": true,
+  "use_fused_adamw": true,
+  "device": "NVIDIA H200 NVL"
+}
