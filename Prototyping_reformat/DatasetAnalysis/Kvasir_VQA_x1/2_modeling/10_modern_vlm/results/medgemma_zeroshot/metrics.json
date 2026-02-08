@@ -1,0 +1,168 @@
+{
+  "overall": {
+    "em": 6.267627702914446e-05,
+    "token_f1": 0.21307981089071498,
+    "anls": 0.017497930610693237,
+    "count": 15955
+  },
+  "by_question_class": [
+    {
+      "em": 0.0,
+      "token_f1": 0.19741915437425853,
+      "anls": 0.009029183033380433,
+      "count": 1862,
+      "question_class": "abnormality_color"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.1914481824695048,
+      "anls": 0.0033602188294671624,
+      "count": 1901,
+      "question_class": "abnormality_location"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.16846956467107427,
+      "anls": 0.0024464040401726106,
+      "count": 1823,
+      "question_class": "abnormality_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2941136301655167,
+      "anls": 0.03314057000137627,
+      "count": 2319,
+      "question_class": "box_artifact_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.21526619936077407,
+      "anls": 0.014261069964818483,
+      "count": 2115,
+      "question_class": "finding_count"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.05630810396554802,
+      "anls": 0.0,
+      "count": 237,
+      "question_class": "finding_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.3001773687106178,
+      "anls": 0.052118752216440765,
+      "count": 2208,
+      "question_class": "instrument_count"
+    },
+    {
+      "em": 0.0005227391531625719,
+      "token_f1": 0.2780654379108293,
+      "anls": 0.014571597700415594,
+      "count": 1913,
+      "question_class": "instrument_location"
+    },
+    {
+      "em": 0.0005443658138268917,
+      "token_f1": 0.2631308792855507,
+      "anls": 0.01508228317079075,
+      "count": 1837,
+      "question_class": "instrument_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.1994048769090869,
+      "anls": 0.00909090909090909,
+      "count": 55,
+      "question_class": "landmark_color"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.1934668150804085,
+      "anls": 0.009036444333468023,
+      "count": 1224,
+      "question_class": "landmark_location"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.18350451769963141,
+      "anls": 0.002954673265934132,
+      "count": 1264,
+      "question_class": "landmark_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.24779558995006074,
+      "anls": 0.012816165834487052,
+      "count": 1900,
+      "question_class": "polyp_count"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.1918589107137563,
+      "anls": 0.008966859059907302,
+      "count": 2312,
+      "question_class": "polyp_removal_status"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.21835474647546296,
+      "anls": 0.007983356504521989,
+      "count": 1936,
+      "question_class": "polyp_size"
+    },
+    {
+      "em": 0.0005104645227156713,
+      "token_f1": 0.20853130552773616,
+      "anls": 0.011259450988803184,
+      "count": 1959,
+      "question_class": "polyp_type"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2499779984471265,
+      "anls": 0.02420283610333972,
+      "count": 2303,
+      "question_class": "procedure_type"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.323969286043876,
+      "anls": 0.029318282554046705,
+      "count": 2454,
+      "question_class": "text_presence"
+    }
+  ],
+  "by_complexity": [
+    {
+      "em": 0.0,
+      "token_f1": 0.145364680992814,
+      "anls": 0.017668971373953162,
+      "count": 5496,
+      "complexity": 1
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.21666291402661644,
+      "anls": 0.021407272512670404,
+      "count": 5251,
+      "complexity": 2
+    },
+    {
+      "em": 0.00019201228878648233,
+      "token_f1": 0.2809268691380739,
+      "anls": 0.013375811877559854,
+      "count": 5208,
+      "complexity": 3
+    }
+  ],
+  "by_transformed": [
+    {
+      "em": 6.267627702914446e-05,
+      "token_f1": 0.21307981089071498,
+      "anls": 0.017497930610693237,
+      "count": 15955,
+      "is_transformed": false
+    }
+  ]
+}
