@@ -28,6 +28,7 @@ if [[ -n "${CUDA_VER}" ]]; then
 fi
 
 TORCH_INDEX_URL="https://download.pytorch.org/whl/${TORCH_CUDA}"
+NIGHTLY_TORCH_INDEX_URL="https://download.pytorch.org/whl/nightly/${TORCH_CUDA}"
 echo "[H200] CUDA Version (nvidia-smi): ${CUDA_VER:-unknown} => Using ${TORCH_CUDA} wheels (${TORCH_INDEX_URL})"
 
 if [[ ! -d "$REPO_DIR" ]]; then
@@ -88,6 +89,27 @@ fi
 $PIP_CMD install --upgrade torch torchvision torchaudio --index-url "$TORCH_INDEX_URL"
 $PIP_CMD install -r "$REQ_FILE"
 
+# Some cloud images resolve cu121 stable to torch<2.6 (e.g., 2.5.1). Auto-fallback to nightly.
+if ! python - <<'PY'
+import torch
+
+def parse_version(v: str):
+    core = str(v).split("+", 1)[0]
+    parts = []
+    for token in core.split("."):
+        digits = "".join(ch for ch in token if ch.isdigit())
+        parts.append(int(digits) if digits else 0)
+    while len(parts) < 3:
+        parts.append(0)
+    return tuple(parts[:3])
+
+raise SystemExit(0 if parse_version(torch.__version__) >= (2, 6, 0) else 1)
+PY
+then
+  echo "⚠️  Stable ${TORCH_CUDA} channel resolved to torch<2.6. Upgrading to nightly from ${NIGHTLY_TORCH_INDEX_URL}"
+  $PIP_CMD install --upgrade --pre torch torchvision torchaudio --index-url "$NIGHTLY_TORCH_INDEX_URL"
+fi
+
 python -m ipykernel install --user --name "$KERNEL_NAME" --display-name "$KERNEL_DISPLAY"
 
 # Caches + env vars
@@ -137,9 +159,7 @@ print("bitsandbytes:", bnb.__version__)
 if parse_version(torch.__version__) < (2, 6, 0):
     raise SystemExit(
         "ERROR: torch>=2.6 is required for Gemma3/MedGemma multimodal masking. "
-        "Try installing nightly if stable wheels are older on this image: "
-        "pip install --upgrade --pre torch torchvision torchaudio --index-url "
-        "https://download.pytorch.org/whl/nightly/<cu121|cu128>"
+        "The script already attempted nightly fallback, but the installed torch is still <2.6."
     )
 print("CUDA available:", torch.cuda.is_available())
 if torch.cuda.is_available():
