@@ -1,0 +1,16 @@
+{
+  "model_name": "Qwen/Qwen2.5-VL-7B-Instruct",
+  "run": "06_qwen2_5_vl_lora_finetune",
+  "num_train_samples": 29351,
+  "epochs": 1,
+  "batch_size": 1,
+  "learning_rate": 0.0002,
+  "max_train_samples": null,
+  "use_4bit": true,
+  "use_8bit": false,
+  "device_map": "auto",
+  "compute_dtype": "bfloat16",
+  "bf16": true,
+  "fp16": false,
+  "tf32": true
+}
