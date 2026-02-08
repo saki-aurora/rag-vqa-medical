@@ -1,0 +1,4 @@
+question_id,n,precision_macro,recall_macro,f1_macro
+Is there a green/black box artefact?,400,0.0,0.0,0.0
+Is there text?,400,0.0,0.0,0.0
+What type of procedure is the image taken from?,400,0.0,0.0,0.0
