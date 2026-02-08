@@ -44,7 +44,8 @@ evaluate==0.4.6
 timm==1.0.22
 safetensors==0.5.3
 tokenizers==0.21.4
-peft==0.13.2
+peft==0.18.1
+bitsandbytes==0.49.1
 sentencepiece==0.2.0
 
 scikit-learn==1.7.0
@@ -119,6 +120,7 @@ fi
 # Verify CUDA works (this catches "no kernel image" early)
 python - <<'PY'
 import torch
+import bitsandbytes as bnb
 
 def parse_version(v: str):
     core = str(v).split("+", 1)[0]
@@ -131,6 +133,7 @@ def parse_version(v: str):
     return tuple(parts[:3])
 
 print("Torch:", torch.__version__)
+print("bitsandbytes:", bnb.__version__)
 if parse_version(torch.__version__) < (2, 6, 0):
     raise SystemExit(
         "ERROR: torch>=2.6 is required for Gemma3/MedGemma multimodal masking. "
