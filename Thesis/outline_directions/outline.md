@@ -19,7 +19,7 @@
 2.4 Scoping review summary table (**target ~20-40 studies**, as noted)  
 2.5 Key gaps and weaknesses identified from prior work
 
-## 3. Chapter 3: Investigating Methods for Existing Models
+## 3. Chapter 3: Investigating Existing VQA Techniques Across GI-Endoscopy Datasets
 3.1 Overview of chapter and evaluation goal  
 3.2 Experimental scenarios  
 3.3 Evaluation metrics  
@@ -55,4 +55,4 @@
 ## Notes to Confirm with Supervisor
 - Whether Chapter 5 should be "Conclusion and Future Work" (one sketch shows this) or whether Chapter 6 is reserved for that and Chapter 5 is the PICO/use-case chapter.  
 - Exact target for scoping review table size (written note appears to be ~20-40).  
-- Final naming of Chapter 3 ("Investigating methods for existing models").
+- Final naming of Chapter 3 ("Investigating existing VQA techniques across GI-endoscopy datasets").
