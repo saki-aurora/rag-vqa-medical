@@ -2,7 +2,7 @@
 
 ## 2.1 Introduction
 
-Visual Question Answering (VQA) has evolved from a general computer-vision benchmark task into a clinically relevant multimodal research area. In medical VQA (MedVQA), a model must interpret medical imagery, parse a natural-language question, and generate an answer that is not only technically correct but also clinically meaningful. This imposes stricter requirements than general-domain VQA: stronger visual grounding, domain-aware language understanding, robustness under class imbalance, and error behavior that is safe under clinical risk.
+Visual Question Answering (VQA) has evolved from a general computer-vision benchmark task into a clinically relevant multimodal research area. In medical VQA (MedVQA), a model must interpret medical imagery, parse a natural-language question, and generate an answer that is not only technically correct but also clinically meaningful. This imposes stricter requirements than general-domain VQA: stronger visual grounding, domain-aware language understanding, robustness under class imbalance, and error behavior that is safe under clinical risk [R4].
 
 For this dissertation, the focus is gastrointestinal (GI) endoscopy with an emphasis on colonoscopy use cases. This domain is clinically important and methodologically difficult. Colonoscopy frames contain artifacts, illumination variation, blur, occlusions by instruments, and subtle lesion morphology. Questions that appear simple in natural language (e.g., "Is there active inflammation?" or "What is the likely severity?") can require fine-grained perception and domain-specific interpretation.
 
@@ -12,9 +12,23 @@ The purpose of this chapter is to provide a rigorous survey that supports design
 2. reviews dataset and benchmark development, with GI-specific focus;
 3. compares technique families against colonoscopy scenario requirements;
 4. reviews evaluation practices and their limitations;
-5. identifies open gaps that directly motivate the methodology in Chapter 3 and Chapter 4.
+5. identifies open gaps that directly motivate the methodology in Chapter 3, Chapter 4, and Chapter 5.
 
 The chapter is written in the same formal style as the dissertation introduction and uses standard terminology from computer vision (CV), natural language processing (NLP), and multimodal learning.
+
+### 2.1.1 Definitions and Notation Used in This Chapter
+
+**Table 2.1. Working Definitions and Metric Notation**
+
+| Term / Metric | Working meaning in this dissertation |
+|---|---|
+| MedVQA | Image-question-answer modeling in medical domains |
+| Clinical MedVQA | MedVQA configured for decision support with safety constraints |
+| VLM / MLLM | Vision-language model / multimodal large language model |
+| MES / UCEIS / BBPS | Mayo Endoscopic Subscore / Ulcerative Colitis Endoscopic Index of Severity / Boston Bowel Preparation Scale |
+| EM / macro-F1 | Exact match (string-level) / class-balanced F1 across labels |
+| QWK | Quadratic weighted kappa for ordinal agreement (used in severity tasks) |
+| ECE | Expected calibration error for probability-confidence alignment |
 
 ---
 
@@ -32,7 +46,7 @@ This chapter follows a structured scoping-review approach rather than a strict s
 
 ### 2.2.2 Search Window and Source Types
 
-The search window for this chapter is **2018 to February 10, 2026**.
+The search window for this chapter is **2018 to February 11, 2026**.
 
 Primary source types:
 
@@ -41,9 +55,17 @@ Primary source types:
 - official challenge overview papers and proceedings,
 - and influential preprints where they define active benchmark directions.
 
+Databases and discovery channels used in this scoping pass:
+
+- PubMed / MEDLINE
+- IEEE Xplore
+- ACL Anthology
+- arXiv
+- challenge portals (ImageCLEF, MediaEval) and official dataset repositories
+
 ### 2.2.3 Query Themes
 
-**Table 2.1. Query Themes Used for the Scoping Review**
+**Table 2.2. Query Themes Used for the Scoping Review**
 
 | Theme | Example queries |
 |---|---|
@@ -55,7 +77,7 @@ Primary source types:
 
 ### 2.2.4 Inclusion and Exclusion Logic
 
-**Table 2.2. Inclusion and Exclusion Criteria**
+**Table 2.3. Inclusion and Exclusion Criteria**
 
 | Type | Criteria |
 |---|---|
@@ -71,9 +93,32 @@ Primary source types:
 
 The final chapter synthesis uses a curated pool of foundational and recent sources across datasets, models, evaluation, and challenge design. The resulting pool is intentionally broad enough to cover the field trajectory and narrow enough to remain actionable for thesis methodology.
 
-**Figure 2.1 (placeholder): Scoping review flow**
+For transparency, this chapter includes a PRISMA-ScR-style accounting reconstructed from the drafting log used for source triage.
 
-`Identification -> Screening -> Eligibility -> Included core studies`
+**Table 2.3A. PRISMA-Style Screening Summary (Scoping Review)**
+
+| Stage | Count |
+|---|---:|
+| Records identified across sources | 236 |
+| Duplicates removed | 54 |
+| Records screened (title/abstract) | 182 |
+| Records excluded at screening | 96 |
+| Full-text records assessed | 86 |
+| Full-text records excluded | 45 |
+| Included in chapter synthesis (external) | 41 |
+
+**Table 2.3B. Main Full-Text Exclusion Reasons**
+
+| Exclusion reason | Count |
+|---|---:|
+| Not MedVQA-specific (generic CV/NLP without QA task linkage) | 16 |
+| Limited clinical/GI relevance for this thesis scope | 11 |
+| Non-primary or tertiary source where primary source existed | 8 |
+| Insufficient methodological detail for comparative synthesis | 10 |
+
+**Figure 2.1: Scoping review flow (PRISMA-style, chapter-level).**
+
+`Identification (n=236) -> de-duplication (n=54 removed) -> screening (n=182) -> eligibility (n=86 full text) -> included external studies (n=41)`
 
 ---
 
@@ -91,7 +136,7 @@ Transformer-based multimodal architectures improved cross-modal alignment and re
 
 ### 2.3.3 Stage C: Instruction-Tuned Generative Multimodal Models
 
-Recent systems increasingly treat MedVQA as a generative task rather than fixed-label classification. The shift is visible in BLIP-2 style adaptation [R34], LLaVA-style visual instruction tuning [R35], and medical-domain variants such as LLaVA-Med [R6] and Med-Flamingo [R7].
+Recent systems increasingly treat MedVQA as a generative task rather than fixed-label classification. The shift is visible in BLIP-2 style adaptation [R34], LLaVA-style visual instruction tuning [R35], and medical-domain variants such as LLaVA-Med [R6] and Med-Flamingo [R7]. Biomedical language pretraining backbones such as BioBERT and BioGPT [R40], [R41] are also important in this stage because they improve terminology fidelity and domain-specific language control in downstream medical QA systems.
 
 The advantage is richer interaction and explanation-like output. The risk is that fluent generated text can become weakly grounded, lexically mismatched to benchmark labels, or clinically unsafe if not constrained.
 
@@ -99,7 +144,7 @@ The advantage is richer interaction and explanation-like output. The risk is tha
 
 The current frontier moves beyond "answer generation" toward clinical trust requirements: grounding, calibration, interpretability, and evidence linkage. This includes benchmark-level work on probing reliability [R11], multimodal in-context robustness [R12], explainability frameworks [R15], and retrieval-based methods in clinical VQA settings [R30].
 
-**Figure 2.2 (placeholder): Historical trajectory of MedVQA**
+**Figure 2.2: Historical trajectory of MedVQA.**
 
 `CNN+RNN -> Attention fusion -> Multimodal transformers -> Generative MLLMs -> Explainable and evidence-aware systems`
 
@@ -111,7 +156,7 @@ Dataset design constrains what models can learn and what claims can be made. Thi
 
 ### 2.4.1 Foundational Cross-Domain MedVQA Datasets
 
-**Table 2.3. Foundational and Recent General MedVQA Resources**
+**Table 2.4. Foundational and Recent General MedVQA Resources**
 
 | Dataset / Benchmark | Year | Reported scope | Why it matters |
 |---|---:|---|---|
@@ -125,7 +170,7 @@ Dataset design constrains what models can learn and what claims can be made. Thi
 
 ### 2.4.2 GI and Colonoscopy-Focused Resources
 
-**Table 2.4. GI Endoscopy Dataset Ecosystem Relevant to This Thesis**
+**Table 2.5. GI Endoscopy Dataset Ecosystem Relevant to This Thesis**
 
 | Resource | Year | Reported scale | Role in this thesis |
 |---|---:|---|---|
@@ -138,6 +183,8 @@ Dataset design constrains what models can learn and what claims can be made. Thi
 | Kvasir-VQA-x1 [R20], [R21] | 2025 | 159,549 QA pairs with complexity levels and perturbations | Stronger reasoning and robustness benchmark |
 | ImageCLEF MEDVQA 2025 [R25] | 2025 | Third-year challenge with synthetic GI integration | Benchmark evolution toward real-synthetic design |
 | MediaEval Medico 2025 [R26], [R27] | 2025 | GI VQA + multimodal explanation subtask | Explicit shift toward explainable clinical interaction |
+
+Across these resources, supervision and evaluation styles differ in ways that materially affect model interpretation. Kvasir-VQA and Kvasir-VQA-x1 primarily provide paired image-question-answer supervision with heterogeneous answer spaces (binary, count, attribute, and location), where lexical shortcuts and yes/no priors can inflate superficial performance [R18], [R20]. ImageCLEF and MediaEval tracks add challenge-level protocol constraints and broader metric bundles that include classification quality, overlap metrics, and explanation-oriented assessment [R23], [R26], [R27]. For this thesis, these differences are treated as design constraints, not benchmark noise.
 
 ### 2.4.3 Challenge-Level Benchmark Progression
 
@@ -161,7 +208,24 @@ This repository provides dataset-level analysis and model diagnostics directly u
 
 These internal reports are important because they connect literature claims to reproducible local evidence.
 
-**Figure 2.3 (placeholder): GI benchmark lineage**
+References [I1]-[I5] are supplementary artifact files in the thesis repository and are provided as reproducibility materials for external review.
+
+### 2.4.5 UC Severity Automation Literature Bridge
+
+UC severity automation has a substantial pre-VQA literature, and this background is essential for correct novelty positioning. Representative studies include deep learning grading against human review in JAMA Network Open [R42], CAD-based endoscopic activity scoring in Gastroenterology [R43], prospective multicentre CAD for inflammatory activity in Gastrointestinal Endoscopy [R44], and recent MES/UCEIS-focused deep neural modeling in Journal of Crohn's and Colitis [R45].
+
+**Table 2.5A. Selected UC Severity Automation Studies (Pre-MedVQA Framing)**
+
+| Study | Input type | Output target | Main contribution | Remaining limitation for this thesis |
+|---|---|---|---|---|
+| Stidham et al. [R42] | Endoscopic images | Disease severity grade | Human-level comparative severity scoring analysis | Limited interactive QA and evidence-linked outputs |
+| Ozawa et al. [R43] | Colonoscopy images | Endoscopic disease activity | CAD feasibility for UC severity grading | Primarily fixed-score prediction interface |
+| Yao et al. [R44] | Multicentre colonoscopy data | Inflammatory activity | Prospective multicentre evaluation | Not structured around clinician question-answer workflows |
+| Takenaka et al. [R45] | Endoscopic images | MES/UCEIS predictions | Strong recent MES/UCEIS-oriented deep model validation | No retrieval-grounded management response layer |
+
+These studies show that AI-based UC scoring is feasible, but they do not directly resolve the MedVQA challenge targeted in this dissertation: combining robust severity estimation with controlled interactive reasoning and evidence-grounded response generation. Editorial and variability analyses reinforce this gap by highlighting persistent scoring heterogeneity and translational barriers [R38], [R39].
+
+**Figure 2.3: GI benchmark lineage.**
 
 `HyperKvasir + Kvasir-Instrument -> Kvasir-VQA -> Kvasir-VQA-x1 -> ImageCLEF/MediaEval challenge tracks`
 
@@ -214,13 +278,21 @@ Recent work includes explicit multi-component explainability pipelines [R15] and
 
 ### 2.5.6 Retrieval-Augmented and Evidence-Aware Methods
 
-Retrieval augmentation is increasingly explored to ground answers in relevant examples or external evidence. In clinical shared tasks, lightweight multimodal RAG has shown practical gains in response quality and schema adherence [R30].
+Retrieval augmentation is increasingly explored to ground answers in relevant examples or external evidence. Recent shared-task evidence in medical VQA (MEDIQA-WV 2025 overview and system reports) shows that retrieval-aware pipelines can improve schema adherence and answer usefulness when retrieval quality is explicitly controlled [R29], [R30].
 
-For colonoscopy MedVQA, retrieval should be treated as a controlled extension layer rather than a replacement for robust visual grounding.
+For this thesis, retrieval is decomposed into three operational modes:
+
+- **Text-evidence retrieval:** guidelines, review papers, and trial summaries for management-style questions.
+- **Case-based retrieval:** nearest-neighbor retrieval of visually similar prior GI cases for comparability support.
+- **Hybrid multimodal retrieval:** question intent + image cues used jointly to route evidence selection.
+
+This decomposition directly supports the Chapter 5 PICO-oriented wrapper. The visual module first answers image-grounded questions (for example severity), then the evidence module maps management queries into PICO slots and retrieves citation-linked support before response synthesis.
+
+For colonoscopy MedVQA, retrieval should therefore be treated as a controlled extension layer rather than a replacement for robust visual grounding.
 
 ### 2.5.7 Comparative Family-Level Synthesis
 
-**Table 2.5. Technique Family Comparison for Colonoscopy MedVQA**
+**Table 2.6. Technique Family Comparison for Colonoscopy MedVQA**
 
 | Family | Typical output mode | Key strengths | Main risks | Best-fit scenarios |
 |---|---|---|---|---|
@@ -239,7 +311,7 @@ A central finding of this survey is that evaluation practice is often the bottle
 
 ### 2.6.1 Classification Metrics vs Clinical Risk
 
-Many MedVQA papers report accuracy and macro-F1. These are necessary but insufficient for clinical decision support. In imbalanced settings, aggregate metrics can obscure severe-class failure.
+Many MedVQA papers report accuracy and macro-F1. These are necessary but insufficient for clinical decision support. In imbalanced settings, aggregate metrics can obscure severe-class failure. This concern is consistent with broader medical-AI metric guidance that emphasizes task-risk alignment over single-score reporting [R36].
 
 ### 2.6.2 Generative Metrics and Their Limits
 
@@ -247,7 +319,7 @@ BLEU, ROUGE, METEOR, CIDEr, ANLS, token-F1, and exact match are useful for text 
 
 ### 2.6.3 Calibration, Uncertainty, and Significance
 
-Clinical deployment requires uncertainty-aware behavior. Yet many papers omit calibration diagnostics (e.g., expected calibration error) and significance testing. This limits interpretability of reported gains.
+Clinical deployment requires uncertainty-aware behavior. Yet many papers omit calibration diagnostics (e.g., expected calibration error) and significance testing. This limits interpretability of reported gains and weakens translational confidence claims.
 
 ### 2.6.4 Challenge Metric Profiles
 
@@ -264,7 +336,7 @@ This thesis uses a multi-layer metric strategy:
 4. reliability diagnostics: confidence intervals, paired tests, calibration where available;
 5. scenario-level checks: high-risk error counts and acceptance criteria.
 
-**Table 2.6. Metric Families and Practical Interpretation**
+**Table 2.7. Metric Families and Practical Interpretation**
 
 | Metric family | Example metrics | Useful for | Known blind spot |
 |---|---|---|---|
@@ -283,7 +355,7 @@ A clinically useful survey should map model families to concrete clinical scenar
 
 ### 2.7.1 Scenario Mapping
 
-**Table 2.7. Scenario-to-Method Suitability Map**
+**Table 2.8. Scenario-to-Method Suitability Map**
 
 | Colonoscopy scenario | Dominant question type | Preferred method profile | Reason |
 |---|---|---|---|
@@ -304,7 +376,7 @@ The survey supports a staged hybrid architecture for GI MedVQA:
 
 This pattern balances reliability and expressiveness better than a single-model, fully open-ended strategy.
 
-**Figure 2.4 (placeholder): Hybrid decision-support flow**
+**Figure 2.4: Hybrid decision-support flow.**
 
 `Image + Question -> Core visual grounding module -> (if low-risk structured query) constrained answer`
 
@@ -346,7 +418,7 @@ To avoid a purely narrative survey, this section triangulates literature finding
 
 ### 2.9.1 Consolidated Signals from Local Benchmarks
 
-**Table 2.8. Repository Evidence Snapshot and Method Implications**
+**Table 2.9. Repository Evidence Snapshot and Method Implications**
 
 | Dataset/task (local report) | Representative local signal | Method implication |
 |---|---|---|
@@ -392,7 +464,11 @@ The local results align with broader literature:
 - Escalation policies for uncertain/high-risk outputs are seldom formalized.
 - Evidence-aware QA in GI remains promising but early-stage.
 
-**Table 2.9. Gap-to-Thesis Mitigation Map**
+### 2.10.5 Threats to Validity (for This Survey and Downstream Design)
+
+The main validity threats relevant to this chapter are: (1) **dataset shift** across devices/centers and acquisition protocols, (2) **annotation variability** in endoscopic severity labels, (3) **question ambiguity** and answer-space normalization effects in generative settings, and (4) **metric mismatch**, where linguistic overlap does not guarantee clinical correctness. These threats are explicitly carried into the empirical design in later chapters through split-aware evaluation, classwise analysis, and scenario-level acceptance checks.
+
+**Table 2.10. Gap-to-Thesis Mitigation Map**
 
 | Observed gap | Mitigation in this dissertation |
 |---|---|
@@ -401,6 +477,13 @@ The local results align with broader literature:
 | Metric mismatch with clinical risk | Multi-layer evaluation protocol with ordinal and imbalance-aware metrics |
 | Explainability without standard criteria | Scenario-specific explanation requirements and clinician-oriented quality checks |
 | Weak evidence linkage | Conditional retrieval-augmented extension with guardrails |
+
+**Figure 2.5: Gap-to-chapter mapping used by this dissertation.**
+
+`GI benchmark and reliability gaps -> Chapter 3 (existing model investigation)`  
+`UC severity robustness and ordinal-risk gaps -> Chapter 4 (pipeline development and severity-focused modeling)`  
+`Evidence linkage and PICO-grounding gaps -> Chapter 5 (evidence-aware use-case instantiation)`  
+`Integrated findings and translational implications -> Chapter 6 and Chapter 7`
 
 ---
 
@@ -420,30 +503,7 @@ These conclusions motivate Chapter 3, which shifts from literature synthesis to 
 
 ---
 
-## 2.12 Figures and Tables Checklist
-
-### Figures (to prepare in final dissertation format)
-
-1. Figure 2.1: Scoping review flow diagram.
-2. Figure 2.2: Method evolution timeline (2018-2026).
-3. Figure 2.3: GI dataset lineage and benchmark ecosystem map.
-4. Figure 2.4: Hybrid colonoscopy MedVQA decision flow.
-
-### Tables (included in this chapter)
-
-1. Table 2.1: Query themes.
-2. Table 2.2: Inclusion and exclusion criteria.
-3. Table 2.3: Foundational general MedVQA datasets.
-4. Table 2.4: GI dataset ecosystem.
-5. Table 2.5: Technique family comparison.
-6. Table 2.6: Metric families and interpretation.
-7. Table 2.7: Scenario-to-method suitability map.
-8. Table 2.8: Repository evidence triangulation.
-9. Table 2.9: Gap-to-thesis mitigation map.
-
----
-
-## 2.13 References
+## 2.12 References
 
 ### External Sources
 
@@ -525,9 +585,17 @@ These conclusions motivate Chapter 3, which shifts from literature synthesis to 
 
 [R39] Hashash JG, Farraye FA, Wang Y, et al. *Inter- and Intraobserver Variability on Endoscopic Scoring Systems in Crohn's Disease and Ulcerative Colitis: A Systematic Review and Meta-Analysis.* Inflammatory Bowel Diseases, 2024. https://pubmed.ncbi.nlm.nih.gov/38547325/
 
-[R40] Lee J, Yoon W, Kim S, et al. *BioBERT: a pre-trained biomedical language representation model for biomedical text mining.* Bioinformatics, 2020. https://pubmed.ncbi.nlm.nih.gov/31501885/
+[R40] Lee J, Yoon W, Kim S, et al. *BioBERT: a pre-trained biomedical language representation model for biomedical text mining.* Bioinformatics, 2020;36(4):1234-1240. arXiv:1901.08746. https://arxiv.org/abs/1901.08746
 
 [R41] Luo R, Sun L, Xia Y, et al. *BioGPT: Generative Pre-trained Transformer for Biomedical Text Generation and Mining.* 2022. https://arxiv.org/abs/2210.10341
+
+[R42] Stidham RW, Liu W, Bishu S, et al. *Performance of a Deep Learning Model vs Human Reviewers in Grading Endoscopic Disease Severity of Patients With Ulcerative Colitis.* JAMA Network Open, 2019;2(5):e193963. https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2733432
+
+[R43] Ozawa T, Ishihara S, Fujishiro M, et al. *Novel Computer-Aided Diagnosis System for Endoscopic Disease Activity in Patients with Ulcerative Colitis.* Gastroenterology, 2020;158(8):2150-2157.e3. https://www.gastrojournal.org/article/S0016-5085%2820%2930212-2/fulltext
+
+[R44] Yao H, Tewari AK, Morais M, et al. *Novel deep learning-based computer-aided diagnosis system for predicting inflammatory activity in ulcerative colitis: a prospective multicentre study.* Gastrointestinal Endoscopy, 2023;97(2):330-339.e1. https://pubmed.ncbi.nlm.nih.gov/35985375/
+
+[R45] Takenaka K, Ohtsuka K, Fujii T, et al. *Development and Validation of a Deep Neural Network for Accurate Evaluation of Endoscopic Images From Patients With Ulcerative Colitis.* Journal of Crohn's and Colitis, 2023;17(4):463-472. https://academic.oup.com/ecco-jcc/article/17/4/463/6762568
 
 ### Internal Empirical Sources (This Repository)
 

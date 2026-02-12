@@ -8,7 +8,7 @@ MedVQA offers substantial potential for clinical decision support. Its expected 
 
 Unlike general-domain VQA, MedVQA faces domain-specific constraints. Medical images often include subtle, overlapping, or low-contrast findings that require specialized interpretation. Clinical questions frequently require multi-step reasoning, in which visual evidence must be combined with biomedical context and task intent. These characteristics make MedVQA both a technically demanding multimodal task and a clinically sensitive reliability challenge.
 
-The technical foundation of MedVQA combines CV-based image representation with NLP-based question understanding and answer synthesis. Early systems were predominantly discriminative, using an image encoder, a question encoder, a fusion module, and a fixed answer set. These systems performed adequately on constrained tasks but showed limited flexibility for nuanced and open-ended clinical questions [1], [2], [3]. Recent work has shifted toward transformer-based multimodal architectures and generative response models, supported by large-scale vision-language pretraining [4], [5]. In parallel, biomedical language models such as BioBERT and BioGPT have improved domain-specific language understanding and generation [6], [7].
+The technical foundation of MedVQA combines CV-based image representation with NLP-based question understanding and answer synthesis. Early systems were predominantly discriminative, using an image encoder, a question encoder, a fusion module, and a fixed answer set. These systems performed adequately on constrained tasks but showed limited flexibility for nuanced and open-ended clinical questions [1], [2], [3]. Recent work has shifted toward transformer-based multimodal architectures and generative response models, supported by large-scale vision-language pretraining [4], [5] and contemporary MedVQA surveys of large multimodal model behavior [8], [9]. In parallel, biomedical language models such as BioBERT and BioGPT have improved domain-specific language understanding and generation [6], [7].
 
 Despite this progress, the gap between benchmark performance and reliable clinical utility remains significant. Three persistent tensions define the present landscape:
 
@@ -83,7 +83,9 @@ These constraints motivate a conditional architecture. Closed-set pathways are o
 
 Ulcerative colitis (UC) severity assessment is a high-value use case for MedVQA in colonoscopy. Endoscopic severity strongly influences treatment decisions and disease monitoring strategies. In clinical practice, severity is commonly represented by standardized scales such as the Mayo Endoscopic Subscore (0-3) and UCEIS (0-8, often mapped to ordinal severity categories). These scales are clinically meaningful, but grading can be difficult in borderline or low-quality frames.
 
-AI support for UC severity has practical relevance because it can improve consistency and reporting efficiency [14], [16], [17]. From a MedVQA perspective, UC severity is also methodologically informative because it combines:
+UC severity automation is not a new problem. Prior deep learning systems have already shown clinically meaningful performance for endoscopic severity scoring under specialist comparison settings [25], [26], [27], [28]. Related GI quality-grading work with vision-language models further supports the feasibility of multimodal assistance in endoscopy workflows [17]. These studies establish strong prior art for AI-based severity grading in UC and clarify that the key challenge is no longer "can AI score disease at all?" but "can an interactive system remain reliable, grounded, and clinically usable when moved beyond fixed-score outputs?" [14], [16].
+
+This dissertation therefore does not claim to be the first AI system for UC severity scoring. Its novelty is the integration of (1) GI-oriented MedVQA interaction, (2) risk-aware reliability controls, and (3) evidence-aware extensions for management-style questions. From a MedVQA perspective, UC severity remains methodologically informative because it combines:
 
 - Fine-grained visual discrimination.
 - Ordinal class structure.
@@ -127,6 +129,8 @@ This problem is decomposed into four operational gaps:
 
 Table 1.1 summarizes key empirical signals from persisted repository artifacts.
 
+References [20]-[24] point to supplementary analysis artifacts in the thesis repository and are included as reproducibility materials alongside the dissertation.
+
 | Dataset / Task | Strongest saved model result | Key failure signal | Source |
 |---|---|---|---|
 | ImageCLEF MEDVQA-GI 2023 validation | ViLT accuracy 0.9089, macro-F1 0.5823 | Qwen2.5-VL zero-shot raw accuracy 0.0007; projected 0.0670 | [21] |
@@ -134,6 +138,10 @@ Table 1.1 summarizes key empirical signals from persisted repository artifacts.
 | LIMUC Mayo severity test | Fine-tuned ResNet50 accuracy 0.7539, macro-F1 0.6829, QWK 0.8351 | Zero-shot VLM macro-F1 0.1771, balanced accuracy 0.25 | [24] |
 | Kvasir-VQA yes/no subset | ResNet+GRU accuracy 0.9865, macro-F1 0.9650 | Free-generation run shows unknown-rate collapse in persisted artifact | [22] |
 | Kvasir-VQA-x1 generative track | MedGemma LoRA token-F1 0.5085 (adaptation gain) | Exact-match remains near zero across persisted modern VLM runs | [23] |
+
+In Table 1.1, **raw accuracy** denotes direct label-space scoring against canonical benchmark targets (no lexical post-processing). **Projected accuracy** denotes a secondary diagnostic in which generated free text is deterministically mapped to each question's known answer space before scoring, following the local report methodology [20], [21], [23].
+
+To reduce leakage risk and inflated claims, this thesis reports the split context and scoring semantics explicitly for each dataset report: official or persisted held-out splits are preserved, pairwise tests are run on aligned rows where applicable, and projected scores are interpreted alongside raw exact/unknown behavior rather than as replacement primary metrics [20]-[24].
 
 These findings support a staged strategy:
 
@@ -242,6 +250,24 @@ These hypotheses are working assumptions to be tested in later chapters; they ar
 - Evidence-aware generation is treated as an additive and safeguarded layer.
 - High-risk low-confidence outputs require abstention/escalation behavior.
 
+### 1.7.4 PICO-Oriented Evidence Mapping (Operational Definition)
+
+In this dissertation, PICO is used as a structured retrieval and response scaffold for management-style queries:
+
+- **P (Population/Patient):** UC patient context, including current endoscopic severity and relevant clinical descriptors.
+- **I (Intervention):** candidate treatment or management option being considered.
+- **C (Comparison):** alternative treatment strategy, standard care, or no escalation.
+- **O (Outcome):** clinically meaningful endpoint (for example relapse, mucosal healing, hospitalization risk, or adverse events).
+
+Example query pattern for Chapter 5 use cases:  
+`In patients with UC and Mayo 2 activity, does infliximab versus vedolizumab reduce relapse at 6 months?`
+
+In this flow, the MedVQA layer provides the image-grounded severity signal, while the evidence layer maps the textual question into PICO slots, retrieves supporting studies/guidelines, and returns a citation-linked answer with confidence and explicit limitations.
+
+### 1.7.5 Safety and Clinical Governance Position
+
+This thesis treats the proposed system as **clinical decision support**, not autonomous diagnosis. Outputs are draft recommendations for physician review, with explicit abstention/escalation behavior for uncertain or high-risk cases. The evaluation design therefore includes uncertainty handling, evidence citation, and failure-mode reporting as first-class requirements even though regulated deployment is out of scope in this phase.
+
 ## 1.8 Scenario-Driven Framing
 
 This dissertation adopts a scenario-driven evaluation philosophy. Aggregate benchmark metrics remain important, but they do not fully capture clinical utility. Scenarios are defined to represent realistic clinician questions and asymmetric risk conditions.
@@ -258,7 +284,7 @@ This dissertation adopts a scenario-driven evaluation philosophy. Aggregate benc
 
 Each scenario is designed to expose a distinct failure mode. S1 and S2 prioritize risk-sensitive reliability. S3 emphasizes spatial grounding and structured output fidelity. S4 evaluates controlled generation quality. S5 evaluates the boundary between visual interpretation and evidence-oriented reasoning.
 
-### 1.8.2 Scenario Acceptance Logic (Placeholder)
+### 1.8.2 Scenario Acceptance Logic
 
 `Question received`  
 `-> visual-grounded answer candidate`  
@@ -285,7 +311,7 @@ In later chapters, this mapping supports a tiered acceptance model:
 
 ## 1.9 Conceptual Framework and System Flow
 
-High-quality technical dissertations typically present Chapter 1 with explicit conceptual architecture, research-design mapping, and chapter dependencies. This chapter follows that pattern while retaining text placeholders where final graphics are pending.
+This section defines the end-to-end architecture, design logic, and chapter dependencies used throughout the dissertation.
 
 ### 1.9.1 End-to-End Conceptual Flow (Text Form)
 
@@ -297,46 +323,38 @@ High-quality technical dissertations typically present Chapter 1 with explicit c
 `-> conditional retrieval layer for evidence-oriented queries`  
 `-> final response (answer, rationale, confidence, evidence pointer)`
 
-### 1.9.2 Figure 1.1 Placeholder: Clinician-Centric MedVQA Pipeline
+### 1.9.2 Figure 1.1: Clinician-Centric MedVQA Pipeline
 
-**Figure 1.1 (placeholder):** *Clinician-Centric MedVQA Pipeline for Colonoscopy*
+**Figure 1.1:** *Clinician-Centric MedVQA Pipeline for Colonoscopy.*
 
-Recommended blocks:
+`Input frame(s)+question -> intent parsing + clinical entity extraction -> visual encoder + localization cues -> cross-modal reasoning -> confidence/abstain gate -> constrained or generative answer -> optional retrieval grounding -> clinician-facing response package`
 
-- Input block: frame(s), metadata, question.
-- NLP block: intent classification and clinical entity extraction.
-- Vision block: encoder plus localization cues.
-- Fusion block: multimodal reasoning.
-- Output block A: closed-set answer.
-- Output block B: generative answer.
-- Safety block: calibration and abstain gate.
-- Retrieval block (conditional): evidence grounding for management-style queries.
+### 1.9.3 Figure 1.2: Data-to-Decision Funnel
 
-### 1.9.3 Figure 1.2 Placeholder: Data-to-Decision Funnel
-
-**Figure 1.2 (placeholder):** *Data-to-Decision Funnel*
+**Figure 1.2:** *Data-to-Decision Funnel.*
 
 `Raw datasets` -> `curation and harmonization` -> `task families` -> `model families` -> `evaluation and failure analysis` -> `scenario validation` -> `decision-support readiness`.
 
-### 1.9.4 Figure 1.3 Placeholder: Research Design Map
+### 1.9.4 Figure 1.3: Research Design Map
 
-**Figure 1.3 (placeholder):** *Research Questions to Methods to Metrics to Outputs*
+**Figure 1.3:** *Research Questions to Methods to Metrics to Outputs.*
 
 `RQ layer`  
 `-> dataset/method layer`  
 `-> metric layer`  
 `-> scenario acceptance layer`
 
-### 1.9.5 Figure 1.4 Placeholder: Dissertation Dependency Map
+### 1.9.5 Figure 1.4: Dissertation Dependency Map
 
-**Figure 1.4 (placeholder):** *Chapter dependency structure*
+**Figure 1.4:** *Chapter dependency structure.*
 
 `Chapter 1 (problem framing)`  
 `-> Chapter 2 (scoping review and gap analysis)`  
 `-> Chapter 3 (investigating existing VQA techniques across GI-endoscopy datasets)`  
 `-> Chapter 4 (proposed pipeline development)`  
 `-> Chapter 5 (PICO-oriented use-case instantiation)`  
-`-> Chapter 6 (conclusions and future work)`
+`-> Chapter 6 (integrated evaluation and discussion)`  
+`-> Chapter 7 (conclusions and future work)`
 
 ### 1.9.6 Risk-Control Matrix
 
@@ -371,30 +389,16 @@ This dissertation does **not** claim immediate real-time clinical deployment rea
 - **Chapter 3:** investigates existing VQA techniques across GI-endoscopy datasets (HyperKvasir, Kvasir-VQA, Kvasir-VQA-x1, ImageCLEF MEDVQA-GI 2023, LIMUC, and supporting Kvasir-SEG analyses), including comparative and failure-mode analyses.
 - **Chapter 4:** develops the proposed dataset-model-RAG-fine-tuning pipeline with implementation detail.
 - **Chapter 5:** instantiates PICO-oriented and scenario-based use cases with objective-oriented prompt and evidence design.
-- **Chapter 6:** synthesizes findings, revisits research questions, discusses limitations, and defines future work.
+- **Chapter 6:** integrates experimental findings, scenario performance, and evidence-layer behavior into a consolidated discussion.
+- **Chapter 7:** synthesizes conclusions, revisits research questions, states limitations, and defines future work.
 
-## 1.12 Chapter 1 Figure and Table Checklist (for Final Layout)
-
-To align with strong dissertation formatting practice, Chapter 1 should include:
-
-1. **Figure 1.1:** Clinician-centric MedVQA pipeline.
-2. **Figure 1.2:** Data-to-decision funnel.
-3. **Figure 1.3:** Research design map (RQs -> methods -> metrics).
-4. **Figure 1.4:** Chapter dependency map.
-5. **Table 1.1:** Consolidated empirical gap evidence from local artifacts.
-6. **Table 1.2:** Risk-control matrix.
-7. **Table 1.3:** RQ-to-evaluation map.
-8. **Table 1.4:** Scenario definitions and metric priorities.
-
-If final graphics are not yet ready, captioned placeholders and text-flow diagrams should remain to preserve chapter coherence and avoid structural gaps during final formatting.
-
-## 1.13 References (Chapter 1)
+## 1.12 References (Chapter 1)
 
 ### External Literature
 
 [1] Lau JYC, Gayen S, Ben Abacha A, et al. *A dataset of clinically generated visual questions and answers about radiology images*. Scientific Data, 2018. https://www.nature.com/articles/sdata2018251  
 [2] He X, Zhang Y, Mou L, et al. *PathVQA: 30000+ Questions for Medical Visual Question Answering*. arXiv:2003.10286, 2020. https://arxiv.org/abs/2003.10286  
-[3] Liu B, Zhan L, Wu X, et al. *SLAKE: A semantically-labeled knowledge-enhanced dataset for medical visual question answering*. arXiv:2102.09581, 2021. https://arxiv.org/abs/2102.09581  
+[3] Liu B, Zhan L, Xu L, et al. *SLAKE: A semantically-labeled knowledge-enhanced dataset for medical visual question answering*. arXiv:2102.09542, 2021. https://arxiv.org/abs/2102.09542  
 [4] Li C, Wong C, Zhang S, et al. *LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day*. arXiv:2306.00890, 2023. https://arxiv.org/abs/2306.00890  
 [5] Li J, Li D, Savarese S, Hoi SCH. *BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models*. arXiv:2301.12597, 2023. https://arxiv.org/abs/2301.12597  
 [6] Lee J, Yoon W, Kim S, et al. *BioBERT: a pre-trained biomedical language representation model for biomedical text mining*. arXiv:1901.08746, 2019. https://arxiv.org/abs/1901.08746  
@@ -403,14 +407,18 @@ If final graphics are not yet ready, captioned placeholders and text-flow diagra
 [9] Dong W, Shen S, Han Y, et al. *Generative Models in Medical Visual Question Answering: A Survey*. Applied Sciences, 2025. https://doi.org/10.3390/app15062983  
 [10] Murtaza N, Munsif S, Cuadros M, et al. *Overview of ImageCLEFmedical 2023 - Medical Visual Question Answering for Gastrointestinal Tract*. CEUR-WS Vol-3497, 2023. https://ceur-ws.org/Vol-3497/paper-107.pdf  
 [11] ImageCLEF. *ImageCLEFmed VQA 2024 Task Page*. 2024. https://www.imageclef.org/2024/medical/vqa  
-[12] Gautam S, Riegler MA, Halvorsen P. *Kvasir-VQA benchmark paper (GI endoscopy VQA)*. arXiv:2409.04556, 2024. https://arxiv.org/html/2409.04556v2  
+[12] Gautam S, Storas A, Midoglu C, et al. *Kvasir-VQA: A Text-Image Pair GI Tract Dataset*. arXiv:2409.01437, 2024. https://arxiv.org/abs/2409.01437  
 [13] Gautam S, Riegler MA, Halvorsen P. *Kvasir-VQA-x1: A Multimodal Dataset for Medical Reasoning and Robust MedVQA in Gastrointestinal Endoscopy*. arXiv:2506.09958, 2025. https://arxiv.org/abs/2506.09958  
 [14] Murino A, Rimondi A. *Automated Artificial Intelligence Scoring Systems for the Endoscopic Assessment of Ulcerative Colitis: How Far Are We from Clinical Application?* Gastrointestinal Endoscopy, 2023. https://doi.org/10.1016/j.gie.2022.10.010  
-[15] LIMUC dataset repository (with paper/protocol links). https://github.com/wanghaining/ulcerative_colitis  
-[16] CLoE benchmark. arXiv:2506.08652, 2025. https://arxiv.org/abs/2506.08652  
-[17] Elkhatib et al. *GPT-4V for BBPS quality grading on HyperKvasir*. BMJ Open Gastroenterology, 2025. https://pubmed.ncbi.nlm.nih.gov/40633642/  
+[15] Polat G, Kani HT, Ergenc I, et al. *Labeled Images for Ulcerative Colitis (LIMUC) Dataset*. Zenodo, 2022. https://zenodo.org/records/5827695 (secondary resource: https://github.com/wanghaining/ulcerative_colitis)  
+[16] Gautam S, Riegler MOD, Sivertsen KD, Halvorsen P. *CLoE: Improving Endoscopic Severity Rating Through Curriculum Learning in Vision Language Models*. arXiv:2508.13280, 2025. https://arxiv.org/abs/2508.13280  
+[17] Lim DYZ, Basha A, Ku A, et al. *Vision-language large learning model, GPT4V, outperforms machine learning and deep learning methods in grading bowel preparation quality in outpatient colonoscopies*. BMJ Open Gastroenterology, 2025;12:e001496. https://pmc.ncbi.nlm.nih.gov/articles/PMC11911458/  
 [18] Borgli H, Thambawita V, Smedsrud PH, et al. *HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy*. Scientific Data, 2020. https://doi.org/10.1038/s41597-020-00622-y  
-[19] Pogorelov K, Thambawita V, Hicks S, et al. *Kvasir-VQA: A Dataset for Visual Question Answering in Gastrointestinal Endoscopy*. Scientific Data, 2023. https://www.nature.com/articles/s41597-023-01981-y  
+[19] Simula Datasets. *Kvasir-VQA dataset page*. https://datasets.simula.no/kvasir-vqa/  
+[25] Stidham RW, Liu W, Bishu S, et al. *Performance of a Deep Learning Model vs Human Reviewers in Grading Endoscopic Disease Severity of Patients With Ulcerative Colitis*. JAMA Network Open, 2019;2(5):e193963. https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2733432  
+[26] Ozawa T, Ishihara S, Fujishiro M, et al. *Novel Computer-Aided Diagnosis System for Endoscopic Disease Activity in Patients with Ulcerative Colitis*. Gastroenterology, 2020;158(8):2150-2157.e3. https://www.gastrojournal.org/article/S0016-5085%2820%2930212-2/fulltext  
+[27] Yao H, Tewari AK, Morais M, et al. *Novel deep learning-based computer-aided diagnosis system for predicting inflammatory activity in ulcerative colitis: a prospective multicentre study*. Gastrointestinal Endoscopy, 2023;97(2):330-339.e1. https://pubmed.ncbi.nlm.nih.gov/35985375/  
+[28] Takenaka K, Ohtsuka K, Fujii T, et al. *Development and Validation of a Deep Neural Network for Accurate Evaluation of Endoscopic Images From Patients With Ulcerative Colitis*. Journal of Crohn's and Colitis, 2023;17(4):463-472. https://academic.oup.com/ecco-jcc/article/17/4/463/6762568  
 
 ### Internal Empirical Sources (This Repository)
 
