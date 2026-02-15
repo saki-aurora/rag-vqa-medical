@@ -2,9 +2,11 @@
 
 ## 3.1 Chapter Overview and Evaluation Goal
 
-Chapter 2 established the methodological landscape and identified a central translational gap: benchmark-level VQA performance does not automatically imply clinically reliable behavior in GI endoscopy. This chapter addresses that gap empirically by benchmarking persisted model artifacts across the datasets available in this repository.
+Chapter 2 provided the conceptual and literature foundation for GI-endoscopy VQA. Chapter 3 is the empirical turning point of the dissertation: it moves from review to direct evidence by auditing persisted experimental artifacts and quantifying how current model families behave under realistic dataset constraints.
 
-The chapter objective is to answer, with local reproducible evidence, how existing model families behave across:
+The core question is not only "which model gets higher scores," but "which model behavior is reliable enough for clinically relevant use-cases." To answer that question, this chapter evaluates reliability across heterogeneous task regimes, including closed-label prediction, open-ended generation, and ordinal severity assessment. The chapter is intentionally reproducibility-first: all analyses are compiled from saved artifacts, with explicit source paths and no undocumented reruns.
+
+Concretely, the chapter objective is to determine, with traceable local evidence, how existing model families perform across:
 
 1. closed-set and binary clinical question answering,
 2. open-ended generative answering,
@@ -13,6 +15,14 @@ The chapter objective is to answer, with local reproducible evidence, how existi
 5. and scenario-level stress-test protocol definitions for clinically relevant failure probing.
 
 Unlike Chapter 2 (literature synthesis), this chapter is artifact-driven. All claims are derived from saved outputs in this repository, not from newly run training in this chapter.
+
+This chapter serves three thesis-level functions:
+
+1. Establish a reproducible baseline of current GI MedVQA behavior before introducing new methods.
+2. Identify practical reliability bottlenecks (imbalance sensitivity, answer-format instability, OOV projection fragility, and clinical threshold failures).
+3. Provide a defensible empirical bridge to Chapter 4, where evidence-grounded generative approaches are developed to address these bottlenecks.
+
+Structurally, Section 3.1 defines evidence boundaries and research questions, Section 3.2 formalizes datasets and experimental regimes, Section 3.3 justifies the evaluation protocol, Section 3.4 presents dataset-wise results, and Section 3.5 synthesizes cross-dataset findings into thesis-level conclusions.
 
 ### 3.1.1 Evidence Boundary and Reproducibility Scope
 
@@ -39,6 +49,14 @@ This chapter directly provides empirical evidence for:
 - **RQ3 (failure modes):** dominant error modes across tasks,
 - **RQ4 (severity robustness):** UC severity reliability under imbalance,
 - and protocol-level setup evidence for **RQ5** via scenario definitions in reformatted artifacts.
+
+### 3.1.3 Literature and Dissertation Context for This Chapter
+
+The MedVQA literature has evolved from early constrained challenge settings (for example, VQA-Med/ImageCLEF tasks with short answer spaces) to larger multimodal training regimes with transformer backbones, self-supervised pretraining, and increasingly instruction-oriented generation [E7], [E8], [E10], [E11]. Across this evolution, a recurring finding is that lexical overlap improvements do not automatically imply clinically faithful reasoning, especially when answer format compliance and ontology grounding are weak [E6], [E7], [E12], [E13].
+
+GI-endoscopy-specific MedVQA remains substantially less mature than chest-radiology or pathology-centered VQA ecosystems [E7], [E22]. The ImageCLEF MEDVQA-GI 2023 track and recent Kvasir family datasets begin to close this gap, but they also expose strong answer-space skew, question-family heterogeneity, and projection fragility in open-answer settings [E2], [E3], [E4], [E14].
+
+Dissertation-level evidence from other authors provides additional context for this chapter's scope. Sharma's thesis addressed foundational medical VQA fusion design but was not GI-endoscopy-specific [E16]. In contrast, GI dissertations by Xu, González-Bueno Puyal, Polat, Laiz Treceño, and Zhou focus primarily on detection, localization, severity staging, and endoscopic system robustness rather than QA format reliability [E17], [E18], [E19], [E20], [E21]. This chapter is positioned to bridge that gap by evaluating question-answer reliability directly across GI artifacts while preserving reproducibility constraints.
 
 ## 3.2 Experimental Scenarios and Data Regimes
 
@@ -102,6 +120,16 @@ The `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/evaluation_comparison/scena
 
 These are intentionally small and are treated as stress vignettes, not statistical benchmark replacements. In the reformatted evidence tree, configuration is present but scored scenario prediction artifacts are not persisted.
 
+### 3.2.5 Alignment with Prior Dissertation Problem Settings
+
+The dataset-task choices in this chapter were selected to align with and extend dissertation-level themes already established in GI computer vision:
+
+1. **Clinical severity and treatment relevance** (central in UC-focused doctoral work) are represented by LIMUC and remission-slice reporting [E19].
+2. **Robustness under domain shift and heterogeneous acquisition** (common in endoscopy PhD research) is represented by cross-dataset comparison rather than single-dataset optimization [E17], [E18], [E20], [E21].
+3. **Model-behavior transparency** is represented by error-taxonomy reporting, per-family breakdowns, and explicit handling of missing artifacts, rather than headline metric-only reporting [E6], [E7].
+
+In other words, this chapter does not attempt to replace prior dissertation lines on detection/segmentation/video workflow; it complements them by adding a QA reliability layer over the same clinical imaging ecosystem.
+
 ## 3.3 Evaluation Metrics and Statistical Protocol
 
 ### 3.3.1 Metric Layers
@@ -128,6 +156,16 @@ To avoid single-metric bias, this chapter uses four metric layers depending on t
 - Scores are not directly comparable across datasets with different answer spaces.
 - Label-projection diagnostics (e.g., generated text to known labels) are useful but can overestimate clinical correctness when lexical matches are shallow.
 - Scenario outcome metrics are not claimed unless corresponding reformatted prediction artifacts are present.
+
+### 3.3.3 Metric Design Choices Grounded in Prior Work
+
+The metric stack in this chapter intentionally follows recommendations from medical-AI evaluation studies: report discrimination, calibration-proxy stability, and class-imbalance-aware behavior together, not in isolation [E6]. For GI-endoscopy tasks this means:
+
+- using macro-F1 and balanced accuracy to prevent majority-class dominance from masking clinically relevant misses,
+- retaining MCC/Kappa where available to capture agreement under imbalance,
+- and introducing ordinal/thresholded slices (QWK, remission sensitivity/specificity) for UC severity behavior that is clinically interpretable [E19].
+
+For generative tracks, token-level overlap metrics are retained as diagnostics but not treated as sufficient endpoints. This is consistent with current MedVQA literature showing that text overlap can improve while semantic faithfulness, answer validity, and decision safety remain brittle [E7], [E12], [E13], [E15].
 
 ## 3.4 Baseline and Existing-Model Results
 
@@ -167,6 +205,8 @@ HyperKvasir provides a broad visual grounding test with strong long-tail imbalan
 
 **Interpretation.** HyperKvasir confirms the core reliability hierarchy: supervised/frozen discriminative pipelines dominate zero-shot generation projections. However, all models exhibit substantial head-tail recall asymmetry, so high aggregate accuracy does not resolve minority reliability risk.
 
+This imbalance behavior is consistent with broader GI-endoscopy research trajectories in doctoral work, where robust deployment typically requires explicit strategies for rare phenotypes, protocol variation, and long-tail acquisition conditions [E17], [E18], [E20], [E21]. The practical implication for later chapters is that closed-label accuracy alone cannot be accepted as clinical readiness evidence.
+
 ### 3.4.2 ImageCLEF MEDVQA-GI 2023: Closed-Label GI VQA
 
 Primary source file: `Prototyping_reformat/DatasetAnalysis/ImageCLEF_MEDVQA_GI_2023/ImageCLEF_MEDVQA_GI_2023.md`.
@@ -202,6 +242,8 @@ ImageCLEF MEDVQA-GI 2023 provides per-question closed-label validation testing w
 | How many polyps are in the image? | 0.0025 | 0.0600 | +0.0575 |
 
 **Interpretation.** The projected-mapping rescue effect is real but insufficient for clinical-level reliability. Even after projection, Qwen remains far below ViLT on all major families, with highly significant paired gaps.
+
+This mirrors observations from MEDVQA-GI challenge reports where engineered or fine-tuned constrained pipelines often outperform naive zero-shot transfer, especially for structured families such as procedure and attribute questions [E4], [E14]. The chapter therefore treats projection as a diagnostic lens, not as a substitute for medically grounded supervision.
 
 ### 3.4.3 Kvasir-VQA: Subset Reliability and Answer-Format Stability
 
@@ -239,6 +281,8 @@ Kvasir-VQA persisted artifacts provide multiple views: structured yes/no and att
 
 1. Constrained fusion models can perform very strongly on specific structured subsets.
 2. Free-generation settings can collapse into non-answering (e.g., `blip_vqa_base_yesno_freegen` unknown-rate = 1.0), and the reformatted phase-3 snapshot currently has no evaluated examples, so open-ended UC comparisons remain pending.
+
+These findings are aligned with prior MedVQA architecture literature where multimodal fusion models can remain competitive under constrained output spaces, while unconstrained generation is more vulnerable to format drift and semantic instability [E9], [E10], [E11], [E12].
 
 ### 3.4.4 Kvasir-VQA-x1: Large-Scale Generative Reasoning Benchmark
 
@@ -280,7 +324,9 @@ Kvasir-VQA-x1 is the largest QA setting in this repository and provides the stro
 - exact-match remains near zero,
 - token-overlap can improve substantially after adaptation (LoRA),
 - lexical matching alone is insufficient as a reliability proxy,
-- mapped closed-set accuracy can look moderate while macro-F1 remains very low due extreme answer-space skew and OOV behavior.
+- mapped closed-set accuracy can look moderate while macro-F1 remains very low due to extreme answer-space skew and OOV behavior.
+
+Recent explainable and retrieval-augmented MedVQA directions similarly argue that external knowledge control and grounding are required to convert improved overlap into clinically safer reasoning [E13], [E15]. The x1 results in this chapter reinforce that claim empirically: adaptation helps, but answer-space governance remains the dominant bottleneck.
 
 ### 3.4.5 LIMUC: UC Severity Reliability (Flagship Clinical Axis)
 
@@ -321,6 +367,8 @@ LIMUC is the strongest severity-specific benchmark in this repository and direct
 
 **Interpretation.** LIMUC provides the most clinically direct evidence in Chapter 3: supervised domain-tuned models substantially outperform zero-shot severity prompting on both ordinal and clinical-slice metrics.
 
+This is directly concordant with dissertation evidence from Polat, where class-distance-aware learning and severity-specific design choices were necessary for reliable UC staging [E19]. The key translational message is that severity QA must preserve ordinal structure and threshold behavior, not just categorical hit rate.
+
 ### 3.4.6 Kvasir-SEG as Supporting Morphology Evidence
 
 Primary source file: `Prototyping_reformat/DatasetAnalysis/Kvasir_SEG/Kvasir_SEG.md`.
@@ -339,6 +387,8 @@ Kvasir-SEG artifacts in this repository are currently dataset-level only (no per
 
 These statistics support future region-aware grounding but cannot support segmentation model comparison yet in this chapter.
 
+This boundary is also coherent with prior doctoral GI work that emphasizes morphology-aware localization as a prerequisite for trustworthy downstream interpretation [E17], [E18], [E20].
+
 ### 3.4.7 Scenario-Based Micro Stress Test (Reformatted Status)
 
 The reformatted artifact tree includes the scenario protocol definition (`scenarios.yaml`) but does not include persisted per-scenario prediction/metric outputs.
@@ -354,6 +404,8 @@ The reformatted artifact tree includes the scenario protocol definition (`scenar
 | scenario confusion matrices (`*.png`) | not present | no scenario confusion figures included |
 
 **Interpretation.** Scenario protocol setup is preserved, but scenario outcome evidence is incomplete in reformatted artifacts; therefore, this chapter excludes scenario-level performance claims.
+
+Methodologically, this explicit exclusion rule follows reproducibility practice in dissertation-grade empirical writing: protocol definitions can be reported as design intent, but outcome claims require persisted and auditable prediction artifacts.
 
 ## 3.5 Cross-Dataset Synthesis and Findings
 
@@ -408,6 +460,16 @@ Across datasets where paired predictions are available, McNemar tests repeatedly
 | Scenario artifact incompleteness | no persisted reformatted scenario predictions/metrics | scenario claims removed from quantitative synthesis |
 | Legacy vs reformatted pipeline differences | potential metric provenance mismatch | chapter constrained to `Prototyping_reformat` sources only |
 
+### 3.5.6 Positioning Against External Literature and Dissertations
+
+When placed against external literature, the empirical pattern in this chapter is internally consistent and externally plausible:
+
+1. It confirms a broad MedVQA result that constrained/fine-tuned systems remain stronger than zero-shot generation on clinically structured tasks [E7], [E10], [E12], [E14].
+2. It extends GI dissertation lines by adding answer-format reliability, OOV behavior, and question-family brittleness as first-class evaluation targets, not side observations [E17], [E18], [E19], [E20], [E21].
+3. It narrows translational risk by separating what is currently evidenced (persisted closed/ordinal reliability patterns) from what remains pending (scenario outcome files, mature open-ended UC comparisons).
+
+The resulting contribution of Chapter 3 is therefore not a new state-of-the-art claim, but a reproducible reliability map that is directly actionable for system design decisions in Chapter 4.
+
 ## 3.6 Position After Chapter 3
 
 This chapter establishes a reproducible empirical baseline for the dissertation:
@@ -419,6 +481,8 @@ This chapter establishes a reproducible empirical baseline for the dissertation:
 5. Generative capability is valuable only with stronger grounding, constrained decoding, and evidence-aware control.
 
 These findings directly motivate Chapter 4, where the proposed pipeline is developed to preserve core visual reliability while introducing controlled generative and evidence-linked reasoning.
+
+Relative to prior dissertations in adjacent GI-endoscopy AI areas, this chapter's added value is explicit QA reliability stratification under a single reproducibility envelope: closed-set behavior, generative failure modes, and severity-specific clinical thresholds are analyzed together rather than in isolated studies.
 
 ## 3.7 Artifact Manifest for Figures and Tables
 
@@ -489,6 +553,38 @@ These findings directly motivate Chapter 4, where the proposed pipeline is devel
 [E5] Polat G, Kani HT, Ergenc I, et al. Labeled Images for Ulcerative Colitis (LIMUC) Dataset. Zenodo, 2022. https://zenodo.org/records/5827695
 
 [E6] Hicks SA, Strumke I, Thambawita V, et al. On evaluation metrics for medical applications of artificial intelligence. *Scientific Reports*, 2022. https://www.nature.com/articles/s41598-022-09954-8
+
+[E7] Lin S, Kryściński W, Wu D, et al. Medical Visual Question Answering: A Survey. arXiv:2111.10056, 2021. https://arxiv.org/abs/2111.10056
+
+[E8] Ben Abacha A, Hasan SA, Datla V, et al. VQA-Med: Overview of the Medical Visual Question Answering Task at ImageCLEF 2019. CEUR Workshop Proceedings Vol-2380, 2019. https://ceur-ws.org/Vol-2380/paper_78.pdf
+
+[E9] Sharma D, Spitzer W, Kour O, et al. MedFuseNet: A Medical Visual Question Answering System Based on Knowledge Extraction and Fusion. *Scientific Reports*, 2021. https://doi.org/10.1038/s41598-021-98390-1
+
+[E10] Li Z, Wang X, Jiang Z, et al. Self-Supervised Vision-Language Pretraining for Medical Visual Question Answering. arXiv:2211.13594, 2022. https://arxiv.org/abs/2211.13594
+
+[E11] Luo R, Zhou Y, Wang B, et al. A New Benchmark and Multimodal Method for Medical Visual Question Answering: UnICL. arXiv:2212.10729, 2022. https://arxiv.org/abs/2212.10729
+
+[E12] Hu Y, Yang X, Gong L, et al. Interpretable Medical Image Visual Question Answering via Multi-Modal Relationship Graph Learning. arXiv:2302.09636, 2023. https://arxiv.org/abs/2302.09636
+
+[E13] Hu Y, Zhao M, Ren Z, et al. Expert Knowledge-Aware Image Difference Graph Model for Medical Visual Question Answering. arXiv:2307.11986, 2023. https://arxiv.org/abs/2307.11986
+
+[E14] Thai D-V, Thanh T-N, Nhut H-H, et al. UIT-Saviors at MEDVQA-GI 2023: A Multi-Model Pipeline for Gastrointestinal Medical VQA. arXiv:2307.02783, 2023. https://arxiv.org/abs/2307.02783
+
+[E15] Sial M, Fatima M, Nawaz K, et al. Path-RAG: Knowledge-Based Explainable Medical VQA with Large Language Models. Proceedings of Machine Learning Research 259, 2025. https://proceedings.mlr.press/v259/sial25a.html
+
+[E16] Sharma D. Visual Question Answering in the Medical Domain. Master's thesis, Virginia Tech, 2020. http://hdl.handle.net/10919/99930
+
+[E17] Xu Z. A Holistic Deep Learning Framework for Endoscopy. DPhil thesis, University of Oxford, 2024. https://ora.ox.ac.uk/objects/uuid:43f626b8-b0f2-4f24-a4af-3af97f8af2d7
+
+[E18] González-Bueno Puyal J. Computer-assisted cancer detection in gastrointestinal endoscopy using deep learning. PhD thesis, University College London, 2023. https://discovery.ucl.ac.uk/id/eprint/10173345/
+
+[E19] Polat G. Computer-Aided Estimation of Ulcerative Colitis Severity from Endoscopic Images. PhD thesis, Middle East Technical University, 2023. http://etd.lib.metu.edu.tr/upload/12629449/index.pdf
+
+[E20] Laiz Treceño P. Deep Learning-based Solutions to Improve Diagnosis in Wireless Capsule Endoscopy. PhD thesis, Universitat de Barcelona, 2023. https://diposit.ub.edu/dspace/handle/2445/203821
+
+[E21] Zhou Y. Hardware Prototyping and Algorithm Development for Endoscopic Vision Systems. PhD dissertation, University of Washington, 2022. http://hdl.handle.net/1773/49704
+
+[E22] He X, Zhang Y, Mou L, et al. PathVQA: 30000+ Questions for Medical Visual Question Answering. arXiv:2003.10286, 2020. https://arxiv.org/abs/2003.10286
 
 ### Internal Repository Sources
 
