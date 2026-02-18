@@ -1,0 +1,168 @@
+{
+  "overall": {
+    "em": 0.0,
+    "token_f1": 0.18856039683131245,
+    "anls": 0.0,
+    "count": 15955
+  },
+  "by_question_class": [
+    {
+      "em": 0.0,
+      "token_f1": 0.17695327913176864,
+      "anls": 0.0,
+      "count": 1862,
+      "question_class": "abnormality_color"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.21325455511463642,
+      "anls": 0.0,
+      "count": 1901,
+      "question_class": "abnormality_location"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.1667428691203737,
+      "anls": 0.0,
+      "count": 1823,
+      "question_class": "abnormality_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2833916232652146,
+      "anls": 0.0,
+      "count": 2319,
+      "question_class": "box_artifact_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.17829315374832633,
+      "anls": 0.0,
+      "count": 2115,
+      "question_class": "finding_count"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.0017041471496671299,
+      "anls": 0.0,
+      "count": 237,
+      "question_class": "finding_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2519959435168249,
+      "anls": 0.0,
+      "count": 2208,
+      "question_class": "instrument_count"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2560735085308523,
+      "anls": 0.0,
+      "count": 1913,
+      "question_class": "instrument_location"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2435007397007956,
+      "anls": 0.0,
+      "count": 1837,
+      "question_class": "instrument_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2001767854294594,
+      "anls": 0.0,
+      "count": 55,
+      "question_class": "landmark_color"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.27066683564735833,
+      "anls": 0.0,
+      "count": 1224,
+      "question_class": "landmark_location"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.2292210280059215,
+      "anls": 0.0,
+      "count": 1264,
+      "question_class": "landmark_presence"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.20352526448318578,
+      "anls": 0.0,
+      "count": 1900,
+      "question_class": "polyp_count"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.22575261561503712,
+      "anls": 0.0,
+      "count": 2312,
+      "question_class": "polyp_removal_status"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.19924926711628277,
+      "anls": 0.0,
+      "count": 1936,
+      "question_class": "polyp_size"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.20858113940984316,
+      "anls": 0.0,
+      "count": 1959,
+      "question_class": "polyp_type"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.21397561589463765,
+      "anls": 0.0,
+      "count": 2303,
+      "question_class": "procedure_type"
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.29329892225739446,
+      "anls": 0.0,
+      "count": 2454,
+      "question_class": "text_presence"
+    }
+  ],
+  "by_complexity": [
+    {
+      "em": 0.0,
+      "token_f1": 0.0815657485570494,
+      "anls": 0.0,
+      "count": 5496,
+      "complexity": 1
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.1931390455747909,
+      "anls": 0.0,
+      "count": 5251,
+      "complexity": 2
+    },
+    {
+      "em": 0.0,
+      "token_f1": 0.29685534736190855,
+      "anls": 0.0,
+      "count": 5208,
+      "complexity": 3
+    }
+  ],
+  "by_transformed": [
+    {
+      "em": 0.0,
+      "token_f1": 0.18856039683131245,
+      "anls": 0.0,
+      "count": 15955,
+      "is_transformed": false
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+- id: S1
+  vignette_ref: "USMLE Sample GI Case #…"
+  items:
+    - image_id: kv_test_01234
+      questions:
+        - text: "Is there active bleeding visible?"
+          type: binary
+          gt: "yes"
+- id: S2
+  vignette_ref: "USMLE Sample GI Case #…"
+  items:
+    - image_id: kv_test_04567
+      questions:
+        - text: "Is a snare or forceps visible?"
+          type: closed_set
+          labels: ["snare","forceps","none"]
+          gt: "snare"
+        - text: "How many polyps are present?"
+          type: count
+          gt: "2"
+- id: S3
+  vignette_ref: "USMLE Sample GI Case #…"
+  items:
+    - image_id: kv_test_07890
+      questions:
+        - text: "What is the polyp morphology (Paris)?"
+          type: closed_set
+          labels: ["0–Is","0–IIa","0–IIb","0–IIc","Ip","Isp"]
+          gt: "0–IIa"
+# Optional: add ONE free-text line anywhere to unlock BLEU/ROUGE/METEOR/BERTScore
+#        - text: "Describe the mucosa in one short phrase."
+#          type: free_text
+#          gt_free: "Diffuse erythema with superficial ulceration."
+

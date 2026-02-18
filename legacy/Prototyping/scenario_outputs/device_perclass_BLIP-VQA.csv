@@ -1,0 +1,4 @@
+label,precision,recall,f1,support
+snare,0.0,0.0,0.0,1.0
+forceps,0.0,0.0,0.0,0.0
+none,0.0,0.0,0.0,0.0

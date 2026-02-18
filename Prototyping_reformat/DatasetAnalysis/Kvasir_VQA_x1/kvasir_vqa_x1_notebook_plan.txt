@@ -1,0 +1,113 @@
+Kvasir-VQA-x1 (x1) Thesis-Quality Benchmarking Plan
+=====================================================
+
+Goal
+----
+Finish a clean, reproducible, paper-aligned x1 benchmarking spine in 1–2 months, without adding unnecessary baselines.
+The x1 paper’s core modeling direction is: modern VLMs (Qwen2.5-VL + MedGemma) + LoRA, and original vs transformed robustness evaluation.
+
+Exactly how many notebooks you need
+----------------------------------
+Core (thesis-quality): 6 notebooks total
+- You already have 2 of these.
+- You need to add 4 new ones.
+
+If you also do LoRA fine-tuning aligned with the paper: 7 notebooks total
+- Add exactly 1 fine-tuning notebook (do NOT fine-tune multiple models unless you have abundant compute/time).
+
+The 6-notebook set (final)
+--------------------------
+Already present (keep):
+1) 0_dataset_prep/01_build_metadata_images_and_manifests.ipynb
+2) 1_dataset_analysis/01_explore_dataset.ipynb
+
+Add these 4 notebooks (then stop adding more):
+3) 0_dataset_prep/02_validate_splits_and_integrity.ipynb  (NEW)
+4) 1_dataset_analysis/02_metrics_and_answer_normalization.ipynb  (NEW)
+5) 2_modeling/10_modern_vlm/01_zeroshot_qwen2_5_vl_and_medgemma.ipynb  (NEW)
+6) 2_modeling/12_eval_reporting/01_unified_eval_tables_figures.ipynb  (NEW)
+
+Optional (high value, paper-aligned): add 1 notebook for LoRA fine-tuning
+7) 2_modeling/11_lora_finetune/01_lora_finetune_best_vlm.ipynb  (OPTIONAL)
+
+What each NEW notebook must do (very specific)
+----------------------------------------------
+
+(3) 02_validate_splits_and_integrity.ipynb
+- Verify every sample has an image file on disk (no missing paths)
+- Check duplicates across splits (train/test leakage)
+- Confirm required fields exist and are consistent:
+  question, answer, question_class, complexity, transformed_flag (or equivalent)
+- Output a single canonical dataset file used by all modeling:
+  out/manifest_x1.parquet  (single source of truth)
+
+(4) 02_metrics_and_answer_normalization.ipynb
+- Define answer normalization:
+  lowercase, strip punctuation, collapse whitespace
+- Implement metrics:
+  Exact Match (EM)
+  Token-F1
+  (Optional) ANLS / edit-distance soft match
+- Export reusable functions:
+  utils/metrics.py (or equivalent)
+
+(5) 01_zeroshot_qwen2_5_vl_and_medgemma.ipynb
+- Run modern VLM zero-shot baselines:
+  Qwen2.5-VL zero-shot
+  MedGemma (or MedGamma if that’s what you can run) zero-shot
+- Evaluate:
+  overall
+  per question_class
+  per complexity (1/2/3)
+  original vs transformed
+- Save standardized predictions:
+  out/qwen2_5_vl_zeroshot/predictions.jsonl
+  out/medgemma_zeroshot/predictions.jsonl
+- Also save standardized metrics.json beside each run.
+
+(6) 01_unified_eval_tables_figures.ipynb
+- Load predictions from:
+  best classical baselines (pick 2–3 max)
+  BLIP/BLIP-2 (optional, only if already working)
+  Qwen2.5-VL + MedGemma zero-shot
+  (and LoRA runs if you did notebook #7)
+- Compute metrics using the same normalization + utils/metrics.py
+- Export thesis-ready assets:
+  tables/leaderboard.csv
+  tables/breakdown_by_class.csv
+  tables/breakdown_by_complexity.csv
+  tables/original_vs_transformed.csv
+  figures/*.png
+- (Optional) qualitative error gallery (20–40 examples)
+
+Optional LoRA fine-tuning (paper-aligned)
+-----------------------------------------
+If you fine-tune, add notebook (7) 01_lora_finetune_best_vlm.ipynb:
+- Pick ONE model to fine-tune (do not do both unless you have A100/H100 time):
+  Recommended for RTX 3090: MedGemma 4B LoRA
+  If you have A100/H100: Qwen2.5-VL LoRA
+- Run two variants (to match the paper’s robustness comparison):
+  fine-tune on original images
+  fine-tune on transformed images
+- Save predictions in the same JSONL format as zero-shot.
+
+1–2 month execution plan
+------------------------
+Week 1:
+- Notebook 3 (validate) -> produce manifest_x1.parquet
+- Notebook 4 (metrics) -> lock normalization + scoring
+
+Week 2:
+- Notebook 5 -> Qwen2.5-VL + MedGemma zero-shot, save preds
+
+Weeks 3–4 (only if doing LoRA):
+- Notebook 7 -> LoRA fine-tune best model (original + transformed), save preds
+
+Weeks 5–6:
+- Notebook 6 -> unified tables/figures
+- Start writing Chapter 3 directly from exported tables/plots
+
+Final answer (notebook count)
+-----------------------------
+- 6 notebooks total for thesis-quality x1 benchmarking (2 existing + 4 new).
+- 7 notebooks total if you also add one LoRA fine-tuning notebook.

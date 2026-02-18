@@ -1,0 +1,10 @@
+question,model,accuracy,precision_macro,recall_macro,f1_macro,cohen_kappa,mcc,labels
+Is a snare or forceps visible?,BLIP-2 (ZS),0.0,0.0,0.0,0.0,0.0,0.0,snare|forceps|none
+Is a snare or forceps visible?,BLIP-VQA,0.0,0.0,0.0,0.0,0.0,0.0,snare|forceps|none
+Is a snare or forceps visible?,ViLT (vqa),0.0,0.0,0.0,0.0,0.0,0.0,snare|forceps|none
+Is there active bleeding visible?,BLIP-2 (ZS),0.0,0.0,0.0,0.0,0.0,0.0,yes|no
+Is there active bleeding visible?,BLIP-VQA,0.0,0.0,0.0,0.0,0.0,0.0,yes|no
+Is there active bleeding visible?,ViLT (vqa),0.0,0.0,0.0,0.0,0.0,0.0,yes|no
+What is the polyp morphology (Paris)?,BLIP-2 (ZS),1.0,0.1667,0.1667,0.1667,,0.0,0–Is|0–IIa|0–IIb|0–IIc|Ip|Isp
+What is the polyp morphology (Paris)?,BLIP-VQA,1.0,0.1667,0.1667,0.1667,,0.0,0–Is|0–IIa|0–IIb|0–IIc|Ip|Isp
+What is the polyp morphology (Paris)?,ViLT (vqa),0.0,0.0,0.0,0.0,0.0,0.0,0–Is|0–IIa|0–IIb|0–IIc|Ip|Isp

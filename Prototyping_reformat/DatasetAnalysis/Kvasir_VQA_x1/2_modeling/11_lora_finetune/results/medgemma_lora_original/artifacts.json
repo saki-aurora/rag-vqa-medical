@@ -1,0 +1,8 @@
+{
+  "predictions": "/workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/11_lora_finetune/results/medgemma_lora_original/predictions.jsonl",
+  "metrics": "/workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/11_lora_finetune/results/medgemma_lora_original/metrics.json",
+  "run_config": "/workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/11_lora_finetune/results/medgemma_lora_original/run_config.json",
+  "train_progress": "/workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/11_lora_finetune/results/medgemma_lora_original/train_progress.json",
+  "adapter_dir": "/workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/11_lora_finetune/out/medgemma_lora_original/lora_adapters",
+  "processor_dir": "/workspace/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/11_lora_finetune/out/medgemma_lora_original/processor"
+}

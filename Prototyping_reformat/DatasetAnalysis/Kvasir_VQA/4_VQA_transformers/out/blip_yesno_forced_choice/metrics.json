@@ -1,26 +1,26 @@
 {
   "model_id": "Salesforce/blip-vqa-base",
-  "device": "cpu",
+  "device": "cuda",
   "task": "Yes/No forced-choice",
-  "n_used": 1000,
-  "accuracy": 0.514,
-  "macro_f1": 0.491129315977283,
+  "n_used": 12267,
+  "accuracy": 0.5183011331213826,
+  "macro_f1": 0.5028882164828845,
   "per_class": {
     "no": {
-      "precision": 0.471875,
-      "recall": 0.32264957264957267,
-      "f1": 0.383248730964467,
-      "support": 468
+      "precision": 0.5104571984435797,
+      "recall": 0.3501251042535446,
+      "f1": 0.41535569407341444,
+      "support": 5995
     },
     "yes": {
-      "precision": 0.5338235294117647,
-      "recall": 0.6823308270676691,
-      "f1": 0.599009900990099,
-      "support": 532
+      "precision": 0.5222562844880442,
+      "recall": 0.6790497448979592,
+      "f1": 0.5904207388923546,
+      "support": 6272
     }
   },
-  "runtime_seconds": 660.4260940551758,
+  "runtime_seconds": 979.0039780139923,
   "seed": 42,
-  "max_n": 1000,
+  "max_n": null,
   "used_test_split_only": false
 }

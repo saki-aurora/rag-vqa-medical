@@ -1,0 +1,13 @@
+scenario_id,image_id,question,type,labels,gt_label,model,pred,pred_raw
+S1,kv_test_01234,Is there active bleeding visible?,binary,,yes,ViLT (vqa),no,no
+S1,kv_test_01234,Is there active bleeding visible?,binary,,yes,BLIP-VQA,no,ERR:ValueError
+S1,kv_test_01234,Is there active bleeding visible?,binary,,yes,BLIP-2 (ZS),no,ERR:ValueError
+S2,kv_test_04567,Is a snare or forceps visible?,closed_set,snare|forceps|none,snare,ViLT (vqa),forceps,yes
+S2,kv_test_04567,Is a snare or forceps visible?,closed_set,snare|forceps|none,snare,BLIP-VQA,forceps,ERR:ValueError
+S2,kv_test_04567,Is a snare or forceps visible?,closed_set,snare|forceps|none,snare,BLIP-2 (ZS),forceps,ERR:ValueError
+S2,kv_test_04567,How many polyps are present?,count,,2,ViLT (vqa),1,1
+S2,kv_test_04567,How many polyps are present?,count,,2,BLIP-VQA,,ERR:ValueError
+S2,kv_test_04567,How many polyps are present?,count,,2,BLIP-2 (ZS),,ERR:ValueError
+S3,kv_test_07890,What is the polyp morphology (Paris)?,closed_set,0–Is|0–IIa|0–IIb|0–IIc|Ip|Isp,0–IIa,ViLT (vqa),0–Is,food
+S3,kv_test_07890,What is the polyp morphology (Paris)?,closed_set,0–Is|0–IIa|0–IIb|0–IIc|Ip|Isp,0–IIa,BLIP-VQA,0–IIa,ERR:ValueError
+S3,kv_test_07890,What is the polyp morphology (Paris)?,closed_set,0–Is|0–IIa|0–IIb|0–IIc|Ip|Isp,0–IIa,BLIP-2 (ZS),0–IIa,ERR:ValueError

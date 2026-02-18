@@ -24,33 +24,33 @@
     "support": 115.0
   },
   "cecum": {
-    "precision": 0.9591836734693877,
-    "recall": 0.9306930693069307,
-    "f1-score": 0.9447236180904522,
+    "precision": 0.9595959595959596,
+    "recall": 0.9405940594059405,
+    "f1-score": 0.95,
     "support": 101.0
   },
   "dyed-lifted-polyps": {
-    "precision": 0.8877551020408163,
+    "precision": 0.8969072164948454,
     "recall": 0.87,
-    "f1-score": 0.8787878787878788,
+    "f1-score": 0.883248730964467,
     "support": 100.0
   },
   "dyed-resection-margins": {
-    "precision": 0.8787878787878788,
-    "recall": 0.8787878787878788,
-    "f1-score": 0.8787878787878788,
+    "precision": 0.88,
+    "recall": 0.8888888888888888,
+    "f1-score": 0.8844221105527639,
     "support": 99.0
   },
   "esophagitis-a": {
-    "precision": 0.5581395348837209,
-    "recall": 0.5853658536585366,
-    "f1-score": 0.5714285714285714,
+    "precision": 0.5652173913043478,
+    "recall": 0.6341463414634146,
+    "f1-score": 0.5977011494252874,
     "support": 41.0
   },
   "esophagitis-b-d": {
-    "precision": 0.6785714285714286,
-    "recall": 0.7307692307692307,
-    "f1-score": 0.7037037037037037,
+    "precision": 0.6666666666666666,
+    "recall": 0.6923076923076923,
+    "f1-score": 0.6792452830188679,
     "support": 26.0
   },
   "hemorrhoids": {
@@ -90,9 +90,9 @@
     "support": 39.0
   },
   "retroflex-stomach": {
-    "precision": 1.0,
+    "precision": 0.9868421052631579,
     "recall": 0.974025974025974,
-    "f1-score": 0.9868421052631579,
+    "f1-score": 0.9803921568627451,
     "support": 77.0
   },
   "ulcerative-colitis-grade-0-1": {
@@ -102,9 +102,9 @@
     "support": 4.0
   },
   "ulcerative-colitis-grade-1": {
-    "precision": 0.3076923076923077,
+    "precision": 0.3333333333333333,
     "recall": 0.4,
-    "f1-score": 0.34782608695652173,
+    "f1-score": 0.36363636363636365,
     "support": 20.0
   },
   "ulcerative-colitis-grade-1-2": {
@@ -126,28 +126,28 @@
     "support": 3.0
   },
   "ulcerative-colitis-grade-3": {
-    "precision": 0.6428571428571429,
-    "recall": 0.6428571428571429,
-    "f1-score": 0.6428571428571429,
+    "precision": 0.6666666666666666,
+    "recall": 0.7142857142857143,
+    "f1-score": 0.6896551724137931,
     "support": 14.0
   },
   "z-line": {
-    "precision": 0.8369565217391305,
-    "recall": 0.8279569892473119,
-    "f1-score": 0.8324324324324325,
+    "precision": 0.8426966292134831,
+    "recall": 0.8064516129032258,
+    "f1-score": 0.8241758241758241,
     "support": 93.0
   },
-  "accuracy": 0.8681010289990645,
+  "accuracy": 0.8699719363891487,
   "macro avg": {
-    "precision": 0.5778523728699178,
-    "recall": 0.5830351301853496,
-    "f1-score": 0.5800810808867604,
+    "precision": 0.5799385632393371,
+    "recall": 0.5865240060387341,
+    "f1-score": 0.582910966658168,
     "support": 1069.0
   },
   "weighted avg": {
-    "precision": 0.8705364252227362,
-    "recall": 0.8681010289990645,
-    "f1-score": 0.8690893225908165,
+    "precision": 0.8718688355075263,
+    "recall": 0.8699719363891487,
+    "f1-score": 0.8706654805403019,
     "support": 1069.0
   }
 }
