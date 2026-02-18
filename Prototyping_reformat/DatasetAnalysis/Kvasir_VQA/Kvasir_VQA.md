@@ -75,7 +75,7 @@ This report consolidates all persisted Kvasir_VQA artifacts and computes additio
 | Text baseline (UC answer-type) | 1_text_baselines_models/out/uc_answer_type_tfidf_dt | predictions_with_rows.csv, classification_report.txt, run_meta.json |
 | BLIP transformer yes/no | 4_VQA_transformers/out | blip_vqa_base_yesno/metrics.json, blip_yesno_forced_choice/metrics.json |
 | Custom fusion benchmarks | 5_custom_fusion_VQA_models/out/reports | main_table.csv + m1/m2/blip2 prediction CSVs |
-| Phase-3 comparison | evaluation_comparison/phase3_results | summary_uc_phase3.csv + empty prediction placeholders |
+| Phase-3 comparison | evaluation_comparison/phase3_results | summary_uc_phase3.csv (prediction files not present) |
 
 ## 3) UC Answer-type Text Baseline (`tfidf + decision_tree`)
 

@@ -2,7 +2,7 @@
 
 ## 2.1 Introduction
 
-Visual Question Answering (VQA) has evolved from a general computer-vision benchmark task into a clinically relevant multimodal research area. In medical VQA (MedVQA), a model must interpret medical imagery, parse a natural-language question, and generate an answer that is not only technically correct but also clinically meaningful. This imposes stricter requirements than general-domain VQA: stronger visual grounding, domain-aware language understanding, robustness under class imbalance, and error behavior that is safe under clinical risk [R4].
+Visual Question Answering (VQA) has evolved from a general computer-vision benchmark task into a clinically relevant multimodal research area. In medical VQA (MedVQA), a model must interpret medical imagery, parse a natural-language question, and generate an answer that is not only technically correct but also clinically meaningful. This imposes stricter requirements than general-domain VQA: stronger visual grounding, domain-aware language understanding, robustness under class imbalance, and error behavior that is safe under clinical risk [4].
 
 For this dissertation, the focus is gastrointestinal (GI) endoscopy with an emphasis on colonoscopy use cases. This domain is clinically important and methodologically difficult. Colonoscopy frames contain artifacts, illumination variation, blur, occlusions by instruments, and subtle lesion morphology. Questions that appear simple in natural language (e.g., "Is there active inflammation?" or "What is the likely severity?") can require fine-grained perception and domain-specific interpretation.
 
@@ -132,17 +132,17 @@ Early VQA systems relied on CNN image encoders and RNN question encoders with sh
 
 ### 2.3.2 Stage B: Attention and Cross-Modal Transformers
 
-Transformer-based multimodal architectures improved cross-modal alignment and reasoning depth. Two-stream and cross-attention approaches such as ViLBERT and LXMERT established a stronger pretraining paradigm for vision-language tasks [R31], [R32]. Large-scale contrastive pretraining (e.g., CLIP) then made transfer learning more scalable [R33].
+Transformer-based multimodal architectures improved cross-modal alignment and reasoning depth. Two-stream and cross-attention approaches such as ViLBERT and LXMERT established a stronger pretraining paradigm for vision-language tasks [31], [32]. Large-scale contrastive pretraining (e.g., CLIP) then made transfer learning more scalable [33].
 
 ### 2.3.3 Stage C: Instruction-Tuned Generative Multimodal Models
 
-Recent systems increasingly treat MedVQA as a generative task rather than fixed-label classification. The shift is visible in BLIP-2 style adaptation [R34], LLaVA-style visual instruction tuning [R35], and medical-domain variants such as LLaVA-Med [R6] and Med-Flamingo [R7]. Biomedical language pretraining backbones such as BioBERT and BioGPT [R40], [R41] are also important in this stage because they improve terminology fidelity and domain-specific language control in downstream medical QA systems.
+Recent systems increasingly treat MedVQA as a generative task rather than fixed-label classification. The shift is visible in BLIP-2 style adaptation [34], LLaVA-style visual instruction tuning [35], and medical-domain variants such as LLaVA-Med [6] and Med-Flamingo [7]. Biomedical language pretraining backbones such as BioBERT and BioGPT [40], [41] are also important in this stage because they improve terminology fidelity and domain-specific language control in downstream medical QA systems.
 
 The advantage is richer interaction and explanation-like output. The risk is that fluent generated text can become weakly grounded, lexically mismatched to benchmark labels, or clinically unsafe if not constrained.
 
 ### 2.3.4 Stage D: Reliability, Explainability, and Evidence Grounding
 
-The current frontier moves beyond "answer generation" toward clinical trust requirements: grounding, calibration, interpretability, and evidence linkage. This includes benchmark-level work on probing reliability [R11], multimodal in-context robustness [R12], explainability frameworks [R15], and retrieval-based methods in clinical VQA settings [R30].
+The current frontier moves beyond "answer generation" toward clinical trust requirements: grounding, calibration, interpretability, and evidence linkage. This includes benchmark-level work on probing reliability [11], multimodal in-context robustness [12], explainability frameworks [15], and retrieval-based methods in clinical VQA settings [30].
 
 **Figure 2.2: Historical trajectory of MedVQA.**
 
@@ -160,13 +160,13 @@ Dataset design constrains what models can learn and what claims can be made. Thi
 
 | Dataset / Benchmark | Year | Reported scope | Why it matters |
 |---|---:|---|---|
-| VQA-RAD [R1] | 2018 | Clinician-authored radiology QA | Early high-quality clinician-driven MedVQA benchmark |
-| PathVQA [R2] | 2020 | Pathology QA from textbook/digital resources | Extended MedVQA to histopathology |
-| SLAKE [R3] | 2021 | Bilingual, semantically labeled medical QA | Added richer semantic structure and multilinguality |
-| PMC-VQA [R5] | 2023 | Large-scale visual instruction tuning corpus | Enabled modern generative MedVQA pipelines |
-| OmniMedVQA [R8] | 2024 | Large multi-dataset LVLM benchmark | Stress-tests generalization across modalities and anatomy |
-| MedBookVQA [R9] | 2025 | Textbook-derived multimodal benchmark | Structured benchmark for broad medical domains |
-| MedFrameQA [R10] | 2025 (rev. 2026) | Multi-image reasoning benchmark | Closer to real clinical workflow than single-image QA |
+| VQA-RAD [1] | 2018 | Clinician-authored radiology QA | Early high-quality clinician-driven MedVQA benchmark |
+| PathVQA [2] | 2020 | Pathology QA from textbook/digital resources | Extended MedVQA to histopathology |
+| SLAKE [3] | 2021 | Bilingual, semantically labeled medical QA | Added richer semantic structure and multilinguality |
+| PMC-VQA [5] | 2023 | Large-scale visual instruction tuning corpus | Enabled modern generative MedVQA pipelines |
+| OmniMedVQA [8] | 2024 | Large multi-dataset LVLM benchmark | Stress-tests generalization across modalities and anatomy |
+| MedBookVQA [9] | 2025 | Textbook-derived multimodal benchmark | Structured benchmark for broad medical domains |
+| MedFrameQA [10] | 2025 (rev. 2026) | Multi-image reasoning benchmark | Closer to real clinical workflow than single-image QA |
 
 ### 2.4.2 GI and Colonoscopy-Focused Resources
 
@@ -174,25 +174,25 @@ Dataset design constrains what models can learn and what claims can be made. Thi
 
 | Resource | Year | Reported scale | Role in this thesis |
 |---|---:|---|---|
-| HyperKvasir [R16] | 2020 | 110,079 images + 374 videos | Core GI visual foundation and class diversity |
-| Kvasir-Capsule [R17] | 2021 | 117 videos, 4.7M+ frames, 47k+ labeled frames | Robustness and broader GI variability context |
-| LIMUC [R37] | 2022 | 11,276 UC images from 564 patients | UC severity and ordinal evaluation anchor |
-| ImageCLEF MEDVQA-GI 2023 [R22], [R23] | 2023 | Multi-subtask GI VQA/VQG/VLQA benchmark | First major GI-specific VQA shared-task setup |
-| Kvasir-VQA [R18], [R19] | 2024 | 6,500 images, 58,849 QA pairs | Main GI text-image pair benchmark |
-| ImageCLEF MEDVQA-GI 2024 [R24] | 2024 | Second-year challenge, synthesis-linked direction | Signaled task broadening around synthetic workflows |
-| Kvasir-VQA-x1 [R20], [R21] | 2025 | 159,549 QA pairs with complexity levels and perturbations | Stronger reasoning and robustness benchmark |
-| ImageCLEF MEDVQA 2025 [R25] | 2025 | Third-year challenge with synthetic GI integration | Benchmark evolution toward real-synthetic design |
-| MediaEval Medico 2025 [R26], [R27] | 2025 | GI VQA + multimodal explanation subtask | Explicit shift toward explainable clinical interaction |
+| HyperKvasir [16] | 2020 | 110,079 images + 374 videos | Core GI visual foundation and class diversity |
+| Kvasir-Capsule [17] | 2021 | 117 videos, 4.7M+ frames, 47k+ labeled frames | Robustness and broader GI variability context |
+| LIMUC [37] | 2022 | 11,276 UC images from 564 patients | UC severity and ordinal evaluation anchor |
+| ImageCLEF MEDVQA-GI 2023 [22], [23] | 2023 | Multi-subtask GI VQA/VQG/VLQA benchmark | First major GI-specific VQA shared-task setup |
+| Kvasir-VQA [18], [19] | 2024 | 6,500 images, 58,849 QA pairs | Main GI text-image pair benchmark |
+| ImageCLEF MEDVQA-GI 2024 [24] | 2024 | Second-year challenge, synthesis-linked direction | Signaled task broadening around synthetic workflows |
+| Kvasir-VQA-x1 [20], [21] | 2025 | 159,549 QA pairs with complexity levels and perturbations | Stronger reasoning and robustness benchmark |
+| ImageCLEF MEDVQA 2025 [25] | 2025 | Third-year challenge with synthetic GI integration | Benchmark evolution toward real-synthetic design |
+| MediaEval Medico 2025 [26], [27] | 2025 | GI VQA + multimodal explanation subtask | Explicit shift toward explainable clinical interaction |
 
-Across these resources, supervision and evaluation styles differ in ways that materially affect model interpretation. Kvasir-VQA and Kvasir-VQA-x1 primarily provide paired image-question-answer supervision with heterogeneous answer spaces (binary, count, attribute, and location), where lexical shortcuts and yes/no priors can inflate superficial performance [R18], [R20]. ImageCLEF and MediaEval tracks add challenge-level protocol constraints and broader metric bundles that include classification quality, overlap metrics, and explanation-oriented assessment [R23], [R26], [R27]. For this thesis, these differences are treated as design constraints, not benchmark noise.
+Across these resources, supervision and evaluation styles differ in ways that materially affect model interpretation. Kvasir-VQA and Kvasir-VQA-x1 primarily provide paired image-question-answer supervision with heterogeneous answer spaces (binary, count, attribute, and location), where lexical shortcuts and yes/no priors can inflate superficial performance [18], [20]. ImageCLEF and MediaEval tracks add challenge-level protocol constraints and broader metric bundles that include classification quality, overlap metrics, and explanation-oriented assessment [23], [26], [27]. For this thesis, these differences are treated as design constraints, not benchmark noise.
 
 ### 2.4.3 Challenge-Level Benchmark Progression
 
 The GI challenge ecosystem has progressed quickly:
 
-- **2023:** introduced GI VQA/VQG/VLQA as a dedicated challenge design [R22], [R23];
-- **2024:** expanded into synthetic-image-oriented workflows [R24];
-- **2025:** formalized VQA with synthetic-real integration at ImageCLEF [R25] and explainable GI VQA at MediaEval [R26], [R27].
+- **2023:** introduced GI VQA/VQG/VLQA as a dedicated challenge design [22], [23];
+- **2024:** expanded into synthetic-image-oriented workflows [24];
+- **2025:** formalized VQA with synthetic-real integration at ImageCLEF [25] and explainable GI VQA at MediaEval [26], [27].
 
 This progression matters because it changes what "state-of-the-art" means. The comparison target is no longer only answer correctness; it increasingly includes explanation quality, visual grounding, and clinical relevance.
 
@@ -200,30 +200,30 @@ This progression matters because it changes what "state-of-the-art" means. The c
 
 This repository provides dataset-level analysis and model diagnostics directly used in later chapters:
 
-- `Prototyping_reformat/DatasetAnalysis/HyperKvasir/HyperKvasir.md` [I1]
-- `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/Kvasir_VQA.md` [I2]
-- `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/Kvasir_VQA_x1.md` [I3]
-- `Prototyping_reformat/DatasetAnalysis/ImageCLEF_MEDVQA_GI_2023/ImageCLEF_MEDVQA_GI_2023.md` [I4]
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/LIMUC.md` [I5]
+- `Prototyping_reformat/DatasetAnalysis/HyperKvasir/HyperKvasir.md` [46]
+- `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/Kvasir_VQA.md` [47]
+- `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/Kvasir_VQA_x1.md` [48]
+- `Prototyping_reformat/DatasetAnalysis/ImageCLEF_MEDVQA_GI_2023/ImageCLEF_MEDVQA_GI_2023.md` [49]
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/LIMUC.md` [50]
 
 These internal reports are important because they connect literature claims to reproducible local evidence.
 
-References [I1]-[I5] are supplementary artifact files in the thesis repository and are provided as reproducibility materials for external review.
+References [46]-[50] are supplementary artifact files in the thesis repository and are provided as reproducibility materials for external review.
 
 ### 2.4.5 UC Severity Automation Literature Bridge
 
-UC severity automation has a substantial pre-VQA literature, and this background is essential for correct novelty positioning. Representative studies include deep learning grading against human review in JAMA Network Open [R42], CAD-based endoscopic activity scoring in Gastroenterology [R43], prospective multicentre CAD for inflammatory activity in Gastrointestinal Endoscopy [R44], and recent MES/UCEIS-focused deep neural modeling in Journal of Crohn's and Colitis [R45].
+UC severity automation has a substantial pre-VQA literature, and this background is essential for correct novelty positioning. Representative studies include deep learning grading against human review in JAMA Network Open [42], CAD-based endoscopic activity scoring in Gastroenterology [43], prospective multicentre CAD for inflammatory activity in Gastrointestinal Endoscopy [44], and recent MES/UCEIS-focused deep neural modeling in Journal of Crohn's and Colitis [45].
 
 **Table 2.5A. Selected UC Severity Automation Studies (Pre-MedVQA Framing)**
 
 | Study | Input type | Output target | Main contribution | Remaining limitation for this thesis |
 |---|---|---|---|---|
-| Stidham et al. [R42] | Endoscopic images | Disease severity grade | Human-level comparative severity scoring analysis | Limited interactive QA and evidence-linked outputs |
-| Ozawa et al. [R43] | Colonoscopy images | Endoscopic disease activity | CAD feasibility for UC severity grading | Primarily fixed-score prediction interface |
-| Yao et al. [R44] | Multicentre colonoscopy data | Inflammatory activity | Prospective multicentre evaluation | Not structured around clinician question-answer workflows |
-| Takenaka et al. [R45] | Endoscopic images | MES/UCEIS predictions | Strong recent MES/UCEIS-oriented deep model validation | No retrieval-grounded management response layer |
+| Stidham et al. [42] | Endoscopic images | Disease severity grade | Human-level comparative severity scoring analysis | Limited interactive QA and evidence-linked outputs |
+| Ozawa et al. [43] | Colonoscopy images | Endoscopic disease activity | CAD feasibility for UC severity grading | Primarily fixed-score prediction interface |
+| Yao et al. [44] | Multicentre colonoscopy data | Inflammatory activity | Prospective multicentre evaluation | Not structured around clinician question-answer workflows |
+| Takenaka et al. [45] | Endoscopic images | MES/UCEIS predictions | Strong recent MES/UCEIS-oriented deep model validation | No retrieval-grounded management response layer |
 
-These studies show that AI-based UC scoring is feasible, but they do not directly resolve the MedVQA challenge targeted in this dissertation: combining robust severity estimation with controlled interactive reasoning and evidence-grounded response generation. Editorial and variability analyses reinforce this gap by highlighting persistent scoring heterogeneity and translational barriers [R38], [R39].
+These studies show that AI-based UC scoring is feasible, but they do not directly resolve the MedVQA challenge targeted in this dissertation: combining robust severity estimation with controlled interactive reasoning and evidence-grounded response generation. Editorial and variability analyses reinforce this gap by highlighting persistent scoring heterogeneity and translational barriers [38], [39].
 
 **Figure 2.3: GI benchmark lineage.**
 
@@ -255,7 +255,7 @@ In GI settings, this family often provides strong reliability on structured answ
 
 ### 2.5.4 Generative MLLM-Based MedVQA
 
-Generative approaches output free-text answers and support richer interaction. Key drivers include instruction tuning and parameter-efficient adaptation. Representative medical systems include LLaVA-Med [R6], Med-Flamingo [R7], and instruction-tuned large-scale resources such as PMC-VQA [R5].
+Generative approaches output free-text answers and support richer interaction. Key drivers include instruction tuning and parameter-efficient adaptation. Representative medical systems include LLaVA-Med [6], Med-Flamingo [7], and instruction-tuned large-scale resources such as PMC-VQA [5].
 
 Benefits:
 
@@ -272,13 +272,13 @@ Risks:
 
 ### 2.5.5 Explainable and Grounded MedVQA
 
-Explainability has moved from optional add-on to benchmark-level requirement in GI challenges [R26], [R27]. The goal is not only to answer but to justify and localize reasoning cues in ways clinicians can audit.
+Explainability has moved from optional add-on to benchmark-level requirement in GI challenges [26], [27]. The goal is not only to answer but to justify and localize reasoning cues in ways clinicians can audit.
 
-Recent work includes explicit multi-component explainability pipelines [R15] and challenge systems combining QA, explanation generation, and localization [R28].
+Recent work includes explicit multi-component explainability pipelines [15] and challenge systems combining QA, explanation generation, and localization [28].
 
 ### 2.5.6 Retrieval-Augmented and Evidence-Aware Methods
 
-Retrieval augmentation is increasingly explored to ground answers in relevant examples or external evidence. Recent shared-task evidence in medical VQA (MEDIQA-WV 2025 overview and system reports) shows that retrieval-aware pipelines can improve schema adherence and answer usefulness when retrieval quality is explicitly controlled [R29], [R30].
+Retrieval augmentation is increasingly explored to ground answers in relevant examples or external evidence. Recent shared-task evidence in medical VQA (MEDIQA-WV 2025 overview and system reports) shows that retrieval-aware pipelines can improve schema adherence and answer usefulness when retrieval quality is explicitly controlled [29], [30].
 
 For this thesis, retrieval is decomposed into three operational modes:
 
@@ -311,7 +311,7 @@ A central finding of this survey is that evaluation practice is often the bottle
 
 ### 2.6.1 Classification Metrics vs Clinical Risk
 
-Many MedVQA papers report accuracy and macro-F1. These are necessary but insufficient for clinical decision support. In imbalanced settings, aggregate metrics can obscure severe-class failure. This concern is consistent with broader medical-AI metric guidance that emphasizes task-risk alignment over single-score reporting [R36].
+Many MedVQA papers report accuracy and macro-F1. These are necessary but insufficient for clinical decision support. In imbalanced settings, aggregate metrics can obscure severe-class failure. This concern is consistent with broader medical-AI metric guidance that emphasizes task-risk alignment over single-score reporting [36].
 
 ### 2.6.2 Generative Metrics and Their Limits
 
@@ -323,8 +323,8 @@ Clinical deployment requires uncertainty-aware behavior. Yet many papers omit ca
 
 ### 2.6.4 Challenge Metric Profiles
 
-- ImageCLEF GI tracks include classification and segmentation-oriented metrics (e.g., accuracy/F1/MCC and region metrics where relevant) [R22], [R23].
-- MediaEval Medico 2025 includes text-overlap metrics plus expert-assessed clinical relevance and explainability components [R26], [R27].
+- ImageCLEF GI tracks include classification and segmentation-oriented metrics (e.g., accuracy/F1/MCC and region metrics where relevant) [22], [23].
+- MediaEval Medico 2025 includes text-overlap metrics plus expert-assessed clinical relevance and explainability components [26], [27].
 
 ### 2.6.5 Recommended Metric Bundle for This Thesis
 
@@ -392,23 +392,23 @@ Recent literature indicates several important shifts.
 
 ### 2.8.1 From Single-Image QA to Multi-Image Reasoning
 
-MedFrameQA shows that multi-image clinical reasoning remains difficult for current MLLMs and exposes a gap between benchmark fluency and longitudinal diagnostic reasoning; notably, the benchmark received an updated arXiv revision in February 2026 [R10].
+MedFrameQA shows that multi-image clinical reasoning remains difficult for current MLLMs and exposes a gap between benchmark fluency and longitudinal diagnostic reasoning; notably, the benchmark received an updated arXiv revision in February 2026 [10].
 
 ### 2.8.2 From Benchmark Accuracy to Reliability Stress Testing
 
-ProbMed-style probing demonstrates that high benchmark scores can hide brittle behavior under controlled perturbations [R11]. SMMILE similarly highlights fragility in multimodal in-context learning [R12].
+ProbMed-style probing demonstrates that high benchmark scores can hide brittle behavior under controlled perturbations [11]. SMMILE similarly highlights fragility in multimodal in-context learning [12].
 
 ### 2.8.3 Data-Centric Expansion and Synthetic Pipelines
 
-New resources increasingly use automated or semi-automated pipelines to scale MedVQA data. This is seen in MedVLSynther-like generator-verifier approaches [R13] and challenge tracks that explicitly integrate synthetic data [R25].
+New resources increasingly use automated or semi-automated pipelines to scale MedVQA data. This is seen in MedVLSynther-like generator-verifier approaches [13] and challenge tracks that explicitly integrate synthetic data [25].
 
 ### 2.8.4 Scaling Unified Medical VLMs
 
-OmniV-Med and related work aim at unified multimodal medical understanding across 2D/3D/video settings [R14]. These models are promising for broad capability, but consistent clinical robustness on specialized GI QA remains an open question.
+OmniV-Med and related work aim at unified multimodal medical understanding across 2D/3D/video settings [14]. These models are promising for broad capability, but consistent clinical robustness on specialized GI QA remains an open question.
 
 ### 2.8.5 Explainability as a First-Class Objective
 
-GI challenge design in 2025 formalized explanation quality and clinical relevance as evaluation targets, not optional analysis [R26], [R27]. This marks a practical shift toward clinician-facing trust criteria.
+GI challenge design in 2025 formalized explanation quality and clinical relevance as evaluation targets, not optional analysis [26], [27]. This marks a practical shift toward clinician-facing trust criteria.
 
 ---
 
@@ -422,11 +422,11 @@ To avoid a purely narrative survey, this section triangulates literature finding
 
 | Dataset/task (local report) | Representative local signal | Method implication |
 |---|---|---|
-| ImageCLEF MEDVQA-GI 2023 [I4] | ViLT fine-tune val accuracy 0.9089, macro-F1 0.5823; zero-shot Qwen raw near-zero accuracy | Closed-set tuned models remain stronger than raw zero-shot generation in this setting |
-| HyperKvasir 23-class [I1] | ResNet50 supervised outperforms saved zero-shot generative baseline by large margin | Robust supervised visual encoders remain critical for GI grounding |
-| Kvasir-VQA [I2] | ResNet+GRU yes/no subset reaches high reliability; free generation runs can collapse to unknown outputs | Constrained answer spaces remain highly effective for deterministic clinical sub-questions |
-| Kvasir-VQA-x1 [I3] | LoRA improves token-level generative metrics; exact-match remains challenging | Reasoning-rich QA increases complexity; output normalization and grounding are central |
-| LIMUC severity [I5] | Fine-tuned ResNet50 leads macro-F1 and QWK; zero-shot VLM underperforms severe-class reliability | UC severity tasks favor domain-tuned supervised pipelines with ordinal-aware evaluation |
+| ImageCLEF MEDVQA-GI 2023 [49] | ViLT fine-tune val accuracy 0.9089, macro-F1 0.5823; zero-shot Qwen raw near-zero accuracy | Closed-set tuned models remain stronger than raw zero-shot generation in this setting |
+| HyperKvasir 23-class [46] | ResNet50 supervised outperforms saved zero-shot generative baseline by large margin | Robust supervised visual encoders remain critical for GI grounding |
+| Kvasir-VQA [47] | ResNet+GRU yes/no subset reaches high reliability; free generation runs can collapse to unknown outputs | Constrained answer spaces remain highly effective for deterministic clinical sub-questions |
+| Kvasir-VQA-x1 [48] | LoRA improves token-level generative metrics; exact-match remains challenging | Reasoning-rich QA increases complexity; output normalization and grounding are central |
+| LIMUC severity [50] | Fine-tuned ResNet50 leads macro-F1 and QWK; zero-shot VLM underperforms severe-class reliability | UC severity tasks favor domain-tuned supervised pipelines with ordinal-aware evaluation |
 
 ### 2.9.2 Interpretation
 
@@ -507,104 +507,104 @@ These conclusions motivate Chapter 3, which shifts from literature synthesis to 
 
 ### External Sources
 
-[R1] Lau JJ, Gayen S, Ben Abacha A, et al. *A dataset of clinically generated visual questions and answers about radiology images (VQA-RAD).* Scientific Data, 2018. https://www.nature.com/articles/sdata2018251
+[1] Lau JJ, Gayen S, Ben Abacha A, et al. *A dataset of clinically generated visual questions and answers about radiology images (VQA-RAD).* Scientific Data, 2018. https://www.nature.com/articles/sdata2018251
 
-[R2] He X, Zhang Y, Mou L, et al. *PathVQA: 30000+ Questions for Medical Visual Question Answering.* arXiv:2003.10286, 2020. https://arxiv.org/abs/2003.10286
+[2] He X, Zhang Y, Mou L, et al. *PathVQA: 30000+ Questions for Medical Visual Question Answering.* arXiv:2003.10286, 2020. https://arxiv.org/abs/2003.10286
 
-[R3] Liu B, Zhan L-M, Xu L, et al. *SLAKE: A Semantically-Labeled Knowledge-Enhanced Dataset for Medical Visual Question Answering.* arXiv:2102.09542, 2021. https://arxiv.org/abs/2102.09542
+[3] Liu B, Zhan L-M, Xu L, et al. *SLAKE: A Semantically-Labeled Knowledge-Enhanced Dataset for Medical Visual Question Answering.* arXiv:2102.09542, 2021. https://arxiv.org/abs/2102.09542
 
-[R4] Lin Z, Zhang D, Tao Q, et al. *Medical visual question answering: A survey.* Artificial Intelligence in Medicine, 2023. https://doi.org/10.1016/j.artmed.2023.102611
+[4] Lin Z, Zhang D, Tao Q, et al. *Medical visual question answering: A survey.* Artificial Intelligence in Medicine, 2023. https://doi.org/10.1016/j.artmed.2023.102611
 
-[R5] Zhang X, Wu C, Zhao Z, et al. *PMC-VQA: Visual Instruction Tuning for Medical Visual Question Answering.* arXiv:2305.10415, 2023. https://arxiv.org/abs/2305.10415
+[5] Zhang X, Wu C, Zhao Z, et al. *PMC-VQA: Visual Instruction Tuning for Medical Visual Question Answering.* arXiv:2305.10415, 2023. https://arxiv.org/abs/2305.10415
 
-[R6] Li C, Wong C, Zhang S, et al. *LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day.* arXiv:2306.00890, 2023. https://arxiv.org/abs/2306.00890
+[6] Li C, Wong C, Zhang S, et al. *LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day.* arXiv:2306.00890, 2023. https://arxiv.org/abs/2306.00890
 
-[R7] Moor M, Huang Q, Wu S, et al. *Med-Flamingo: a Multimodal Medical Few-shot Learner.* arXiv:2307.15189, 2023. https://arxiv.org/abs/2307.15189
+[7] Moor M, Huang Q, Wu S, et al. *Med-Flamingo: a Multimodal Medical Few-shot Learner.* arXiv:2307.15189, 2023. https://arxiv.org/abs/2307.15189
 
-[R8] Hu Y, Li T, Lu Q, et al. *OmniMedVQA: A New Large-Scale Comprehensive Evaluation Benchmark for Medical LVLM.* arXiv:2402.09181, 2024. https://arxiv.org/abs/2402.09181
+[8] Hu Y, Li T, Lu Q, et al. *OmniMedVQA: A New Large-Scale Comprehensive Evaluation Benchmark for Medical LVLM.* arXiv:2402.09181, 2024. https://arxiv.org/abs/2402.09181
 
-[R9] Yip SL, He S, Nie Y, et al. *MedBookVQA: A Systematic and Comprehensive Medical Benchmark Derived from Open-Access Book.* arXiv:2506.00855, 2025. https://arxiv.org/abs/2506.00855
+[9] Yip SL, He S, Nie Y, et al. *MedBookVQA: A Systematic and Comprehensive Medical Benchmark Derived from Open-Access Book.* arXiv:2506.00855, 2025. https://arxiv.org/abs/2506.00855
 
-[R10] Yu S, Wang H, Wu J, et al. *MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning.* arXiv:2505.16964, 2025 (revised 2026). https://arxiv.org/abs/2505.16964
+[10] Yu S, Wang H, Wu J, et al. *MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning.* arXiv:2505.16964, 2025 (revised 2026). https://arxiv.org/abs/2505.16964
 
-[R11] Yan Q, He X, Yue X, Wang XE. *Worse than Random? An Embarrassingly Simple Probing Evaluation of Large Multimodal Models in Medical VQA.* arXiv:2405.20421, 2024. https://arxiv.org/abs/2405.20421
+[11] Yan Q, He X, Yue X, Wang XE. *Worse than Random? An Embarrassingly Simple Probing Evaluation of Large Multimodal Models in Medical VQA.* arXiv:2405.20421, 2024. https://arxiv.org/abs/2405.20421
 
-[R12] Rieff M, Varma M, Rabow O, et al. *SMMILE: An Expert-Driven Benchmark for Multimodal Medical In-Context Learning.* arXiv:2506.21355, 2025. https://arxiv.org/abs/2506.21355
+[12] Rieff M, Varma M, Rabow O, et al. *SMMILE: An Expert-Driven Benchmark for Multimodal Medical In-Context Learning.* arXiv:2506.21355, 2025. https://arxiv.org/abs/2506.21355
 
-[R13] Huang X, Wang N, Liu H, Tang X, Zhou Y. *MedVLSynther: Synthesizing High-Quality Visual Question Answering from Medical Documents with Generator-Verifier LMMs.* arXiv:2510.25867, 2025 (preprint). https://arxiv.org/abs/2510.25867
+[13] Huang X, Wang N, Liu H, Tang X, Zhou Y. *MedVLSynther: Synthesizing High-Quality Visual Question Answering from Medical Documents with Generator-Verifier LMMs.* arXiv:2510.25867, 2025 (preprint). https://arxiv.org/abs/2510.25867
 
-[R14] Jiang S, Wang Y, Song S, et al. *OmniV-Med: Scaling Medical Vision-Language Model for Universal Visual Understanding.* arXiv:2504.14692, 2025 (preprint). https://arxiv.org/abs/2504.14692
+[14] Jiang S, Wang Y, Song S, et al. *OmniV-Med: Scaling Medical Vision-Language Model for Universal Visual Understanding.* arXiv:2504.14692, 2025 (preprint). https://arxiv.org/abs/2504.14692
 
-[R15] Nguyen H-D, Dang M-A, Le M-T, Le M-T. *MedXplain-VQA: Multi-Component Explainable Medical Visual Question Answering.* arXiv:2510.22803, 2025 (preprint). https://arxiv.org/abs/2510.22803
+[15] Nguyen H-D, Dang M-A, Le M-T, Le M-T. *MedXplain-VQA: Multi-Component Explainable Medical Visual Question Answering.* arXiv:2510.22803, 2025 (preprint). https://arxiv.org/abs/2510.22803
 
-[R16] Borgli H, Thambawita V, Smedsrud PH, et al. *HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy.* Scientific Data, 2020. https://www.nature.com/articles/s41597-020-00622-y
+[16] Borgli H, Thambawita V, Smedsrud PH, et al. *HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy.* Scientific Data, 2020. https://www.nature.com/articles/s41597-020-00622-y
 
-[R17] Smedsrud PH, Thambawita V, Hicks SA, et al. *Kvasir-Capsule, a video capsule endoscopy dataset.* Scientific Data, 2021. https://www.nature.com/articles/s41597-021-00920-z
+[17] Smedsrud PH, Thambawita V, Hicks SA, et al. *Kvasir-Capsule, a video capsule endoscopy dataset.* Scientific Data, 2021. https://www.nature.com/articles/s41597-021-00920-z
 
-[R18] Gautam S, Storas A, Midoglu C, et al. *Kvasir-VQA: A Text-Image Pair GI Tract Dataset.* arXiv:2409.01437, 2024. https://arxiv.org/abs/2409.01437
+[18] Gautam S, Storas A, Midoglu C, et al. *Kvasir-VQA: A Text-Image Pair GI Tract Dataset.* arXiv:2409.01437, 2024. https://arxiv.org/abs/2409.01437
 
-[R19] Simula Datasets. *Kvasir-VQA dataset page.* https://datasets.simula.no/kvasir-vqa/
+[19] Simula Datasets. *Kvasir-VQA dataset page.* https://datasets.simula.no/kvasir-vqa/
 
-[R20] Gautam S, Riegler MA, Halvorsen P. *Kvasir-VQA-x1: A Multimodal Dataset for Medical Reasoning and Robust MedVQA in Gastrointestinal Endoscopy.* arXiv:2506.09958, 2025. https://arxiv.org/abs/2506.09958
+[20] Gautam S, Riegler MA, Halvorsen P. *Kvasir-VQA-x1: A Multimodal Dataset for Medical Reasoning and Robust MedVQA in Gastrointestinal Endoscopy.* arXiv:2506.09958, 2025. https://arxiv.org/abs/2506.09958
 
-[R21] Simula. *Kvasir-VQA-x1 GitHub repository.* https://github.com/simula/Kvasir-VQA-x1
+[21] Simula. *Kvasir-VQA-x1 GitHub repository.* https://github.com/simula/Kvasir-VQA-x1
 
-[R22] ImageCLEF. *ImageCLEFmed MEDVQA-GI 2023 task page.* https://www.imageclef.org/2023/medical/vqa
+[22] ImageCLEF. *ImageCLEFmed MEDVQA-GI 2023 task page.* https://www.imageclef.org/2023/medical/vqa
 
-[R23] Hicks S, Storas A, Halvorsen P, de Lange T, Riegler M, Thambawita V. *Overview of ImageCLEFmedical 2023 - Medical Visual Question Answering for Gastrointestinal Tract.* CEUR-WS Vol-3497, paper-107, 2023. https://ceur-ws.org/Vol-3497/paper-107.pdf
+[23] Hicks S, Storas A, Halvorsen P, de Lange T, Riegler M, Thambawita V. *Overview of ImageCLEFmedical 2023 - Medical Visual Question Answering for Gastrointestinal Tract.* CEUR-WS Vol-3497, paper-107, 2023. https://ceur-ws.org/Vol-3497/paper-107.pdf
 
-[R24] Simula. *ImageCLEFmed-MEDVQA-GI-2024 repository.* https://github.com/simula/ImageCLEFmed-MEDVQA-GI-2024
+[24] Simula. *ImageCLEFmed-MEDVQA-GI-2024 repository.* https://github.com/simula/ImageCLEFmed-MEDVQA-GI-2024
 
-[R25] ImageCLEF. *ImageCLEFmed MEDVQA 2025 task page.* https://www.imageclef.org/2025/medical/vqa
+[25] ImageCLEF. *ImageCLEFmed MEDVQA 2025 task page.* https://www.imageclef.org/2025/medical/vqa
 
-[R26] MediaEval. *Medico 2025 task page: VQA with multimodal explanations for GI imaging.* https://multimediaeval.github.io/editions/2025/tasks/medico/
+[26] MediaEval. *Medico 2025 task page: VQA with multimodal explanations for GI imaging.* https://multimediaeval.github.io/editions/2025/tasks/medico/
 
-[R27] Gautam S, Thambawita V, Riegler M, Halvorsen P, Hicks S. *Medico 2025: Visual Question Answering for Gastrointestinal Imaging.* arXiv:2508.10869, 2025. https://arxiv.org/abs/2508.10869
+[27] Gautam S, Thambawita V, Riegler M, Halvorsen P, Hicks S. *Medico 2025: Visual Question Answering for Gastrointestinal Imaging.* arXiv:2508.10869, 2025. https://arxiv.org/abs/2508.10869
 
-[R28] Safwan I, Shaikh MA, Haaris M, Khan R, Tahir MA. *Multi-Task Learning for Visually Grounded Reasoning in Gastrointestinal VQA.* arXiv:2511.04384, 2025 (preprint). https://arxiv.org/abs/2511.04384
+[28] Safwan I, Shaikh MA, Haaris M, Khan R, Tahir MA. *Multi-Task Learning for Visually Grounded Reasoning in Gastrointestinal VQA.* arXiv:2511.04384, 2025 (preprint). https://arxiv.org/abs/2511.04384
 
-[R29] Yim W-w, Ben Abacha A, Yetisgen M, Xia F. *Overview of the MEDIQA-WV 2025 Shared Task on Woundcare Visual Question Answering.* ClinicalNLP 2025. https://aclanthology.org/2025.clinicalnlp-1.3/
+[29] Yim W-w, Ben Abacha A, Yetisgen M, Xia F. *Overview of the MEDIQA-WV 2025 Shared Task on Woundcare Visual Question Answering.* ClinicalNLP 2025. https://aclanthology.org/2025.clinicalnlp-1.3/
 
-[R30] Karim AHMR, Uzuner O. *MasonNLP at MEDIQA-WV 2025: Multimodal Retrieval-Augmented Generation with Large Language Models for Medical VQA.* ClinicalNLP 2025. https://aclanthology.org/2025.clinicalnlp-1.10/
+[30] Karim AHMR, Uzuner O. *MasonNLP at MEDIQA-WV 2025: Multimodal Retrieval-Augmented Generation with Large Language Models for Medical VQA.* ClinicalNLP 2025. https://aclanthology.org/2025.clinicalnlp-1.10/
 
-[R31] Lu J, Batra D, Parikh D, Lee S. *ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks.* arXiv:1908.02265, 2019. https://arxiv.org/abs/1908.02265
+[31] Lu J, Batra D, Parikh D, Lee S. *ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks.* arXiv:1908.02265, 2019. https://arxiv.org/abs/1908.02265
 
-[R32] Tan H, Bansal M. *LXMERT: Learning Cross-Modality Encoder Representations from Transformers.* arXiv:1908.07490, 2019. https://arxiv.org/abs/1908.07490
+[32] Tan H, Bansal M. *LXMERT: Learning Cross-Modality Encoder Representations from Transformers.* arXiv:1908.07490, 2019. https://arxiv.org/abs/1908.07490
 
-[R33] Radford A, Kim JW, Hallacy C, et al. *Learning Transferable Visual Models From Natural Language Supervision (CLIP).* arXiv:2103.00020, 2021. https://arxiv.org/abs/2103.00020
+[33] Radford A, Kim JW, Hallacy C, et al. *Learning Transferable Visual Models From Natural Language Supervision (CLIP).* arXiv:2103.00020, 2021. https://arxiv.org/abs/2103.00020
 
-[R34] Li J, Li D, Savarese S, Hoi SCH. *BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models.* arXiv:2301.12597, 2023. https://arxiv.org/abs/2301.12597
+[34] Li J, Li D, Savarese S, Hoi SCH. *BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models.* arXiv:2301.12597, 2023. https://arxiv.org/abs/2301.12597
 
-[R35] Liu H, Li C, Wu Q, Lee YJ. *Visual Instruction Tuning (LLaVA).* arXiv:2304.08485, 2023. https://arxiv.org/abs/2304.08485
+[35] Liu H, Li C, Wu Q, Lee YJ. *Visual Instruction Tuning (LLaVA).* arXiv:2304.08485, 2023. https://arxiv.org/abs/2304.08485
 
-[R36] Hicks SA, Strumke I, Thambawita V, et al. *On evaluation metrics for medical applications of artificial intelligence.* Scientific Reports, 2022. https://www.nature.com/articles/s41598-022-09954-8
+[36] Hicks SA, Strumke I, Thambawita V, et al. *On evaluation metrics for medical applications of artificial intelligence.* Scientific Reports, 2022. https://www.nature.com/articles/s41598-022-09954-8
 
-[R37] Polat G, Kani HT, Ergenc I, et al. *Labeled Images for Ulcerative Colitis (LIMUC) Dataset.* Zenodo, 2022. https://zenodo.org/records/5827695
+[37] Polat G, Kani HT, Ergenc I, et al. *Labeled Images for Ulcerative Colitis (LIMUC) Dataset.* Zenodo, 2022. https://zenodo.org/records/5827695
 
-[R38] Murino A, Rimondi A. *Automated artificial intelligence scoring systems for the endoscopic assessment of ulcerative colitis: How far are we from clinical application?* Gastrointestinal Endoscopy, 2023. https://pubmed.ncbi.nlm.nih.gov/36509572/
+[38] Murino A, Rimondi A. *Automated artificial intelligence scoring systems for the endoscopic assessment of ulcerative colitis: How far are we from clinical application?* Gastrointestinal Endoscopy, 2023. https://pubmed.ncbi.nlm.nih.gov/36509572/
 
-[R39] Hashash JG, Farraye FA, Wang Y, et al. *Inter- and Intraobserver Variability on Endoscopic Scoring Systems in Crohn's Disease and Ulcerative Colitis: A Systematic Review and Meta-Analysis.* Inflammatory Bowel Diseases, 2024. https://pubmed.ncbi.nlm.nih.gov/38547325/
+[39] Hashash JG, Farraye FA, Wang Y, et al. *Inter- and Intraobserver Variability on Endoscopic Scoring Systems in Crohn's Disease and Ulcerative Colitis: A Systematic Review and Meta-Analysis.* Inflammatory Bowel Diseases, 2024. https://pubmed.ncbi.nlm.nih.gov/38547325/
 
-[R40] Lee J, Yoon W, Kim S, et al. *BioBERT: a pre-trained biomedical language representation model for biomedical text mining.* Bioinformatics, 2020;36(4):1234-1240. arXiv:1901.08746. https://arxiv.org/abs/1901.08746
+[40] Lee J, Yoon W, Kim S, et al. *BioBERT: a pre-trained biomedical language representation model for biomedical text mining.* Bioinformatics, 2020;36(4):1234-1240. arXiv:1901.08746. https://arxiv.org/abs/1901.08746
 
-[R41] Luo R, Sun L, Xia Y, et al. *BioGPT: Generative Pre-trained Transformer for Biomedical Text Generation and Mining.* 2022. https://arxiv.org/abs/2210.10341
+[41] Luo R, Sun L, Xia Y, et al. *BioGPT: Generative Pre-trained Transformer for Biomedical Text Generation and Mining.* 2022. https://arxiv.org/abs/2210.10341
 
-[R42] Stidham RW, Liu W, Bishu S, et al. *Performance of a Deep Learning Model vs Human Reviewers in Grading Endoscopic Disease Severity of Patients With Ulcerative Colitis.* JAMA Network Open, 2019;2(5):e193963. https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2733432
+[42] Stidham RW, Liu W, Bishu S, et al. *Performance of a Deep Learning Model vs Human Reviewers in Grading Endoscopic Disease Severity of Patients With Ulcerative Colitis.* JAMA Network Open, 2019;2(5):e193963. https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2733432
 
-[R43] Ozawa T, Ishihara S, Fujishiro M, et al. *Novel Computer-Aided Diagnosis System for Endoscopic Disease Activity in Patients with Ulcerative Colitis.* Gastroenterology, 2020;158(8):2150-2157.e3. https://www.gastrojournal.org/article/S0016-5085%2820%2930212-2/fulltext
+[43] Ozawa T, Ishihara S, Fujishiro M, et al. *Novel Computer-Aided Diagnosis System for Endoscopic Disease Activity in Patients with Ulcerative Colitis.* Gastroenterology, 2020;158(8):2150-2157.e3. https://www.gastrojournal.org/article/S0016-5085%2820%2930212-2/fulltext
 
-[R44] Yao H, Tewari AK, Morais M, et al. *Novel deep learning-based computer-aided diagnosis system for predicting inflammatory activity in ulcerative colitis: a prospective multicentre study.* Gastrointestinal Endoscopy, 2023;97(2):330-339.e1. https://pubmed.ncbi.nlm.nih.gov/35985375/
+[44] Yao H, Tewari AK, Morais M, et al. *Novel deep learning-based computer-aided diagnosis system for predicting inflammatory activity in ulcerative colitis: a prospective multicentre study.* Gastrointestinal Endoscopy, 2023;97(2):330-339.e1. https://pubmed.ncbi.nlm.nih.gov/35985375/
 
-[R45] Takenaka K, Ohtsuka K, Fujii T, et al. *Development and Validation of a Deep Neural Network for Accurate Evaluation of Endoscopic Images From Patients With Ulcerative Colitis.* Journal of Crohn's and Colitis, 2023;17(4):463-472. https://academic.oup.com/ecco-jcc/article/17/4/463/6762568
+[45] Takenaka K, Ohtsuka K, Fujii T, et al. *Development and Validation of a Deep Neural Network for Accurate Evaluation of Endoscopic Images From Patients With Ulcerative Colitis.* Journal of Crohn's and Colitis, 2023;17(4):463-472. https://academic.oup.com/ecco-jcc/article/17/4/463/6762568
 
 ### Internal Empirical Sources (This Repository)
 
-[I1] `Prototyping_reformat/DatasetAnalysis/HyperKvasir/HyperKvasir.md`
+[46] `Prototyping_reformat/DatasetAnalysis/HyperKvasir/HyperKvasir.md`
 
-[I2] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/Kvasir_VQA.md`
+[47] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/Kvasir_VQA.md`
 
-[I3] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/Kvasir_VQA_x1.md`
+[48] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/Kvasir_VQA_x1.md`
 
-[I4] `Prototyping_reformat/DatasetAnalysis/ImageCLEF_MEDVQA_GI_2023/ImageCLEF_MEDVQA_GI_2023.md`
+[49] `Prototyping_reformat/DatasetAnalysis/ImageCLEF_MEDVQA_GI_2023/ImageCLEF_MEDVQA_GI_2023.md`
 
-[I5] `Prototyping_reformat/DatasetAnalysis/LIMUC/LIMUC.md`
+[50] `Prototyping_reformat/DatasetAnalysis/LIMUC/LIMUC.md`
