@@ -151,54 +151,90 @@ Supplementary metrics:
 - Confidence interval reporting for key metrics
 - Error decomposition by class and clinical threshold behavior
 
-## 4.5 Result Compilation Plan
+## 4.5 Current Results Snapshot (LIMUC)
 
-This chapter will compile values directly from notebook output cells and saved run summaries in the notebook workflows.
+This section summarizes currently available outputs from executed LIMUC notebooks (saved artifacts plus final-cell notebook outputs).
 
-### 4.5.1 Mandatory Comparison Table
+### 4.5.1 Dataset Reproducibility Summary
 
-Table 4.x (main model comparison) should include:
+- Total images: `11,276`
+- Patients: `564`
+- Split counts: train `8,669`, val `921`, test `1,686`
+- Label counts (Mayo 0/1/2/3): `6105 / 3052 / 1254 / 865`
+- Split hash: `d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b`
 
-- best supervised classifier
-- zero-shot VLM severity run
-- LoRA-adapted VLM severity run
+### 4.5.2 Main Test-Set Comparison (Current Runs)
 
-Columns:
+| Model | Accuracy | Macro-F1 | Balanced Acc | QWK | MAE | RMSE | Parse Rate |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Frozen ResNet50 + Logistic Regression | 0.6198 | 0.5346 | 0.5420 | 0.6834 | 0.4324 | 0.7367 | n/a |
+| Frozen ViT + Logistic Regression | 0.6910 | 0.6192 | 0.6419 | 0.7620 | 0.3458 | 0.6503 | n/a |
+| Fine-tuned ResNet50 | **0.7527** | **0.6800** | **0.6858** | **0.8428** | **0.2533** | **0.5149** | n/a |
+| Fine-tuned ViT/Swin | 0.7129 | 0.6675 | 0.6649 | 0.7642 | 0.3126 | 0.6137 | n/a |
+| Zero-shot BLIP2 Mayo | 0.5486 | 0.1771 | 0.2500 | 0.0000 | 0.6987 | 1.1557 | 1.0000 |
+| LoRA BLIP2 Mayo (from final notebook output cell) | 0.5486 | 0.1771 | 0.2500 | 0.0000 | 0.6987 | 1.1557 | 1.0000 |
 
-- accuracy, macro-F1, balanced accuracy, QWK, MAE, RMSE, parse/unknown rate
+Interpretation:
+- The best reliability anchor is currently **fine-tuned ResNet50**.
+- Both zero-shot and current LoRA generative Mayo runs collapse toward a single-class behavior (high class-0 recall, weak ordinal discrimination), reflected by balanced accuracy `0.25` and QWK `0.0`.
 
-### 4.5.2 Mandatory Clinical Slice Table
+### 4.5.3 Structured Generative Output (Mayo + Evidence)
 
-Table 4.x (remission slice):
+Structured notebook test summary (final output cell):
+- Parse rate: `0.0563`
+- Full-set accuracy: `0.0314`
+- Answered-only accuracy: `0.5579`
+- Answered macro-F1: `0.1791`
+- Answered QWK: `0.0`
+- Evidence present rate: `0.0`
 
-- remission sensitivity/recall
-- remission specificity
-- remission F1
-- remission accuracy
+Interpretation:
+- The structured prompt is not yet producing reliable two-field outputs; most predictions fail strict parsing and evidence extraction.
 
-### 4.5.3 Mandatory Figures
+### 4.5.4 Key Chapter-4 Findings from Current Evidence
 
-- confusion matrix (best supervised model)
-- confusion matrix (best generative model)
-- class support distribution
-- ordinal error profile or predicted-vs-true severity relation
+1. The supervised pipeline clearly outperforms generative baselines on ordinal reliability.
+2. Zero-shot VLM scoring is reproducibly weak for Mayo grading under the current prompt/parser protocol.
+3. The current LoRA run does not yet improve over zero-shot and needs targeted retraining/tuning.
+4. A controlled generative format (`Mayo + Evidence`) is feasible in design but not yet operationally robust.
 
-## 4.6 Implementation Notes
+## 4.6 What Remains to Complete Chapter 4
 
-1. Core Chapter 4 evidence should remain tied to LIMUC first, then optional external robustness.
-2. Notebook prompt and parser logic must be fixed before final comparison to avoid protocol drift.
-3. Dependency upgrades should be minimal and logged (for example, adding `peft`).
-4. If run artifacts are regenerated, report split hash and run metadata alongside final tables.
+### 4.6.1 Must-Complete Technical Tasks
 
-## 4.7 Limitations to Explicitly State
+- [ ] Re-run and persist full artifacts for:
+  - `1_frozen_encoders/clip_linear_baseline.ipynb`
+  - `3_vlm_severity/vlm_lora_finetune_mayo.ipynb`
+- [ ] Save structured evaluation outputs to disk (`summary_metrics.json`, `pred_val.csv`, `pred_test.csv`) for strict reproducibility.
+- [ ] Generate a unified comparison table CSV and import it into the thesis chapter.
+- [ ] Export confusion matrices for:
+  - best supervised model (`finetune_resnet50`)
+  - best generative model (current `vlm_zero_shot_mayo` or improved LoRA run)
+- [ ] Add remission-oriented slice (`0-1` vs `2-3`) from `pred_test.csv` files.
+- [ ] Add a paired significance subsection (McNemar and/or bootstrap CI) for supervised vs generative gap.
+
+### 4.6.2 Writing Tasks to Finalize This Chapter
+
+- [ ] Replace the phrase "current runs" with finalized run IDs and timestamps.
+- [ ] Add figure references and captions for confusion matrices and class distribution.
+- [ ] Add one qualitative error table with representative false negatives and false positives.
+- [ ] Add a short ablation table (prompt format, LoRA rank/LR/epochs, parsing strictness).
+
+## 4.7 Implementation Notes for Final Pass
+
+1. Keep LIMUC as primary evidence and clearly mark any external dataset as robustness-only.
+2. Freeze prompt/parsing rules before final metrics extraction to avoid protocol drift.
+3. Log environment and model IDs in run metadata for each final artifact.
+4. Report split hash in the chapter whenever final numbers are cited.
+
+## 4.8 Limitations to Explicitly State
 
 1. Single-frame severity grading is not equivalent to full-procedure interpretation.
-2. Class imbalance still affects moderate/severe reliability.
-3. Generative format control reduces but does not eliminate reasoning errors.
-4. External clinical deployment claims remain out of scope.
+2. Class imbalance continues to affect moderate/severe reliability.
+3. Generative format constraints reduce but do not eliminate clinically unsafe outputs.
+4. External deployment claims remain out of scope.
 
-## 4.8 Chapter Summary and Transition
+## 4.9 Chapter Summary and Transition
 
-Chapter 4 delivers a controlled generative UC severity pipeline anchored to strong supervised reliability and ordinally aligned evaluation.  
-This provides the technical base for the next chapter, where scenario-driven, evidence-aware question answering is expanded toward PICO-oriented decision support.
-
+Chapter 4 now has a reproducible supervised reference and a baseline generative severity pathway on LIMUC. The evidence currently supports a strong supervised advantage and highlights concrete engineering gaps to close for generative adaptation (LoRA and structured evidence output).  
+These results form the handoff to Chapter 5, where evidence-grounded and scenario-driven QA can be expanded with retrieval support under tighter reliability controls.
