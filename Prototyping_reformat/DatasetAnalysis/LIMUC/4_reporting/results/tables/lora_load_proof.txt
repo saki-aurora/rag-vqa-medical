@@ -1,0 +1,27 @@
+LORA LOAD PROOF
+===============
+Run folder: /home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_smoke_20260222
+Run name: vlm_lora_finetune_mayo_smoke_20260222
+run_meta.json present: yes
+pred_test.csv rows: 16
+adapter-related files found: 0
+training log found: no
+adapter_config found: no
+Status: INCOMPLETE
+
+Run meta excerpt:
+{
+  "model": "vlm_lora_finetune",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "prompt": "You are a medical expert. Given this colonoscopy image, provide the Mayo Endoscopic Score (0-3). Respond with only: 'SCORE: X' where X is 0,1,2, or 3.",
+  "seed": 42,
+  "epochs": 1,
+  "lr": 5e-05,
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b"
+}
+
+LoRA config excerpt:
+{}
+
+Adapter file hash table: /home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/lora_adapter_file_hashes.csv
+LoRA param-count file: /home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/lora_param_count.json

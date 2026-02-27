@@ -151,9 +151,9 @@ Supplementary metrics:
 - Confidence interval reporting for key metrics
 - Error decomposition by class and clinical threshold behavior
 
-## 4.5 Current Results Snapshot (LIMUC)
+## 4.5 Persisted Results Snapshot (LIMUC)
 
-This section summarizes currently available outputs from executed LIMUC notebooks (saved artifacts plus final-cell notebook outputs).
+This section summarizes persisted outputs under `Prototyping_reformat/DatasetAnalysis/LIMUC/**/results/*` plus reporting tables generated in `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables`.
 
 ### 4.5.1 Dataset Reproducibility Summary
 
@@ -163,22 +163,76 @@ This section summarizes currently available outputs from executed LIMUC notebook
 - Label counts (Mayo 0/1/2/3): `6105 / 3052 / 1254 / 865`
 - Split hash: `d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b`
 
-### 4.5.2 Main Test-Set Comparison (Current Runs)
+### 4.5.2 Main Test-Set Comparison (Persisted Full Runs, `n=1686`)
 
-| Model | Accuracy | Macro-F1 | Balanced Acc | QWK | MAE | RMSE | Parse Rate |
+Source table:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_main_comparison_table.csv`
+
+| Model (run folder) | Accuracy | Macro-F1 | Balanced Acc | QWK | MAE | RMSE | Parse Rate |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Frozen ResNet50 + Logistic Regression | 0.6198 | 0.5346 | 0.5420 | 0.6834 | 0.4324 | 0.7367 | n/a |
-| Frozen ViT + Logistic Regression | 0.6910 | 0.6192 | 0.6419 | 0.7620 | 0.3458 | 0.6503 | n/a |
-| Fine-tuned ResNet50 | **0.7527** | **0.6800** | **0.6858** | **0.8428** | **0.2533** | **0.5149** | n/a |
-| Fine-tuned ViT/Swin | 0.7129 | 0.6675 | 0.6649 | 0.7642 | 0.3126 | 0.6137 | n/a |
-| Zero-shot BLIP2 Mayo | 0.5486 | 0.1771 | 0.2500 | 0.0000 | 0.6987 | 1.1557 | 1.0000 |
-| LoRA BLIP2 Mayo (from final notebook output cell) | 0.5486 | 0.1771 | 0.2500 | 0.0000 | 0.6987 | 1.1557 | 1.0000 |
+| `resnet50_frozen_logreg` | 0.6198 | 0.5346 | 0.5420 | 0.6834 | 0.4324 | 0.7367 | n/a |
+| `vit_frozen_logreg` | 0.6910 | 0.6192 | 0.6419 | 0.7620 | 0.3458 | 0.6503 | n/a |
+| `finetune_resnet50` | **0.7527** | **0.6800** | **0.6858** | **0.8428** | **0.2533** | **0.5149** | n/a |
+| `finetune_vit_or_swin` | 0.7129 | 0.6675 | 0.6649 | 0.7642 | 0.3126 | 0.6137 | n/a |
+| `vlm_zero_shot_mayo` | 0.5486 | 0.1771 | 0.2500 | 0.0000 | 0.6987 | 1.1557 | 1.0000 |
 
 Interpretation:
-- The best reliability anchor is currently **fine-tuned ResNet50**.
-- Both zero-shot and current LoRA generative Mayo runs collapse toward a single-class behavior (high class-0 recall, weak ordinal discrimination), reflected by balanced accuracy `0.25` and QWK `0.0`.
+- The best reliability anchor remains **`finetune_resnet50`**.
+- The best currently persisted full generative run is **`vlm_zero_shot_mayo`**, which still collapses to class-0 behavior.
+- A full persisted LoRA run is not yet available in `results/` (only smoke run exists).
 
-### 4.5.3 Structured Generative Output (Mayo + Evidence)
+### 4.5.3 LoRA Status in Persisted Results
+
+Persisted LoRA artifacts currently available:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_smoke_20260222`
+
+Current persisted LoRA status:
+- test rows: `16` (smoke/subset only)
+- accuracy: `0.7500`
+- balanced accuracy: `0.3333`
+- QWK: `0.0`
+
+Interpretation:
+- This smoke run is useful for pipeline sanity checks but is not valid for the main Chapter-4 full test-set comparison.
+
+### 4.5.4 Remission Slice and Paired Significance (From `results/`)
+
+Source tables:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_remission_slice_from_results.csv`
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_mcnemar_pairs_from_results.csv`
+
+Key remission slice results (`0-1` vs `2-3`):
+- `finetune_resnet50`: remission accuracy `0.9484`, sensitivity `0.9762`, specificity `0.8182`, remission F1 `0.9689`
+- `vlm_zero_shot_mayo`: remission accuracy `0.8238`, sensitivity `1.0000`, specificity `0.0000`, remission F1 `0.9034`
+
+Key McNemar gap:
+- `finetune_resnet50` vs `vlm_zero_shot_mayo`: `n01=168`, `n10=512`, `chi2_cc=173.0132`, `p=1.63e-39`
+
+### 4.5.5 Qualitative Error and Ablation Artifacts
+
+Generated artifacts:
+- qualitative error table: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_qualitative_error_table.csv`
+- qualitative coverage: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_qualitative_error_table_coverage.csv`
+- LoRA ablation table: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_lora_ablation_table.csv`
+
+Current qualitative coverage snapshot:
+- `correct_both`: available `757`, sampled `4`
+- `supervised_correct_generative_wrong`: available `512`, sampled `4`
+- `generative_correct_supervised_wrong`: available `168`, sampled `4`
+
+Current ablation status:
+- only one LoRA run is currently persisted and it is smoke (`n=16`); full-run ablation remains pending.
+
+### 4.5.6 Figure Assets and Captions (Ready for Thesis Import)
+
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/figures/confusion_test_finetune_resnet50.png`
+  - caption: Confusion matrix for best supervised UC severity model on LIMUC test set.
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/figures/confusion_test_vlm_zero_shot_mayo.png`
+  - caption: Confusion matrix for zero-shot generative Mayo scoring on LIMUC test set.
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/figures/pred_label_histogram_vlm_zero_shot_mayo.png`
+  - caption: Predicted-label distribution for zero-shot generative Mayo scoring (class-collapse diagnostic).
+
+### 4.5.7 Structured Generative Output (Mayo + Evidence)
 
 Structured notebook test summary (final output cell):
 - Parse rate: `0.0563`
@@ -190,8 +244,9 @@ Structured notebook test summary (final output cell):
 
 Interpretation:
 - The structured prompt is not yet producing reliable two-field outputs; most predictions fail strict parsing and evidence extraction.
+- Persisted structured `results/` artifacts are still pending for this pathway.
 
-### 4.5.4 Key Chapter-4 Findings from Current Evidence
+### 4.5.8 Key Chapter-4 Findings from Current Evidence
 
 1. The supervised pipeline clearly outperforms generative baselines on ordinal reliability.
 2. Zero-shot VLM scoring is reproducibly weak for Mayo grading under the current prompt/parser protocol.
@@ -206,19 +261,19 @@ Interpretation:
   - `1_frozen_encoders/clip_linear_baseline.ipynb`
   - `3_vlm_severity/vlm_lora_finetune_mayo.ipynb`
 - [ ] Save structured evaluation outputs to disk (`summary_metrics.json`, `pred_val.csv`, `pred_test.csv`) for strict reproducibility.
-- [ ] Generate a unified comparison table CSV and import it into the thesis chapter.
-- [ ] Export confusion matrices for:
+- [x] Generate a unified comparison table CSV and import it into the thesis chapter.
+- [x] Export confusion matrices for:
   - best supervised model (`finetune_resnet50`)
   - best generative model (current `vlm_zero_shot_mayo` or improved LoRA run)
-- [ ] Add remission-oriented slice (`0-1` vs `2-3`) from `pred_test.csv` files.
-- [ ] Add a paired significance subsection (McNemar and/or bootstrap CI) for supervised vs generative gap.
+- [x] Add remission-oriented slice (`0-1` vs `2-3`) from `pred_test.csv` files.
+- [x] Add a paired significance subsection (McNemar and/or bootstrap CI) for supervised vs generative gap.
 
 ### 4.6.2 Writing Tasks to Finalize This Chapter
 
 - [ ] Replace the phrase "current runs" with finalized run IDs and timestamps.
-- [ ] Add figure references and captions for confusion matrices and class distribution.
-- [ ] Add one qualitative error table with representative false negatives and false positives.
-- [ ] Add a short ablation table (prompt format, LoRA rank/LR/epochs, parsing strictness).
+- [x] Add figure references and captions for confusion matrices and class distribution.
+- [x] Add one qualitative error table with representative false negatives and false positives.
+- [x] Add a short ablation table (prompt format, LoRA rank/LR/epochs, parsing strictness).
 
 ## 4.7 Implementation Notes for Final Pass
 

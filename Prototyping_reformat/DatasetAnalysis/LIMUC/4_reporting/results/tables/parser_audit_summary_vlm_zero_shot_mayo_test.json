@@ -1,0 +1,11 @@
+{
+  "run_name": "vlm_zero_shot_mayo",
+  "split": "test",
+  "source_file": "3_vlm_severity/results/vlm_zero_shot_mayo/pred_test_raw.csv",
+  "n_total_rows": 1686,
+  "n_sample_rows": 60,
+  "parse_rate_full": 1.0,
+  "parse_match_saved_pred_rate_full": 1.0,
+  "n_parse_fail_full": 0,
+  "n_parse_mismatch_full": 0
+}

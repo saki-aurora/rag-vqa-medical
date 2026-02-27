@@ -1,8 +1,8 @@
 # LIMUC Dataset Report
 
-_Updated: 2026-02-09_
+_Updated: 2026-02-27_
 
-This report consolidates all persisted LIMUC severity-classification artifacts and provides additional paired and clinical-slice diagnostics.
+This report consolidates LIMUC severity-classification artifacts and provides paired/clinical diagnostics. For strict Chapter-4 evidence, use the `results/`-only snapshot and `4_reporting` exports.
 
 ## 1) Dataset Snapshot
 
@@ -33,9 +33,14 @@ This report consolidates all persisted LIMUC severity-classification artifacts a
 | track | path | key_files |
 |---|---|---|
 | Dataset prep | 0_dataset_prep/out | metadata_enriched.csv, label_map.csv, split txt files |
-| Frozen encoder baselines | 1_frozen_encoders/out/* | metrics_{train,val,test}.json, per_class_test.csv, pred_test.csv |
-| Supervised fine-tuning | 2_supervised_finetuning/out/* | metrics_test.json, per_class_test.csv, pred_test.csv, training_history.csv |
-| VLM severity | 3_vlm_severity/out/vlm_zero_shot_mayo | metrics_test.json, per_class_test.csv, pred_test.csv |
+| Frozen encoder baselines | 1_frozen_encoders/results/* | metrics_{train,val,test}.json, per_class_test.csv, pred_test.csv |
+| Supervised fine-tuning | 2_supervised_finetuning/results/* | metrics_test.json, per_class_test.csv, pred_test.csv, training_history.csv |
+| VLM severity | 3_vlm_severity/results/* | metrics_test.json, per_class_test.csv, pred_test.csv |
+
+Notes:
+- Strict `results/`-only Chapter-4 snapshot: `LIMUC_chapter4_results_from_results_folder.md`.
+- Reporting exports used by Chapter 4: `4_reporting/results/tables/*.csv` and `4_reporting/results/figures/*.png`.
+- Some rows below (for example `clip_linear_baseline`) may come from earlier archived outputs when an equivalent current `results/` folder is absent.
 
 ## 3) Overall Test Metrics (All Persisted Models)
 

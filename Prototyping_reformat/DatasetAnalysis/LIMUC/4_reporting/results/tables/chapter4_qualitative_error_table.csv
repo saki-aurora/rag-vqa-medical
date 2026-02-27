@@ -1,0 +1,13 @@
+category,img_id,image_path,y_true,y_pred_supervised,y_pred_generative,sup_correct,gen_correct,error_gap_supervised_minus_generative,raw_text,supervised_run,generative_run
+correct_both,UC_patient_455_3_009995,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_455_3.bmp,0,0,0,True,True,0,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+correct_both,UC_patient_260_23_009676,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_260_23.bmp,0,0,0,True,True,0,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+correct_both,UC_patient_110_60_010203,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_110_60.bmp,0,0,0,True,True,0,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+correct_both,UC_patient_83_14_010309,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_83_14.bmp,0,0,0,True,True,0,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+supervised_correct_generative_wrong,UC_patient_521_3_011002,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 2/UC_patient_521_3.bmp,2,2,0,True,False,-2,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+supervised_correct_generative_wrong,UC_patient_401_40_010653,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 1/UC_patient_401_40.bmp,1,1,0,True,False,-1,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+supervised_correct_generative_wrong,UC_patient_545_11_010578,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 1/UC_patient_545_11.bmp,1,1,0,True,False,-1,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+supervised_correct_generative_wrong,UC_patient_333_9_010880,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 1/UC_patient_333_9.bmp,1,1,0,True,False,-1,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+generative_correct_supervised_wrong,UC_patient_66_4_010200,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_66_4.bmp,0,1,0,False,True,1,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+generative_correct_supervised_wrong,UC_patient_545_33_010056,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_545_33.bmp,0,1,0,False,True,1,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+generative_correct_supervised_wrong,UC_patient_459_61_010248,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_459_61.bmp,0,1,0,False,True,1,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo
+generative_correct_supervised_wrong,UC_patient_459_48_009692,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/test_set/Mayo 0/UC_patient_459_48.bmp,0,1,0,False,True,1,'SCORE: 0',finetune_resnet50,vlm_zero_shot_mayo

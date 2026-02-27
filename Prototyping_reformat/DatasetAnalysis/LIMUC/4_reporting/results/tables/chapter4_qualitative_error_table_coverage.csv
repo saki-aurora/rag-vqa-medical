@@ -1,0 +1,4 @@
+category,available_rows,sampled_rows
+correct_both,757,4
+supervised_correct_generative_wrong,512,4
+generative_correct_supervised_wrong,168,4

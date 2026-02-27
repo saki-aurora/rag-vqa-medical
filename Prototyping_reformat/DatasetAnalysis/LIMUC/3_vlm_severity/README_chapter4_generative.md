@@ -24,7 +24,7 @@ This is the full notebook order for Chapter 4 (baselines + generative).
 Run from repo root:
 
 ```bash
-cd /home/arcturus/Desktop/thesis/rag-vqa-medical
+cd /home/aristotle/Desktop/rag-vqa-medical
 conda activate vqa-rag
 
 # Full runs:
@@ -33,6 +33,7 @@ export FORCE_CUDA=1
 
 # Optional speed/memory knobs:
 export BATCH_SIZE=1
+export RUN_ID=chapter4_final_$(date -u +%Y%m%dT%H%M%SZ)
 # export VLM_MODEL=Salesforce/blip2-flan-t5-xl
 ```
 
@@ -43,6 +44,8 @@ jupyter nbconvert --to notebook --execute --inplace \
   --ExecutePreprocessor.kernel_name=vqa-rag \
   <NOTEBOOK_PATH>
 ```
+
+Persisted outputs are written under `*/results/<run_name>/` and include `run_meta.json` with `run_id` and `timestamp_utc`.
 
 ## Required notebook order for Chapter 4
 
@@ -66,11 +69,12 @@ This adds structured output:
 ## Run all in one command block
 
 ```bash
-cd /home/arcturus/Desktop/thesis/rag-vqa-medical
+cd /home/aristotle/Desktop/rag-vqa-medical
 conda activate vqa-rag
 export MAX_SAMPLES=0
 export FORCE_CUDA=1
 export BATCH_SIZE=1
+export RUN_ID=chapter4_batch_$(date -u +%Y%m%dT%H%M%SZ)
 
 for nb in \
   Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb \
