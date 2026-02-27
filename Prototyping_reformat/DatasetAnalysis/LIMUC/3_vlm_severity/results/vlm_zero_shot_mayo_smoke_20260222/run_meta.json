@@ -1,0 +1,7 @@
+{
+  "model": "vlm_zero_shot",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "prompt": "You are a medical expert. Given this colonoscopy image, provide the Mayo Endoscopic Score (0-3). Respond with only: 'SCORE: X' where X is 0,1,2, or 3.",
+  "seed": 42,
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b"
+}
