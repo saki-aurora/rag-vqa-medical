@@ -1,0 +1,13 @@
+{
+  "model": "vlm_lora_finetune",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "prompt": "You are a medical expert. Given this colonoscopy image, provide the Mayo Endoscopic Score (0-3). Respond with only: 'SCORE: X' where X is 0,1,2, or 3.",
+  "seed": 42,
+  "epochs": 3,
+  "lr": 5e-05,
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "vlm_lora_finetune_mayo_20260227T214308Z",
+  "timestamp_utc": "2026-02-27T21:43:08Z",
+  "out_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo",
+  "notebook_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity"
+}
