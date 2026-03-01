@@ -1,0 +1,7 @@
+{
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "test_rows": 1686,
+  "timestamp_utc": "2026-03-01T02:07:00Z",
+  "run_id": "vlm_zero_shot_mode1_freegen_from_results_20260301_backfill_20260301T020700Z",
+  "metadata_backfilled": true
+}

@@ -1,0 +1,21 @@
+image_id,true_label,raw_generation,pred_label,parse_ok
+mayo_0__UC_patient_25_51,0,SCORE: 0,0,True
+mayo_0__UC_patient_66_1,0,SCORE: 0,0,True
+mayo_0__UC_patient_142_10,0,SCORE: 0,0,True
+mayo_0__UC_patient_558_6,0,SCORE: 0,0,True
+mayo_0__UC_patient_247_4,0,SCORE: 0,0,True
+mayo_1__UC_patient_110_33,1,SCORE: 0,0,True
+mayo_1__UC_patient_130_5,1,SCORE: 0,0,True
+mayo_1__UC_patient_142_56,1,SCORE: 0,0,True
+mayo_1__UC_patient_90_21,1,SCORE: 0,0,True
+mayo_1__UC_patient_404_44,1,SCORE: 0,0,True
+mayo_2__UC_patient_150_11,2,SCORE: 0,0,True
+mayo_2__UC_patient_196_25,2,SCORE: 0,0,True
+mayo_2__UC_patient_521_32,2,SCORE: 0,0,True
+mayo_2__UC_patient_16_27,2,SCORE: 0,0,True
+mayo_2__UC_patient_315_16,2,SCORE: 0,0,True
+mayo_3__UC_patient_142_19,3,SCORE: 0,0,True
+mayo_3__UC_patient_142_27,3,SCORE: 0,0,True
+mayo_3__UC_patient_110_2,3,SCORE: 0,0,True
+mayo_3__UC_patient_16_5,3,SCORE: 0,0,True
+mayo_3__UC_patient_130_39,3,SCORE: 0,0,True

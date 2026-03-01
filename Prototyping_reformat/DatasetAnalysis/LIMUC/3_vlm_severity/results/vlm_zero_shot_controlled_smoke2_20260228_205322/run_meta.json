@@ -1,0 +1,15 @@
+{
+  "run_id": "vlm_zero_shot_controlled_smoke2_20260228_205322_20260301T015326Z",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "adapter_dir": null,
+  "adapter_loaded": false,
+  "prompt": "You are a medical imaging assistant. Rate ulcerative colitis severity using the Mayo endoscopic subscore. Output EXACTLY in this format: SCORE: <0|1|2|3>",
+  "split": "test",
+  "n_rows": 1,
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "modes": {
+    "mode1": true,
+    "mode2": true
+  },
+  "meta_csv": "/home/aristotle/.local/share/Trash/files/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/out/metadata/metadata_enriched.csv"
+}

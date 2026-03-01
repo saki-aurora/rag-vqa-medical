@@ -116,6 +116,23 @@ def _mcnemar(df_a: pd.DataFrame, df_b: pd.DataFrame) -> Dict[str, float]:
     }
 
 
+def _normalize_pred_columns(pred: pd.DataFrame) -> pd.DataFrame | None:
+    pred = pred.copy()
+    col_map = {}
+    if "img_id" not in pred.columns and "image_id" in pred.columns:
+        col_map["image_id"] = "img_id"
+    if "y_true" not in pred.columns and "true_label" in pred.columns:
+        col_map["true_label"] = "y_true"
+    if "y_pred" not in pred.columns and "pred_label" in pred.columns:
+        col_map["pred_label"] = "y_pred"
+    if col_map:
+        pred = pred.rename(columns=col_map)
+    required = {"img_id", "y_true", "y_pred"}
+    if not required.issubset(set(pred.columns)):
+        return None
+    return pred
+
+
 def main() -> None:
     args = parse_args()
     dataset_root = args.dataset_root.resolve() if args.dataset_root else find_limuc_root()
@@ -141,7 +158,8 @@ def main() -> None:
         if not pred_path.exists():
             continue
         pred = pd.read_csv(pred_path)
-        if "img_id" not in pred.columns or "y_true" not in pred.columns or "y_pred" not in pred.columns:
+        pred = _normalize_pred_columns(pred)
+        if pred is None:
             continue
         pred_by_run[run_name] = pred
         metrics = _remission_metrics(pred)
@@ -215,4 +233,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

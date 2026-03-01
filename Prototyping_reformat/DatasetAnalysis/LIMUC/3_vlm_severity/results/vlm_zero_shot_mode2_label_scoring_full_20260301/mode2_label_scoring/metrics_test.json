@@ -1,0 +1,13 @@
+{
+  "split": "test",
+  "mode": "mode2_label_scoring",
+  "summary": {
+    "accuracy": 0.5486358244365361,
+    "macro_f1": 0.17713519724243584,
+    "balanced_acc": 0.25,
+    "qwk": 0.0,
+    "mae": 0.6986951364175563,
+    "rmse": 1.1557273954415634,
+    "parse_rate": 1.0
+  }
+}

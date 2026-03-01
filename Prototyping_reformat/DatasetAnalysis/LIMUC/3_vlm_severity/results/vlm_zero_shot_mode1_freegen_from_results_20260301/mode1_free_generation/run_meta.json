@@ -1,0 +1,7 @@
+{
+  "run_name": "vlm_zero_shot_mode1_freegen_from_results_20260301",
+  "run_id": "vlm_zero_shot_mode1_freegen_from_results_20260301_20260301T020530Z",
+  "timestamp_utc": "2026-03-01T02:05:31Z",
+  "source_input_csv": "/home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_zero_shot_mayo/pred_test_raw.csv",
+  "mode": "mode1_from_persisted_predictions"
+}

@@ -1,0 +1,10 @@
+{
+  "model": "clip_linear_baseline",
+  "seed": 42,
+  "model_name": "openai/clip-vit-base-patch32",
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "clip_linear_baseline_20260301T015646Z",
+  "timestamp_utc": "2026-03-01T01:56:46Z",
+  "out_dir": "/home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/results/clip_linear_baseline",
+  "notebook_path": "/home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders"
+}

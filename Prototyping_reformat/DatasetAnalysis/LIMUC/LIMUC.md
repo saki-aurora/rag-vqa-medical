@@ -1,8 +1,10 @@
 # LIMUC Dataset Report
 
-_Updated: 2026-02-27_
+_Updated: 2026-03-01_
 
-This report consolidates LIMUC severity-classification artifacts and provides paired/clinical diagnostics. For strict Chapter-4 evidence, use the `results/`-only snapshot and `4_reporting` exports.
+This report consolidates LIMUC severity-classification artifacts and paired/clinical diagnostics. For strict Chapter-4 evidence, use:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/LIMUC_chapter4_results_from_results_folder.md`
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/`
 
 ## 1) Dataset Snapshot
 
@@ -35,12 +37,12 @@ This report consolidates LIMUC severity-classification artifacts and provides pa
 | Dataset prep | 0_dataset_prep/out | metadata_enriched.csv, label_map.csv, split txt files |
 | Frozen encoder baselines | 1_frozen_encoders/results/* | metrics_{train,val,test}.json, per_class_test.csv, pred_test.csv |
 | Supervised fine-tuning | 2_supervised_finetuning/results/* | metrics_test.json, per_class_test.csv, pred_test.csv, training_history.csv |
-| VLM severity | 3_vlm_severity/results/* | metrics_test.json, per_class_test.csv, pred_test.csv |
+| VLM severity | 3_vlm_severity/results/* | metrics_test.json, per_class_test.csv, pred_test.csv, controlled mode outputs |
 
 Notes:
 - Strict `results/`-only Chapter-4 snapshot: `LIMUC_chapter4_results_from_results_folder.md`.
-- Reporting exports used by Chapter 4: `4_reporting/results/tables/*.csv` and `4_reporting/results/figures/*.png`.
-- Some rows below (for example `clip_linear_baseline`) may come from earlier archived outputs when an equivalent current `results/` folder is absent.
+- Final Chapter-4 reporting exports: `4_reporting/out/*.csv` and `4_reporting/out/figures/*.png`.
+- Required full runs now include persisted `clip_linear_baseline` and full `vlm_lora_finetune_mayo`.
 
 ## 3) Overall Test Metrics (All Persisted Models)
 

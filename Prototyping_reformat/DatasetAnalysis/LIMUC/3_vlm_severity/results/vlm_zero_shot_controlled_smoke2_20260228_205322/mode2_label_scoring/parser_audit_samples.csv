@@ -1,0 +1,2 @@
+image_id,true_label,raw_generation,pred_label,parse_ok
+mayo_0__UC_patient_260_16,0,SCORE: 0,0,True

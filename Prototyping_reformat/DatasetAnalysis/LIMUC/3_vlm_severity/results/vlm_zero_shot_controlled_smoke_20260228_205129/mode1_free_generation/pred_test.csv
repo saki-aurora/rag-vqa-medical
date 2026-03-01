@@ -1,0 +1,2 @@
+image_id,true_label,pred_label,parse_ok,raw_generation,split,run_id
+mayo_0__UC_patient_260_16,0,-1,False,0,test,vlm_zero_shot_controlled_smoke_20260228_205129_20260301T015133Z

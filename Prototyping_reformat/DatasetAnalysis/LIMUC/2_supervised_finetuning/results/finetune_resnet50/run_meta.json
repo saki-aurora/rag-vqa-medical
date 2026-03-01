@@ -5,5 +5,8 @@
   "lr": 0.0003,
   "weight_decay": 0.0001,
   "best_val_macro_f1": 0.7455287106416699,
-  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b"
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "finetune_resnet50_backfill_20260301T020700Z",
+  "timestamp_utc": "2026-03-01T02:07:00Z",
+  "metadata_backfilled": true
 }

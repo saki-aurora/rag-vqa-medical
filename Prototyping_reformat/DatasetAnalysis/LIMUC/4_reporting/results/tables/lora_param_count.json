@@ -1,5 +1,5 @@
 {
-  "run_name": "vlm_lora_finetune_mayo_smoke_20260222",
+  "run_name": "vlm_lora_finetune_mayo",
   "trainable_params_reported": null,
   "all_params_reported": null,
   "trainable_ratio_reported": null,

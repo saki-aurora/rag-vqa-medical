@@ -1,0 +1,10 @@
+{
+  "run_id": "vlm_lora_mode2_label_scoring_from_results_20260301_20260301T020559Z",
+  "timestamp_utc": "2026-03-01T02:05:59Z",
+  "model": "vlm_lora_finetune",
+  "mode": "mode2_label_scoring_from_persisted_predictions_proxy",
+  "note": "Adapter weight files were not available in workspace; p0..p3 are one-hot proxy from persisted pred_label.",
+  "source_pred_csv": "/home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo/pred_test.csv",
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "test_rows": 1686
+}

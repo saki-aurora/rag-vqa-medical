@@ -1,0 +1,7 @@
+{
+  "run_name": "vlm_lora_mode1_freegen_from_results_20260301",
+  "run_id": "vlm_lora_mode1_freegen_from_results_20260301_20260301T020532Z",
+  "timestamp_utc": "2026-03-01T02:05:32Z",
+  "source_input_csv": "/home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo/pred_test.csv",
+  "mode": "mode1_from_persisted_predictions"
+}

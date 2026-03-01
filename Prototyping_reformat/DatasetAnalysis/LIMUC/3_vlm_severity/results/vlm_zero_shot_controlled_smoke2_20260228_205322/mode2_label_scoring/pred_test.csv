@@ -1,0 +1,2 @@
+image_id,true_label,pred_label,parse_ok,raw_generation,p0,p1,p2,p3,split,run_id
+mayo_0__UC_patient_260_16,0,0,True,SCORE: 0,0.9022932052612305,0.047078412026166916,0.019021397456526756,0.031606946140527725,test,vlm_zero_shot_controlled_smoke2_20260228_205322_20260301T015326Z

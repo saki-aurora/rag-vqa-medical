@@ -1,0 +1,13 @@
+{
+  "split": "test",
+  "mode": "mode1_free_generation",
+  "summary": {
+    "accuracy": 1.0,
+    "macro_f1": 0.25,
+    "balanced_acc": 0.25,
+    "qwk": 0.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "parse_rate": 0.0
+  }
+}

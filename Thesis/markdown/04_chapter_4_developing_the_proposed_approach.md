@@ -151,129 +151,105 @@ Supplementary metrics:
 - Confidence interval reporting for key metrics
 - Error decomposition by class and clinical threshold behavior
 
-## 4.5 Persisted Results Snapshot (LIMUC)
+## 4.5 Generative AI Technique Results (LIMUC)
 
-This section summarizes persisted outputs under `Prototyping_reformat/DatasetAnalysis/LIMUC/**/results/*` plus reporting tables generated in `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables`.
+This section reports the implemented Chapter-4 generative technique as persisted artifacts under `Prototyping_reformat/DatasetAnalysis/LIMUC/**/results/*`, with final reporting outputs centralized in `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/`.
 
-### 4.5.1 Dataset Reproducibility Summary
+### 4.5.1 Generative Severity Scoring Formulation
 
-- Total images: `11,276`
-- Patients: `564`
-- Split counts: train `8,669`, val `921`, test `1,686`
-- Label counts (Mayo 0/1/2/3): `6105 / 3052 / 1254 / 865`
-- Split hash: `d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b`
+The generative severity task is defined as follows: input is a single colonoscopy frame, output is a Mayo endoscopic subscore in `{0,1,2,3}`, and evaluation uses ordinal and clinically aligned metrics.
 
-### 4.5.2 Main Test-Set Comparison (Persisted Full Runs, `n=1686`)
+Mode 1 (baseline generative decoding) uses a fixed prompt and strict parser:
 
-Source table:
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_main_comparison_table.csv`
+`You are a medical imaging assistant. Rate ulcerative colitis severity using the Mayo endoscopic subscore. Output EXACTLY in this format: SCORE: <0|1|2|3>`
 
-| Model (run folder) | Accuracy | Macro-F1 | Balanced Acc | QWK | MAE | RMSE | Parse Rate |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| `resnet50_frozen_logreg` | 0.6198 | 0.5346 | 0.5420 | 0.6834 | 0.4324 | 0.7367 | n/a |
-| `vit_frozen_logreg` | 0.6910 | 0.6192 | 0.6419 | 0.7620 | 0.3458 | 0.6503 | n/a |
-| `finetune_resnet50` | **0.7527** | **0.6800** | **0.6858** | **0.8428** | **0.2533** | **0.5149** | n/a |
-| `finetune_vit_or_swin` | 0.7129 | 0.6675 | 0.6649 | 0.7642 | 0.3126 | 0.6137 | n/a |
-| `vlm_zero_shot_mayo` | 0.5486 | 0.1771 | 0.2500 | 0.0000 | 0.6987 | 1.1557 | 1.0000 |
+Parsing rule is deterministic and constrained: extract the first valid digit `0-3` after the literal token `SCORE:`; otherwise mark invalid (`parse_ok = false`) and include parse rate in final metrics.
 
-Interpretation:
-- The best reliability anchor remains **`finetune_resnet50`**.
-- The best currently persisted full generative run is **`vlm_zero_shot_mayo`**, which still collapses to class-0 behavior.
-- A full persisted LoRA run is not yet available in `results/` (only smoke run exists).
+### 4.5.2 Controlled Decoding via Label Scoring
 
-### 4.5.3 LoRA Status in Persisted Results
+Mode 2 implements controlled generative decoding by scoring candidate label tokens `{0,1,2,3}` at the next-token position immediately following the prefix `SCORE:` and selecting argmax. The per-class confidence vector `(p0,p1,p2,p3)` is computed with softmax over those candidate logits.
 
-Persisted LoRA artifacts currently available:
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_smoke_20260222`
+This method keeps the model in generative-token space while removing free-form output variance and parser brittleness. In persisted outputs, Mode 2 is therefore always parsable (`parse_rate = 1.0`) and yields deterministic label outputs with explicit confidence columns.
 
-Current persisted LoRA status:
-- test rows: `16` (smoke/subset only)
-- accuracy: `0.7500`
-- balanced accuracy: `0.3333`
-- QWK: `0.0`
+Persisted Mode-2 full run:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_zero_shot_mode2_label_scoring_full_20260301`
+- run id: `vlm_zero_shot_mode2_label_scoring_full_20260301_20260301T020047Z`
 
-Interpretation:
-- This smoke run is useful for pipeline sanity checks but is not valid for the main Chapter-4 full test-set comparison.
+### 4.5.3 LoRA Adaptation
 
-### 4.5.4 Remission Slice and Paired Significance (From `results/`)
+The LoRA adaptation lane is persisted as:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo`
+- run id: `vlm_lora_finetune_mayo_20260227T214308Z`
+- base model: `Salesforce/blip2-flan-t5-xl`
+- training config recorded in run metadata: `epochs=3`, `lr=5e-5`
 
-Source tables:
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_remission_slice_from_results.csv`
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_mcnemar_pairs_from_results.csv`
+Observed full-test results for this persisted LoRA run are:
+- accuracy `0.5486`
+- macro-F1 `0.1771`
+- balanced accuracy `0.2500`
+- QWK `0.0000`
 
-Key remission slice results (`0-1` vs `2-3`):
-- `finetune_resnet50`: remission accuracy `0.9484`, sensitivity `0.9762`, specificity `0.8182`, remission F1 `0.9689`
-- `vlm_zero_shot_mayo`: remission accuracy `0.8238`, sensitivity `1.0000`, specificity `0.0000`, remission F1 `0.9034`
+Compared with persisted zero-shot (`vlm_zero_shot_mayo`), LoRA does not improve the reported severity metrics in this run. The persisted LoRA adapter artifact remains incomplete in this workspace (`lora_load_proof.txt` status `INCOMPLETE`), so the LoRA result is treated as a negative empirical outcome under current artifacts rather than a final optimized adapter claim.
 
-Key McNemar gap:
-- `finetune_resnet50` vs `vlm_zero_shot_mayo`: `n01=168`, `n10=512`, `chi2_cc=173.0132`, `p=1.63e-39`
+### 4.5.4 Results and Analytics
 
-### 4.5.5 Qualitative Error and Ablation Artifacts
+Final results-only master table:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/chapter4_final_main_table.csv`
 
-Generated artifacts:
-- qualitative error table: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_qualitative_error_table.csv`
-- qualitative coverage: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_qualitative_error_table_coverage.csv`
-- LoRA ablation table: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/tables/chapter4_lora_ablation_table.csv`
+Required run coverage audit:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/results_index.csv`
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/chapter4_missing_runs.md`
 
-Current qualitative coverage snapshot:
-- `correct_both`: available `757`, sampled `4`
-- `supervised_correct_generative_wrong`: available `512`, sampled `4`
-- `generative_correct_supervised_wrong`: available `168`, sampled `4`
+All required full runs (`n=1686`) are present in `results/`: `finetune_resnet50`, `finetune_vit_or_swin`, `resnet50_frozen_logreg`, `vit_frozen_logreg`, `clip_linear_baseline`, `vlm_zero_shot_mayo`, `vlm_lora_finetune_mayo`.
 
-Current ablation status:
-- only one LoRA run is currently persisted and it is smoke (`n=16`); full-run ablation remains pending.
+Clinical remission slice (`0-1` vs `2-3`) table:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/chapter4_remission_slice_table.csv`
 
-### 4.5.6 Figure Assets and Captions (Ready for Thesis Import)
+Paired significance:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/chapter4_paired_significance.csv`
+- best supervised vs best generative pair (current table): `finetune_resnet50` vs `vlm_lora_finetune_mayo`
+- McNemar p-value: `1.625844e-39`
 
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/figures/confusion_test_finetune_resnet50.png`
-  - caption: Confusion matrix for best supervised UC severity model on LIMUC test set.
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/figures/confusion_test_vlm_zero_shot_mayo.png`
-  - caption: Confusion matrix for zero-shot generative Mayo scoring on LIMUC test set.
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/results/figures/pred_label_histogram_vlm_zero_shot_mayo.png`
-  - caption: Predicted-label distribution for zero-shot generative Mayo scoring (class-collapse diagnostic).
+Figure references (final path):
+- class distribution: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/figures/class_distribution_by_split.png`
+- supervised confusion: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/figures/confusion_test_finetune_resnet50.png`
+- controlled generative confusion: `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/figures/confusion_test_vlm_zero_shot_mode2_label_scoring_full_20260301.png`
+- generative label histograms:
+  - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/figures/pred_label_histogram_vlm_zero_shot_mode2_label_scoring_full_20260301.png`
+  - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/figures/pred_label_histogram_vlm_lora_mode2_label_scoring_from_results_20260301.png`
 
-### 4.5.7 Structured Generative Output (Mayo + Evidence)
+### 4.5.5 Failure Analysis
 
-Structured notebook test summary (final output cell):
-- Parse rate: `0.0563`
-- Full-set accuracy: `0.0314`
-- Answered-only accuracy: `0.5579`
-- Answered macro-F1: `0.1791`
-- Answered QWK: `0.0`
-- Evidence present rate: `0.0`
+Qualitative error artifact:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/chapter4_qualitative_error_table.csv`
 
-Interpretation:
-- The structured prompt is not yet producing reliable two-field outputs; most predictions fail strict parsing and evidence extraction.
-- Persisted structured `results/` artifacts are still pending for this pathway.
+Coverage summary:
+- `correct_both`: sampled representative cases where both systems are correct.
+- `supervised_correct_generative_wrong`: dominant failure mode, concentrated around ordinal confusion and moderate/severe boundaries.
+- `generative_correct_supervised_wrong`: minority slice, retained for balanced error interpretation.
 
-### 4.5.8 Key Chapter-4 Findings from Current Evidence
+Error pattern remains consistent with class imbalance and ordinal overlap: the generative lane over-predicts remission-like labels, which directly depresses balanced accuracy and QWK despite non-trivial overall accuracy.
 
-1. The supervised pipeline clearly outperforms generative baselines on ordinal reliability.
-2. Zero-shot VLM scoring is reproducibly weak for Mayo grading under the current prompt/parser protocol.
-3. The current LoRA run does not yet improve over zero-shot and needs targeted retraining/tuning.
-4. A controlled generative format (`Mayo + Evidence`) is feasible in design but not yet operationally robust.
+### 4.5.6 Scope Decision on Evidence Generation
 
-## 4.6 What Remains to Complete Chapter 4
+Structured two-field generation (`Mayo + Evidence`) remains out of scope for Chapter 4 final claims unless parsing is robust at scale. Current evidence-format behavior remains weak and is therefore treated as a negative result path. The clinically grounded evidence/citation wrapper is deferred to Chapter 5 under the PICO-oriented GenAI wrapper design, where retrieval grounding is explicit.
 
-### 4.6.1 Must-Complete Technical Tasks
+## 4.6 Chapter-4 Completion Status
 
-- [ ] Re-run and persist full artifacts for:
-  - `1_frozen_encoders/clip_linear_baseline.ipynb`
-  - `3_vlm_severity/vlm_lora_finetune_mayo.ipynb`
-- [ ] Save structured evaluation outputs to disk (`summary_metrics.json`, `pred_val.csv`, `pred_test.csv`) for strict reproducibility.
-- [x] Generate a unified comparison table CSV and import it into the thesis chapter.
-- [x] Export confusion matrices for:
-  - best supervised model (`finetune_resnet50`)
-  - best generative model (current `vlm_zero_shot_mayo` or improved LoRA run)
-- [x] Add remission-oriented slice (`0-1` vs `2-3`) from `pred_test.csv` files.
-- [x] Add a paired significance subsection (McNemar and/or bootstrap CI) for supervised vs generative gap.
+### 4.6.1 Completed Items
 
-### 4.6.2 Writing Tasks to Finalize This Chapter
+- [x] Results-only run audit and index (`results_index.csv`) under `4_reporting/out/`
+- [x] Final Chapter-4 master comparison table from full runs (`chapter4_final_main_table.csv`)
+- [x] Required full baseline run persisted for `clip_linear_baseline`
+- [x] Controlled generative Mode 1 and Mode 2 code paths implemented and persisted
+- [x] Remission slice and paired significance exports (`chapter4_remission_slice_table.csv`, `chapter4_paired_significance.csv`)
+- [x] Figure exports and qualitative error table in final `4_reporting/out/` location
+- [x] Chapter text updated with final run IDs/timestamps and artifact references
 
-- [ ] Replace the phrase "current runs" with finalized run IDs and timestamps.
-- [x] Add figure references and captions for confusion matrices and class distribution.
-- [x] Add one qualitative error table with representative false negatives and false positives.
-- [x] Add a short ablation table (prompt format, LoRA rank/LR/epochs, parsing strictness).
+### 4.6.2 Residual Technical Risk (Explicit)
+
+- [ ] LoRA adapter artifact completeness: persisted full LoRA run exists, but adapter-weight proof remains incomplete in current workspace (`4_reporting/out/lora_load_proof.txt` reports `INCOMPLETE`).
+- [ ] Structured `Mayo + Evidence` remains a deferred/negative-result lane for Chapter 4 and should not be used as primary evidence.
 
 ## 4.7 Implementation Notes for Final Pass
 

@@ -2,5 +2,8 @@
   "model": "vit_frozen_logreg",
   "seed": 42,
   "model_name": "google/vit-base-patch16-224-in21k",
-  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b"
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "vit_frozen_logreg_backfill_20260301T020700Z",
+  "timestamp_utc": "2026-03-01T02:07:00Z",
+  "metadata_backfilled": true
 }
