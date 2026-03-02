@@ -2,7 +2,8 @@
   "model": "resnet50_frozen_logreg",
   "seed": 42,
   "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
-  "run_id": "resnet50_frozen_logreg_backfill_20260301T020700Z",
-  "timestamp_utc": "2026-03-01T02:07:00Z",
-  "metadata_backfilled": true
+  "run_id": "resnet50_frozen_logreg_20260301T144513Z",
+  "timestamp_utc": "2026-03-01T14:45:13Z",
+  "out_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/results/resnet50_frozen_logreg",
+  "notebook_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders"
 }

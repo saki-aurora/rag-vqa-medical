@@ -4,7 +4,8 @@
   "prompt": "You are a medical expert. Given this colonoscopy image, provide the Mayo Endoscopic Score (0-3). Respond with only: 'SCORE: X' where X is 0,1,2, or 3.",
   "seed": 42,
   "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
-  "run_id": "vlm_zero_shot_mayo_backfill_20260301T020700Z",
-  "timestamp_utc": "2026-03-01T02:07:00Z",
-  "metadata_backfilled": true
+  "run_id": "vlm_zero_shot_mayo_20260301T155738Z",
+  "timestamp_utc": "2026-03-01T15:57:38Z",
+  "out_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_zero_shot_mayo",
+  "notebook_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity"
 }
