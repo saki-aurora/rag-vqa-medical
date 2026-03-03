@@ -1,0 +1,71 @@
+{
+  "model": "vlm_lora_finetune",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "prompt": "You are a medical expert. Given this colonoscopy image, provide the Mayo Endoscopic Score (0-3). Respond with only: 'SCORE: X' where X is 0,1,2, or 3.",
+  "seed": 42,
+  "epochs": 1,
+  "lr": 5e-05,
+  "batch_size": 1,
+  "grad_accum": 1,
+  "weight_decay": 0.0,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.1,
+  "lora_target_modules": [
+    "k",
+    "o",
+    "q",
+    "v"
+  ],
+  "balanced_sampling": true,
+  "class_counts_train": {
+    "0": 33,
+    "1": 18,
+    "2": 8,
+    "3": 5
+  },
+  "class_weights_sampler": {
+    "0": 0.030303030303030304,
+    "1": 0.05555555555555555,
+    "2": 0.125,
+    "3": 0.2
+  },
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "vlm_lora_finetune_mayo_balanced_smoke_20260303_v2_20260303T063413Z",
+  "timestamp_utc": "2026-03-03T06:34:13Z",
+  "out_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_balanced_smoke_20260303_v2",
+  "adapter_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_balanced_smoke_20260303_v2/lora_adapter",
+  "lora_adapter_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_balanced_smoke_20260303_v2/lora_adapter",
+  "script_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/train_vlm_lora_mayo.py",
+  "meta_csv": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/out/metadata/metadata_enriched.csv",
+  "train_rows": 64,
+  "val_rows": 32,
+  "test_rows": 32,
+  "max_train_samples": 64,
+  "max_val_samples": 32,
+  "max_test_samples": 32,
+  "trainable_params": 1102126592,
+  "total_params": 3951883776,
+  "metrics_val": {
+    "accuracy": 0.5625,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.18,
+    "weighted_f1": 0.40499999999999997,
+    "qwk": 0.0,
+    "mae": 0.65625,
+    "rmse": 1.103970108290981,
+    "parse_rate": 1.0,
+    "n_invalid": 0
+  },
+  "metrics_test": {
+    "accuracy": 0.40625,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.14444444444444443,
+    "weighted_f1": 0.2347222222222222,
+    "qwk": 0.0,
+    "mae": 0.9375,
+    "rmse": 1.3919410907075054,
+    "parse_rate": 1.0,
+    "n_invalid": 0
+  }
+}

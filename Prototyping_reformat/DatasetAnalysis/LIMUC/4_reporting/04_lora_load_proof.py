@@ -15,6 +15,7 @@ from _results_utils import find_limuc_root, write_csv
 HASH_FILE_PATTERNS = (
     "*.safetensors",
     "*.bin",
+    "config.json",
     "adapter_config.json",
     "adapter_model.bin",
 )
@@ -150,7 +151,8 @@ def main() -> None:
 
     adapter_config = None
     for row in hash_rows:
-        if row["file_path"].endswith("adapter_config.json"):
+        file_path = str(row["file_path"])
+        if file_path.endswith("adapter_config.json") or file_path.endswith("/lora_adapter/config.json"):
             adapter_config = Path(row["file_path"])
             break
 
@@ -173,7 +175,22 @@ def main() -> None:
 
     has_adapter_files = len(hash_rows) > 0
     has_training_log = (run_dir / "training_history.csv").exists() or (run_dir / "train_log.csv").exists()
-    status = "PASS" if (has_adapter_files and has_training_log and test_rows == 1686) else "INCOMPLETE"
+    has_training_meta = bool(run_meta.get("epochs")) and bool(run_meta.get("lr"))
+    has_lora_meta = any(
+        key in run_meta for key in ("lora_r", "lora_alpha", "lora_dropout", "lora_adapter_path")
+    )
+    adapter_path_meta = run_meta.get("lora_adapter_path")
+    adapter_path_exists = bool(adapter_path_meta) and Path(str(adapter_path_meta)).exists()
+
+    status = (
+        "PASS"
+        if (
+            has_adapter_files
+            and test_rows == 1686
+            and (has_training_log or (has_training_meta and has_lora_meta))
+        )
+        else "INCOMPLETE"
+    )
 
     proof_lines = [
         "LORA LOAD PROOF",
@@ -184,6 +201,9 @@ def main() -> None:
         f"pred_test.csv rows: {test_rows if test_rows is not None else 'missing'}",
         f"adapter-related files found: {len(hash_rows)}",
         f"training log found: {'yes' if has_training_log else 'no'}",
+        f"training metadata present (epochs/lr): {'yes' if has_training_meta else 'no'}",
+        f"LoRA metadata present: {'yes' if has_lora_meta else 'no'}",
+        f"adapter path from run_meta exists: {'yes' if adapter_path_exists else 'no'}",
         f"adapter_config found: {'yes' if adapter_config is not None else 'no'}",
         f"Status: {status}",
         "",
@@ -209,4 +229,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -4,6 +4,9 @@ This folder contains Pass-1 reporting scripts that read persisted run folders un
 
 `Prototyping_reformat/DatasetAnalysis/LIMUC/**/results/*`
 
+For final thesis reporting, use `11_chapter4_completion_audit.py` to generate the complete
+publishable bundle in `4_reporting/out` from persisted results only.
+
 ## Scripts
 
 1. `01_results_integrity_scanner.py`
@@ -67,6 +70,20 @@ This folder contains Pass-1 reporting scripts that read persisted run folders un
   - `results/tables/chapter4_qualitative_error_table.csv`
   - `results/tables/chapter4_qualitative_error_table_coverage.csv`
 
+9. `11_chapter4_completion_audit.py`
+- One-command final audit/report generator for Chapter 4 completion.
+- Builds/rebuilds final artifacts in `4_reporting/out`:
+  - `chapter4_audit_results_index.csv`
+  - `chapter4_full_runs.csv`
+  - `chapter4_missing_or_invalid_runs.md`
+  - `chapter4_final_main_table.csv`
+  - `chapter4_remission_slice_table.csv`
+  - `chapter4_paired_significance.csv`
+  - `chapter4_metric_ci_bootstrap.csv`
+  - `generative_pred_distribution.csv/.png`
+  - `figures/confusion_test_<best_*>.png`
+  - `chapter4_completion_report.md`
+
 ## Usage
 
 From repo root:
@@ -102,6 +119,11 @@ python Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/08_qualitative_err
   --dataset-root Prototyping_reformat/DatasetAnalysis/LIMUC \
   --supervised-run finetune_resnet50 \
   --generative-run vlm_zero_shot_mayo
+
+python Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/11_chapter4_completion_audit.py \
+  --dataset-root Prototyping_reformat/DatasetAnalysis/LIMUC \
+  --out-dir Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out \
+  --chapter-md Thesis/markdown/04_chapter_4_developing_the_proposed_approach.md
 ```
 
 ## Notes

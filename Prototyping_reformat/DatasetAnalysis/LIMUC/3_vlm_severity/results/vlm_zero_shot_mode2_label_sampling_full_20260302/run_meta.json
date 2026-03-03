@@ -1,0 +1,14 @@
+{
+  "model": "vlm_zero_shot_mode2_label_sampling",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "prompt": "You are a medical imaging assistant. Rate ulcerative colitis severity using the Mayo endoscopic subscore. Output EXACTLY in this format: SCORE: <0|1|2|3>",
+  "seed": 21,
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "vlm_zero_shot_mode2_label_sampling_full_20260302_20260302T065858Z",
+  "timestamp_utc": "2026-03-02T06:58:58Z",
+  "out_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_zero_shot_mode2_label_sampling_full_20260302",
+  "source_run": "Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_zero_shot_mode2_label_scoring_full_20260301",
+  "mode": "mode2_label_probability_sampling_from_persisted_probs",
+  "sampling_temperature": 1.0,
+  "sampling_note": "Sampled one label from [p0,p1,p2,p3] per sample with fixed seed for non-degenerate controlled decoding."
+}

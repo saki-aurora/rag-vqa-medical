@@ -11,7 +11,7 @@ from typing import Dict, List
 
 import pandas as pd
 
-from _results_utils import collect_run_records, find_limuc_root, write_csv
+from _results_utils import collect_run_records, find_limuc_root, normalize_prediction_df, write_csv
 
 
 def parse_args() -> argparse.Namespace:
@@ -78,11 +78,11 @@ def _remission_metrics(df: pd.DataFrame) -> Dict[str, float]:
 
 
 def _mcnemar(df_a: pd.DataFrame, df_b: pd.DataFrame) -> Dict[str, float]:
-    merged = df_a[["img_id", "y_true", "y_pred"]].rename(
+    merged = df_a[["img_id_canonical", "y_true", "y_pred"]].rename(
         columns={"y_pred": "y_pred_a"}
     ).merge(
-        df_b[["img_id", "y_true", "y_pred"]].rename(columns={"y_pred": "y_pred_b"}),
-        on=["img_id", "y_true"],
+        df_b[["img_id_canonical", "y_true", "y_pred"]].rename(columns={"y_pred": "y_pred_b"}),
+        on=["img_id_canonical", "y_true"],
         how="inner",
     )
     y_true = pd.to_numeric(merged["y_true"], errors="coerce")
@@ -116,23 +116,6 @@ def _mcnemar(df_a: pd.DataFrame, df_b: pd.DataFrame) -> Dict[str, float]:
     }
 
 
-def _normalize_pred_columns(pred: pd.DataFrame) -> pd.DataFrame | None:
-    pred = pred.copy()
-    col_map = {}
-    if "img_id" not in pred.columns and "image_id" in pred.columns:
-        col_map["image_id"] = "img_id"
-    if "y_true" not in pred.columns and "true_label" in pred.columns:
-        col_map["true_label"] = "y_true"
-    if "y_pred" not in pred.columns and "pred_label" in pred.columns:
-        col_map["pred_label"] = "y_pred"
-    if col_map:
-        pred = pred.rename(columns=col_map)
-    required = {"img_id", "y_true", "y_pred"}
-    if not required.issubset(set(pred.columns)):
-        return None
-    return pred
-
-
 def main() -> None:
     args = parse_args()
     dataset_root = args.dataset_root.resolve() if args.dataset_root else find_limuc_root()
@@ -158,9 +141,12 @@ def main() -> None:
         if not pred_path.exists():
             continue
         pred = pd.read_csv(pred_path)
-        pred = _normalize_pred_columns(pred)
+        pred = normalize_prediction_df(pred)
         if pred is None:
             continue
+        pred = pred[pred["y_true"].notna() & pred["y_pred"].notna()].copy()
+        pred["y_true"] = pred["y_true"].astype(int)
+        pred["y_pred"] = pred["y_pred"].astype(int)
         pred_by_run[run_name] = pred
         metrics = _remission_metrics(pred)
         remission_rows.append(

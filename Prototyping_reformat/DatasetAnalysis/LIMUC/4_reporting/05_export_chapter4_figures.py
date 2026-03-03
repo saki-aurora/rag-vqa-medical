@@ -11,7 +11,7 @@ from typing import Dict, List
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from _results_utils import collect_run_records, find_limuc_root, write_csv
+from _results_utils import collect_run_records, find_limuc_root, normalize_prediction_df, write_csv
 
 
 def parse_args() -> argparse.Namespace:
@@ -112,8 +112,9 @@ def _plot_class_distribution(dataset_root: Path, figures_dir: Path) -> bool:
 def _plot_pred_histogram(pred_csv: Path, run_name: str, figures_dir: Path) -> Dict[str, int] | None:
     if not pred_csv.exists():
         return None
-    df = pd.read_csv(pred_csv)
-    if "y_pred" not in df.columns:
+    raw_df = pd.read_csv(pred_csv)
+    df = normalize_prediction_df(raw_df)
+    if df is None:
         return None
 
     y_pred = pd.to_numeric(df["y_pred"], errors="coerce")
@@ -210,4 +211,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

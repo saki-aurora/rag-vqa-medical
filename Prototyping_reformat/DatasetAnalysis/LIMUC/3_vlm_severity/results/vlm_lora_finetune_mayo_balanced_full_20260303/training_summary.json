@@ -1,0 +1,9 @@
+{
+  "global_step": 3252,
+  "best_metric": null,
+  "best_model_checkpoint": null,
+  "train_runtime": 4916.8218,
+  "train_samples_per_second": 5.289,
+  "train_steps_per_second": 0.661,
+  "train_loss": 0.8481351435367764
+}

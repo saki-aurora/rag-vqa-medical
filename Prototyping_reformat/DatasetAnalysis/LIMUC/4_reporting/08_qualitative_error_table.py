@@ -10,7 +10,7 @@ from typing import Dict, List
 import numpy as np
 import pandas as pd
 
-from _results_utils import find_limuc_root, write_csv
+from _results_utils import find_limuc_root, normalize_prediction_df, write_csv
 
 
 def parse_args() -> argparse.Namespace:
@@ -83,22 +83,40 @@ def main() -> None:
     sup_dir = _find_run_dir(dataset_root, args.supervised_run)
     gen_dir = _find_run_dir(dataset_root, args.generative_run)
 
-    sup_pred = pd.read_csv(sup_dir / "pred_test.csv")
-    gen_pred = pd.read_csv(gen_dir / "pred_test.csv")
-    gen_raw_path = gen_dir / "pred_test_raw.csv"
-    gen_raw = pd.read_csv(gen_raw_path) if gen_raw_path.exists() else None
+    sup_pred_raw = pd.read_csv(sup_dir / "pred_test.csv")
+    gen_pred_raw = pd.read_csv(gen_dir / "pred_test.csv")
+    sup_pred = normalize_prediction_df(sup_pred_raw)
+    gen_pred = normalize_prediction_df(gen_pred_raw)
+    if sup_pred is None or gen_pred is None:
+        raise RuntimeError("Prediction schema mismatch: required labels/predictions are missing.")
 
-    merge_cols = ["img_id", "y_true"]
-    sup = sup_pred[["img_id", "y_true", "y_pred", "image_path"]].rename(
+    gen_raw_path = gen_dir / "pred_test_raw.csv"
+    gen_raw = normalize_prediction_df(pd.read_csv(gen_raw_path)) if gen_raw_path.exists() else None
+
+    merge_cols = ["img_id_canonical", "y_true"]
+    sup_cols = ["img_id_canonical", "img_id", "y_true", "y_pred"]
+    if "image_path" in sup_pred.columns:
+        sup_cols.append("image_path")
+    sup = sup_pred[sup_cols].rename(
         columns={"y_pred": "y_pred_supervised"}
     )
-    gen = gen_pred[["img_id", "y_true", "y_pred"]].rename(columns={"y_pred": "y_pred_generative"})
+    gen = gen_pred[["img_id_canonical", "img_id", "y_true", "y_pred"]].rename(
+        columns={"y_pred": "y_pred_generative", "img_id": "img_id_generative"}
+    )
     merged = sup.merge(gen, on=merge_cols, how="inner")
+    if "img_id" not in merged.columns:
+        merged["img_id"] = merged["img_id_canonical"]
 
-    if gen_raw is not None and {"img_id", "y_true", "raw_text"}.issubset(gen_raw.columns):
+    if gen_raw is not None and {"img_id_canonical", "y_true", "raw_text"}.issubset(gen_raw.columns):
         merged = merged.merge(
-            gen_raw[["img_id", "y_true", "raw_text"]],
-            on=["img_id", "y_true"],
+            gen_raw[["img_id_canonical", "y_true", "raw_text"]],
+            on=["img_id_canonical", "y_true"],
+            how="left",
+        )
+    elif "raw_text" in gen_pred.columns:
+        merged = merged.merge(
+            gen_pred[["img_id_canonical", "y_true", "raw_text"]],
+            on=["img_id_canonical", "y_true"],
             how="left",
         )
     else:
@@ -179,4 +197,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

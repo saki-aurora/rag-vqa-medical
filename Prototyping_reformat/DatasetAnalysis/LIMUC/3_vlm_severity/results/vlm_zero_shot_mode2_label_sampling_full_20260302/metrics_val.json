@@ -1,0 +1,14 @@
+{
+  "split": "val",
+  "summary": {
+    "accuracy": 0.5266015200868621,
+    "macro_f1": 0.172475106685633,
+    "weighted_f1": 0.3633026134311922,
+    "balanced_accuracy": 0.25,
+    "qwk": 0.0,
+    "mae": 0.7709011943539631,
+    "rmse": 1.2460578445676935,
+    "parse_rate": 1.0,
+    "n_invalid": 0
+  }
+}

@@ -7,7 +7,7 @@ This is the full notebook order for Chapter 4 (baselines + generative).
 - Kernel to use: `vqa-rag`
 - Python: `3.11.13`
 - GPU: `NVIDIA GeForce RTX 3090` with CUDA available
-- Required packages present in `vqa-rag`: `torch`, `transformers`, `accelerate`, `peft`, `datasets`, `evaluate`, `bitsandbytes`
+- Required packages present in `vqa-rag`: `torch`, `transformers`, `accelerate`, `peft`, `datasets`, `evaluate`, `bitsandbytes`, `sentencepiece`
 - LIMUC data present:
   - `Datasets/LIMUC/train_and_validation_sets`
   - `Datasets/LIMUC/test_set`
@@ -46,6 +46,37 @@ jupyter nbconvert --to notebook --execute --inplace \
 ```
 
 Persisted outputs are written under `*/results/<run_name>/` and include `run_meta.json` with `run_id` and `timestamp_utc`.
+
+## Preferred LoRA path (CLI, reproducible)
+
+Use the standalone trainer instead of relying on notebook state:
+
+```bash
+cd /home/arcturus/Desktop/thesis/rag-vqa-medical
+/home/arcturus/miniforge3/envs/vqa-rag/bin/python \
+  Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/train_vlm_lora_mayo.py \
+  --run-name vlm_lora_finetune_mayo_balanced_full_$(date -u +%Y%m%d) \
+  --epochs 3 \
+  --batch-size 2 \
+  --grad-accum 4 \
+  --lr 5e-5 \
+  --balanced-sampling \
+  --force-cuda
+```
+
+Monitor progress:
+
+```bash
+tail -f Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/<run_name>/train.log
+```
+
+This writes full Chapter-4-compatible artifacts:
+- `pred_test.csv`, `pred_val.csv`
+- `metrics_test.json`, `metrics_val.json`
+- `confusion_test.png`, `pred_label_histogram.png`
+- `parser_audit_samples.csv`
+- `training_history.csv`, `training_summary.json`
+- `lora_config.json`, `lora_param_count.json`, `run_meta.json`
 
 ## Required notebook order for Chapter 4
 

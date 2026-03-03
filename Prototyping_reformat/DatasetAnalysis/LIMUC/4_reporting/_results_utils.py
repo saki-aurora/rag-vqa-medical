@@ -6,8 +6,11 @@ from __future__ import annotations
 import csv
 import json
 import math
+import re
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence
+
+import pandas as pd
 
 DEFAULT_REQUIRED_ARTIFACTS: Sequence[str] = (
     "metrics_test.json",
@@ -249,3 +252,64 @@ def write_csv(rows: List[Dict[str, Any]], out_path: Path, field_order: Sequence[
             for row in rows:
                 writer.writerow(row)
 
+
+def canonical_image_id(value: Any) -> str:
+    """Normalize run-specific image identifiers to a stable comparable key."""
+    if value is None:
+        return ""
+    text = str(value).strip()
+    if not text:
+        return ""
+
+    # If a full path is provided, compare by filename stem.
+    if "/" in text or "\\" in text:
+        text = Path(text).stem
+
+    text = text.lower()
+    text = re.sub(r"^mayo_[0-3]__", "", text)
+    # Supervised runs often append a running index (e.g., _009590).
+    text = re.sub(r"_\d{4,}$", "", text)
+    return text
+
+
+def normalize_prediction_df(pred: pd.DataFrame) -> pd.DataFrame | None:
+    """Unify prediction CSV schemas used across supervised and generative runs."""
+    df = pred.copy()
+
+    rename_map: Dict[str, str] = {}
+    if "img_id" not in df.columns and "image_id" in df.columns:
+        rename_map["image_id"] = "img_id"
+    if "y_true" not in df.columns and "true_label" in df.columns:
+        rename_map["true_label"] = "y_true"
+    if "y_pred" not in df.columns and "pred_label" in df.columns:
+        rename_map["pred_label"] = "y_pred"
+    if "raw_text" not in df.columns and "raw_generation" in df.columns:
+        rename_map["raw_generation"] = "raw_text"
+    if rename_map:
+        df = df.rename(columns=rename_map)
+
+    required = {"y_true", "y_pred"}
+    if not required.issubset(set(df.columns)):
+        return None
+
+    if "img_id" not in df.columns:
+        if "image_path" in df.columns:
+            df["img_id"] = df["image_path"].astype(str).map(lambda p: Path(p).stem)
+        else:
+            df["img_id"] = [f"row_{i}" for i in range(len(df))]
+
+    df["y_true"] = pd.to_numeric(df["y_true"], errors="coerce")
+    df["y_pred"] = pd.to_numeric(df["y_pred"], errors="coerce")
+
+    # Prefer stable image-path stem when available.
+    if "image_path" in df.columns:
+        from_path = df["image_path"].astype(str).map(canonical_image_id)
+        from_id = df["img_id"].astype(str).map(canonical_image_id)
+        df["img_id_canonical"] = from_path.where(from_path != "", from_id)
+    else:
+        df["img_id_canonical"] = df["img_id"].astype(str).map(canonical_image_id)
+
+    if "parse_ok" not in df.columns:
+        df["parse_ok"] = df["y_pred"].isin([0, 1, 2, 3])
+
+    return df
