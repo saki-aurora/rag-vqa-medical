@@ -1,0 +1,29 @@
+{
+  "task": "retrieval_eval",
+  "mode": "baseline",
+  "n_queries": 10,
+  "k_values": [
+    1,
+    3,
+    5
+  ],
+  "metrics": {
+    "k=1": {
+      "precision_at_k": 0.1,
+      "recall_at_k": 0.05,
+      "hit_rate_at_k": 0.1
+    },
+    "k=3": {
+      "precision_at_k": 0.16666666666666666,
+      "recall_at_k": 0.25,
+      "hit_rate_at_k": 0.3
+    },
+    "k=5": {
+      "precision_at_k": 0.15999999999999998,
+      "recall_at_k": 0.45,
+      "hit_rate_at_k": 0.6
+    }
+  },
+  "input_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/retrieval_gold.jsonl",
+  "manifest_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_latest/kb_manifest.json"
+}

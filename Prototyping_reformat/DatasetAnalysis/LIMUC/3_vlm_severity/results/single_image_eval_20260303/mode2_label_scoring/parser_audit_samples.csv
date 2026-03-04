@@ -1,0 +1,2 @@
+image_id,true_label,raw_generation,pred_label,parse_ok
+custom_001,0,SCORE: 0,0,True

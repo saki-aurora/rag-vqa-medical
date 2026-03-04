@@ -1,0 +1,9 @@
+{
+  "run_id": "chapter5_wrapper_20260304T032604Z_0squ82",
+  "n_queries": 1,
+  "manifest_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_latest/kb_manifest.json",
+  "mode_requested": "baseline",
+  "retrieval_k": 5,
+  "has_severity_context": false,
+  "query_file": null
+}
