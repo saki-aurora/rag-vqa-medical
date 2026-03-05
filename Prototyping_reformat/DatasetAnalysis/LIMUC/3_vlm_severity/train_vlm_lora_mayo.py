@@ -114,6 +114,24 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--force-cuda", action="store_true")
     parser.add_argument("--gradient-checkpointing", action="store_true")
     parser.add_argument("--freeze-backbone", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument(
+        "--label-token-only",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="If true, compute loss only on the class token(s) in target 'SCORE: X'.",
+    )
+    parser.add_argument(
+        "--class-token-loss-weight",
+        type=float,
+        default=1.0,
+        help="Loss weight applied to class token(s) in target text.",
+    )
+    parser.add_argument(
+        "--template-token-loss-weight",
+        type=float,
+        default=0.10,
+        help="Loss weight applied to non-class template tokens when label-token-only is enabled.",
+    )
 
     parser.add_argument("--lora-r", type=int, default=8)
     parser.add_argument("--lora-alpha", type=int, default=16)
@@ -274,10 +292,71 @@ def load_model_and_processor(args: argparse.Namespace):
 
 
 class VQADataset(Dataset):
-    def __init__(self, df: pd.DataFrame, processor, prompt: str):
+    def __init__(
+        self,
+        df: pd.DataFrame,
+        processor,
+        prompt: str,
+        label_token_only: bool = True,
+        class_token_loss_weight: float = 1.0,
+        template_token_loss_weight: float = 0.10,
+    ):
         self.df = df.reset_index(drop=True)
         self.processor = processor
         self.prompt = prompt
+        self.label_token_only = bool(label_token_only)
+        self.class_token_loss_weight = float(class_token_loss_weight)
+        self.template_token_loss_weight = float(template_token_loss_weight)
+
+    def _build_supervision(self, label_id: int) -> Tuple[torch.Tensor, torch.Tensor]:
+        tok = self.processor.tokenizer
+        target = f"SCORE: {int(label_id)}"
+        encoded = tok(target, return_tensors="pt").input_ids.squeeze(0)
+        labels = encoded.clone()
+        labels[labels == tok.pad_token_id] = -100
+
+        if self.label_token_only:
+            loss_weights = torch.full_like(labels, fill_value=self.template_token_loss_weight, dtype=torch.float32)
+        else:
+            loss_weights = torch.ones_like(labels, dtype=torch.float32)
+        loss_weights[labels == -100] = 0.0
+
+        class_ids = tok(f" {int(label_id)}", add_special_tokens=False).input_ids
+        if not class_ids:
+            class_ids = tok(str(int(label_id)), add_special_tokens=False).input_ids
+
+        seq = labels.tolist()
+        start_positions: List[int] = []
+        k = len(class_ids)
+        if k > 0:
+            for i in range(0, len(seq) - k + 1):
+                if seq[i : i + k] == class_ids:
+                    start_positions.append(i)
+        class_positions: List[int] = []
+        if start_positions:
+            start = start_positions[-1]
+            class_positions = list(range(start, start + k))
+        else:
+            eos_id = tok.eos_token_id
+            fallback_idx = len(seq) - 1
+            if eos_id is not None and seq and seq[-1] == eos_id and len(seq) > 1:
+                fallback_idx = len(seq) - 2
+            class_positions = [fallback_idx]
+
+        for pos in class_positions:
+            if 0 <= pos < len(loss_weights):
+                loss_weights[pos] = self.class_token_loss_weight
+
+        if self.label_token_only and self.template_token_loss_weight <= 0.0:
+            # Exact class-only training can still be requested by setting template weight to zero.
+            keep = torch.zeros_like(labels, dtype=torch.bool)
+            for pos in class_positions:
+                if 0 <= pos < len(labels):
+                    keep[pos] = True
+            labels = torch.where(keep, labels, torch.full_like(labels, -100))
+            loss_weights = torch.where(keep, loss_weights, torch.zeros_like(loss_weights))
+
+        return labels, loss_weights
 
     def __len__(self) -> int:
         return len(self.df)
@@ -290,14 +369,12 @@ class VQADataset(Dataset):
         if "inputs_embeds" in inputs:
             inputs.pop("inputs_embeds")
 
-        target = f"SCORE: {int(row.label_id)}"
-        labels = self.processor.tokenizer(target, return_tensors="pt").input_ids
-        labels[labels == self.processor.tokenizer.pad_token_id] = -100
-
+        labels, loss_weights = self._build_supervision(int(row.label_id))
         item = {
             "pixel_values": inputs["pixel_values"].squeeze(0),
             "input_ids": inputs["input_ids"].squeeze(0),
-            "labels": labels.squeeze(0),
+            "labels": labels,
+            "loss_weights": loss_weights,
         }
         if "attention_mask" in inputs:
             item["attention_mask"] = inputs["attention_mask"].squeeze(0)
@@ -310,8 +387,11 @@ def collate_fn(batch: Sequence[Dict[str, torch.Tensor]], pad_token_id: int):
         [b["input_ids"] for b in batch], batch_first=True, padding_value=pad_token_id
     )
     labels = torch.nn.utils.rnn.pad_sequence([b["labels"] for b in batch], batch_first=True, padding_value=-100)
+    loss_weights = torch.nn.utils.rnn.pad_sequence(
+        [b["loss_weights"] for b in batch], batch_first=True, padding_value=0.0
+    )
 
-    out = {"pixel_values": pixel_values, "input_ids": input_ids, "labels": labels}
+    out = {"pixel_values": pixel_values, "input_ids": input_ids, "labels": labels, "loss_weights": loss_weights}
     if "attention_mask" in batch[0]:
         attention_mask = torch.nn.utils.rnn.pad_sequence(
             [b["attention_mask"] for b in batch], batch_first=True, padding_value=0
@@ -337,12 +417,28 @@ class SafeTrainer(Trainer):
 
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         inputs = dict(inputs)
+        loss_weights = inputs.pop("loss_weights", None)
         inputs.pop("inputs_embeds", None)
         inputs.pop("decoder_inputs_embeds", None)
         inputs.pop("num_items_in_batch", None)
         kwargs.pop("num_items_in_batch", None)
         outputs = model(**inputs)
-        loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+
+        labels = inputs.get("labels")
+        logits = outputs["logits"] if isinstance(outputs, dict) else getattr(outputs, "logits", None)
+        if loss_weights is not None and labels is not None and logits is not None:
+            per_token = torch.nn.functional.cross_entropy(
+                logits.view(-1, logits.size(-1)),
+                labels.view(-1),
+                ignore_index=-100,
+                reduction="none",
+            ).view(labels.shape)
+            valid = (labels != -100).to(dtype=per_token.dtype)
+            weights = loss_weights.to(dtype=per_token.dtype, device=per_token.device) * valid
+            denom = weights.sum().clamp_min(1.0)
+            loss = (per_token * weights).sum() / denom
+        else:
+            loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
         return (loss, outputs) if return_outputs else loss
 
     def get_train_dataloader(self):
@@ -536,8 +632,22 @@ def main() -> None:
 
     processor, model, device, use_bf16, target_modules = load_model_and_processor(args)
 
-    train_ds = VQADataset(train_df, processor, PROMPT)
-    val_ds = VQADataset(val_df, processor, PROMPT)
+    train_ds = VQADataset(
+        train_df,
+        processor,
+        PROMPT,
+        label_token_only=args.label_token_only,
+        class_token_loss_weight=args.class_token_loss_weight,
+        template_token_loss_weight=args.template_token_loss_weight,
+    )
+    val_ds = VQADataset(
+        val_df,
+        processor,
+        PROMPT,
+        label_token_only=args.label_token_only,
+        class_token_loss_weight=args.class_token_loss_weight,
+        template_token_loss_weight=args.template_token_loss_weight,
+    )
 
     sampler = None
     class_counts: Dict[int, int] = {}
@@ -668,6 +778,9 @@ def main() -> None:
         "lora_target_modules": target_modules,
         "balanced_sampling": bool(args.balanced_sampling),
         "freeze_backbone": bool(args.freeze_backbone),
+        "label_token_only": bool(args.label_token_only),
+        "class_token_loss_weight": float(args.class_token_loss_weight),
+        "template_token_loss_weight": float(args.template_token_loss_weight),
         "class_counts_train": class_counts,
         "class_weights_sampler": class_weights,
         "split_hash": ctx.split_hash,

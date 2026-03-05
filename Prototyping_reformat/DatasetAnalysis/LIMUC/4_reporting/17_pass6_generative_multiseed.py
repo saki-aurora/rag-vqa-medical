@@ -509,6 +509,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--force-cuda", action="store_true")
     parser.add_argument("--gradient-checkpointing", action="store_true")
     parser.add_argument("--use-fast-processor", action="store_true")
+    parser.add_argument(
+        "--label-token-only",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Pass through to train_vlm_lora_mayo.py to focus training loss on class token(s).",
+    )
+    parser.add_argument("--class-token-loss-weight", type=float, default=1.0)
+    parser.add_argument("--template-token-loss-weight", type=float, default=0.10)
 
     parser.add_argument("--skip-mode2-eval", action="store_true")
     parser.add_argument("--force-reeval", action="store_true")
@@ -678,6 +686,12 @@ def _train_or_load_seed_run(
             cmd.append("--gradient-checkpointing")
         if args.use_fast_processor:
             cmd.append("--use-fast-processor")
+        if args.label_token_only:
+            cmd.append("--label-token-only")
+        else:
+            cmd.append("--no-label-token-only")
+        cmd.extend(["--class-token-loss-weight", str(args.class_token_loss_weight)])
+        cmd.extend(["--template-token-loss-weight", str(args.template_token_loss_weight)])
 
         with log_path.open("w", encoding="utf-8") as lf:
             lf.write(f"$ {_cmd_to_text(cmd)}\n\n")
@@ -1350,6 +1364,9 @@ def main() -> None:
             "max_train_samples": args.max_train_samples,
             "max_val_samples": args.max_val_samples,
             "max_test_samples": args.max_test_samples,
+            "label_token_only": bool(args.label_token_only),
+            "class_token_loss_weight": float(args.class_token_loss_weight),
+            "template_token_loss_weight": float(args.template_token_loss_weight),
             "skip_mode2_eval": bool(args.skip_mode2_eval),
             "force_reeval": bool(args.force_reeval),
             "eval_mode2_strategy": str(args.eval_mode2_strategy),
