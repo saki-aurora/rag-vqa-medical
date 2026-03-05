@@ -1,0 +1,21 @@
+y_true,y_pred,img_id,image_path,prob_0,prob_1,prob_2,prob_3
+0,0,UC_patient_185_47_002190,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_185_47.bmp,0.6533,0.2488,0.05548,0.0423
+0,0,UC_patient_118_7_004449,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_118_7.bmp,0.657,0.3079,0.01877,0.01633
+0,0,UC_patient_84_28_002051,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_84_28.bmp,0.3809,0.2798,0.1691,0.1703
+0,0,UC_patient_222_24_003230,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_222_24.bmp,0.6436,0.2277,0.0772,0.05133
+1,0,UC_patient_18_32_006744,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_18_32.bmp,0.4514,0.337,0.1312,0.0806
+3,0,UC_patient_290_5_009010,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 3/UC_patient_290_5.bmp,0.3184,0.295,0.187,0.1997
+1,0,UC_patient_300_25_005470,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_300_25.bmp,0.452,0.3516,0.1089,0.0877
+0,0,UC_patient_201_7_005074,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_201_7.bmp,0.4612,0.4158,0.0678,0.0552
+0,1,UC_patient_48_16_003258,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_48_16.bmp,0.4275,0.451,0.0537,0.06793
+1,1,UC_patient_134_76_005985,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_134_76.bmp,0.331,0.5894,0.02684,0.05307
+1,1,UC_patient_188_6_005919,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_188_6.bmp,0.3765,0.4155,0.0897,0.11835
+0,0,UC_patient_392_4_001910,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_392_4.bmp,0.6714,0.2257,0.0494,0.05362
+1,1,UC_patient_84_24_005374,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_84_24.bmp,0.3284,0.413,0.12445,0.134
+1,1,UC_patient_84_51_006510,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_84_51.bmp,0.2563,0.3186,0.206,0.219
+2,0,UC_patient_269_49_008621,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 2/UC_patient_269_49.bmp,0.4302,0.4158,0.0763,0.07776
+1,0,UC_patient_400_23_006591,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_400_23.bmp,0.409,0.3438,0.1492,0.098
+1,1,UC_patient_311_21_007206,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 1/UC_patient_311_21.bmp,0.3535,0.4253,0.11017,0.11127
+0,0,UC_patient_389_7_001349,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_389_7.bmp,0.813,0.1715,0.00877,0.00653
+3,1,UC_patient_242_6_009258,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 3/UC_patient_242_6.bmp,0.2925,0.3408,0.1514,0.2155
+0,0,UC_patient_489_4_004200,/mnt/hf/thesis/rag-vqa-medical/Datasets/LIMUC/train_and_validation_sets/Mayo 0/UC_patient_489_4.bmp,0.3196,0.3013,0.1499,0.2294

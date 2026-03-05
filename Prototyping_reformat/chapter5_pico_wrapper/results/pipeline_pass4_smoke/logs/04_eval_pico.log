@@ -1,0 +1,2 @@
+[dry_run] command not executed
+/home/arcturus/.pyenv/versions/3.12.2/bin/python3.12 /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_pico.py --pico_gold /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/pico_gold.jsonl --out_dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_smoke

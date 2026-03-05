@@ -46,8 +46,10 @@ class TestKbIngest(unittest.TestCase):
             self.assertTrue((out / "chunks.jsonl").exists())
 
             manifest = json.loads((out / "kb_manifest.json").read_text(encoding="utf-8"))
-            self.assertIn(manifest["index_backend"], {"tfidf", "keyword"})
+            self.assertIn(manifest["index_backend"], {"hybrid", "tfidf", "keyword"})
             self.assertEqual(manifest["n_source_files"], 2)
+            self.assertIn("available_backends", manifest)
+            self.assertIn("index_files", manifest)
 
 
 if __name__ == "__main__":

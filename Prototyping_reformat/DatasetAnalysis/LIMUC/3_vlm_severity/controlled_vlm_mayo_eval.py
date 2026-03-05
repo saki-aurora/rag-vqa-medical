@@ -2,7 +2,7 @@
 """Controlled generative UC Mayo evaluation with two inference modes.
 
 Mode 1: free generation + strict SCORE parser
-Mode 2: label scoring via next-token probabilities after "SCORE:"
+Mode 2: label scoring via candidate-token likelihoods after "SCORE:"
 """
 
 from __future__ import annotations
@@ -55,6 +55,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model-name", type=str, default="Salesforce/blip2-flan-t5-xl")
     parser.add_argument("--adapter-dir", type=Path, default=None)
     parser.add_argument("--mode", type=str, choices=["mode1", "mode2", "both"], default="both")
+    parser.add_argument(
+        "--mode2-strategy",
+        type=str,
+        choices=["sequence_logprob", "next_token"],
+        default="sequence_logprob",
+        help="Mode-2 scoring method. sequence_logprob is robust to multi-token label pieces (recommended).",
+    )
     parser.add_argument("--batch-size", type=int, default=1)
     parser.add_argument("--max-new-tokens", type=int, default=8)
     parser.add_argument("--max-samples", type=int, default=0)
@@ -267,36 +274,69 @@ def eval_mode1(
     return pd.DataFrame(rows)
 
 
-def eval_mode2(df: pd.DataFrame, processor, model, device, run_id: str, split: str, log_every: int) -> pd.DataFrame:
+def eval_mode2(
+    df: pd.DataFrame,
+    processor,
+    model,
+    device,
+    run_id: str,
+    split: str,
+    log_every: int,
+    mode2_strategy: str,
+) -> pd.DataFrame:
     tok = processor.tokenizer
     prefix_ids = tok("SCORE:", add_special_tokens=False).input_ids
+    if not prefix_ids:
+        raise RuntimeError("Failed to tokenize mode2 prefix: 'SCORE:'")
 
-    candidate_ids: Dict[int, int] = {}
+    # Keep candidate tokenization explicit; some classes are multi-token (notably " 0" in T5 tokenization).
+    candidate_token_ids: Dict[int, List[int]] = {}
     for c in [0, 1, 2, 3]:
         ids = tok(f" {c}", add_special_tokens=False).input_ids
         if not ids:
             ids = tok(str(c), add_special_tokens=False).input_ids
         if not ids:
             raise RuntimeError(f"Could not tokenize candidate class: {c}")
-        candidate_ids[c] = int(ids[0])
+        candidate_token_ids[c] = [int(x) for x in ids]
+
+    decoder_start_id = getattr(model.config, "decoder_start_token_id", None)
+    if decoder_start_id is None:
+        decoder_start_id = tok.pad_token_id if tok.pad_token_id is not None else 0
+    base_prefix = [int(decoder_start_id)] + [int(x) for x in prefix_ids]
+    prefix_last_pos = len(base_prefix) - 1
 
     rows: List[Dict[str, object]] = []
     for idx, row in enumerate(df.itertuples(index=False), start=1):
         img = Image.open(row.resolved_image_path).convert("RGB")
         enc = processor(images=img, text=PROMPT, return_tensors="pt").to(device)
 
-        # Build decoder prefix: <decoder_start> SCORE:
-        decoder_start_id = getattr(model.config, "decoder_start_token_id", None)
-        if decoder_start_id is None:
-            decoder_start_id = tok.pad_token_id if tok.pad_token_id is not None else 0
-        dec = torch.tensor([[decoder_start_id] + prefix_ids], dtype=torch.long, device=device)
-
+        class_scores: List[float] = []
         with torch.no_grad():
-            out = model(**enc, decoder_input_ids=dec)
-            logits = out.logits[:, -1, :]  # token after "SCORE:"
-            cand_logits = torch.stack([logits[0, candidate_ids[c]] for c in [0, 1, 2, 3]]).float()
-            probs = torch.softmax(cand_logits, dim=0).detach().cpu().numpy().tolist()
+            for class_id in [0, 1, 2, 3]:
+                cand_ids = candidate_token_ids[class_id]
+                if mode2_strategy == "next_token":
+                    # Legacy behavior (kept for reproducibility): compare one next-token logit only.
+                    # This is sensitive to tokenizer edge cases when labels tokenize to multiple tokens.
+                    dec = torch.tensor([base_prefix], dtype=torch.long, device=device)
+                    out = model(**enc, decoder_input_ids=dec)
+                    logits = out.logits[:, -1, :]
+                    score = float(logits[0, int(cand_ids[0])].item())
+                elif mode2_strategy == "sequence_logprob":
+                    # Robust scoring over the full candidate token sequence.
+                    dec_ids = base_prefix + cand_ids[:-1]
+                    dec = torch.tensor([dec_ids], dtype=torch.long, device=device)
+                    out = model(**enc, decoder_input_ids=dec)
+                    log_probs = torch.log_softmax(out.logits[0], dim=-1)
+                    token_scores: List[float] = []
+                    for step_i, tok_id in enumerate(cand_ids):
+                        pos = prefix_last_pos + step_i
+                        token_scores.append(float(log_probs[pos, int(tok_id)].item()))
+                    score = float(np.mean(token_scores))
+                else:
+                    raise RuntimeError(f"Unsupported mode2 strategy: {mode2_strategy}")
+                class_scores.append(score)
 
+        probs = torch.softmax(torch.tensor(class_scores, dtype=torch.float32), dim=0).cpu().numpy().tolist()
         pred = int(np.argmax(probs))
         rows.append(
             {
@@ -305,16 +345,21 @@ def eval_mode2(df: pd.DataFrame, processor, model, device, run_id: str, split: s
                 "pred_label": pred,
                 "parse_ok": True,
                 "raw_generation": f"SCORE: {pred}",
+                "score0": float(class_scores[0]),
+                "score1": float(class_scores[1]),
+                "score2": float(class_scores[2]),
+                "score3": float(class_scores[3]),
                 "p0": float(probs[0]),
                 "p1": float(probs[1]),
                 "p2": float(probs[2]),
                 "p3": float(probs[3]),
                 "split": split,
                 "run_id": run_id,
+                "mode2_strategy": mode2_strategy,
             }
         )
         if log_every > 0 and idx % log_every == 0:
-            print(f"[mode2] processed {idx}/{len(df)}")
+            print(f"[mode2:{mode2_strategy}] processed {idx}/{len(df)}")
     return pd.DataFrame(rows)
 
 
@@ -401,6 +446,7 @@ def main() -> None:
             run_id=run_id,
             split=args.split,
             log_every=args.log_every,
+            mode2_strategy=args.mode2_strategy,
         )
         persist_outputs(pred2, out_root / "mode2_label_scoring", split=args.split, mode_name="mode2_label_scoring")
         mode2_done = True
@@ -418,6 +464,7 @@ def main() -> None:
             "mode1": mode1_done,
             "mode2": mode2_done,
         },
+        "mode2_strategy": args.mode2_strategy,
         "meta_csv": str(args.meta_csv.resolve()),
     }
     (out_root / "run_meta.json").write_text(json.dumps(run_meta, indent=2), encoding="utf-8")

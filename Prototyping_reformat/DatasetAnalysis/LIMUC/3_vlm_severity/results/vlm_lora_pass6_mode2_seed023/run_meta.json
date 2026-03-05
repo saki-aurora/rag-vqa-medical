@@ -1,0 +1,15 @@
+{
+  "run_id": "vlm_lora_pass6_mode2_seed023_20260305T055101Z",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "adapter_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_balanced_pass6_seed023/lora_adapter",
+  "adapter_loaded": true,
+  "prompt": "You are a medical imaging assistant. Rate ulcerative colitis severity using the Mayo endoscopic subscore. Output EXACTLY in this format: SCORE: <0|1|2|3>",
+  "split": "test",
+  "n_rows": 1686,
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "modes": {
+    "mode1": false,
+    "mode2": true
+  },
+  "meta_csv": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/out/metadata/metadata_enriched.csv"
+}

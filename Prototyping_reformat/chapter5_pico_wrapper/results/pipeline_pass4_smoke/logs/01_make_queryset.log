@@ -1,0 +1,2 @@
+[dry_run] command not executed
+/home/arcturus/.pyenv/versions/3.12.2/bin/python3.12 /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/scripts/make_queryset.py --out_dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries --n_queries 50 --n_pico_gold 20

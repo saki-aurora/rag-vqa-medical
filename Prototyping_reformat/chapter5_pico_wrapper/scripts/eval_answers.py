@@ -40,6 +40,30 @@ STOPWORDS = {
     "can",
     "not",
 }
+POSITIVE_TERMS = {
+    "improve",
+    "improved",
+    "improvement",
+    "increase",
+    "higher",
+    "effective",
+    "benefit",
+    "better",
+    "remission",
+}
+NEGATIVE_TERMS = {
+    "worse",
+    "decrease",
+    "lower",
+    "ineffective",
+    "harm",
+    "contraindicated",
+    "contraindication",
+    "adverse",
+    "risk",
+    "not",
+    "no",
+}
 
 
 def _find_workspace_root() -> Path:
@@ -93,6 +117,54 @@ def _claim_supported(claim_text: str, citation_ids: Sequence[str], evidence_map:
         if overlap >= 2 or ratio >= 0.2:
             return True, best_overlap
     return False, best_overlap
+
+
+def _polarity(text: str) -> int:
+    toks = TOKEN_RE.findall(text.lower())
+    has_pos = any(t in POSITIVE_TERMS for t in toks)
+    has_neg = any(t in NEGATIVE_TERMS for t in toks)
+    if has_pos and not has_neg:
+        return 1
+    if has_neg and not has_pos:
+        return -1
+    return 0
+
+
+def _strict_claim_check(
+    claim_text: str,
+    citation_ids: Sequence[str],
+    evidence_map: Dict[str, str],
+    min_overlap_ratio: float,
+    min_overlap_terms: int,
+) -> tuple[bool, float, bool]:
+    claim_terms = _term_set(claim_text)
+    if not claim_terms or not citation_ids:
+        return False, 0.0, False
+    best_overlap = 0.0
+    best_overlap_terms = 0
+    contradiction = False
+    claim_pol = _polarity(claim_text)
+    for cid in citation_ids:
+        chunk_text = evidence_map.get(cid, "")
+        if not chunk_text:
+            continue
+        chunk_terms = _term_set(chunk_text)
+        if not chunk_terms:
+            continue
+        overlap_terms = len(claim_terms.intersection(chunk_terms))
+        overlap_ratio = overlap_terms / max(1, len(claim_terms))
+        if overlap_ratio > best_overlap:
+            best_overlap = overlap_ratio
+            best_overlap_terms = overlap_terms
+        chunk_pol = _polarity(chunk_text)
+        if claim_pol != 0 and chunk_pol != 0 and (claim_pol * chunk_pol == -1):
+            contradiction = True
+    strict_supported = (
+        best_overlap >= float(min_overlap_ratio)
+        and best_overlap_terms >= int(min_overlap_terms)
+        and not contradiction
+    )
+    return strict_supported, best_overlap, contradiction
 
 
 def _is_policy_claim(claim_text: str) -> bool:
@@ -164,6 +236,8 @@ def parse_args() -> argparse.Namespace:
         default=10,
         help="Number of unsupported claim examples to include in report.",
     )
+    parser.add_argument("--min_overlap_ratio_strict", type=float, default=0.25)
+    parser.add_argument("--min_overlap_terms_strict", type=int, default=3)
     return parser.parse_args()
 
 
@@ -196,7 +270,11 @@ def main() -> None:
     valid_citation_links = 0
     policy_claims_excluded = 0
     unsupported_examples: List[Dict[str, object]] = []
+    contradiction_examples: List[Dict[str, object]] = []
     refusal_count = 0
+    strict_supported_claims = 0
+    contradiction_count = 0
+    overlap_scores: List[float] = []
 
     for row in outputs:
         query = str(row.get("query", "")).strip()
@@ -240,6 +318,27 @@ def main() -> None:
                 citation_ids=citation_ids,
                 evidence_map=evidence_map,
             )
+            strict_supported, overlap_strict, contradiction = _strict_claim_check(
+                claim_text=claim_text,
+                citation_ids=citation_ids,
+                evidence_map=evidence_map,
+                min_overlap_ratio=args.min_overlap_ratio_strict,
+                min_overlap_terms=args.min_overlap_terms_strict,
+            )
+            overlap_scores.append(overlap_strict)
+            if strict_supported:
+                strict_supported_claims += 1
+            if contradiction:
+                contradiction_count += 1
+                if len(contradiction_examples) < args.max_unsupported_examples:
+                    contradiction_examples.append(
+                        {
+                            "query": query,
+                            "claim": claim_text,
+                            "citation_ids": citation_ids,
+                            "best_lexical_overlap": overlap_strict,
+                        }
+                    )
             if supported:
                 supported_claims += 1
                 if has_citation:
@@ -264,6 +363,9 @@ def main() -> None:
     citation_correctness = _safe_div(supported_with_citation, claims_with_citation)
     hallucination_rate = _safe_div(evaluated_claims - supported_claims, evaluated_claims)
     claim_support_rate = _safe_div(supported_claims, evaluated_claims)
+    strict_claim_support_rate = _safe_div(strict_supported_claims, evaluated_claims)
+    contradiction_rate_proxy = _safe_div(contradiction_count, evaluated_claims)
+    mean_claim_overlap = _safe_div(sum(overlap_scores), len(overlap_scores))
     citation_link_integrity = _safe_div(valid_citation_links, total_citation_links)
 
     summary = {
@@ -276,9 +378,17 @@ def main() -> None:
         "citation_coverage": citation_coverage,
         "citation_correctness_heuristic": citation_correctness,
         "claim_support_rate_heuristic": claim_support_rate,
+        "claim_support_rate_strict": strict_claim_support_rate,
+        "contradiction_rate_proxy": contradiction_rate_proxy,
+        "mean_claim_citation_overlap": mean_claim_overlap,
         "hallucination_rate_proxy": hallucination_rate,
         "citation_link_integrity": citation_link_integrity,
+        "strict_overlap_threshold": {
+            "min_overlap_ratio": args.min_overlap_ratio_strict,
+            "min_overlap_terms": args.min_overlap_terms_strict,
+        },
         "unsupported_claim_examples": unsupported_examples,
+        "contradiction_examples": contradiction_examples,
         "input_path": str(outputs_path),
     }
 

@@ -1,0 +1,257 @@
+{
+  "backend": "keyword",
+  "items": [
+    {
+      "chunk_id": "sample_docs__uc_biologics_notes#c0001",
+      "tokens": [
+        "population"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_biologics_notes#c0002",
+      "tokens": [
+        "adults",
+        "are",
+        "biologic",
+        "classes",
+        "colitis",
+        "comparator",
+        "considered",
+        "conventional",
+        "despite",
+        "for",
+        "framing",
+        "frequently",
+        "moderate",
+        "or",
+        "remain",
+        "severe",
+        "symptomatic",
+        "targeted",
+        "therapy",
+        "to",
+        "treatment",
+        "ulcerative",
+        "who",
+        "with"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_biologics_notes#c0003",
+      "tokens": [
+        "advanced",
+        "another",
+        "baseline",
+        "biologic",
+        "class",
+        "common",
+        "comparisons",
+        "continuation",
+        "escalation",
+        "evidence",
+        "in",
+        "include",
+        "management",
+        "of",
+        "one",
+        "outcomes",
+        "placebo",
+        "synthesis",
+        "therapy",
+        "versus"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_biologics_notes#c0004",
+      "tokens": [
+        "adverse",
+        "and",
+        "clinical",
+        "discontinuation",
+        "endoscopic",
+        "events",
+        "free",
+        "frequently",
+        "improvement",
+        "include",
+        "outcomes",
+        "rates",
+        "remission",
+        "reported",
+        "steroid"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_followup_and_uncertainty#c0001",
+      "tokens": [
+        "follow",
+        "horizon",
+        "up"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_followup_and_uncertainty#c0002",
+      "tokens": [
+        "12",
+        "8",
+        "and",
+        "are",
+        "early",
+        "evidence",
+        "example",
+        "follow",
+        "for",
+        "in",
+        "limitations",
+        "longer",
+        "maintenance",
+        "medium",
+        "often",
+        "response",
+        "short",
+        "study",
+        "summaries",
+        "term",
+        "to",
+        "up",
+        "weeks",
+        "windows"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_followup_and_uncertainty#c0003",
+      "tokens": [
+        "across",
+        "and",
+        "be",
+        "can",
+        "clinical",
+        "cohorts",
+        "comparability",
+        "criteria",
+        "definitions",
+        "direct",
+        "external",
+        "for",
+        "heterogeneous",
+        "inclusion",
+        "language",
+        "limited",
+        "outcome",
+        "patient",
+        "reduce",
+        "safety",
+        "specific",
+        "studies",
+        "subgroups",
+        "trials",
+        "validity",
+        "vary"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_followup_and_uncertainty#c0004",
+      "tokens": [
+        "and",
+        "clinician",
+        "decision",
+        "evidence",
+        "inconsistent",
+        "is",
+        "or",
+        "outputs",
+        "request",
+        "retrieved",
+        "review",
+        "should",
+        "sparse",
+        "state",
+        "support",
+        "uncertainty",
+        "when"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_guideline_summary#c0001",
+      "tokens": [
+        "scope"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_guideline_summary#c0002",
+      "tokens": [
+        "anchors",
+        "colitis",
+        "describes",
+        "document",
+        "endoscopic",
+        "high",
+        "in",
+        "internal",
+        "interpretation",
+        "level",
+        "of",
+        "settings",
+        "severity",
+        "summary",
+        "this",
+        "ulcerative"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_guideline_summary#c0003",
+      "tokens": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "a",
+        "active",
+        "as",
+        "commonly",
+        "endoscopic",
+        "from",
+        "in",
+        "inflammation",
+        "is",
+        "mayo",
+        "mes",
+        "monitoring",
+        "notes",
+        "oriented",
+        "ranges",
+        "remission",
+        "reporting",
+        "represents",
+        "subscore",
+        "threshold",
+        "to",
+        "used"
+      ]
+    },
+    {
+      "chunk_id": "sample_docs__uc_guideline_summary#c0004",
+      "tokens": [
+        "and",
+        "are",
+        "assessment",
+        "clinical",
+        "component",
+        "context",
+        "endoscopic",
+        "for",
+        "full",
+        "is",
+        "laboratory",
+        "monitoring",
+        "needed",
+        "of",
+        "one",
+        "reports",
+        "severity",
+        "symptom",
+        "treatment"
+      ]
+    }
+  ]
+}

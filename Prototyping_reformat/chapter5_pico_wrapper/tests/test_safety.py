@@ -11,7 +11,13 @@ PKG_ROOT = THIS_DIR.parent
 if str(PKG_ROOT) not in sys.path:
     sys.path.insert(0, str(PKG_ROOT))
 
-from pico_wrapper.safety import contains_dosing_request, make_insufficient_evidence_message, should_refuse_dosing
+from pico_wrapper.safety import (
+    contains_dosing_request,
+    contains_emergency_request,
+    make_insufficient_evidence_message,
+    should_abstain_low_evidence,
+    should_refuse_dosing,
+)
 
 
 class TestSafety(unittest.TestCase):
@@ -23,6 +29,17 @@ class TestSafety(unittest.TestCase):
     def test_insufficient_evidence_message(self) -> None:
         msg = make_insufficient_evidence_message()
         self.assertIn("Insufficient evidence", msg)
+
+    def test_emergency_and_abstain_rules(self) -> None:
+        self.assertTrue(contains_emergency_request("This is an emergency with severe bleeding"))
+        abstain, reason = should_abstain_low_evidence(
+            scores=[0.05, 0.08],
+            min_top_score=0.18,
+            min_mean_score=0.12,
+            min_results=2,
+        )
+        self.assertTrue(abstain)
+        self.assertTrue(reason)
 
 
 if __name__ == "__main__":

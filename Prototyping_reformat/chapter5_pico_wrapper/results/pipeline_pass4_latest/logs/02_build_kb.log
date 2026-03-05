@@ -1,0 +1,12 @@
+$ /home/arcturus/.pyenv/versions/3.12.2/bin/python3.12 /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/scripts/build_kb.py --kb_dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/kb --out_dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest --seed 42
+
+KB build complete
+{
+  "kb_manifest_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_manifest.json",
+  "chunks_jsonl_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/chunks.jsonl",
+  "index_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_index",
+  "index_backend": "hybrid",
+  "n_chunks": 12,
+  "n_docs": 3,
+  "n_source_files": 3
+}

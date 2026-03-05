@@ -1,0 +1,91 @@
+{
+  "task": "pico_extraction_eval",
+  "mode": "baseline",
+  "n_queries": 20,
+  "fields": {
+    "population": {
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "intervention": {
+      "tp": 20,
+      "fp": 12,
+      "fn": 0,
+      "precision": 0.625,
+      "recall": 1.0,
+      "f1": 0.7692307692307693
+    },
+    "comparator": {
+      "tp": 22,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.88,
+      "recall": 1.0,
+      "f1": 0.9361702127659575
+    },
+    "outcomes": {
+      "tp": 8,
+      "fp": 12,
+      "fn": 8,
+      "precision": 0.4,
+      "recall": 0.5,
+      "f1": 0.4444444444444445
+    },
+    "severity_anchors": {
+      "tp": 14,
+      "fp": 16,
+      "fn": 0,
+      "precision": 0.4666666666666667,
+      "recall": 1.0,
+      "f1": 0.6363636363636364
+    },
+    "timeframe": {
+      "tp": 20,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "setting": {
+      "tp": 8,
+      "fp": 2,
+      "fn": 8,
+      "precision": 0.8,
+      "recall": 0.5,
+      "f1": 0.6153846153846154
+    },
+    "constraints": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "macro_f1_required_fields": 0.7572418125609615,
+  "macro_f1_all_fields": 0.6751992097736779,
+  "required_fields": [
+    "population",
+    "intervention",
+    "comparator",
+    "outcomes",
+    "severity_anchors"
+  ],
+  "field_order": [
+    "population",
+    "intervention",
+    "comparator",
+    "outcomes",
+    "severity_anchors",
+    "timeframe",
+    "setting",
+    "constraints"
+  ],
+  "input_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/pico_gold.jsonl"
+}

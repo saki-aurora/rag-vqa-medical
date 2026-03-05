@@ -1,0 +1,17 @@
+image_id,true_label,raw_generation,pred_label,parse_ok
+UC_patient_260_9_009793,0,2,2,True
+UC_patient_275_12_009763,0,2,2,True
+UC_patient_235_9_010221,0,2,2,True
+UC_patient_331_2_009921,0,2,2,True
+UC_patient_83_39_010108,0,2,2,True
+UC_patient_275_8_010801,1,2,2,True
+UC_patient_532_12_010530,1,2,2,True
+UC_patient_436_38_010675,1,2,2,True
+UC_patient_184_17_010866,1,2,2,True
+UC_patient_145_76_010790,1,2,2,True
+UC_patient_512_21_011222,3,2,2,True
+UC_patient_196_37_011261,3,2,2,True
+UC_patient_130_43_011221,3,2,2,True
+UC_patient_130_38_011165,3,2,2,True
+UC_patient_333_38_011213,3,2,2,True
+UC_patient_45_21_010574,1,2,2,True

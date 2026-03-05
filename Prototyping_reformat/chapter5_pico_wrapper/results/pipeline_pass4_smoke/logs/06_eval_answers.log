@@ -1,0 +1,2 @@
+[dry_run] command not executed
+/home/arcturus/.pyenv/versions/3.12.2/bin/python3.12 /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_answers.py --wrapper_outputs /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_smoke/wrapper_outputs.jsonl --min_overlap_ratio_strict 0.25 --min_overlap_terms_strict 3 --out_dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_smoke

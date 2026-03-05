@@ -1,0 +1,6 @@
+$ /home/arcturus/.pyenv/versions/3.12.2/bin/python3.12 /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/scripts/run_wrapper.py --query_file /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/queries.jsonl --manifest_path /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_manifest.json --mode baseline --retrieval_k 5 --retrieval_backend hybrid --rerank_pool 20 --rerank_alpha 0.2 --min_top_score_for_answer 0.18 --min_mean_score_for_answer 0.12 --min_retrieved_for_answer 2 --out_dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest
+
+Wrapper run complete. run_id=chapter5_wrapper_20260305T024427Z_6nx5r2
+Queries processed: 50
+Outputs: /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest/wrapper_outputs.jsonl
+Run info: /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest/wrapper_run_infos.jsonl

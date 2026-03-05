@@ -50,6 +50,7 @@ class TestWrapperPipeline(unittest.TestCase):
             self.assertGreaterEqual(len(output.claims), 1)
             self.assertIn("MES prediction", output.severity_summary or "")
             self.assertEqual(info.used_mode, "baseline")
+            self.assertIn(info.retrieval_backend, {"manifest_default", "keyword", "tfidf", "hybrid"})
 
     def test_wrapper_refusal_for_dosing(self) -> None:
         with tempfile.TemporaryDirectory() as td:
@@ -74,6 +75,33 @@ class TestWrapperPipeline(unittest.TestCase):
             self.assertTrue(output.refusal)
             self.assertTrue(info.refusal_triggered)
             self.assertTrue(any("Dosing-related request" in x for x in output.limitations))
+
+    def test_wrapper_low_evidence_abstain(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            kb = base / "kb"
+            out = base / "out"
+            kb.mkdir(parents=True, exist_ok=True)
+            (kb / "doc.md").write_text(
+                "# UC Outcomes\n\nBiologics can improve remission in moderate UC with guideline-directed use.\n",
+                encoding="utf-8",
+            )
+            build_kb_index(kb_dir=kb, out_dir=out, max_words=40, overlap_words=10, min_words=5)
+
+            output, info = run_wrapper(
+                query="What is the orbital period of Mars?",
+                manifest_path=out / "kb_manifest.json",
+                run_id="chapter5_test_run",
+                retrieval_k=2,
+                mode="baseline",
+                severity=None,
+                min_top_score_for_answer=0.9,
+                min_mean_score_for_answer=0.9,
+                min_retrieved_for_answer=2,
+            )
+            self.assertTrue(info.abstained_low_evidence)
+            self.assertTrue(any("Low-evidence abstention" in x for x in output.limitations))
+            self.assertIn("Insufficient evidence", output.claims[0].text)
 
 
 if __name__ == "__main__":

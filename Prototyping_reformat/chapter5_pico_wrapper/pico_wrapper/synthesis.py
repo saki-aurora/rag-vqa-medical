@@ -6,7 +6,11 @@ import re
 from typing import List, Optional
 
 from .retriever import RetrievalResult
-from .safety import make_insufficient_evidence_message, make_standard_disclaimer
+from .safety import (
+    make_escalation_message,
+    make_insufficient_evidence_message,
+    make_standard_disclaimer,
+)
 from .schemas import Citation, Claim, PicoFrame, SeverityResult, WrapperOutput
 
 
@@ -38,9 +42,11 @@ def _severity_summary(severity: Optional[SeverityResult]) -> Optional[str]:
     return f"MES prediction: {severity.mes_pred} (confidence: {conf}).{probs}{cues}{run}".strip()
 
 
-def _default_uncertainty(results: List[RetrievalResult], refusal: bool) -> str:
+def _default_uncertainty(results: List[RetrievalResult], refusal: bool, abstain_low_evidence: bool) -> str:
     if refusal:
         return "High uncertainty for patient-specific treatment execution due to safety constraints."
+    if abstain_low_evidence:
+        return "High uncertainty: retrieval evidence signal was below confidence thresholds, so response abstained."
     if not results:
         return "High uncertainty: no supporting evidence chunks were retrieved."
     avg = sum(r.score for r in results) / len(results)
@@ -54,6 +60,7 @@ def _default_uncertainty(results: List[RetrievalResult], refusal: bool) -> str:
 def _build_claims_and_citations(
     results: List[RetrievalResult],
     refusal: bool,
+    abstain_low_evidence: bool,
 ) -> tuple[List[Claim], List[Citation]]:
     citations: List[Citation] = []
     claims: List[Claim] = []
@@ -80,6 +87,16 @@ def _build_claims_and_citations(
         )
         return claims, citations
 
+    if abstain_low_evidence:
+        cite_ids = [c.chunk_id for c in citations[:2]]
+        claims.append(
+            Claim(
+                text=make_insufficient_evidence_message(),
+                citation_ids=cite_ids,
+            )
+        )
+        return claims, citations
+
     if not results:
         claims.append(Claim(text=make_insufficient_evidence_message(), citation_ids=[]))
         return claims, citations
@@ -98,6 +115,9 @@ def synthesize_answer(
     retrieval_results: List[RetrievalResult],
     severity: Optional[SeverityResult] = None,
     refusal: bool = False,
+    abstain_low_evidence: bool = False,
+    abstain_reason: Optional[str] = None,
+    escalation_alert: Optional[str] = None,
     mode: str = "baseline",
 ) -> WrapperOutput:
     """Deterministic synthesis that enforces citation-linked claims."""
@@ -110,16 +130,31 @@ def synthesize_answer(
     if severity is None:
         limitations.append("No severity context provided to wrapper input.")
 
+    if abstain_low_evidence:
+        limitations.append(
+            "Low-evidence abstention was triggered: retrieved chunks were below configured evidence thresholds."
+        )
+        if abstain_reason:
+            limitations.append(f"Abstain reason: {abstain_reason}.")
+
+    if escalation_alert:
+        limitations.append(escalation_alert)
+
     if not retrieval_results:
         limitations.append("No evidence chunks retrieved; response marked as insufficient evidence.")
     elif len(retrieval_results) < 3:
         limitations.append("Limited retrieval depth (<3 chunks); evidence coverage may be incomplete.")
 
-    claims, citations = _build_claims_and_citations(retrieval_results, refusal=refusal)
-    uncertainty = _default_uncertainty(retrieval_results, refusal=refusal)
+    claims, citations = _build_claims_and_citations(
+        retrieval_results,
+        refusal=refusal,
+        abstain_low_evidence=abstain_low_evidence,
+    )
+    uncertainty = _default_uncertainty(retrieval_results, refusal=refusal, abstain_low_evidence=abstain_low_evidence)
 
     if refusal:
         limitations.append("Dosing-related request triggered safety refusal/escalation behavior.")
+        limitations.append(make_escalation_message())
 
     return WrapperOutput(
         run_id=run_id,

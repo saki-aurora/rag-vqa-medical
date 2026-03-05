@@ -1,0 +1,16 @@
+{
+  "run_id": "chapter5_wrapper_20260305T024427Z_6nx5r2",
+  "n_queries": 50,
+  "manifest_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_manifest.json",
+  "mode_requested": "baseline",
+  "retrieval_k": 5,
+  "retrieval_backend": "hybrid",
+  "rerank_enabled": true,
+  "rerank_pool": 20,
+  "rerank_alpha": 0.2,
+  "min_top_score_for_answer": 0.18,
+  "min_mean_score_for_answer": 0.12,
+  "min_retrieved_for_answer": 2,
+  "has_severity_context": false,
+  "query_file": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/queries.jsonl"
+}

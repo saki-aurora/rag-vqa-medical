@@ -1,0 +1,29 @@
+{
+  "model": "resnet50_finetune",
+  "seed": 42,
+  "epochs": 15,
+  "lr": 0.0003,
+  "weight_decay": 0.0001,
+  "batch_size": 16,
+  "num_workers": 4,
+  "amp": true,
+  "best_val_macro_f1": 0.7260342982498721,
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "finetune_resnet50_pass5_seed042_20260305T031028Z",
+  "timestamp_utc": "2026-03-05T03:10:28Z",
+  "out_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/results/finetune_resnet50_pass5_seed042",
+  "script_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/train_resnet50_finetune.py",
+  "limuc_root": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC",
+  "metrics_test": {
+    "accuracy": 0.7336892052194544,
+    "balanced_accuracy": 0.6670948874795309,
+    "macro_f1": 0.6571154395081886,
+    "weighted_f1": 0.7399378094374838,
+    "qwk": 0.8174460779672041,
+    "mae": 0.28113879003558717,
+    "rmse": 0.5585526118156404,
+    "spearman": 0.7801429832654525,
+    "auroc_ovr": null,
+    "ece": 0.1360894290295077
+  }
+}

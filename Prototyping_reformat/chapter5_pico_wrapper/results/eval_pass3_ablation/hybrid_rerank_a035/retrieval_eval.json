@@ -1,0 +1,63 @@
+{
+  "task": "retrieval_eval",
+  "mode": "baseline",
+  "n_queries": 10,
+  "k_values": [
+    1,
+    3,
+    5
+  ],
+  "metrics": {
+    "k=1": {
+      "precision_at_k": 0.2,
+      "recall_at_k": 0.1,
+      "hit_rate_at_k": 0.2
+    },
+    "k=3": {
+      "precision_at_k": 0.16666666666666666,
+      "recall_at_k": 0.25,
+      "hit_rate_at_k": 0.3
+    },
+    "k=5": {
+      "precision_at_k": 0.13999999999999999,
+      "recall_at_k": 0.35,
+      "hit_rate_at_k": 0.5
+    }
+  },
+  "metrics_bootstrap_ci": {
+    "k=1": {
+      "precision_at_k_ci_low": 0.0,
+      "precision_at_k_ci_high": 0.5,
+      "recall_at_k_ci_low": 0.0,
+      "recall_at_k_ci_high": 0.25,
+      "hit_rate_at_k_ci_low": 0.0,
+      "hit_rate_at_k_ci_high": 0.5
+    },
+    "k=3": {
+      "precision_at_k_ci_low": 0.0,
+      "precision_at_k_ci_high": 0.3333333333333333,
+      "recall_at_k_ci_low": 0.0,
+      "recall_at_k_ci_high": 0.5,
+      "hit_rate_at_k_ci_low": 0.0,
+      "hit_rate_at_k_ci_high": 0.6
+    },
+    "k=5": {
+      "precision_at_k_ci_low": 0.04950000000000003,
+      "precision_at_k_ci_high": 0.24000000000000005,
+      "recall_at_k_ci_low": 0.12375000000000007,
+      "recall_at_k_ci_high": 0.6,
+      "hit_rate_at_k_ci_low": 0.2,
+      "hit_rate_at_k_ci_high": 0.8
+    }
+  },
+  "retrieval_options": {
+    "backend_override": "hybrid",
+    "rerank_enabled": true,
+    "rerank_pool": 20,
+    "rerank_alpha": 0.35,
+    "bootstrap_iters": 500,
+    "seed": 42
+  },
+  "input_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/retrieval_gold.jsonl",
+  "manifest_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass3_latest/kb_manifest.json"
+}

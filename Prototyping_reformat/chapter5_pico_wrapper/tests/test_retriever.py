@@ -55,11 +55,16 @@ class TestRetriever(unittest.TestCase):
                 manifest_path=out / "kb_manifest.json",
                 pico=pico,
                 k=3,
+                enable_rerank=True,
+                rerank_pool=10,
+                rerank_alpha=0.4,
             )
             self.assertGreaterEqual(len(results), 1)
             top = results[0]
             self.assertGreater(top.score, 0.0)
             self.assertIn("uc", top.chunk.text.lower())
+            self.assertIn(top.backend, {"keyword", "tfidf", "hybrid"})
+            self.assertIsNotNone(top.rerank_score)
 
 
 if __name__ == "__main__":

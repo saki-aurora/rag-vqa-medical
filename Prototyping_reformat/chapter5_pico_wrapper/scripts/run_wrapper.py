@@ -69,6 +69,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--severity_json", type=str, default=None, help="Optional inline severity JSON string.")
     parser.add_argument("--mode", type=str, default="baseline", choices=["baseline", "llm"])
     parser.add_argument("--retrieval_k", type=int, default=5)
+    parser.add_argument(
+        "--retrieval_backend",
+        type=str,
+        default=None,
+        choices=["keyword", "tfidf", "hybrid"],
+        help="Optional backend override. Defaults to manifest backend.",
+    )
+    parser.add_argument(
+        "--disable_rerank",
+        action="store_true",
+        help="Disable reranker stage (enabled by default).",
+    )
+    parser.add_argument("--rerank_pool", type=int, default=20, help="Candidate pool size before reranking.")
+    parser.add_argument("--rerank_alpha", type=float, default=0.20, help="Blend weight for rerank score.")
+    parser.add_argument("--min_top_score_for_answer", type=float, default=0.18)
+    parser.add_argument("--min_mean_score_for_answer", type=float, default=0.12)
+    parser.add_argument("--min_retrieved_for_answer", type=int, default=2)
     parser.add_argument("--run_id", type=str, default=None)
     parser.add_argument(
         "--out_dir",
@@ -122,6 +139,13 @@ def main() -> None:
             manifest_path=manifest_path,
             run_id=run_id,
             retrieval_k=args.retrieval_k,
+            retrieval_backend=args.retrieval_backend,
+            enable_rerank=not args.disable_rerank,
+            rerank_pool=args.rerank_pool,
+            rerank_alpha=args.rerank_alpha,
+            min_top_score_for_answer=args.min_top_score_for_answer,
+            min_mean_score_for_answer=args.min_mean_score_for_answer,
+            min_retrieved_for_answer=args.min_retrieved_for_answer,
             mode=args.mode,
             severity=severity,
         )
@@ -138,6 +162,13 @@ def main() -> None:
             "manifest_path": str(manifest_path),
             "mode_requested": args.mode,
             "retrieval_k": args.retrieval_k,
+            "retrieval_backend": args.retrieval_backend,
+            "rerank_enabled": (not args.disable_rerank),
+            "rerank_pool": args.rerank_pool,
+            "rerank_alpha": args.rerank_alpha,
+            "min_top_score_for_answer": args.min_top_score_for_answer,
+            "min_mean_score_for_answer": args.min_mean_score_for_answer,
+            "min_retrieved_for_answer": args.min_retrieved_for_answer,
             "has_severity_context": severity is not None,
             "query_file": None if args.query_file is None else str(args.query_file.resolve()),
         },

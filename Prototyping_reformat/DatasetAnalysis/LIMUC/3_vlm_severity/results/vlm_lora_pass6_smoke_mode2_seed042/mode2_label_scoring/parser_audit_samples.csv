@@ -1,0 +1,9 @@
+image_id,true_label,raw_generation,pred_label,parse_ok
+UC_patient_260_9_009793,0,SCORE: 0,0,True
+UC_patient_83_39_010108,0,SCORE: 0,0,True
+UC_patient_331_2_009921,0,SCORE: 0,0,True
+UC_patient_235_9_010221,0,SCORE: 0,0,True
+UC_patient_532_12_010530,1,SCORE: 0,0,True
+UC_patient_275_8_010801,1,SCORE: 0,0,True
+UC_patient_512_21_011222,3,SCORE: 0,0,True
+UC_patient_130_38_011165,3,SCORE: 0,0,True

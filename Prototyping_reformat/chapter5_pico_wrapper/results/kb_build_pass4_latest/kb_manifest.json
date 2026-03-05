@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-03-05T02:44:26.220590+00:00",
+  "kb_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/kb",
+  "n_source_files": 3,
+  "n_docs": 3,
+  "n_chunks": 12,
+  "doc_ids": [
+    "sample_docs__uc_biologics_notes",
+    "sample_docs__uc_followup_and_uncertainty",
+    "sample_docs__uc_guideline_summary"
+  ],
+  "sections": [
+    "Clinical Safety Language",
+    "Comparator Framing",
+    "Evidence Limitations",
+    "Follow-Up Horizon",
+    "Monitoring Notes",
+    "Outcomes",
+    "Population",
+    "Scope",
+    "Severity Anchors",
+    "UC Biologic Therapy Notes",
+    "UC Endoscopic Severity Summary",
+    "UC Follow-Up and Uncertainty Notes"
+  ],
+  "chunking": {
+    "max_words": 180,
+    "overlap_words": 30,
+    "min_words": 30,
+    "seed": 42
+  },
+  "index_backend": "hybrid",
+  "index_file": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_index/tfidf_index.pkl",
+  "available_backends": [
+    "keyword",
+    "tfidf",
+    "semantic_lsa",
+    "hybrid"
+  ],
+  "index_files": {
+    "keyword": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_index/keyword_index.json",
+    "tfidf": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_index/tfidf_index.pkl",
+    "semantic_lsa": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_index/lsa_index.npz"
+  },
+  "backend_weights": {
+    "keyword": 0.25,
+    "tfidf": 0.5,
+    "semantic": 0.25
+  },
+  "reranker": {
+    "enabled_default": true,
+    "rerank_pool_default": 20,
+    "rerank_alpha_default": 0.2
+  }
+}

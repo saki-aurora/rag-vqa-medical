@@ -1,0 +1,72 @@
+{
+  "model": "vlm_lora_finetune",
+  "model_name": "Salesforce/blip2-flan-t5-xl",
+  "prompt": "You are a medical expert. Given this colonoscopy image, provide the Mayo Endoscopic Score (0-3). Respond with only: 'SCORE: X' where X is 0,1,2, or 3.",
+  "seed": 11,
+  "epochs": 1,
+  "lr": 5e-05,
+  "batch_size": 2,
+  "grad_accum": 4,
+  "weight_decay": 0.0,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.1,
+  "lora_target_modules": [
+    "k",
+    "o",
+    "q",
+    "v"
+  ],
+  "balanced_sampling": true,
+  "freeze_backbone": false,
+  "class_counts_train": {
+    "0": 4695,
+    "1": 2340,
+    "2": 975,
+    "3": 659
+  },
+  "class_weights_sampler": {
+    "0": 0.00021299254526091586,
+    "1": 0.00042735042735042735,
+    "2": 0.0010256410256410256,
+    "3": 0.0015174506828528073
+  },
+  "split_hash": "d71d3864f86c77641c029b050ab26b74e62f8425940c4131fd708a964b78008b",
+  "run_id": "vlm_lora_pass6_seed011_env311_e1_20260305T101412Z",
+  "timestamp_utc": "2026-03-05T10:14:12Z",
+  "out_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_pass6_seed011_env311_e1",
+  "adapter_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_pass6_seed011_env311_e1/lora_adapter",
+  "lora_adapter_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_pass6_seed011_env311_e1/lora_adapter",
+  "script_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/train_vlm_lora_mayo.py",
+  "meta_csv": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/out/metadata/metadata_enriched.csv",
+  "train_rows": 8669,
+  "val_rows": 921,
+  "test_rows": 1686,
+  "max_train_samples": 0,
+  "max_val_samples": 0,
+  "max_test_samples": 0,
+  "trainable_params": 1102126592,
+  "total_params": 3951883776,
+  "metrics_val": {
+    "accuracy": 0.11074918566775244,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.04985337243401759,
+    "weighted_f1": 0.022084881599434506,
+    "qwk": 0.0,
+    "mae": 1.4158523344191096,
+    "rmse": 1.571322810434837,
+    "parse_rate": 1.0,
+    "n_invalid": 0
+  },
+  "metrics_test": {
+    "accuracy": 0.10498220640569395,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.04750402576489533,
+    "weighted_f1": 0.01994830975180658,
+    "qwk": 0.0,
+    "mae": 1.4436536180308421,
+    "rmse": 1.5940280006649552,
+    "parse_rate": 1.0,
+    "n_invalid": 0
+  }
+}

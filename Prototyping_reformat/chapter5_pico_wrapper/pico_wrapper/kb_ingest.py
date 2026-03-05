@@ -10,14 +10,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence, Tuple
 
+import numpy as np
 from .schemas import EvidenceChunk
 from .utils_io import ensure_dir, write_json, write_jsonl
 
 try:
+    from sklearn.decomposition import TruncatedSVD
     from sklearn.feature_extraction.text import TfidfVectorizer
 
     _HAS_SKLEARN = True
 except Exception:
+    TruncatedSVD = None
     TfidfVectorizer = None
     _HAS_SKLEARN = False
 
@@ -172,7 +175,7 @@ def _persist_keyword_index(chunks: Sequence[EvidenceChunk], index_dir: Path) -> 
     return out_path
 
 
-def _persist_tfidf_index(chunks: Sequence[EvidenceChunk], index_dir: Path) -> Path:
+def _persist_tfidf_index(chunks: Sequence[EvidenceChunk], index_dir: Path) -> tuple[Path, Dict[str, Any]]:
     texts = [c.text for c in chunks]
     vectorizer = TfidfVectorizer(lowercase=True, token_pattern=r"(?u)\b[a-zA-Z0-9]{2,}\b")
     matrix = vectorizer.fit_transform(texts)
@@ -185,6 +188,42 @@ def _persist_tfidf_index(chunks: Sequence[EvidenceChunk], index_dir: Path) -> Pa
     out_path = index_dir / "tfidf_index.pkl"
     with out_path.open("wb") as f:
         pickle.dump(payload, f)
+    return out_path, payload
+
+
+def _persist_lsa_index(
+    *,
+    tfidf_payload: Dict[str, Any],
+    index_dir: Path,
+    random_seed: int,
+    max_components: int = 256,
+) -> Path | None:
+    if not _HAS_SKLEARN or TruncatedSVD is None:
+        return None
+    matrix = tfidf_payload["matrix"]
+    n_samples, n_features = matrix.shape
+    max_rank = int(min(n_samples - 1, n_features - 1))
+    if max_rank < 2:
+        return None
+    n_components = int(min(max_components, max_rank))
+    if n_components < 2:
+        return None
+
+    svd = TruncatedSVD(n_components=n_components, random_state=random_seed)
+    dense = svd.fit_transform(matrix)
+    norms = np.linalg.norm(dense, axis=1, keepdims=True)
+    norms = np.where(norms <= 1e-12, 1.0, norms)
+    dense = (dense / norms).astype(np.float32)
+
+    out_path = index_dir / "lsa_index.npz"
+    np.savez_compressed(
+        out_path,
+        chunk_ids=np.asarray(tfidf_payload["chunk_ids"], dtype=object),
+        embeddings=dense,
+        components=np.asarray(int(n_components)),
+        svd_components=np.asarray(svd.components_, dtype=np.float32),
+        explained_variance_ratio=np.asarray(svd.explained_variance_ratio_, dtype=np.float32),
+    )
     return out_path
 
 
@@ -195,6 +234,10 @@ def _build_manifest(
     cfg: ChunkingConfig,
     backend: str,
     index_file: Path,
+    *,
+    available_backends: Sequence[str],
+    backend_weights: Dict[str, float],
+    index_files: Dict[str, str],
 ) -> Dict[str, Any]:
     docs = sorted({c.doc_id for c in chunks})
     sections = sorted({c.section for c in chunks if c.section})
@@ -214,6 +257,14 @@ def _build_manifest(
         },
         "index_backend": backend,
         "index_file": str(index_file.resolve()),
+        "available_backends": list(available_backends),
+        "index_files": dict(index_files),
+        "backend_weights": dict(backend_weights),
+        "reranker": {
+            "enabled_default": True,
+            "rerank_pool_default": 20,
+            "rerank_alpha_default": 0.20,
+        },
     }
 
 
@@ -254,12 +305,38 @@ def build_kb_index(
     chunks_jsonl = out_dir / "chunks.jsonl"
     write_jsonl(chunks_jsonl, [c.to_dict() for c in chunks])
 
+    keyword_index = _persist_keyword_index(chunks, index_dir=index_dir)
+    index_files: Dict[str, str] = {"keyword": str(keyword_index.resolve())}
+    available_backends: List[str] = ["keyword"]
+    backend_weights = {"keyword": 0.25, "tfidf": 0.5, "semantic": 0.25}
+
+    tfidf_payload: Dict[str, Any] | None = None
+    lsa_index: Path | None = None
+    tfidf_index: Path | None = None
     if _HAS_SKLEARN:
-        index_file = _persist_tfidf_index(chunks, index_dir=index_dir)
+        tfidf_index, tfidf_payload = _persist_tfidf_index(chunks, index_dir=index_dir)
+        index_files["tfidf"] = str(tfidf_index.resolve())
+        available_backends.append("tfidf")
+        if tfidf_payload is not None:
+            lsa_index = _persist_lsa_index(
+                tfidf_payload=tfidf_payload,
+                index_dir=index_dir,
+                random_seed=cfg.random_seed,
+            )
+        if lsa_index is not None:
+            index_files["semantic_lsa"] = str(lsa_index.resolve())
+            available_backends.append("semantic_lsa")
+            available_backends.append("hybrid")
+
+    if "hybrid" in available_backends and tfidf_index is not None:
+        backend = "hybrid"
+        index_file = tfidf_index
+    elif tfidf_index is not None:
         backend = "tfidf"
+        index_file = tfidf_index
     else:
-        index_file = _persist_keyword_index(chunks, index_dir=index_dir)
         backend = "keyword"
+        index_file = keyword_index
 
     manifest = _build_manifest(
         kb_dir=kb_dir,
@@ -268,6 +345,9 @@ def build_kb_index(
         cfg=cfg,
         backend=backend,
         index_file=index_file,
+        available_backends=available_backends,
+        backend_weights=backend_weights,
+        index_files=index_files,
     )
     manifest_path = out_dir / "kb_manifest.json"
     write_json(manifest_path, manifest)

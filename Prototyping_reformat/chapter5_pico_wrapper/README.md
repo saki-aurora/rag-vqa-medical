@@ -162,6 +162,65 @@ python Prototyping_reformat/chapter5_pico_wrapper/scripts/chapter5_completion_au
   --min_queries 20
 ```
 
+## Scope of Pass 3 (Retrieval/Safety/Eval Upgrades)
+
+Implemented:
+
+- hybrid retrieval backend (keyword + TF-IDF + semantic-LSA fusion),
+- optional reranker with configurable pool/alpha,
+- low-evidence abstention and escalation-aware safety behavior,
+- stricter answer checks (strict support + contradiction proxy),
+- retrieval bootstrap confidence intervals.
+
+Current tuned default:
+
+- `rerank_alpha=0.20` (selected from pass3 ablation).
+
+Pass 3 refreshed artifacts:
+
+- `results/kb_build_pass3_latest/`
+- `results/wrapper_eval_pass3_latest/`
+- `results/eval_pass3_latest/`
+
+## Scope of Pass 4 (UI/Productization + Automation)
+
+Implemented:
+
+- `scripts/run_ui.py` upgraded with:
+  - image upload path for severity context,
+  - severity predictor integration:
+    - lookup mode from Chapter 4 prediction CSV (default),
+    - command hook mode (`--severity_predict_cmd`) for external predictors,
+  - safety alert banner for refusal/abstention/caution cases,
+  - side-by-side output panes (PICO, claims, evidence, full JSON),
+  - session history panel backed by `ui_sessions.jsonl`,
+  - export/report support (`.json` + `.md`) with persisted report files.
+- `scripts/run_full_pipeline.py`:
+  - one-command reproducible Chapter 5 pipeline:
+    `make_queryset -> build_kb -> run_wrapper -> eval_pico -> eval_retrieval -> eval_answers -> completion_audit`,
+  - writes deterministic `<tag>` artifact directories and a pipeline summary JSON.
+- new helper module:
+  - `pico_wrapper/ui_support.py`
+- new tests:
+  - `tests/test_ui_support.py`
+
+Pass 4 pipeline command:
+
+```bash
+python Prototyping_reformat/chapter5_pico_wrapper/scripts/run_full_pipeline.py \
+  --tag pass4_latest
+```
+
+Pass 4 artifacts:
+
+- `results/kb_build_pass4_latest/`
+- `results/wrapper_eval_pass4_latest/`
+- `results/eval_pass4_latest/`
+- `results/chapter5_completion_audit_pass4_latest/`
+- `results/pipeline_pass4_latest/pipeline_summary.json`
+- UI run/report outputs:
+  - `results/ui_pass4_latest/`
+
 ## Directory Layout
 
 - `pico_wrapper/`: core package

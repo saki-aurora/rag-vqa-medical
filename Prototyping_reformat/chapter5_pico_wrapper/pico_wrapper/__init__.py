@@ -22,6 +22,7 @@ from .retriever import RetrievalResult, compose_pico_query, retrieve_evidence
 from .pico_extract import extract_pico, extract_pico_baseline, llm_extractor_available
 from .synthesis import synthesize_answer
 from .wrapper import WrapperRunInfo, run_wrapper
+from .ui_support import build_markdown_report, build_safety_alert, utc_now_iso
 
 __all__ = [
     "Citation",
@@ -52,4 +53,7 @@ __all__ = [
     "synthesize_answer",
     "WrapperRunInfo",
     "run_wrapper",
+    "build_markdown_report",
+    "build_safety_alert",
+    "utc_now_iso",
 ]

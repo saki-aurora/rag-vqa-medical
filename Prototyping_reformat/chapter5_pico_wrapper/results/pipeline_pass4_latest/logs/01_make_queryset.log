@@ -1,0 +1,5 @@
+$ /home/arcturus/.pyenv/versions/3.12.2/bin/python3.12 /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/scripts/make_queryset.py --out_dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries --n_queries 50 --n_pico_gold 20
+
+Wrote 50 queries -> /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/queries.jsonl
+Wrote 20 pico gold rows -> /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/pico_gold.jsonl
+Wrote 10 retrieval gold rows -> /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/data/queries/retrieval_gold.jsonl

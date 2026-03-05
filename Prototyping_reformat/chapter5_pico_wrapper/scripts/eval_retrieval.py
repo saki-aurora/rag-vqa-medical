@@ -7,6 +7,8 @@ import argparse
 import json
 from pathlib import Path
 from typing import Dict, List
+import random
+import numpy as np
 
 
 def _find_workspace_root() -> Path:
@@ -71,6 +73,18 @@ def parse_args() -> argparse.Namespace:
         help="PICO extraction mode before retrieval.",
     )
     parser.add_argument(
+        "--retrieval_backend",
+        type=str,
+        default=None,
+        choices=["keyword", "tfidf", "hybrid"],
+        help="Optional retrieval backend override.",
+    )
+    parser.add_argument("--disable_rerank", action="store_true")
+    parser.add_argument("--rerank_pool", type=int, default=20)
+    parser.add_argument("--rerank_alpha", type=float, default=0.20)
+    parser.add_argument("--bootstrap_iters", type=int, default=1000)
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
         "--out_dir",
         type=Path,
         default=root / "results" / "eval_latest",
@@ -104,6 +118,7 @@ def main() -> None:
         raise RuntimeError(f"No rows found in {gold_path}")
     k_values = _parse_k_values(args.k_values)
     max_k = max(k_values)
+    random.seed(args.seed)
 
     out_dir = ensure_dir(args.out_dir.resolve())
     per_query_rows: List[Dict[str, object]] = []
@@ -127,6 +142,10 @@ def main() -> None:
             manifest_path=manifest_path,
             pico=pico,
             k=max_k,
+            backend_override=args.retrieval_backend,
+            enable_rerank=not args.disable_rerank,
+            rerank_pool=args.rerank_pool,
+            rerank_alpha=args.rerank_alpha,
         )
         predicted = [r.chunk.chunk_id for r in results]
 
@@ -162,11 +181,46 @@ def main() -> None:
         raise RuntimeError("No retrieval rows were evaluated (empty queries or no labels).")
 
     metrics: Dict[str, Dict[str, float]] = {}
+    per_query_metric_cache: Dict[int, Dict[str, List[float]]] = {
+        k: {"precision": [], "recall": [], "hit": []} for k in k_values
+    }
+    for row in per_query_rows:
+        m = row["metrics"]
+        for k in k_values:
+            entry = m[f"k={k}"]
+            per_query_metric_cache[k]["precision"].append(float(entry["precision_at_k"]))
+            per_query_metric_cache[k]["recall"].append(float(entry["recall_at_k"]))
+            per_query_metric_cache[k]["hit"].append(float(entry["hit_at_k"]))
+
     for k in k_values:
         metrics[f"k={k}"] = {
             "precision_at_k": _safe_div(agg[k]["precision_sum"], n_eval),
             "recall_at_k": _safe_div(agg[k]["recall_sum"], n_eval),
             "hit_rate_at_k": _safe_div(agg[k]["hit_sum"], n_eval),
+        }
+
+    ci: Dict[str, Dict[str, float]] = {}
+    for k in k_values:
+        ci_rows = {"precision_at_k": [], "recall_at_k": [], "hit_rate_at_k": []}
+        pvals = per_query_metric_cache[k]["precision"]
+        rvals = per_query_metric_cache[k]["recall"]
+        hvals = per_query_metric_cache[k]["hit"]
+        if n_eval > 0:
+            for _ in range(max(1, args.bootstrap_iters)):
+                idx = [random.randrange(n_eval) for _ in range(n_eval)]
+                ci_rows["precision_at_k"].append(sum(pvals[i] for i in idx) / n_eval)
+                ci_rows["recall_at_k"].append(sum(rvals[i] for i in idx) / n_eval)
+                ci_rows["hit_rate_at_k"].append(sum(hvals[i] for i in idx) / n_eval)
+        p_arr = np.asarray(ci_rows["precision_at_k"], dtype=float)
+        r_arr = np.asarray(ci_rows["recall_at_k"], dtype=float)
+        h_arr = np.asarray(ci_rows["hit_rate_at_k"], dtype=float)
+        ci[f"k={k}"] = {
+            "precision_at_k_ci_low": float(np.percentile(p_arr, 2.5)),
+            "precision_at_k_ci_high": float(np.percentile(p_arr, 97.5)),
+            "recall_at_k_ci_low": float(np.percentile(r_arr, 2.5)),
+            "recall_at_k_ci_high": float(np.percentile(r_arr, 97.5)),
+            "hit_rate_at_k_ci_low": float(np.percentile(h_arr, 2.5)),
+            "hit_rate_at_k_ci_high": float(np.percentile(h_arr, 97.5)),
         }
 
     summary = {
@@ -175,6 +229,15 @@ def main() -> None:
         "n_queries": n_eval,
         "k_values": k_values,
         "metrics": metrics,
+        "metrics_bootstrap_ci": ci,
+        "retrieval_options": {
+            "backend_override": args.retrieval_backend,
+            "rerank_enabled": (not args.disable_rerank),
+            "rerank_pool": args.rerank_pool,
+            "rerank_alpha": args.rerank_alpha,
+            "bootstrap_iters": args.bootstrap_iters,
+            "seed": args.seed,
+        },
         "input_path": str(gold_path),
         "manifest_path": str(manifest_path),
     }

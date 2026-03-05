@@ -113,6 +113,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--use-fast-processor", action="store_true")
     parser.add_argument("--force-cuda", action="store_true")
     parser.add_argument("--gradient-checkpointing", action="store_true")
+    parser.add_argument("--freeze-backbone", action=argparse.BooleanOptionalAction, default=False)
 
     parser.add_argument("--lora-r", type=int, default=8)
     parser.add_argument("--lora-alpha", type=int, default=16)
@@ -240,6 +241,11 @@ def load_model_and_processor(args: argparse.Namespace):
             model = Blip2ForConditionalGeneration.from_pretrained(args.model_name)
     model = model.to(device)
 
+    if args.freeze_backbone:
+        # Optional strict adapter-only finetuning.
+        for p in model.parameters():
+            p.requires_grad = False
+
     if not hasattr(model, "language_model"):
         raise RuntimeError(f"Expected BLIP2-like model with language_model; got {model.__class__.__name__}")
 
@@ -253,6 +259,11 @@ def load_model_and_processor(args: argparse.Namespace):
         task_type="SEQ_2_SEQ_LM",
     )
     model.language_model = get_peft_model(model.language_model, lora_cfg)
+
+    if args.freeze_backbone:
+        # Safety guard for strict adapter-only mode.
+        for name, p in model.named_parameters():
+            p.requires_grad = "lora_" in name
 
     if args.gradient_checkpointing and hasattr(model, "gradient_checkpointing_enable"):
         model.gradient_checkpointing_enable()
@@ -656,6 +667,7 @@ def main() -> None:
         "lora_dropout": args.lora_dropout,
         "lora_target_modules": target_modules,
         "balanced_sampling": bool(args.balanced_sampling),
+        "freeze_backbone": bool(args.freeze_backbone),
         "class_counts_train": class_counts,
         "class_weights_sampler": class_weights,
         "split_hash": ctx.split_hash,
