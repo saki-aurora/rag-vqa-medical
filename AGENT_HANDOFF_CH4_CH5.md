@@ -4,30 +4,31 @@ This file is a full handoff context for continuing work in a new chat/session wi
 
 ---
 
-## 0) Latest Remediation Update (2026-03-05, Pass 6 Accuracy)
+## 0) Latest Remediation Update (2026-03-06, Pass 6 Stability + 3 Converged Seeds)
 
 - Problem addressed:
-  - Pass 6 multi-seed mode1 aggregate was dragged down by degenerate seeds (`011`, `023`) that predicted a single class.
+  - Pass 6 previously had unstable seed behavior and only 2 QC-pass mode1 seeds after remediation.
 - What was changed:
-  - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/17_pass6_generative_multiseed.py`
-    - added mode1 convergence QC gating (QWK, prediction diversity, training loss),
-    - added `pass6_generative_mode1_qc.csv` artifact,
-    - excludes non-converged mode1 runs from mode1 aggregate by default (while still reporting them).
-  - `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/controlled_vlm_mayo_eval.py`
-    - added robust mode2 strategy option (`sequence_logprob`) to fix tokenization edge cases in controlled scoring.
+  - Continued Pass 6 multiseed with the object-fix setup and launched additional seed `077`:
+    - run name: `vlm_lora_objfix_b200_seed077`
+    - mode2 eval run: `vlm_lora_pass6_mode2_seed077`
+  - Existing QC gating remained active in:
+    - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/17_pass6_generative_multiseed.py`
+    - (`mode1_min_qwk=0.2`, `mode1_min_pred_classes=2`, `mode1_max_train_loss=3.0`)
 - Key outcomes:
-  - QC flagged seeds `011` and `023` as non-converged.
-  - Converged mode1 aggregate now reflects only valid run(s), currently seed `42`:
-    - accuracy `0.7200`, macro-F1 `0.6816`, QWK `0.8231`.
-  - Controlled mode2 remained at zero-shot-like behavior (`accuracy 0.5486`, QWK `0.0`) for current adapters.
+  - Mode1 QC now passes for seeds `011`, `023`, and `077` (pass count `3`, fail count `0`).
+  - Mode1 aggregate (3 converged seeds):
+    - accuracy `0.7819`, macro-F1 `0.7279`, balanced-accuracy `0.7363`, QWK `0.8637`.
+  - Controlled mode2 remains unchanged across seeds (`accuracy 0.5486`, `QWK 0.0`).
 - New/updated artifacts:
+  - `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed077/`
+  - `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_pass6_mode2_seed077/`
   - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass6_generative_mode1_qc.csv`
-  - `.../pass6_generative_lora_mode1_seed_runs.csv` (QC-filtered mode1 set)
+  - `.../pass6_generative_lora_mode1_seed_runs.csv`
+  - `.../pass6_generative_lora_mode2_seed_runs.csv`
   - `.../pass6_generative_metric_summary.csv`
   - `.../pass6_generative_multiseed_report.json`
   - `.../pass6_generative_multiseed_report.md`
-- Additional diagnostic run performed:
-  - `vlm_lora_pass6_seed011_env311_e1` (miniforge Python 3.11, 1 epoch full data) had healthy training loss but still collapsed at inference to class `2` (test accuracy `0.10498`), confirming instability is not just an environment mismatch.
 
 ---
 
@@ -160,13 +161,13 @@ Pass 6 generative multi-seed + ablations completed:
 - New Pass 6 orchestrator/aggregator:
   - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/17_pass6_generative_multiseed.py`
 - LoRA seed run dirs included:
-  - `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_finetune_mayo_balanced_pass6_seed011`
-  - `.../vlm_lora_finetune_mayo_balanced_pass6_seed023`
-  - `.../vlm_lora_finetune_mayo_balanced_full_20260303` (existing full reference seed run)
+  - `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed011`
+  - `.../vlm_lora_objfix_b200_seed023`
+  - `.../vlm_lora_objfix_b200_seed077`
 - Controlled mode-2 eval run dirs:
   - `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_pass6_mode2_seed011`
   - `.../vlm_lora_pass6_mode2_seed023`
-  - `.../vlm_lora_pass6_mode2_seed042`
+  - `.../vlm_lora_pass6_mode2_seed077`
 - Pass 6 aggregate outputs:
   - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass6_generative_lora_mode1_seed_runs.csv`
   - `.../pass6_generative_lora_mode2_seed_runs.csv`
@@ -183,10 +184,10 @@ Pass 6 generative multi-seed + ablations completed:
   - `.../pass6_generative_multiseed_report.md`
 
 Pass 6 run note:
-- In this resumed session, Pass 6 was finalized via:
-  - `--skip-train --force-reeval`
-- New seed training artifacts (`seed011`, `seed023`) are from the completed 1-epoch full-data runs in this cycle.
-- Seed `42` references prior full run artifact (`vlm_lora_finetune_mayo_balanced_full_20260303`).
+- In the final stabilization run, seed `077` was trained with:
+  - `epochs=2`, `batch_size=2`, `grad_accum=4`, `num_workers=8`,
+  - objective-fix loss (`--label-token-only --class-token-loss-weight 1.0 --template-token-loss-weight 0.0`).
+- Final QC-pass seed set is now `011/023/077`.
 
 ---
 
@@ -242,12 +243,12 @@ Pass 6 run note:
   - baseline accuracy `0.7633`, macro-F1 `0.6694`, QWK `0.8288`
   - seed-mean reflects lower central estimate than the single best run, but with stable variance across seeds.
 
-### 3.6 Pass 6 generative multi-seed + ablation summary (seeds 11/23/42)
+### 3.6 Pass 6 generative multi-seed + ablation summary (seeds 11/23/77; all QC-pass)
 - LoRA mode1 (train-output lane) aggregate:
-  - accuracy `0.3100 ± 0.3551` [`0.1050`, `0.7200`]
-  - macro-F1 `0.2589 ± 0.3661` [`0.0475`, `0.6816`]
-  - balanced accuracy `0.3995 ± 0.2589` [`0.2500`, `0.6985`]
-  - QWK `0.2744 ± 0.4752` [`0.0000`, `0.8231`]
+  - accuracy `0.7819 ± 0.0030` [`0.7794`, `0.7853`]
+  - macro-F1 `0.7279 ± 0.0069` [`0.7201`, `0.7334`]
+  - balanced accuracy `0.7363 ± 0.0062` [`0.7292`, `0.7408`]
+  - QWK `0.8637 ± 0.0019` [`0.8624`, `0.8658`]
 - LoRA mode2 (controlled label-scoring eval lane) aggregate:
   - accuracy `0.5486 ± 0.0000`
   - macro-F1 `0.1771 ± 0.0000`
@@ -255,13 +256,13 @@ Pass 6 run note:
   - balanced accuracy `0.2500 ± 0.0000`
   - QWK `0.0000 ± 0.0000`
 - Key seed-wise deltas (mode2 - mode1):
-  - seed 11: `+0.4437` accuracy, `+0.1296` macro-F1, `+0.0000` QWK
-  - seed 23: `+0.4437` accuracy, `+0.1296` macro-F1, `+0.0000` QWK
-  - seed 42: `-0.1714` accuracy, `-0.5045` macro-F1, `-0.8231` QWK
+  - seed 11: `-0.2307` accuracy, `-0.5562` macro-F1, `-0.8624` QWK
+  - seed 23: `-0.2367` accuracy, `-0.5531` macro-F1, `-0.8658` QWK
+  - seed 77: `-0.2325` accuracy, `-0.5430` macro-F1, `-0.8628` QWK
 - McNemar exact tests (mode1 vs mode2):
-  - seed 11: `p=1.214564e-122`
-  - seed 23: `p=1.214564e-122`
-  - seed 42: `p=3.854035e-25`
+  - seed 11: `p=1.14453e-49`
+  - seed 23: `p=7.03604e-56`
+  - seed 77: `p=9.39673e-53`
 - Zero-shot references used in Pass 6 report:
   - mode1 free-gen: accuracy `0.5486`, macro-F1 `0.1771`, QWK `0.0000`
   - mode2 scoring: accuracy `0.5486`, macro-F1 `0.1771`, QWK `0.0000`
