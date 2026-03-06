@@ -103,6 +103,26 @@ class TestWrapperPipeline(unittest.TestCase):
             self.assertTrue(any("Low-evidence abstention" in x for x in output.limitations))
             self.assertIn("Insufficient evidence", output.claims[0].text)
 
+    def test_wrapper_invalid_runtime_params_raise(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            kb = base / "kb"
+            out = base / "out"
+            kb.mkdir(parents=True, exist_ok=True)
+            (kb / "doc.md").write_text(
+                "# Outcomes\n\nBiologic therapy in moderate UC is associated with improved remission.\n",
+                encoding="utf-8",
+            )
+            build_kb_index(kb_dir=kb, out_dir=out, max_words=40, overlap_words=10, min_words=5)
+
+            with self.assertRaises(ValueError):
+                run_wrapper(
+                    query="Does biologic therapy improve remission?",
+                    manifest_path=out / "kb_manifest.json",
+                    run_id="chapter5_test_run",
+                    rerank_alpha=1.2,
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

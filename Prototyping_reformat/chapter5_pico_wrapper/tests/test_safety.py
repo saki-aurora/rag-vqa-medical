@@ -24,6 +24,7 @@ class TestSafety(unittest.TestCase):
     def test_dosing_detection(self) -> None:
         self.assertTrue(contains_dosing_request("What dose in mg should I prescribe?"))
         self.assertTrue(should_refuse_dosing("How much should I titrate this treatment?"))
+        self.assertTrue(contains_dosing_request("What starting dose in milligrams should be given twice daily?"))
         self.assertFalse(contains_dosing_request("What outcomes are expected in 8 weeks?"))
 
     def test_insufficient_evidence_message(self) -> None:

@@ -14,10 +14,17 @@ DEFAULT_DISCLAIMER = (
 _DOSING_PATTERNS: List[str] = [
     r"\bdose\b",
     r"\bdosage\b",
+    r"\bstart(?:ing)?\s+dose\b",
     r"\bmg\b",
+    r"\bmilligram(?:s)?\b",
+    r"\bmcg\b",
+    r"\b\d+(?:\.\d+)?\s*(?:mg|mcg|ml)\b",
     r"\bhow much\b",
+    r"\bhow many\b",
     r"\bprescribe\b",
     r"\bprescription\b",
+    r"\b(?:once|twice)\s+daily\b",
+    r"\b(?:bid|tid|qid|q\d+h)\b",
     r"\btitrat",
 ]
 

@@ -28,6 +28,20 @@ def _safe_float(value: object, default: float = 0.0) -> float:
         return float(default)
 
 
+def _resolve_index_path(index_dir: Path, raw_path: object) -> Path:
+    p = Path(str(raw_path))
+    if p.is_absolute():
+        return p
+    # First try relative to kb_index/, then to the manifest directory.
+    cand1 = (index_dir / p).resolve()
+    if cand1.exists():
+        return cand1
+    cand2 = (index_dir.parent / p).resolve()
+    if cand2.exists():
+        return cand2
+    return cand1
+
+
 def _minmax_normalize(score_map: Dict[str, float]) -> Dict[str, float]:
     if not score_map:
         return {}
@@ -168,13 +182,16 @@ class TfidfRetriever(BaseRetriever):
         scores = (self._matrix @ q_vec.T).toarray().ravel()
         idx = scores.argsort()[::-1]
         out: List[RetrievalResult] = []
-        for rank, i in enumerate(idx[:k], start=1):
+        for i in idx:
+            if len(out) >= k:
+                break
             score = float(scores[i])
             if score <= 0:
                 continue
             cid = self._chunk_ids[int(i)]
             if cid not in self._chunks_by_id:
                 continue
+            rank = len(out) + 1
             out.append(
                 RetrievalResult(
                     chunk=self._chunks_by_id[cid],
@@ -317,25 +334,15 @@ def load_retriever(
     if not isinstance(backend_weights, dict):
         backend_weights = {}
     if backend == "tfidf":
-        tfidf_index = Path(str(index_files.get("tfidf", index_dir / "tfidf_index.pkl")))
-        if not tfidf_index.is_absolute():
-            tfidf_index = (index_dir / tfidf_index.name).resolve()
+        tfidf_index = _resolve_index_path(index_dir, index_files.get("tfidf", index_dir / "tfidf_index.pkl"))
         return TfidfRetriever(tfidf_index, chunks_by_id=chunks_by_id)
     if backend == "keyword":
-        keyword_index = Path(str(index_files.get("keyword", index_dir / "keyword_index.json")))
-        if not keyword_index.is_absolute():
-            keyword_index = (index_dir / keyword_index.name).resolve()
+        keyword_index = _resolve_index_path(index_dir, index_files.get("keyword", index_dir / "keyword_index.json"))
         return KeywordRetriever(keyword_index, chunks_by_id=chunks_by_id)
     if backend == "hybrid":
-        tfidf_index = Path(str(index_files.get("tfidf", index_dir / "tfidf_index.pkl")))
-        keyword_index = Path(str(index_files.get("keyword", index_dir / "keyword_index.json")))
-        lsa_index = Path(str(index_files.get("semantic_lsa", index_dir / "lsa_index.npz")))
-        if not tfidf_index.is_absolute():
-            tfidf_index = (index_dir / tfidf_index.name).resolve()
-        if not keyword_index.is_absolute():
-            keyword_index = (index_dir / keyword_index.name).resolve()
-        if not lsa_index.is_absolute():
-            lsa_index = (index_dir / lsa_index.name).resolve()
+        tfidf_index = _resolve_index_path(index_dir, index_files.get("tfidf", index_dir / "tfidf_index.pkl"))
+        keyword_index = _resolve_index_path(index_dir, index_files.get("keyword", index_dir / "keyword_index.json"))
+        lsa_index = _resolve_index_path(index_dir, index_files.get("semantic_lsa", index_dir / "lsa_index.npz"))
         return HybridRetriever(
             tfidf_index=tfidf_index,
             keyword_index=keyword_index if keyword_index.exists() else None,
@@ -404,7 +411,8 @@ def retrieve_evidence(
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     out_dir = manifest_path.parent
     index_dir = out_dir / "kb_index"
-    chunks_jsonl = out_dir / "chunks.jsonl"
+    chunks_jsonl_raw = manifest.get("chunks_file", out_dir / "chunks.jsonl")
+    chunks_jsonl = _resolve_index_path(index_dir, chunks_jsonl_raw)
     backend = str(backend_override or manifest.get("index_backend", "keyword")).strip().lower()
     retriever = load_retriever(
         index_dir=index_dir,

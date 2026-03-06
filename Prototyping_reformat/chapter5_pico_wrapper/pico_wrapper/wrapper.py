@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -73,6 +74,54 @@ def _normalize_severity(severity: Optional[SeverityResult | Dict[str, object]]) 
     raise TypeError("severity must be SeverityResult, dict, or None")
 
 
+def _validate_runtime_params(
+    *,
+    retrieval_k: int,
+    rerank_pool: int,
+    rerank_alpha: float,
+    min_top_score_for_answer: float,
+    min_mean_score_for_answer: float,
+    min_retrieved_for_answer: int,
+) -> None:
+    if int(retrieval_k) < 1:
+        raise ValueError("retrieval_k must be >= 1")
+    if int(rerank_pool) < 1:
+        raise ValueError("rerank_pool must be >= 1")
+    if float(rerank_alpha) < 0.0 or float(rerank_alpha) > 1.0:
+        raise ValueError("rerank_alpha must be in [0, 1]")
+    if int(min_retrieved_for_answer) < 1:
+        raise ValueError("min_retrieved_for_answer must be >= 1")
+    for name, value in (
+        ("min_top_score_for_answer", min_top_score_for_answer),
+        ("min_mean_score_for_answer", min_mean_score_for_answer),
+    ):
+        v = float(value)
+        if v < 0.0 or v > 1.0:
+            raise ValueError(f"{name} must be in [0, 1]")
+
+
+def _resolve_backend_label(
+    *,
+    retrieval_backend: Optional[str],
+    manifest_path: Path,
+    retrieval_results: List[RetrievalResult],
+) -> str:
+    label = ""
+    if retrieval_backend:
+        label = str(retrieval_backend).strip().lower()
+    if not label:
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            label = str(manifest.get("index_backend", "")).strip().lower()
+        except Exception:
+            label = ""
+    if retrieval_results:
+        result_backend = str(retrieval_results[0].backend).strip().lower()
+        if result_backend:
+            label = result_backend
+    return label or "manifest_default"
+
+
 def run_wrapper(
     *,
     query: str,
@@ -89,6 +138,14 @@ def run_wrapper(
     mode: str = "baseline",
     severity: Optional[SeverityResult | Dict[str, object]] = None,
 ) -> tuple[WrapperOutput, WrapperRunInfo]:
+    _validate_runtime_params(
+        retrieval_k=retrieval_k,
+        rerank_pool=rerank_pool,
+        rerank_alpha=rerank_alpha,
+        min_top_score_for_answer=min_top_score_for_answer,
+        min_mean_score_for_answer=min_mean_score_for_answer,
+        min_retrieved_for_answer=min_retrieved_for_answer,
+    )
     severity_obj = _normalize_severity(severity)
     requested_mode = (mode or "baseline").strip().lower()
     used_mode = _resolve_mode(requested_mode)
@@ -137,12 +194,18 @@ def run_wrapper(
             "Requested LLM mode but no local LLM backend was available; automatic fallback to baseline mode."
         )
 
+    backend_label = _resolve_backend_label(
+        retrieval_backend=retrieval_backend,
+        manifest_path=manifest_path,
+        retrieval_results=retrieval_results,
+    )
+
     info = WrapperRunInfo(
         requested_mode=requested_mode,
         used_mode=used_mode,
         query=query,
         retrieval_k=retrieval_k,
-        retrieval_backend=(retrieval_backend or "manifest_default"),
+        retrieval_backend=backend_label,
         rerank_enabled=bool(enable_rerank),
         rerank_pool=int(rerank_pool),
         rerank_alpha=float(rerank_alpha),

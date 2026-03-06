@@ -69,6 +69,18 @@ class TestUiSupport(unittest.TestCase):
         self.assertIn("## Evidence (Top Retrieved)", md)
         self.assertIn("Decision-support only.", md)
 
+    def test_build_safety_alert_contraindication_from_limitations(self) -> None:
+        alert = build_safety_alert(
+            run_info={"refusal_triggered": False, "abstained_low_evidence": False},
+            wrapper_output={
+                "refusal": False,
+                "limitations": ["Contraindication/adverse event context detected; require clinician verification."],
+            },
+        )
+        self.assertIsNotNone(alert)
+        assert alert is not None
+        self.assertEqual(alert["level"], "warning")
+
 
 if __name__ == "__main__":
     unittest.main()

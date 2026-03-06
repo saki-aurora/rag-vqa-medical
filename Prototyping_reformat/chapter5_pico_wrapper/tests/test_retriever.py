@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -65,6 +66,48 @@ class TestRetriever(unittest.TestCase):
             self.assertIn("uc", top.chunk.text.lower())
             self.assertIn(top.backend, {"keyword", "tfidf", "hybrid"})
             self.assertIsNotNone(top.rerank_score)
+
+    def test_retrieve_with_manifest_relative_index_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            kb = base / "kb"
+            out = base / "out"
+            alt = out / "alt_indexes"
+            kb.mkdir(parents=True, exist_ok=True)
+            alt.mkdir(parents=True, exist_ok=True)
+
+            (kb / "doc.md").write_text(
+                "# Evidence\n\nBiologic therapy improved remission in adults with ulcerative colitis.\n",
+                encoding="utf-8",
+            )
+            build_kb_index(
+                kb_dir=kb,
+                out_dir=out,
+                max_words=40,
+                overlap_words=10,
+                min_words=5,
+            )
+
+            old_keyword = out / "kb_index" / "keyword_index.json"
+            moved_keyword = alt / "keyword_index.json"
+            moved_keyword.write_text(old_keyword.read_text(encoding="utf-8"), encoding="utf-8")
+            old_keyword.unlink()
+
+            manifest_path = out / "kb_manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["index_files"]["keyword"] = "alt_indexes/keyword_index.json"
+            manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+
+            results = retrieve_evidence(
+                query="Does biologic therapy improve remission in UC?",
+                manifest_path=manifest_path,
+                pico=PicoFrame(population=["adults with UC"], intervention=["biologic therapy"], outcomes=["remission"]),
+                k=3,
+                backend_override="keyword",
+                enable_rerank=False,
+            )
+            self.assertGreaterEqual(len(results), 1)
+            self.assertEqual(results[0].backend, "keyword")
 
 
 if __name__ == "__main__":

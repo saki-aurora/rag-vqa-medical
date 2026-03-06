@@ -483,7 +483,7 @@ The main validity threats relevant to this chapter are: (1) **dataset shift** ac
 `GI benchmark and reliability gaps -> Chapter 3 (existing model investigation)`  
 `UC severity robustness and ordinal-risk gaps -> Chapter 4 (pipeline development and severity-focused modeling)`  
 `Evidence linkage and PICO-grounding gaps -> Chapter 5 (evidence-aware use-case instantiation)`  
-`Integrated findings and translational implications -> Chapter 6 and Chapter 7`
+`Integrated findings, translational implications, and closure -> Chapter 6`
 
 ---
 

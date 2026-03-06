@@ -62,7 +62,10 @@ def build_safety_alert(
             "message": msg,
         }
 
-    if any("contraindication" in item or "adverse-event" in item for item in limitations):
+    if any(
+        ("contraindication" in item) or ("adverse-event" in item) or ("adverse event" in item)
+        for item in limitations
+    ):
         return {
             "level": "warning",
             "title": "Contraindication Caution",

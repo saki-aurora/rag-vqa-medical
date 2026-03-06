@@ -23,7 +23,7 @@ The proposed approach is intentionally narrow in scope. Rather than attempting t
 
 The primary dataset for this chapter is LIMUC, which provides UC endoscopic imagery labeled with Mayo scores from 0 to 3. In clinical terms, this is an ordinal severity scale, not a nominal category set. Errors are therefore not all equally harmful: confusing Mayo 0 with Mayo 1 is different from confusing Mayo 0 with Mayo 3. This is one of the reasons Chapter 4 emphasizes ordinal metrics such as quadratic weighted kappa (QWK) alongside standard accuracy and F1 measures.
 
-Within this repository, LIMUC preparation is handled through `Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb`, which produces the metadata tables and split manifests used throughout the chapter. The fixed metadata snapshot used here (`metadata_enriched.csv`) contains 11,276 frames.
+Within this repository, LIMUC preparation is handled through `Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb`, which produces the metadata tables and split manifests used throughout the chapter [69]. The fixed metadata snapshot used here (`metadata_enriched.csv`) contains 11,276 frames.
 
 **Table 4.1. LIMUC Split Distribution Used in Chapter 4**
 
@@ -79,7 +79,7 @@ The key design principle is that each stage should narrow the gap between flexib
 
 ### 4.3.1 Data Preparation and Split Freezing
 
-The first layer is the preparation layer implemented in `Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb`. Its purpose is not only to gather images and labels, but to create a reproducible task definition. The notebook generates metadata tables, split assignments, label mappings, and a split hash so that downstream experiments can be traced back to a fixed data state.
+The first layer is the preparation layer implemented in `Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb` [69]. Its purpose is not only to gather images and labels, but to create a reproducible task definition. The notebook generates metadata tables, split assignments, label mappings, and a split hash so that downstream experiments can be traced back to a fixed data state.
 
 This step is methodologically important because later comparisons would be difficult to defend if the underlying train, validation, and test composition were allowed to drift. In a dissertation setting, reproducibility is not a convenience feature; it is part of the evidential argument. By freezing the metadata snapshot and the split structure before model comparison, the chapter avoids a common problem in multimodal experimentation where performance differences become entangled with unnoticed preprocessing changes.
 
@@ -87,20 +87,20 @@ This step is methodologically important because later comparisons would be diffi
 
 The second layer establishes a strong supervised anchor. This layer includes both frozen-encoder baselines and fine-tuned discriminative baselines. The frozen-encoder baselines are implemented in:
 
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/resnet50_frozen_logreg.ipynb`
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/vit_frozen_logreg.ipynb`
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/clip_linear_baseline.ipynb`
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/resnet50_frozen_logreg.ipynb` [70]
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/vit_frozen_logreg.ipynb` [71]
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/clip_linear_baseline.ipynb` [72]
 
 The fine-tuned baselines are implemented in:
 
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_resnet50.ipynb`
-- `Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_vit_or_swin.ipynb`
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_resnet50.ipynb` [73]
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_vit_or_swin.ipynb` [74]
 
 These baselines are not included merely for completeness. They define the minimum standard that any generative method must surpass to be taken seriously. In many medical-imaging settings, a generative system appears attractive because it produces human-readable text, yet still underperforms a simpler classifier on the actual decision variable of interest. By anchoring the chapter on supervised performance first, the proposed method is evaluated against the best currently justified alternative rather than against an artificially weak baseline.
 
 ### 4.3.3 Zero-Shot Generative Baseline
 
-The third layer introduces a zero-shot generative severity baseline through `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_zero_shot_mayo.ipynb`. This layer is important because it exposes the raw transfer gap between general multimodal fluency and clinically controlled severity scoring.
+The third layer introduces a zero-shot generative severity baseline through `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_zero_shot_mayo.ipynb` [75]. This layer is important because it exposes the raw transfer gap between general multimodal fluency and clinically controlled severity scoring.
 
 The zero-shot setup uses a fixed severity question prompt and expects a constrained textual output in the form `SCORE: X`, where `X` must belong to `{0,1,2,3}`. A strict parser then extracts the score and marks invalid or noncompliant generations explicitly. This design serves two functions. First, it gives the zero-shot model the best possible chance to succeed under a clear format. Second, it prevents the evaluation from rewarding free-form answers that sound plausible but cannot be mapped reliably to the task label space.
 
@@ -108,15 +108,17 @@ Zero-shot evaluation is therefore treated as a diagnostic baseline, not as the p
 
 ### 4.3.4 Parameter-Efficient Generative Adaptation with LoRA
 
-The central methodological contribution of this chapter is the parameter-efficient adaptation layer implemented in `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_lora_finetune_mayo.ipynb`. This stage adapts a vision-language generation stack using Low-Rank Adaptation (LoRA) rather than full end-to-end retraining.
+The central methodological contribution of this chapter is the parameter-efficient adaptation layer implemented in `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_lora_finetune_mayo.ipynb` [76]. This stage adapts a vision-language generation stack using Low-Rank Adaptation (LoRA) rather than full end-to-end retraining [67].
 
-LoRA is appropriate here for both practical and scientific reasons. Practically, it reduces the memory and optimization cost of adapting a large multimodal model. Scientifically, it allows the chapter to test whether a large pretrained vision-language model can be made clinically useful for severity grading through targeted task adaptation rather than through unrestricted generation. The final architecture used in the comparison is BLIP2-Flan-T5-XL with LoRA adapters applied to the generative stack.
+LoRA is appropriate here for both practical and scientific reasons. Practically, it reduces the memory and optimization cost of adapting a large multimodal model. Scientifically, it allows the chapter to test whether a large pretrained vision-language model can be made clinically useful for severity grading through targeted task adaptation rather than through unrestricted generation. The final architecture used in the comparison is BLIP2-Flan-T5-XL with LoRA adapters applied to the generative stack [68], [76].
+
+This design direction is consistent with recent medical multimodal literature that emphasizes integrating vision and language foundation models under task-aware constraints for clinically useful behavior [105], [106].
 
 Two design choices are especially important. First, the target format is supervised explicitly so that the model learns to emit the severity token under a stable prefix rather than producing unconstrained prose. Second, the objective is label-token-focused, which reduces the incentive to learn decorative language that is irrelevant to the Mayo decision itself. In other words, the model is still generative at the interface level, but its training objective is deliberately aligned with a bounded clinical output.
 
 ### 4.3.5 Retrieval-Supported Extension Path
 
-The repository also contains a retrieval-backed design pattern in `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/09_rag_blip2_eval/01_rag_blip2_eval.ipynb`. That pattern is relevant to the broader dissertation because it anticipates evidence-grounded multimodal reasoning. However, it is not part of the primary Chapter 4 claim.
+The repository also contains a retrieval-backed design pattern in `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/09_rag_blip2_eval/01_rag_blip2_eval.ipynb` [77]. That pattern is relevant to the broader dissertation because it anticipates evidence-grounded multimodal reasoning. However, it is not part of the primary Chapter 4 claim.
 
 This exclusion is intentional. If retrieval support were added at the same time as severity adaptation, any improvement would become harder to attribute. Chapter 4 is therefore designed to answer a narrower question first: can a generative severity model outperform a strong supervised baseline on the internal task when the output space is tightly controlled? Only after that question is answered does the dissertation move, in Chapter 5, to the separate problem of evidence-grounded query support.
 
@@ -164,7 +166,7 @@ This reporting policy reflects the evidential standard of the dissertation. The 
 
 ### 4.4.4 Final Training Configuration Used for Reporting
 
-The official configurations used in the chapter are compiled from the persisted reporting artifacts in `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/`, specifically the multi-seed summaries for Pass 5 and Pass 6.
+The official configurations used in the chapter are compiled from the persisted reporting artifacts in `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/` [78], specifically the multi-seed summaries for Pass 5 and Pass 6.
 
 **Table 4.5. Final Configuration Summary for Reported Chapter 4 Results**
 
@@ -177,7 +179,7 @@ The asymmetry between the supervised and generative configurations is expected r
 
 ## 4.5 Results
 
-All reported values in this section are compiled from the persisted LIMUC reporting outputs under `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/` and the synchronized chapter tables under `Thesis/markdown/figures/ch4_representations/`. The chapter interpretation below is restricted to those fixed results.
+All reported values in this section are compiled from the persisted LIMUC reporting outputs under `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/` [78] and the synchronized chapter tables under `Thesis/markdown/figures/ch4_representations/` [79]. The chapter interpretation below is restricted to those fixed results.
 
 ### 4.5.1 Internal Multi-Seed Comparison on LIMUC
 
@@ -197,15 +199,15 @@ The narrow QWK confidence interval for `mode1` also suggests stable multi-seed b
 
 ![Figure 4.1: Internal KPI comparison across the supervised baseline and the two generative evaluation lanes](figures/ch4_representations/F02_ch4_core_metric_comparison.png)
 
-*Figure 4.1 highlights the headline internal result: the LoRA-adapted `mode1` lane exceeds the supervised baseline, while the `mode2` ablation collapses despite perfect parse compliance.*
+*Figure 4.1 highlights the headline internal result: the LoRA-adapted `mode1` lane exceeds the supervised baseline, while the `mode2` ablation collapses despite perfect parse compliance* [80].
 
 ![Figure 4.2: Aggregate internal metric profile with 95% confidence intervals](figures/ch4_representations/F03_ch4_radar_profile.png)
 
-*Figure 4.2 shows that the `mode1` advantage is not limited to one metric. The improvement is coherent across accuracy, macro-F1, balanced accuracy, and QWK.*
+*Figure 4.2 shows that the `mode1` advantage is not limited to one metric. The improvement is coherent across accuracy, macro-F1, balanced accuracy, and QWK* [81].
 
 ![Figure 4.3: Seed-level quality-control heatmap for the reported mode1 lane](figures/ch4_representations/F05_ch4_mcnemar_significance_heatmap.png)
 
-*Figure 4.3 documents run stability for the reported generative lane. The legacy filename is preserved for reproducibility, but the figure is used here as a seed-level quality-control view rather than as a headline significance display.*
+*Figure 4.3 documents run stability for the reported generative lane. The legacy filename is preserved for reproducibility, but the figure is used here as a seed-level quality-control view rather than as a headline significance display* [83].
 
 ### 4.5.2 Class-Wise Behavior and Error Structure
 
@@ -228,7 +230,7 @@ The `mode2` ablation clarifies the failure mode even more sharply. Its class-wis
 
 ![Figure 4.4: Aggregate confusion patterns for the supervised baseline, mode1 lane, and mode2 ablation](figures/ch4_representations/F06_ch4_confusion_panel.png)
 
-*Figure 4.4 visualizes the error structure behind the aggregate metrics. The `mode1` lane reduces confusion more evenly across classes, whereas `mode2` degenerates into a class-0-dominant pattern.*
+*Figure 4.4 visualizes the error structure behind the aggregate metrics. The `mode1` lane reduces confusion more evenly across classes, whereas `mode2` degenerates into a class-0-dominant pattern* [84].
 
 ### 4.5.3 External Stress Test Under Domain Shift
 
@@ -248,7 +250,7 @@ This is an important negative result. It indicates that the internal success of 
 
 ![Figure 4.5: External stress-test drops relative to internal performance](figures/ch4_representations/F04_ch4_remission_slice_comparison.png)
 
-*Figure 4.5 summarizes the scale of the external degradation. The figure should be read as robustness-limitation evidence rather than as a contradiction of the internal LIMUC improvement.*
+*Figure 4.5 summarizes the scale of the external degradation. The figure should be read as robustness-limitation evidence rather than as a contradiction of the internal LIMUC improvement* [82].
 
 ## 4.6 Discussion
 
@@ -290,3 +292,49 @@ Accordingly, the central claim of Chapter 4 should be read narrowly and precisel
 Chapter 4 transformed the diagnostic findings of Chapter 3 into a concrete proposed method. Using LIMUC as the primary evidence base, the chapter defined a reproducible Mayo 0-3 severity task, established a strong supervised anchor, implemented a LoRA-adapted vision-language severity model, and evaluated it under a controlled multi-seed protocol. The main empirical result is clear: on internal LIMUC, the generative `mode1` lane improves on the supervised baseline in QWK, macro-F1, balanced accuracy, and accuracy while preserving perfect parse validity. At the same time, the external stress test shows that this gain should be interpreted as in-domain improvement rather than as generalization proof.
 
 This outcome provides the exact kind of upstream component needed for the next stage of the dissertation. Chapter 5 takes the severity signal developed here as a fixed input and places it inside a physician-facing wrapper that adds PICO extraction, retrieval grounding, citation linkage, and safety constraints. In other words, Chapter 4 solves the bounded severity-estimation problem; Chapter 5 asks how that bounded signal can be integrated into a more traceable and clinically useful multimodal interaction layer.
+
+## 4.9 References
+
+### External Sources
+
+[67] Hu EJ, Shen Y, Wallis P, et al. *LoRA: Low-Rank Adaptation of Large Language Models*. arXiv:2106.09685, 2021. https://arxiv.org/abs/2106.09685
+
+[68] Li J, Li D, Savarese S, Hoi SCH. *BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models*. arXiv:2301.12597, 2023. https://arxiv.org/abs/2301.12597
+
+[105] IEEE Xplore. *Document 10153022* (reference requested in project brief). https://ieeexplore.ieee.org/abstract/document/10153022
+
+[106] Talha M, Gasparovic M, Cupec R, et al. *Integrating Vision and Language Foundation Models for Advancing Medical Image Classification and Segmentation.* In: **Machine Learning in Medical Imaging** (MLMI 2022). https://link.springer.com/chapter/10.1007/978-3-031-16072-1_9
+
+### Internal Repository Sources
+
+[69] `Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb`
+
+[70] `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/resnet50_frozen_logreg.ipynb`
+
+[71] `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/vit_frozen_logreg.ipynb`
+
+[72] `Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/clip_linear_baseline.ipynb`
+
+[73] `Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_resnet50.ipynb`
+
+[74] `Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_vit_or_swin.ipynb`
+
+[75] `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_zero_shot_mayo.ipynb`
+
+[76] `Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_lora_finetune_mayo.ipynb`
+
+[77] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/09_rag_blip2_eval/01_rag_blip2_eval.ipynb`
+
+[78] `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/`
+
+[79] `Thesis/markdown/figures/ch4_representations/CH4_PART3_ASSET_MANIFEST_20260306.csv`
+
+[80] `Thesis/markdown/figures/ch4_representations/F02_ch4_core_metric_comparison.png`
+
+[81] `Thesis/markdown/figures/ch4_representations/F03_ch4_radar_profile.png`
+
+[82] `Thesis/markdown/figures/ch4_representations/F04_ch4_remission_slice_comparison.png`
+
+[83] `Thesis/markdown/figures/ch4_representations/F05_ch4_mcnemar_significance_heatmap.png`
+
+[84] `Thesis/markdown/figures/ch4_representations/F06_ch4_confusion_panel.png`

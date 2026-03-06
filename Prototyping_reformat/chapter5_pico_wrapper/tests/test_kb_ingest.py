@@ -50,6 +50,7 @@ class TestKbIngest(unittest.TestCase):
             self.assertEqual(manifest["n_source_files"], 2)
             self.assertIn("available_backends", manifest)
             self.assertIn("index_files", manifest)
+            self.assertIn("chunks_file", manifest)
 
 
 if __name__ == "__main__":

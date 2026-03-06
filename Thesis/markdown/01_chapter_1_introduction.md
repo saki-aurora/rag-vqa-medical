@@ -353,8 +353,7 @@ This section defines the end-to-end architecture, design logic, and chapter depe
 `-> Chapter 3 (investigating existing VQA techniques across GI-endoscopy datasets)`  
 `-> Chapter 4 (proposed pipeline development)`  
 `-> Chapter 5 (PICO-oriented use-case instantiation)`  
-`-> Chapter 6 (integrated evaluation and discussion)`  
-`-> Chapter 7 (conclusions and future work)`
+`-> Chapter 6 (conclusions and future research)`
 
 ### 1.9.6 Risk-Control Matrix
 
@@ -370,13 +369,13 @@ This section defines the end-to-end architecture, design logic, and chapter depe
 
 ## 1.10 Contributions Claimed in This Dissertation
 
-At this stage, the dissertation claims the following contributions:
+This dissertation makes the following contributions:
 
-1. A consolidated GI MedVQA evidence base across multiple datasets and task formulations using reproducible local artifacts [20]-[24].
-2. Empirical clarification that naive zero-shot VLM transfer is currently insufficient for dependable GI MedVQA performance in this repository setting.
-3. A severity-focused framing that aligns model evaluation with clinically meaningful endpoints, including macro-F1, balanced metrics, remission slices, and QWK in UC-oriented tasks.
-4. A scenario-driven evaluation framework that complements leaderboard metrics with clinically interpretable acceptance criteria.
-5. A concrete design pathway for integrating retrieval-augmented, evidence-aware answering as a controlled extension of visual-grounded VQA.
+1. A consolidated GI MedVQA reliability evidence base across multiple datasets and task formulations, supported by reproducible local artifacts [20]-[24].
+2. Empirical confirmation that naive zero-shot VLM transfer is not sufficient for dependable GI MedVQA behavior under current repository settings.
+3. A controlled ulcerative colitis severity module (Chapter 4) showing bounded internal gains over a strong supervised anchor on ordinal and class-balanced metrics.
+4. A PICO-grounded GenAI wrapper (Chapter 5) that integrates structured query decomposition, retrieval grounding, citation-linked synthesis, and explicit safety behavior.
+5. A claim-bounded translational framework that separates internal reproducibility evidence from external robustness and deployment readiness claims.
 
 ### 1.10.1 Contribution Boundaries
 
@@ -389,8 +388,7 @@ This dissertation does **not** claim immediate real-time clinical deployment rea
 - **Chapter 3:** investigates existing VQA techniques across GI-endoscopy datasets (HyperKvasir, Kvasir-VQA, Kvasir-VQA-x1, ImageCLEF MEDVQA-GI 2023, LIMUC, and supporting Kvasir-SEG analyses), including comparative and failure-mode analyses.
 - **Chapter 4:** develops the proposed dataset-model-RAG-fine-tuning pipeline with implementation detail.
 - **Chapter 5:** instantiates PICO-oriented and scenario-based use cases with objective-oriented prompt and evidence design.
-- **Chapter 6:** integrates experimental findings, scenario performance, and evidence-layer behavior into a consolidated discussion.
-- **Chapter 7:** synthesizes conclusions, revisits research questions, states limitations, and defines future work.
+- **Chapter 6:** consolidates conclusions, closes the research questions, states limitations, and defines future research directions.
 
 ## 1.12 References (Chapter 1)
 

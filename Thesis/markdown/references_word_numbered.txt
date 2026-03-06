@@ -64,3 +64,44 @@
 64. Yip SL, He S, Nie Y, et al. 2025. "MedBookVQA: A Systematic and Comprehensive Medical Benchmark Derived from Open-Access Book." arXiv:2506.00855. https://arxiv.org/abs/2506.00855.
 65. Yu S, Wang H, Wu J, et al. 2025. "MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning." arXiv:2505.16964 (revised 2026). https://arxiv.org/abs/2505.16964.
 66. Zhang X, Wu C, Zhao Z, et al. 2023. "PMC-VQA: Visual Instruction Tuning for Medical Visual Question Answering." arXiv:2305.10415. https://arxiv.org/abs/2305.10415.
+67. Hu EJ, Shen Y, Wallis P, et al. 2021. "LoRA: Low-Rank Adaptation of Large Language Models." arXiv:2106.09685. https://arxiv.org/abs/2106.09685.
+68. Li J, Li D, Savarese S, Hoi SCH. 2023. "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models." arXiv:2301.12597. https://arxiv.org/abs/2301.12597.
+69. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/0_dataset_prep/01_build_metadata_images_and_manifests.ipynb." Internal repository artifact.
+70. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/resnet50_frozen_logreg.ipynb." Internal repository artifact.
+71. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/vit_frozen_logreg.ipynb." Internal repository artifact.
+72. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/1_frozen_encoders/clip_linear_baseline.ipynb." Internal repository artifact.
+73. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_resnet50.ipynb." Internal repository artifact.
+74. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/finetune_vit_or_swin.ipynb." Internal repository artifact.
+75. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_zero_shot_mayo.ipynb." Internal repository artifact.
+76. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/vlm_lora_finetune_mayo.ipynb." Internal repository artifact.
+77. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/2_modeling/09_rag_blip2_eval/01_rag_blip2_eval.ipynb." Internal repository artifact.
+78. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/." Internal repository artifact.
+79. RAG-VQA-Medical Repository. n.d. "Thesis/markdown/figures/ch4_representations/CH4_PART3_ASSET_MANIFEST_20260306.csv." Internal repository artifact.
+80. RAG-VQA-Medical Repository. n.d. "Thesis/markdown/figures/ch4_representations/F02_ch4_core_metric_comparison.png." Internal repository artifact.
+81. RAG-VQA-Medical Repository. n.d. "Thesis/markdown/figures/ch4_representations/F03_ch4_radar_profile.png." Internal repository artifact.
+82. RAG-VQA-Medical Repository. n.d. "Thesis/markdown/figures/ch4_representations/F04_ch4_remission_slice_comparison.png." Internal repository artifact.
+83. RAG-VQA-Medical Repository. n.d. "Thesis/markdown/figures/ch4_representations/F05_ch4_mcnemar_significance_heatmap.png." Internal repository artifact.
+84. RAG-VQA-Medical Repository. n.d. "Thesis/markdown/figures/ch4_representations/F06_ch4_confusion_panel.png." Internal repository artifact.
+85. RAG-VQA-Medical Repository. n.d. "CH4_PART1_SCOPE_FREEZE_20260306.md." Internal repository artifact.
+86. RAG-VQA-Medical Repository. n.d. "CH4_PART2_REPRO_FREEZE_20260306.md." Internal repository artifact.
+87. RAG-VQA-Medical Repository. n.d. "CH4_PART7_DISSERTATION_READINESS_GATE_20260306.md." Internal repository artifact.
+88. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass6_generative_metric_summary.csv." Internal repository artifact.
+89. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/pico_wrapper/schemas.py." Internal repository artifact.
+90. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/pico_wrapper/retriever.py." Internal repository artifact.
+91. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/pico_wrapper/wrapper.py." Internal repository artifact.
+92. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/pico_wrapper/safety.py." Internal repository artifact.
+93. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/scripts/run_full_pipeline.py." Internal repository artifact.
+94. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_manifest.json." Internal repository artifact.
+95. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest/run_config.json." Internal repository artifact.
+96. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/pico_eval.json." Internal repository artifact.
+97. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/retrieval_eval.json." Internal repository artifact.
+98. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/answer_eval.json." Internal repository artifact.
+99. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass3_ablation/retrieval_ablation_summary.tsv." Internal repository artifact.
+100. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/results/chapter5_completion_audit_ch5_freeze_20260306/chapter5_completion_report.json." Internal repository artifact.
+101. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/tests/test_retriever.py." Internal repository artifact.
+102. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/tests/test_wrapper_pipeline.py." Internal repository artifact.
+103. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/tests/test_safety.py." Internal repository artifact.
+104. RAG-VQA-Medical Repository. n.d. "Prototyping_reformat/chapter5_pico_wrapper/tests/test_ui_support.py." Internal repository artifact.
+105. IEEE Xplore. 2023. "Document 10153022." https://ieeexplore.ieee.org/abstract/document/10153022.
+106. Talha M, Gasparovic M, Cupec R, et al. 2022. "Integrating Vision and Language Foundation Models for Advancing Medical Image Classification and Segmentation." In Machine Learning in Medical Imaging (MLMI 2022). https://link.springer.com/chapter/10.1007/978-3-031-16072-1_9.
+107. Mohammed S, Fiaidhi J. 2024. "Generative AI for Evidence-Based Medicine: A PICO GenAI for Synthesizing Clinical Case Reports." ICC 2024. https://ieeexplore.ieee.org/abstract/document/10622271.
