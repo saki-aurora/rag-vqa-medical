@@ -1,0 +1,8 @@
+case,backend,rerank,alpha,hit@1,hit@3,hit@5,p@1,p@5,r@5,method_display
+keyword_no_rerank,keyword,False,0.35,0.2,0.2,0.5,0.2,0.12,0.3,KEYWORD no rerank
+hybrid_rerank_a035,hybrid,True,0.35,0.2,0.3,0.5,0.2,0.1399999999999999,0.35,HYBRID + rerank a=0.35
+hybrid_rerank_a050,hybrid,True,0.5,0.2,0.3,0.5,0.2,0.1399999999999999,0.35,HYBRID + rerank a=0.50
+tfidf_no_rerank,tfidf,False,0.35,0.1,0.3,0.6,0.1,0.1599999999999999,0.45,TFIDF no rerank
+tfidf_rerank_a035,tfidf,True,0.35,0.2,0.3,0.6,0.2,0.1599999999999999,0.45,TFIDF + rerank a=0.35
+hybrid_no_rerank,hybrid,False,0.35,0.2,0.3,0.6,0.2,0.1599999999999999,0.45,HYBRID no rerank
+hybrid_rerank_a020,hybrid,True,0.2,0.2,0.3,0.6,0.2,0.1599999999999999,0.45,HYBRID + rerank a=0.20
