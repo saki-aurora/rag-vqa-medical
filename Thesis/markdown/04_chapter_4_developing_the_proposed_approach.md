@@ -27,6 +27,21 @@ Expected local structure (as referenced by the LIMUC data-prep notebook):
 - `Datasets/LIMUC/test_set`
 - optional: `Datasets/LIMUC/patient_based_classified_images` for patient-aware split workflows
 
+Frozen LIMUC metadata snapshot used in this chapter (`metadata_enriched.csv`) contains `11,276` frames:
+
+| Split | N |
+|---|---:|
+| Train | 8669 |
+| Val | 921 |
+| Test | 1686 |
+
+| Mayo class | N (all splits) |
+|---|---:|
+| 0 | 6105 |
+| 1 | 3052 |
+| 2 | 1254 |
+| 3 | 865 |
+
 ### 4.2.2 Optional External Robustness Dataset
 
 If cross-dataset robustness is included in Chapter 4, add:
@@ -47,7 +62,7 @@ The following are useful for broader thesis context but are not mandatory for Ch
 
 Chapter 4 uses the pipeline:
 
-`Dataset -> Model -> Controlled Generation -> Optional Retrieval Support -> Fine-Tuning -> Evaluation`
+`Dataset curation and split freeze -> Supervised/VLM fine-tuning -> Controlled generation or label scoring -> Optional retrieval support -> Evaluation and statistical validation`
 
 ### 4.3.1 Data Preparation Layer
 
@@ -113,7 +128,7 @@ This should be reported as an extension path, not the primary severity model.
 
 ## 4.4 Experimental Design
 
-### 4.4.1 Task Definition
+### 4.4.1 Task Definition and Evaluation Lanes
 
 Input:
 
@@ -127,6 +142,13 @@ Output:
 Optional output extension:
 
 - short evidence phrase constrained to visual findings only
+
+Lane definitions used in Chapter 4:
+
+- `mode1` (`lora_mode1_train`): free generation constrained by prompt format, then strict parser extraction of `SCORE: <0|1|2|3>`.
+- `mode2` (`lora_mode2_eval`): score is chosen by candidate-label likelihood after the `SCORE:` prefix (`sequence_logprob` strategy), without relying on free-text parsing.
+
+`mode1` is the primary generative lane; `mode2` is retained as a controlled ablation.
 
 ### 4.4.2 Metric Bundle
 
@@ -151,6 +173,17 @@ Supplementary metrics:
 - Confidence interval reporting for key metrics
 - Error decomposition by class and clinical threshold behavior
 
+### 4.4.4 Frozen Training Configuration Summary
+
+Configuration values are frozen from:
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass5_supervised_multiseed_report.json`
+- `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass6_generative_multiseed_report.json`
+
+| Lane | Core setup |
+|---|---|
+| Pass 5 supervised | ResNet50 fine-tune, seeds `11/23/42`, epochs `15`, batch size `16`, LR `3e-4`, weight decay `1e-4`. |
+| Pass 6 generative | BLIP2-Flan-T5-XL + LoRA, seeds `11/23/77`, epochs `2`, batch size `2`, grad accumulation `4`, LR `5e-5`, LoRA `r=8`, `alpha=16`, dropout `0.1`, balanced sampling, label-token-only objective. |
+
 ## 4.5 Frozen Results and Claim Boundary (LIMUC)
 
 This section is synchronized to the Chapter 4 freeze package and is restricted to frozen Pass 5/6/7 artifacts:
@@ -160,7 +193,7 @@ This section is synchronized to the Chapter 4 freeze package and is restricted t
 
 ### 4.5.1 Primary KPI and Reporting Policy
 
-The primary optimization and reporting KPI is internal LIMUC `mode1/test` QWK. Accuracy, macro-F1, balanced accuracy, and parse rate are treated as secondary companion metrics. External HyperKvasir UC proxy scores are reported as stress-test evidence only and are not used as the model-selection target.
+The primary optimization and reporting KPI is internal LIMUC `mode1/test` QWK. Accuracy, macro-F1, balanced accuracy, and parse rate are treated as secondary companion metrics. The chapter objective is reproducible comparative evaluation rather than hitting a pre-specified numeric cutoff. External HyperKvasir UC proxy scores are reported as stress-test evidence only and are not used as the model-selection target.
 
 ### 4.5.2 Internal Multi-Seed Results (Pass 5 vs Pass 6)
 
@@ -179,23 +212,28 @@ Source artifacts:
 
 Compared with the official Pass 5 baseline, the retained mode1 lane improves internal QWK by `+0.045007` and macro-F1 by `+0.060590`. Mode2 remains a controlled negative-result lane. The mode1 QC table confirms stable non-degenerate convergence (`3/3` seeds pass).
 
-![Frozen internal KPI comparison (Pass5 vs Pass6) (F02)](figures/generated/F02_ch4_core_metric_comparison.png)
+![Frozen internal KPI comparison (Pass5 vs Pass6) (F02)](figures/ch4_representations/F02_ch4_core_metric_comparison.png)
 
 *Frozen internal KPI comparison using Pass 5 supervised and Pass 6 generative lane aggregates.*
 
-![Frozen metric means with 95% confidence intervals (F03)](figures/generated/F03_ch4_radar_profile.png)
+![Frozen metric means with 95% confidence intervals (F03)](figures/ch4_representations/F03_ch4_radar_profile.png)
 
 *Frozen Chapter 4 metric means with 95% confidence intervals from Pass 5 and Pass 6 reports.*
 
-![Mode1 convergence QC across seeds (Pass6) (F05)](figures/generated/F05_ch4_mcnemar_significance_heatmap.png)
+![Mode1 seed-level QC heatmap (Pass6) (F05)](figures/ch4_representations/F05_ch4_mcnemar_significance_heatmap.png)
 
-*Mode1 convergence QC by seed for Pass 6 generative training.*
+*Mode1 seed-level QC for Pass 6 generative training (legacy figure ID/file name retained for freeze compatibility).*
 
 ### 4.5.3 External Stress-Test (Pass 7 HyperKvasir UC Proxy)
 
 Source artifacts:
 - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/pass7_external_validation_report.json`
 - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/pass7_external_drop_table.csv`
+
+External protocol note (from `metadata_hyperkvasir_uc_proxy_mayo_floor.csv`):
+- external set size: `851` frames (test-only)
+- class distribution: `0:35`, `1:212`, `2:471`, `3:133`
+- mapping policy: `floor_for_interval_labels` for interval findings (`0-1 -> 0`, `1-2 -> 1`, `2-3 -> 2`)
 
 | Lane | Internal QWK | External QWK | Delta (external-internal) | Internal parse rate | External parse rate |
 |---|---:|---:|---:|---:|---:|
@@ -205,7 +243,7 @@ Source artifacts:
 
 External performance on the current proxy mapping is poor for both families, with especially severe degradation for mode1. This is interpreted as domain-shift and label-compatibility limitation evidence, not as contradiction of the internal LIMUC result.
 
-![External stress-test drops (Pass7) (F04)](figures/generated/F04_ch4_remission_slice_comparison.png)
+![External stress-test drops (Pass7) (F04)](figures/ch4_representations/F04_ch4_remission_slice_comparison.png)
 
 *External stress-test drops (external minus internal) from Pass 7 HyperKvasir UC proxy evaluation.*
 
@@ -226,7 +264,7 @@ Supporting diagnostic figures:
 - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass6_generative_confusion_aggregate_mode2.png`
 - `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/generative_pred_distribution.png`
 
-![Aggregate confusion panel (Pass5/Pass6) (F06)](figures/generated/F06_ch4_confusion_panel.png)
+![Aggregate confusion panel (Pass5/Pass6) (F06)](figures/ch4_representations/F06_ch4_confusion_panel.png)
 
 *Aggregate confusion panel for Pass 5 supervised and Pass 6 mode1/mode2 lanes.*
 
@@ -238,7 +276,7 @@ Supporting diagnostic figures:
 | Pass 8 supervised scout (5090) | `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass8_supervised_5090_scout_r2_20260306T091539Z/pass8_supervised_all_runs.csv` | 0.870416 | `swin_t_ce_m_e8_seed011` | Appendix only |
 | Pass 8 supervised focus (5090) | `Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass8_supervised_5090_focus_20260306T092204Z/pass8_supervised_all_runs.csv` | 0.861687 | `swin_t_ce_s_e16_seed011` | Appendix only |
 
-These exploratory sweeps are informative but remain outside headline claims because none crossed `QWK >= 0.90`.
+These exploratory sweeps are informative but remain outside headline claims; all reported exploratory configurations stayed below `QWK = 0.90`, and are therefore retained as future-improvement context only.
 
 ## 4.6 Chapter-4 Completion Status
 
@@ -268,9 +306,10 @@ These exploratory sweeps are informative but remain outside headline claims beca
 2. Class-boundary ambiguity (`0<->1`, `1<->2`, `2<->3`) remains an error source.
 3. Mode2 controlled scoring fails under this setup and is not used as primary generative lane.
 4. On current HyperKvasir proxy labels, external claims are not deployment-ready.
-5. Internal `QWK >= 0.90` was not achieved in the frozen chapter evidence.
+5. The best frozen internal QWK remains below `0.90`, indicating remaining headroom for future data-cleanup-driven improvement.
 
 ## 4.9 Chapter Summary and Transition
 
 Chapter 4 now has a frozen, reproducible severity pipeline with clear claim boundaries. On internal LIMUC, the multi-seed generative mode1 lane outperforms the frozen supervised multi-seed baseline in QWK and macro-F1, while controlled mode2 collapses and is retained as a negative-result ablation. External proxy evaluation shows large domain-shift degradation and is reported as limitation evidence rather than generalization proof.  
 These frozen findings provide the handoff to Chapter 5, where evidence-grounded and safety-constrained clinical synthesis is developed around a fixed upstream severity component.
+
