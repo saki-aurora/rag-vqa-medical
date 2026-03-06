@@ -1,0 +1,260 @@
+{
+  "task": "pass7_external_validation",
+  "generated_utc": "2026-03-06T07:50:59.997725+00:00",
+  "config": {
+    "limuc_root": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC",
+    "meta_csv": "/mnt/hf/thesis/rag-vqa-medical/Datasets/hyperkvasir/pass7_uc_proxy/metadata/metadata_hyperkvasir_uc_proxy_mayo_floor.csv",
+    "split": "test",
+    "tag": "pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1",
+    "max_samples": 0,
+    "seed": 42,
+    "force_cuda": true,
+    "skip_resnet": false,
+    "skip_vlm": false,
+    "resnet_checkpoint": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/results/finetune_resnet50/best_resnet50.pt",
+    "vlm_run_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed077",
+    "model_name": "Salesforce/blip2-flan-t5-xl",
+    "eval_mode2_strategy": "sequence_logprob"
+  },
+  "executed_commands": [
+    {
+      "stage": "resnet_eval",
+      "command": "/home/arcturus/miniforge3/envs/vlm-lora-gpu/bin/python /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/eval_resnet50_checkpoint.py --meta-csv /mnt/hf/thesis/rag-vqa-medical/Datasets/hyperkvasir/pass7_uc_proxy/metadata/metadata_hyperkvasir_uc_proxy_mayo_floor.csv --split test --checkpoint /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/2_supervised_finetuning/results/finetune_resnet50/best_resnet50.pt --out-dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/resnet50_external_eval --limuc-root /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC --batch-size 32 --num-workers 8 --seed 42 --run-name resnet50_external_eval --device cuda",
+      "log": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/logs/resnet_eval.log"
+    },
+    {
+      "stage": "vlm_eval",
+      "command": "/home/arcturus/miniforge3/envs/vlm-lora-gpu/bin/python /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/controlled_vlm_mayo_eval.py --meta-csv /mnt/hf/thesis/rag-vqa-medical/Datasets/hyperkvasir/pass7_uc_proxy/metadata/metadata_hyperkvasir_uc_proxy_mayo_floor.csv --split test --model-name Salesforce/blip2-flan-t5-xl --adapter-dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed077/lora_adapter --mode both --mode2-strategy sequence_logprob --seed 42 --run-name pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1_vlm_test --out-dir /mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/vlm_external_eval --log-every 50 --force-cuda",
+      "log": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/logs/vlm_eval.log"
+    }
+  ],
+  "internal_metrics": {
+    "resnet50_supervised": {
+      "accuracy": 0.7633451957295374,
+      "balanced_accuracy": 0.6602051214715592,
+      "macro_f1": 0.6694020252436621,
+      "weighted_f1": 0.7614248757212174,
+      "qwk": 0.8287620300398653,
+      "mae": 0.24673784104389088,
+      "rmse": 0.5189184847657231,
+      "spearman": 0.7869498320916903,
+      "auroc_ovr": 0.9308773715868288,
+      "ece": 0.04184243862527119
+    },
+    "vlm_lora_mode1": {
+      "lane": "lora_mode1_train",
+      "seed": 77,
+      "run_name": "vlm_lora_objfix_b200_seed077",
+      "run_dir": "/root/work/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed077",
+      "accuracy": 0.7811387900355872,
+      "balanced_accuracy": 0.7292170724932998,
+      "macro_f1": 0.7201470808012675,
+      "weighted_f1": 0.7858723249229843,
+      "qwk": 0.8627519281519653,
+      "mae": 0.2224199288256227,
+      "rmse": 0.4791005808262423,
+      "parse_rate": 1.0
+    },
+    "vlm_lora_mode2": {
+      "lane": "lora_mode2_eval",
+      "seed": 77,
+      "run_name": "vlm_lora_pass6_mode2_seed077",
+      "run_dir": "/root/work/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_pass6_mode2_seed077",
+      "accuracy": 0.5486358244365361,
+      "balanced_accuracy": 0.25,
+      "macro_f1": 0.1771351972424358,
+      "weighted_f1": 0.3887308599033289,
+      "qwk": 0.0,
+      "mae": 0.6986951364175563,
+      "rmse": 1.1557273954415634,
+      "parse_rate": 1.0
+    }
+  },
+  "external_metrics": {
+    "resnet50_supervised": {
+      "accuracy": 0.4336075205640423,
+      "balanced_accuracy": 0.4328542295228517,
+      "macro_f1": 0.3874229862099845,
+      "weighted_f1": 0.42935144689256,
+      "qwk": 0.35959664371448996,
+      "mae": 0.6533490011750881,
+      "rmse": 0.9198170767925039,
+      "auroc_ovr": 0.7163554541683811,
+      "ece": 0.26433943560484857
+    },
+    "vlm_lora_mode1": {
+      "accuracy": 0.041128084606345476,
+      "macro_f1": 0.019751693002257337,
+      "balanced_accuracy": 0.25,
+      "qwk": 0.0,
+      "mae": 1.8249118683901293,
+      "rmse": 1.9671210479762815,
+      "parse_rate": 0.0
+    },
+    "vlm_lora_mode2": {
+      "accuracy": 0.041128084606345476,
+      "macro_f1": 0.019751693002257337,
+      "balanced_accuracy": 0.25,
+      "qwk": 0.0,
+      "mae": 1.8249118683901293,
+      "rmse": 1.9671210479762815,
+      "parse_rate": 1.0
+    }
+  },
+  "drop_rows": [
+    {
+      "lane": "resnet50_supervised",
+      "metric": "accuracy",
+      "internal_value": 0.7633451957295374,
+      "external_value": 0.4336075205640423,
+      "delta_external_minus_internal": -0.3297376751654951
+    },
+    {
+      "lane": "resnet50_supervised",
+      "metric": "macro_f1",
+      "internal_value": 0.6694020252436621,
+      "external_value": 0.3874229862099845,
+      "delta_external_minus_internal": -0.2819790390336776
+    },
+    {
+      "lane": "resnet50_supervised",
+      "metric": "balanced_accuracy",
+      "internal_value": 0.6602051214715592,
+      "external_value": 0.4328542295228517,
+      "delta_external_minus_internal": -0.2273508919487075
+    },
+    {
+      "lane": "resnet50_supervised",
+      "metric": "weighted_f1",
+      "internal_value": 0.7614248757212174,
+      "external_value": 0.42935144689256,
+      "delta_external_minus_internal": -0.3320734288286574
+    },
+    {
+      "lane": "resnet50_supervised",
+      "metric": "qwk",
+      "internal_value": 0.8287620300398653,
+      "external_value": 0.35959664371448996,
+      "delta_external_minus_internal": -0.4691653863253753
+    },
+    {
+      "lane": "resnet50_supervised",
+      "metric": "mae",
+      "internal_value": 0.24673784104389088,
+      "external_value": 0.6533490011750881,
+      "delta_external_minus_internal": 0.40661116013119725
+    },
+    {
+      "lane": "resnet50_supervised",
+      "metric": "rmse",
+      "internal_value": 0.5189184847657231,
+      "external_value": 0.9198170767925039,
+      "delta_external_minus_internal": 0.4008985920267808
+    },
+    {
+      "lane": "vlm_lora_mode1",
+      "metric": "accuracy",
+      "internal_value": 0.7811387900355872,
+      "external_value": 0.041128084606345476,
+      "delta_external_minus_internal": -0.7400107054292417
+    },
+    {
+      "lane": "vlm_lora_mode1",
+      "metric": "macro_f1",
+      "internal_value": 0.7201470808012675,
+      "external_value": 0.019751693002257337,
+      "delta_external_minus_internal": -0.7003953877990102
+    },
+    {
+      "lane": "vlm_lora_mode1",
+      "metric": "balanced_accuracy",
+      "internal_value": 0.7292170724932998,
+      "external_value": 0.25,
+      "delta_external_minus_internal": -0.4792170724932998
+    },
+    {
+      "lane": "vlm_lora_mode1",
+      "metric": "qwk",
+      "internal_value": 0.8627519281519653,
+      "external_value": 0.0,
+      "delta_external_minus_internal": -0.8627519281519653
+    },
+    {
+      "lane": "vlm_lora_mode1",
+      "metric": "mae",
+      "internal_value": 0.2224199288256227,
+      "external_value": 1.8249118683901293,
+      "delta_external_minus_internal": 1.6024919395645065
+    },
+    {
+      "lane": "vlm_lora_mode1",
+      "metric": "rmse",
+      "internal_value": 0.4791005808262423,
+      "external_value": 1.9671210479762815,
+      "delta_external_minus_internal": 1.4880204671500392
+    },
+    {
+      "lane": "vlm_lora_mode1",
+      "metric": "parse_rate",
+      "internal_value": 1.0,
+      "external_value": 0.0,
+      "delta_external_minus_internal": -1.0
+    },
+    {
+      "lane": "vlm_lora_mode2",
+      "metric": "accuracy",
+      "internal_value": 0.5486358244365361,
+      "external_value": 0.041128084606345476,
+      "delta_external_minus_internal": -0.5075077398301907
+    },
+    {
+      "lane": "vlm_lora_mode2",
+      "metric": "macro_f1",
+      "internal_value": 0.1771351972424358,
+      "external_value": 0.019751693002257337,
+      "delta_external_minus_internal": -0.15738350424017844
+    },
+    {
+      "lane": "vlm_lora_mode2",
+      "metric": "balanced_accuracy",
+      "internal_value": 0.25,
+      "external_value": 0.25,
+      "delta_external_minus_internal": 0.0
+    },
+    {
+      "lane": "vlm_lora_mode2",
+      "metric": "qwk",
+      "internal_value": 0.0,
+      "external_value": 0.0,
+      "delta_external_minus_internal": 0.0
+    },
+    {
+      "lane": "vlm_lora_mode2",
+      "metric": "mae",
+      "internal_value": 0.6986951364175563,
+      "external_value": 1.8249118683901293,
+      "delta_external_minus_internal": 1.126216731972573
+    },
+    {
+      "lane": "vlm_lora_mode2",
+      "metric": "rmse",
+      "internal_value": 1.1557273954415634,
+      "external_value": 1.9671210479762815,
+      "delta_external_minus_internal": 0.8113936525347181
+    },
+    {
+      "lane": "vlm_lora_mode2",
+      "metric": "parse_rate",
+      "internal_value": 1.0,
+      "external_value": 1.0,
+      "delta_external_minus_internal": 0.0
+    }
+  ],
+  "paths": {
+    "out_base": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1",
+    "drop_csv": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/pass7_external_drop_table.csv",
+    "resnet_eval_out": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/resnet50_external_eval",
+    "vlm_run_root": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/vlm_external_eval/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1_vlm_test",
+    "logs_dir": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass7_external_hyperkvasir_uc_proxy_floor_20260306_r1/logs"
+  }
+}

@@ -1,0 +1,4 @@
+seed,run_name,run_dir,accuracy,qwk,parse_rate,pred_unique_classes,train_loss,qc_pass,qc_fail_reasons
+11,vlm_lora_objfix_b200_seed011,/root/work/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed011,0.7793594306049823,0.8623815130141115,1.0,4,1.8386268914845596,True,
+23,vlm_lora_objfix_b200_seed023,/root/work/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed023,0.7852906287069988,0.8658360282004898,1.0,4,1.8649297886668976,True,
+77,vlm_lora_objfix_b200_seed077,/root/work/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/LIMUC/3_vlm_severity/results/vlm_lora_objfix_b200_seed077,0.7811387900355872,0.8627519281519653,1.0,4,1.8893642487121245,True,

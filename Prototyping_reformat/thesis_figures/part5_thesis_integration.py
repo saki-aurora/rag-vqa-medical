@@ -40,11 +40,11 @@ GENERATED_FIGURES = {
 
 CAPTIONS = {
     "F01": "Cross-dataset reliability benchmark heatmap using frozen Chapter 3 report artifacts.",
-    "F02": "Chapter 4 core metric comparison across frozen, supervised, and generative model families.",
-    "F03": "Normalized radar profile for selected Chapter 4 representative models.",
-    "F04": "Remission-slice comparison (Mayo 0-1 vs 2-3) across Chapter 4 runs.",
-    "F05": "Pairwise McNemar significance heatmap for Chapter 4 model comparisons.",
-    "F06": "Confusion-matrix panel: best supervised run versus best generative run (Chapter 4).",
+    "F02": "Frozen internal KPI comparison using Pass 5 supervised and Pass 6 generative lane aggregates.",
+    "F03": "Frozen Chapter 4 metric means with 95% confidence intervals from Pass 5 and Pass 6 reports.",
+    "F04": "External stress-test drops (external minus internal) from Pass 7 HyperKvasir UC proxy evaluation.",
+    "F05": "Mode1 convergence QC by seed for Pass 6 generative training.",
+    "F06": "Aggregate confusion panel for Pass 5 supervised and Pass 6 mode1/mode2 lanes.",
     "F07": "PICO field precision, recall, and F1 from Chapter 5 evaluation artifacts.",
     "F08": "Retrieval@k curve with 95% bootstrap confidence intervals (Chapter 5).",
     "F09": "Retrieval ablation lollipop comparison across backend and rerank settings.",

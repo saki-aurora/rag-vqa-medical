@@ -71,7 +71,9 @@ python Prototyping_reformat/thesis_figures/part5_thesis_integration.py
 
 ## Notes
 
-- Chapter 4 canonical inputs are pinned to run-level artifacts, including:
-  - `vlm_lora_finetune_mayo_balanced_full_20260303`
-  - `vlm_zero_shot_mode2_label_sampling_full_20260302`
+- Chapter 4 canonical inputs are pinned to frozen reporting artifacts:
+  - Pass 5 supervised metric summary
+  - Pass 6 generative metric summary + mode1 QC
+  - Pass 7 external drop table
+  - Pass 5/Pass 6 aggregate confusion figures
 - Chapter 5 canonical inputs are pinned to `eval_pass4_latest` and pass-4 completion audit.
