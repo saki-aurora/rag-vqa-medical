@@ -635,7 +635,7 @@ def _train_or_load_seed_run(
             shutil.rmtree(run_dir)
         run_dir.mkdir(parents=True, exist_ok=True)
         cmd: List[str] = [
-            str(Path(args.python).resolve()),
+            str(Path(args.python).expanduser()),
             str(args.train_script.resolve()),
             "--data-root",
             str(args.limuc_root.resolve()),
@@ -798,7 +798,7 @@ def _run_or_load_mode2_eval(
             shutil.rmtree(eval_root)
         eval_root.mkdir(parents=True, exist_ok=True)
         cmd: List[str] = [
-            str(Path(args.python).resolve()),
+            str(Path(args.python).expanduser()),
             str(args.eval_script.resolve()),
             "--meta-csv",
             str(args.meta_csv.resolve()),
@@ -1343,7 +1343,7 @@ def main() -> None:
         "limuc_root": str(args.limuc_root),
         "results_dir": str(args.results_dir),
         "out_dir": str(args.out_dir),
-        "python": str(Path(args.python).resolve()),
+        "python": str(Path(args.python).expanduser()),
         "train_script": str(args.train_script.resolve()),
         "eval_script": str(args.eval_script.resolve()),
         "meta_csv": str(args.meta_csv.resolve()),
