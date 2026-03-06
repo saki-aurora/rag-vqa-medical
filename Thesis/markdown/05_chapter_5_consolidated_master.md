@@ -176,7 +176,7 @@ Aggregate values:
 
 The extractor is recall-heavy for core required fields but has precision weakness in outcomes and severity anchors, indicating broad lexical matching behavior.
 
-![Figure 5.1: PICO field precision/recall/F1 (F07)](figures/generated/F07_ch5_pico_field_precision_recall_f1.png)
+![Figure 5.1: PICO field precision/recall/F1 (F07)](figures/ch5_representations/F07_ch5_pico_field_precision_recall_f1.png)
 
 *Per-field PICO extraction scores; shaded groups in the figure indicate required fields.*
 
@@ -200,7 +200,7 @@ Bootstrap 95% confidence intervals (`2000` iterations, `seed=42`):
 
 Interpretation: top-5 retrieval gives workable coverage on the current small KB, but wide intervals reflect small retrieval-gold sample size (`n=10`).
 
-![Figure 5.2: Retrieval@k with 95% bootstrap CIs (F08)](figures/generated/F08_ch5_retrieval_at_k_curve_with_ci.png)
+![Figure 5.2: Retrieval@k with 95% bootstrap CIs (F08)](figures/ch5_representations/F08_ch5_retrieval_at_k_curve_with_ci.png)
 
 *Retrieval precision/recall/hit-rate profiles with uncertainty bands.*
 
@@ -220,7 +220,7 @@ Source: `Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass3_ablation/
 
 Selected default in pass4: `hybrid + rerank alpha=0.20`, which ties best `Recall@5` while preserving stronger `Hit@1` than non-reranked TF-IDF.
 
-![Figure 5.3: Retrieval ablation comparison (F09)](figures/generated/F09_ch5_retrieval_ablation_comparison.png)
+![Figure 5.3: Retrieval ablation comparison (F09)](figures/ch5_representations/F09_ch5_retrieval_ablation_comparison.png)
 
 *Recall@5 comparison across backend/rerank configurations; multiple settings tie at the top in this small benchmark.*
 
@@ -246,7 +246,7 @@ Source: `Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/an
 
 Strict support is intentionally harder than the heuristic overlap checks (`min_overlap_ratio=0.25`, `min_overlap_terms=3`), providing a tighter baseline for future manual review.
 
-![Figure 5.4: Answer quality and grounding KPI panel (F10)](figures/generated/F10_ch5_answer_quality_grounding_kpi_panel.png)
+![Figure 5.4: Answer quality and grounding KPI panel (F10)](figures/ch5_representations/F10_ch5_answer_quality_grounding_kpi_panel.png)
 
 *Composite panel with answer KPIs, refusal rate, and completion audit checklist status.*
 
@@ -311,7 +311,93 @@ Chapter 5 delivers a complete PICO-grounded wrapper layer that is structured, sa
 
 Relative to a monolithic end-to-end generator, the chapter demonstrates a modular path: frozen visual severity evidence (Chapter 4) plus explicit retrieval-grounded synthesis control. The next dissertation step is to extend this baseline with larger curated evidence stores, stronger retrieval supervision, and clinician-scored semantic grounding studies.
 
-## 5.12 References (Chapter 5 Internal Artifacts)
+## 5.12 Consolidated Delivery Record (Parts 1-8)
+
+This section consolidates all Chapter 5 completion work into this single dissertation source file.
+Use this file as the Chapter 5 single source of truth for writing and final edits.
+
+### 5.12.1 Part-by-Part completion summary
+
+| Part | Date | Output artifact | Status | Dissertation-relevant outcome |
+|---|---|---|---|---|
+| Part 1 | 2026-03-06 | `CH5_PART1_SCOPE_FREEZE_20260306.md` | Complete | Locked Chapter 5 KPI bundle and claim boundary. |
+| Part 2 | 2026-03-06 | `CH5_PART2_REPRO_FREEZE_20260306.md` | Complete | Repo/code/data freeze documented with command provenance. |
+| Part 3 | 2026-03-06 | `CH5_PART3_WRITING_PACK_20260306.md`, `CH5_PART3_ASSET_MANIFEST_20260306.csv` | Complete | Writing pack and citation-ready asset map prepared with frozen values. |
+| Part 4 | 2026-03-06 | `CH5_PART4_CHAPTER_TEXT_SYNC_20260306.md` | Complete | Chapter 5 narrative synchronized to pass4 evidence boundary. |
+| Part 5 | 2026-03-06 | `CH5_PART5_FIGURE_SYNC_20260306.md` | Complete | Figure/data synchronization for `F07` to `F10` confirmed. |
+| Part 6 | 2026-03-06 | `CH5_PART6_CHAPTER_FIGURE_INSERT_SYNC_20260306.md` | Complete | Inserted `F07` to `F10` into Chapter 5 markdown text. |
+| Part 7 | 2026-03-06 | `CH5_PART7_DISSERTATION_READINESS_GATE_20260306.md` | Complete | Readiness gate passed: numeric/path/figure consistency checks. |
+| Part 8 | 2026-03-06 | `CH5_PART8_FINAL_WRITING_PASS_20260306.md` | Complete | Final dissertation-style writing pass delivered. |
+
+### 5.12.2 Frozen headline results (official)
+
+- PICO required-field macro-F1: `0.7572418125609615` (`n=20`)
+- Retrieval @5: precision `0.1600`, recall `0.4500`, hit rate `0.6000` (`n=10`)
+- Answer layer: citation coverage `1.0000`, strict support `0.8695652173913043`, hallucination proxy `0.0000`, contradiction proxy `0.0000`, refusals `4/50`
+- Completion audit: `PASS` (`6/6`) from `chapter5_completion_audit_ch5_freeze_20260306`
+
+### 5.12.3 Claim guardrail (locked)
+
+Allowed headline claims:
+1. Chapter 5 wrapper behavior is reproducible and auditable under frozen pass4 artifacts.
+2. PICO extraction + retrieval + citation-grounded synthesis are operational with explicit safety behavior.
+3. Chapter 5 remains a controlled downstream evidence layer to frozen Chapter 4 boundaries.
+
+Disallowed headline claims:
+1. Do not claim external deployment readiness.
+2. Do not treat heuristic grounding metrics as clinician-equivalent adjudication.
+3. Do not mix non-frozen artifact sets into headline tables.
+
+### 5.12.4 Reproducibility freeze snapshot
+
+- Freeze timestamp (UTC): `2026-03-06T17:54:37Z`
+- Branch at freeze: `LIMUC`
+- Commit at freeze: `29ea484bb90fb43dd24c4ac1c0dc7b3bda436d21`
+- Queryset hashes:
+  - `queries.jsonl`: `35c538281774cefae5893006f68045bcaff47579a67baa52f8d6ecc6a3e79fc8`
+  - `pico_gold.jsonl`: `48588d874e41f3d6bd875460e46e1cf9a11fb615a8e170c8b43dca303cd3b4ae`
+  - `retrieval_gold.jsonl`: `5dbb279a2f2abb227843980d853163a6cc61ec5047e4c0a5323c8830f7e756f4`
+
+## 5.13 Chapter 5 Representation Pack (What, Where, Aim)
+
+All Chapter 5 representations are consolidated under:
+- `Thesis/markdown/figures/ch5_representations/`
+
+### 5.13.1 Main-text representations
+
+| Rep ID | File | Where to place/use | Aim of representation |
+|---|---|---|---|
+| R5.1 | `F07_ch5_pico_field_precision_recall_f1.png` | Section `5.6.1` | Show fieldwise PICO extraction strengths and weaknesses. |
+| R5.2 | `F08_ch5_retrieval_at_k_curve_with_ci.png` | Section `5.6.2` | Show retrieval behavior by k with uncertainty intervals. |
+| R5.3 | `F09_ch5_retrieval_ablation_comparison.png` | Section `5.6.3` | Show backend/rerank sensitivity in retrieval quality. |
+| R5.4 | `F10_ch5_answer_quality_grounding_kpi_panel.png` | Section `5.6.4` | Summarize grounding KPIs with audit checklist status. |
+
+### 5.13.2 Table/data representations
+
+| Rep ID | File | Where to place/use | Aim of representation |
+|---|---|---|---|
+| R5.5 | `pico_eval.json` | Table source for `5.6.1` | Canonical PICO extraction metrics. |
+| R5.6 | `retrieval_eval.json` | Table source for `5.6.2` | Canonical retrieval metrics + CIs. |
+| R5.7 | `answer_eval.json` | Table source for `5.6.4` | Canonical answer-grounding/safety metrics. |
+| R5.8 | `retrieval_ablation_summary.tsv` | Table source for `5.6.3` | Retrieval ablation baseline/supporting results. |
+| R5.9 | `wrapper_run_config.json` | Protocol source for `5.5.2` | Frozen wrapper configuration reference. |
+| R5.10 | `kb_manifest.json` | Protocol source for `5.4.3` | Frozen KB/index profile reference. |
+| R5.11 | `chapter5_completion_report.json` | Gate source for `5.9` | Completion-audit pass evidence. |
+| R5.12 | `pipeline_summary.json` | Protocol source for `5.5.3` | End-to-end command provenance. |
+
+### 5.13.3 Supplemental figure-source tables
+
+| Rep ID | File | Aim |
+|---|---|---|
+| R5.13 | `ch5_pico_field_metrics.csv` | Figure source table for `F07`. |
+| R5.14 | `ch5_pico_per_query_scores.csv` | Per-query support table for PICO diagnostics. |
+| R5.15 | `ch5_retrieval_curve.csv` | Figure source table for `F08`. |
+| R5.16 | `ch5_retrieval_ablation.csv` | Figure source table for `F09`. |
+| R5.17 | `ch5_answer_kpis.csv` | Figure source table for `F10`. |
+| R5.18 | `ch5_answer_counts.csv` | Output/claim/refusal summary support. |
+| R5.19 | `ch5_completion_audit_checklist.csv` | Audit checklist support table. |
+
+## 5.14 References (Chapter 5 Internal Artifacts)
 
 [C5-1] `CH4_PART1_SCOPE_FREEZE_20260306.md`  
 [C5-2] `CH4_PART2_REPRO_FREEZE_20260306.md`  
@@ -324,4 +410,8 @@ Relative to a monolithic end-to-end generator, the chapter demonstrates a modula
 [C5-9] `Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/retrieval_eval.json`  
 [C5-10] `Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/answer_eval.json`  
 [C5-11] `Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass3_ablation/retrieval_ablation_summary.tsv`  
-[C5-12] `Prototyping_reformat/chapter5_pico_wrapper/results/chapter5_completion_audit_ch5_freeze_20260306/chapter5_completion_report.json`
+[C5-12] `Prototyping_reformat/chapter5_pico_wrapper/results/chapter5_completion_audit_ch5_freeze_20260306/chapter5_completion_report.json`  
+[C5-13] `CH5_PART1_SCOPE_FREEZE_20260306.md`  
+[C5-14] `CH5_PART2_REPRO_FREEZE_20260306.md`  
+[C5-15] `CH5_PART3_WRITING_PACK_20260306.md`  
+[C5-16] `CH5_PART3_ASSET_MANIFEST_20260306.csv`

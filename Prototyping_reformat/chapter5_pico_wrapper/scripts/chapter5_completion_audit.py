@@ -10,7 +10,17 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 
-CHAPTER4_RUN_ID = "vlm_lora_finetune_mayo_balanced_full_20260303_20260303T080754Z"
+CH5_FROZEN_ARTIFACT_TOKENS = [
+    "Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/pico_eval.json",
+    "Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/retrieval_eval.json",
+    "Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/answer_eval.json",
+    "Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest/wrapper_outputs.jsonl",
+]
+
+CH4_FROZEN_BOUNDARY_TOKENS = [
+    "CH4_PART1_SCOPE_FREEZE_20260306.md",
+    "Prototyping_reformat/DatasetAnalysis/LIMUC/4_reporting/out/pass6_generative_metric_summary.csv",
+]
 
 
 def _find_workspace_root() -> Path:
@@ -56,32 +66,32 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--kb_manifest",
         type=Path,
-        default=workspace_root / "results" / "kb_build_latest" / "kb_manifest.json",
+        default=workspace_root / "results" / "kb_build_pass4_latest" / "kb_manifest.json",
     )
     parser.add_argument(
         "--wrapper_outputs",
         type=Path,
-        default=workspace_root / "results" / "wrapper_eval_latest" / "wrapper_outputs.jsonl",
+        default=workspace_root / "results" / "wrapper_eval_pass4_latest" / "wrapper_outputs.jsonl",
     )
     parser.add_argument(
         "--run_config",
         type=Path,
-        default=workspace_root / "results" / "wrapper_eval_latest" / "run_config.json",
+        default=workspace_root / "results" / "wrapper_eval_pass4_latest" / "run_config.json",
     )
     parser.add_argument(
         "--pico_eval",
         type=Path,
-        default=workspace_root / "results" / "eval_latest" / "pico_eval.json",
+        default=workspace_root / "results" / "eval_pass4_latest" / "pico_eval.json",
     )
     parser.add_argument(
         "--retrieval_eval",
         type=Path,
-        default=workspace_root / "results" / "eval_latest" / "retrieval_eval.json",
+        default=workspace_root / "results" / "eval_pass4_latest" / "retrieval_eval.json",
     )
     parser.add_argument(
         "--answer_eval",
         type=Path,
-        default=workspace_root / "results" / "eval_latest" / "answer_eval.json",
+        default=workspace_root / "results" / "eval_pass4_latest" / "answer_eval.json",
     )
     parser.add_argument(
         "--chapter_md",
@@ -199,13 +209,7 @@ def _check_chapter_sync(
         return False, {"chapter_md": str(chapter_md)}, [f"Missing chapter markdown: {chapter_md}"]
 
     text = chapter_md.read_text(encoding="utf-8")
-    required_tokens = [
-        "Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/pico_eval.json",
-        "Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/retrieval_eval.json",
-        "Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/answer_eval.json",
-        "Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_latest/wrapper_outputs.jsonl",
-        CHAPTER4_RUN_ID,
-    ]
+    required_tokens = CH5_FROZEN_ARTIFACT_TOKENS + CH4_FROZEN_BOUNDARY_TOKENS
     missing_tokens = [tok for tok in required_tokens if tok not in text]
     for tok in missing_tokens:
         notes.append(f"Chapter markdown missing reference token: {tok}")
@@ -217,7 +221,7 @@ def _check_chapter_sync(
         "has_retrieval_eval_ref": required_tokens[1] not in missing_tokens,
         "has_answer_eval_ref": required_tokens[2] not in missing_tokens,
         "has_wrapper_outputs_ref": required_tokens[3] not in missing_tokens,
-        "has_chapter4_run_id_ref": required_tokens[4] not in missing_tokens,
+        "has_chapter4_boundary_ref": required_tokens[4] not in missing_tokens,
         "pico_eval_path": str(pico_eval_path),
         "retrieval_eval_path": str(retrieval_eval_path),
         "answer_eval_path": str(answer_eval_path),
@@ -244,7 +248,7 @@ def _build_report_md(
     lines.append(f"- {_bool_icon(checklist['retrieval_eval_exists'])} Retrieval evaluation file exists and is readable")
     lines.append(f"- {_bool_icon(checklist['answer_eval_exists'])} Answer evaluation file exists and is readable")
     lines.append(
-        f"- {_bool_icon(checklist['chapter_text_synced'])} Chapter 5 markdown exists and references Chapter 5 artifacts + frozen Chapter 4 run id"
+        f"- {_bool_icon(checklist['chapter_text_synced'])} Chapter 5 markdown exists and references frozen Chapter 5 artifacts + frozen Chapter 4 boundary"
     )
     lines.append("")
     lines.append("## Key Paths")
@@ -268,21 +272,21 @@ def _build_report_md(
         lines.append("## Minimal Punch List")
         lines.append("1. Build KB index:")
         lines.append(
-            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/build_kb.py --kb_dir Prototyping_reformat/chapter5_pico_wrapper/data/kb --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_latest`"
+            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/build_kb.py --kb_dir Prototyping_reformat/chapter5_pico_wrapper/data/kb --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest`"
         )
         lines.append("2. Run wrapper on query set:")
         lines.append(
-            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/run_wrapper.py --query_file Prototyping_reformat/chapter5_pico_wrapper/data/queries/queries.jsonl --manifest_path Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_latest/kb_manifest.json --retrieval_k 5 --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_latest`"
+            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/run_wrapper.py --query_file Prototyping_reformat/chapter5_pico_wrapper/data/queries/queries.jsonl --manifest_path Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_manifest.json --retrieval_k 5 --retrieval_backend hybrid --rerank_pool 20 --rerank_alpha 0.2 --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest`"
         )
         lines.append("3. Generate evaluations:")
         lines.append(
-            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_pico.py --pico_gold Prototyping_reformat/chapter5_pico_wrapper/data/queries/pico_gold.jsonl --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest`"
+            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_pico.py --pico_gold Prototyping_reformat/chapter5_pico_wrapper/data/queries/pico_gold.jsonl --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest`"
         )
         lines.append(
-            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_retrieval.py --retrieval_gold Prototyping_reformat/chapter5_pico_wrapper/data/queries/retrieval_gold.jsonl --manifest_path Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_latest/kb_manifest.json --k_values 1,3,5 --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest`"
+            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_retrieval.py --retrieval_gold Prototyping_reformat/chapter5_pico_wrapper/data/queries/retrieval_gold.jsonl --manifest_path Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_pass4_latest/kb_manifest.json --k_values 1,3,5 --retrieval_backend hybrid --rerank_pool 20 --rerank_alpha 0.2 --bootstrap_iters 2000 --seed 42 --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest`"
         )
         lines.append(
-            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_answers.py --wrapper_outputs Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_latest/wrapper_outputs.jsonl --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest`"
+            "   `python Prototyping_reformat/chapter5_pico_wrapper/scripts/eval_answers.py --wrapper_outputs Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest/wrapper_outputs.jsonl --min_overlap_ratio_strict 0.25 --min_overlap_terms_strict 3 --out_dir Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest`"
         )
         lines.append("4. Update Chapter 5 markdown artifact references and rerun audit.")
     else:
@@ -290,7 +294,12 @@ def _build_report_md(
         lines.append("- All required Chapter 5 artifacts are present and readable.")
         lines.append("- Chapter markdown references are synchronized with generated outputs.")
     lines.append("")
-    lines.append(f"- frozen Chapter 4 run reference: `{CHAPTER4_RUN_ID}`")
+    lines.append("- frozen Chapter 5 artifact tokens:")
+    for tok in CH5_FROZEN_ARTIFACT_TOKENS:
+        lines.append(f"  - `{tok}`")
+    lines.append("- frozen Chapter 4 boundary tokens:")
+    for tok in CH4_FROZEN_BOUNDARY_TOKENS:
+        lines.append(f"  - `{tok}`")
     return "\n".join(lines) + "\n"
 
 

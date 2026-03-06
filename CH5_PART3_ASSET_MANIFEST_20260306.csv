@@ -1,0 +1,18 @@
+asset_id,asset_type,chapter_section,status,claim_role,exists,path,key_excerpt,notes
+T5_01,table,5.6.1 PICO Extraction,ready,headline,yes,Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/pico_eval.json,Required-field macro-F1=0.7572418125609615,Primary PICO extraction result.
+T5_02,table,5.6.2 Retrieval Quality,ready,headline,yes,Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/retrieval_eval.json,Hit@5=0.6 Recall@5=0.45,Primary retrieval result with CI.
+T5_03,table,5.6.4 Answer Quality,ready,headline,yes,Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass4_latest/answer_eval.json,Citation coverage=1.0 Strict support=0.8695652173913043,Primary grounding/safety result.
+T5_04,table,5.5.2 Config Snapshot,ready,supporting,yes,Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_pass4_latest/run_config.json,retrieval_backend=hybrid rerank_alpha=0.2,Frozen run configuration.
+T5_05,table,5.9 Reproducibility Status,ready,supporting,yes,Prototyping_reformat/chapter5_pico_wrapper/results/chapter5_completion_audit_ch5_freeze_20260306/chapter5_completion_report.json,status=PASS checklist=6/6,Final readiness/audit gate.
+T5_06,table,5.6.3 Retrieval Ablation,ready,supporting,yes,Prototyping_reformat/chapter5_pico_wrapper/results/eval_pass3_ablation/retrieval_ablation_summary.tsv,Best Recall@5 tie at 0.45,Backend/rerank sensitivity support.
+T5_07,table,5.5 Protocol Provenance,ready,supporting,yes,Prototyping_reformat/chapter5_pico_wrapper/results/pipeline_pass4_latest/pipeline_summary.json,All pipeline steps returncode=0,One-command reproducibility trace.
+F5_01,figure,5.6.1 PICO Extraction,ready,headline,yes,Thesis/markdown/figures/generated/F07_ch5_pico_field_precision_recall_f1.png,Field-level P/R/F1 profile,Main-text Chapter 5 figure.
+F5_02,figure,5.6.2 Retrieval Quality,ready,headline,yes,Thesis/markdown/figures/generated/F08_ch5_retrieval_at_k_curve_with_ci.png,Retrieval@k with bootstrap CI,Main-text Chapter 5 figure.
+F5_03,figure,5.6.3 Retrieval Ablation,ready,supporting,yes,Thesis/markdown/figures/generated/F09_ch5_retrieval_ablation_comparison.png,Recall@5 ablation comparison,Main-text Chapter 5 supporting figure.
+F5_04,figure,5.6.4 Answer Quality,ready,headline,yes,Thesis/markdown/figures/generated/F10_ch5_answer_quality_grounding_kpi_panel.png,Grounding KPI panel + audit checklist,Main-text Chapter 5 figure.
+D5_01,data,Figure Source Data,ready,supporting,yes,Prototyping_reformat/thesis_figures/data/ch5_pico_field_metrics.csv,Field metrics export,Figure source table.
+D5_02,data,Figure Source Data,ready,supporting,yes,Prototyping_reformat/thesis_figures/data/ch5_retrieval_curve.csv,Retrieval curve export,Figure source table.
+D5_03,data,Figure Source Data,ready,supporting,yes,Prototyping_reformat/thesis_figures/data/ch5_retrieval_ablation.csv,Ablation export,Figure source table.
+D5_04,data,Figure Source Data,ready,supporting,yes,Prototyping_reformat/thesis_figures/data/ch5_answer_kpis.csv,Answer KPI export,Figure source table.
+D5_05,data,Figure Source Data,ready,supporting,yes,Prototyping_reformat/thesis_figures/data/ch5_answer_counts.csv,Answer count export,Figure source table.
+D5_06,data,Figure Source Data,ready,supporting,yes,Prototyping_reformat/thesis_figures/data/ch5_completion_audit_checklist.csv,Audit checklist export,Figure source table.

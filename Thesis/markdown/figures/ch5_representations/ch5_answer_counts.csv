@@ -1,0 +1,2 @@
+audit_status,n_outputs,n_claims,n_claims_evaluated,n_policy_claims_excluded,refusal_count,refusal_rate
+PASS,50,142,138,4,4,0.08

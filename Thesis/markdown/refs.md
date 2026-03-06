@@ -157,59 +157,73 @@ This file consolidates the reference sections from Chapter 1, Chapter 2, and Cha
 
 ### External Sources
 
-[51] Borgli H, Thambawita V, Smedsrud PH, et al. HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy. *Scientific Data*, 2020. https://www.nature.com/articles/s41597-020-00622-y
+[1] Borgli H, Thambawita V, Smedsrud PH, et al. HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy. *Scientific Data*, 2020. https://www.nature.com/articles/s41597-020-00622-y
 
-[52] Gautam S, Storas A, Midoglu C, et al. Kvasir-VQA: A Text-Image Pair GI Tract Dataset. arXiv:2409.01437, 2024. https://arxiv.org/abs/2409.01437
+[2] Gautam S, Storas A, Midoglu C, et al. Kvasir-VQA: A Text-Image Pair GI Tract Dataset. arXiv:2409.01437, 2024. https://arxiv.org/abs/2409.01437
 
-[53] Gautam S, Riegler MA, Halvorsen P. Kvasir-VQA-x1: A Multimodal Dataset for Medical Reasoning and Robust MedVQA in Gastrointestinal Endoscopy. arXiv:2506.09958, 2025. https://arxiv.org/abs/2506.09958
+[3] Gautam S, Riegler MA, Halvorsen P. Kvasir-VQA-x1: A Multimodal Dataset for Medical Reasoning and Robust MedVQA in Gastrointestinal Endoscopy. arXiv:2506.09958, 2025. https://arxiv.org/abs/2506.09958
 
-[54] Hicks S, Storas A, Halvorsen P, de Lange T, Riegler M, Thambawita V. Overview of ImageCLEFmedical 2023 - Medical Visual Question Answering for Gastrointestinal Tract. CEUR Workshop Proceedings Vol-3497, 2023. https://ceur-ws.org/Vol-3497/paper-107.pdf
+[4] Hicks S, Storas A, Halvorsen P, de Lange T, Riegler M, Thambawita V. Overview of ImageCLEFmedical 2023 - Medical Visual Question Answering for Gastrointestinal Tract. CEUR-WS Vol-3497, 2023. https://ceur-ws.org/Vol-3497/paper-107.pdf
 
-[55] Polat G, Kani HT, Ergenc I, et al. Labeled Images for Ulcerative Colitis (LIMUC) Dataset. Zenodo, 2022. https://zenodo.org/records/5827695
+[5] Polat G, Kani HT, Ergenc I, et al. Labeled Images for Ulcerative Colitis (LIMUC) Dataset. Zenodo, 2022. https://zenodo.org/records/5827695
 
-[56] Hicks SA, Strumke I, Thambawita V, et al. On evaluation metrics for medical applications of artificial intelligence. *Scientific Reports*, 2022. https://www.nature.com/articles/s41598-022-09954-8
+[6] Hicks SA, Strumke I, Thambawita V, et al. On evaluation metrics for medical applications of artificial intelligence. *Scientific Reports*, 2022. https://www.nature.com/articles/s41598-022-09954-8
 
-[57] Lin S, Kryściński W, Wu D, et al. Medical Visual Question Answering: A Survey. arXiv:2111.10056, 2021. https://arxiv.org/abs/2111.10056
+[7] Lin S, Kryściński W, Wu D, et al. Medical Visual Question Answering: A Survey. arXiv:2111.10056, 2021. https://arxiv.org/abs/2111.10056
 
-[58] Ben Abacha A, Hasan SA, Datla V, et al. VQA-Med: Overview of the Medical Visual Question Answering Task at ImageCLEF 2019. CEUR Workshop Proceedings Vol-2380, 2019. https://ceur-ws.org/Vol-2380/paper_78.pdf
+[8] Ben Abacha A, Hasan SA, Datla V, et al. VQA-Med: Overview of the Medical Visual Question Answering Task at ImageCLEF 2019. CEUR Workshop Proceedings Vol-2380, 2019. https://ceur-ws.org/Vol-2380/paper_78.pdf
 
-[59] Sial M, Fatima M, Nawaz K, et al. Path-RAG: Knowledge-Based Explainable Medical VQA with Large Language Models. Proceedings of Machine Learning Research 259, 2025. https://proceedings.mlr.press/v259/sial25a.html
+[9] Sharma D, Spitzer W, Kour O, et al. MedFuseNet: A Medical Visual Question Answering System Based on Knowledge Extraction and Fusion. *Scientific Reports*, 2021. https://doi.org/10.1038/s41598-021-98390-1
 
-[60] Yan Q, He X, Yue X, Wang XE. Worse than Random? An Embarrassingly Simple Probing Evaluation of Large Multimodal Models in Medical VQA. arXiv:2405.20421, 2024. https://arxiv.org/abs/2405.20421
+[10] Li Z, Wang X, Jiang Z, et al. Self-Supervised Vision-Language Pretraining for Medical Visual Question Answering. arXiv:2211.13594, 2022. https://arxiv.org/abs/2211.13594
 
-[61] Rieff M, Varma M, Rabow O, et al. SMMILE: An Expert-Driven Benchmark for Multimodal Medical In-Context Learning. arXiv:2506.21355, 2025. https://arxiv.org/abs/2506.21355
+[11] Luo R, Zhou Y, Wang B, et al. A New Benchmark and Multimodal Method for Medical Visual Question Answering: UnICL. arXiv:2212.10729, 2022. https://arxiv.org/abs/2212.10729
 
-[62] Stidham RW, Liu W, Bishu S, et al. Performance of a Deep Learning Model vs Human Reviewers in Grading Endoscopic Disease Severity of Patients With Ulcerative Colitis. *JAMA Network Open*, 2019;2(5):e193963. https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2733432
+[12] Hu Y, Yang X, Gong L, et al. Interpretable Medical Image Visual Question Answering via Multi-Modal Relationship Graph Learning. arXiv:2302.09636, 2023. https://arxiv.org/abs/2302.09636
 
-[63] Ozawa T, Ishihara S, Fujishiro M, et al. Novel Computer-Aided Diagnosis System for Endoscopic Disease Activity in Patients with Ulcerative Colitis. *Gastroenterology*, 2020;158(8):2150-2157.e3. https://www.gastrojournal.org/article/S0016-5085%2820%2930212-2/fulltext
+[13] Hu Y, Zhao M, Ren Z, et al. Expert Knowledge-Aware Image Difference Graph Model for Medical Visual Question Answering. arXiv:2307.11986, 2023. https://arxiv.org/abs/2307.11986
 
-[64] Yao H, Tewari AK, Morais M, et al. Novel deep learning-based computer-aided diagnosis system for predicting inflammatory activity in ulcerative colitis: a prospective multicentre study. *Gastrointestinal Endoscopy*, 2023;97(2):330-339.e1. https://pubmed.ncbi.nlm.nih.gov/35985375/
+[14] Thai D-V, Thanh T-N, Nhut H-H, et al. UIT-Saviors at MEDVQA-GI 2023: A Multi-Model Pipeline for Gastrointestinal Medical VQA. arXiv:2307.02783, 2023. https://arxiv.org/abs/2307.02783
 
-[65] Takenaka K, Ohtsuka K, Fujii T, et al. Development and Validation of a Deep Neural Network for Accurate Evaluation of Endoscopic Images From Patients With Ulcerative Colitis. *Journal of Crohn's and Colitis*, 2023;17(4):463-472. https://academic.oup.com/ecco-jcc/article/17/4/463/6762568
+[15] Sial M, Fatima M, Nawaz K, et al. Path-RAG: Knowledge-Based Explainable Medical VQA with Large Language Models. Proceedings of Machine Learning Research 259, 2025. https://proceedings.mlr.press/v259/sial25a.html
+
+[16] Sharma D. Visual Question Answering in the Medical Domain. Master's thesis, Virginia Tech, 2020. http://hdl.handle.net/10919/99930
+
+[17] Xu Z. A Holistic Deep Learning Framework for Endoscopy. DPhil thesis, University of Oxford, 2024. https://ora.ox.ac.uk/objects/uuid:43f626b8-b0f2-4f24-a4af-3af97f8af2d7
+
+[18] González-Bueno Puyal J. Computer-assisted cancer detection in gastrointestinal endoscopy using deep learning. PhD thesis, University College London, 2023. https://discovery.ucl.ac.uk/id/eprint/10173345/
+
+[19] Polat G. Computer-Aided Estimation of Ulcerative Colitis Severity from Endoscopic Images. PhD thesis, Middle East Technical University, 2023. http://etd.lib.metu.edu.tr/upload/12629449/index.pdf
+
+[20] Laiz Treceño P. Deep Learning-based Solutions to Improve Diagnosis in Wireless Capsule Endoscopy. PhD thesis, Universitat de Barcelona, 2023. https://diposit.ub.edu/dspace/handle/2445/203821
+
+[21] Zhou Y. Hardware Prototyping and Algorithm Development for Endoscopic Vision Systems. PhD dissertation, University of Washington, 2022. http://hdl.handle.net/1773/49704
+
+[22] He X, Zhang Y, Mou L, et al. PathVQA: 30000+ Questions for Medical Visual Question Answering. arXiv:2003.10286, 2020. https://arxiv.org/abs/2003.10286
 
 ### Internal Repository Sources
 
-[66] `Prototyping_reformat/DatasetAnalysis/HyperKvasir/HyperKvasir.md`
+[23] `Prototyping_reformat/DatasetAnalysis/HyperKvasir/HyperKvasir.md`
 
-[67] `Prototyping_reformat/DatasetAnalysis/ImageCLEF_MEDVQA_GI_2023/ImageCLEF_MEDVQA_GI_2023.md`
+[24] `Prototyping_reformat/DatasetAnalysis/ImageCLEF_MEDVQA_GI_2023/ImageCLEF_MEDVQA_GI_2023.md`
 
-[68] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/Kvasir_VQA.md`
+[25] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/Kvasir_VQA.md`
 
-[69] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/Kvasir_VQA_x1.md`
+[26] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA_x1/Kvasir_VQA_x1.md`
 
-[70] `Prototyping_reformat/DatasetAnalysis/LIMUC/LIMUC.md`
+[27] `Prototyping_reformat/DatasetAnalysis/LIMUC/LIMUC.md`
 
-[71] `Prototyping_reformat/DatasetAnalysis/Kvasir_SEG/Kvasir_SEG.md`
+[28] `Prototyping_reformat/DatasetAnalysis/Kvasir_SEG/Kvasir_SEG.md`
 
-[72] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/evaluation_comparison/scenarios/scenarios.yaml`
+[29] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/evaluation_comparison/phase3_results/summary_uc_phase3.csv`
 
-[73] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/evaluation_comparison/phase3_results/summary_uc_phase3.csv`
+[30] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/evaluation_comparison/scenarios/scenarios.yaml`
 
-[74] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/0_dataset_prep/out/visualizations/qa_by_source.csv`
+[31] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/0_dataset_prep/out/visualizations/qa_by_source.csv`
 
-[75] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/0_dataset_prep/out/visualizations/question_type_counts.csv`
+[32] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/0_dataset_prep/out/visualizations/question_type_counts.csv`
 
-[76] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/0_dataset_prep/out/visualizations/answer_type_counts.csv`
+[33] `Prototyping_reformat/DatasetAnalysis/Kvasir_VQA/0_dataset_prep/out/visualizations/answer_type_counts.csv`
 
 ## Combined References (Chicago Style)
 

@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "checklist": {
+    "kb_index_built": true,
+    "wrapper_ran_min_queries": true,
+    "pico_eval_exists": true,
+    "retrieval_eval_exists": true,
+    "answer_eval_exists": true,
+    "chapter_text_synced": true
+  },
+  "details": {
+    "kb": {
+      "manifest_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_latest/kb_manifest.json",
+      "index_file": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/kb_build_latest/kb_index/tfidf_index.pkl",
+      "index_backend": "tfidf",
+      "n_chunks": 12,
+      "n_docs": 3,
+      "n_source_files": 3
+    },
+    "wrapper": {
+      "wrapper_outputs_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_latest/wrapper_outputs.jsonl",
+      "run_config_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_latest/run_config.json",
+      "wrapper_run_id": "chapter5_wrapper_part4_20260303",
+      "n_wrapper_outputs": 50,
+      "min_queries_required": 20
+    },
+    "pico_eval": {
+      "path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/pico_eval.json",
+      "label": "pico_eval",
+      "task": "pico_extraction_eval"
+    },
+    "retrieval_eval": {
+      "path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/retrieval_eval.json",
+      "label": "retrieval_eval",
+      "task": "retrieval_eval"
+    },
+    "answer_eval": {
+      "path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/answer_eval.json",
+      "label": "answer_eval",
+      "task": "answer_eval"
+    },
+    "chapter_sync": {
+      "chapter_md": "/mnt/hf/thesis/rag-vqa-medical/Thesis/markdown/05_chapter_5_genai_wrapper_pico.md",
+      "has_pico_eval_ref": true,
+      "has_retrieval_eval_ref": true,
+      "has_answer_eval_ref": true,
+      "has_wrapper_outputs_ref": true,
+      "has_chapter4_boundary_ref": true,
+      "pico_eval_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/pico_eval.json",
+      "retrieval_eval_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/retrieval_eval.json",
+      "answer_eval_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/eval_latest/answer_eval.json",
+      "wrapper_outputs_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/wrapper_eval_latest/wrapper_outputs.jsonl"
+    }
+  },
+  "notes": [],
+  "run_id": "chapter5_completion_audit_20260306T174938Z",
+  "report_path": "/mnt/hf/thesis/rag-vqa-medical/Prototyping_reformat/chapter5_pico_wrapper/results/chapter5_completion_audit_20260306T174938Z/chapter5_completion_report.md",
+  "generated_utc": "2026-03-06T17:49:38.809896+00:00"
+}
