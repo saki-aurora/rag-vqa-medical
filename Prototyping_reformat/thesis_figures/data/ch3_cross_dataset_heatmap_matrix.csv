@@ -1,0 +1,6 @@
+dataset_display,constrained_score,baseline_score,absolute_gap,residual_error_reduction
+HyperKvasir (accuracy),0.8789,0.0638,0.8151,0.8706472975859859
+ImageCLEF MEDVQA-GI 2023 (accuracy),0.9089,0.067,0.8419000000000001,0.902357984994641
+Kvasir-VQA (yes/no subset) (accuracy),0.986456,0.893905,0.09255100000000005,0.872340826617654
+Kvasir-VQA-x1 (generative) (token_f1),0.508473,0.172788,0.33568499999999996,0.40580286552902994
+LIMUC severity (accuracy),0.753855,0.548636,0.20521900000000004,0.4546640848627716

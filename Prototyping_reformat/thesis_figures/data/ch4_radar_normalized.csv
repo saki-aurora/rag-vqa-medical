@@ -1,0 +1,25 @@
+run_name,display_name,family,metric,metric_display,raw_value,normalized_value
+vit_frozen_logreg,ViT frozen+LR,frozen,accuracy,Accuracy,0.6909845788849348,0.7081339712918662
+finetune_resnet50,ResNet50 fine-tune,supervised,accuracy,Accuracy,0.7633451957295374,1.0
+vlm_zero_shot_mode2_label_sampling_full_20260302,VLM mode2 sampling,generative,accuracy,Accuracy,0.5154211150652431,0.0
+vlm_lora_finetune_mayo_balanced_full_20260303,VLM LoRA balanced,generative,accuracy,Accuracy,0.7200474495848161,0.8253588516746411
+vit_frozen_logreg,ViT frozen+LR,frozen,macro_f1,Macro-F1,0.6191785416901032,0.8644898709382166
+finetune_resnet50,ResNet50 fine-tune,supervised,macro_f1,Macro-F1,0.6694020252436621,0.97349959779783
+vlm_zero_shot_mode2_label_sampling_full_20260302,VLM mode2 sampling,generative,macro_f1,Macro-F1,0.22088662714197693,0.0
+vlm_lora_finetune_mayo_balanced_full_20260303,VLM LoRA balanced,generative,macro_f1,Macro-F1,0.6816114174924603,1.0
+vit_frozen_logreg,ViT frozen+LR,frozen,balanced_accuracy,Balanced Acc,0.641922213709911,0.8720901810980328
+finetune_resnet50,ResNet50 fine-tune,supervised,balanced_accuracy,Balanced Acc,0.6602051214715592,0.9134357365631761
+vlm_zero_shot_mode2_label_sampling_full_20260302,VLM mode2 sampling,generative,balanced_accuracy,Balanced Acc,0.25628597877538556,0.0
+vlm_lora_finetune_mayo_balanced_full_20260303,VLM LoRA balanced,generative,balanced_accuracy,Balanced Acc,0.698483635959162,1.0
+vit_frozen_logreg,ViT frozen+LR,frozen,qwk,QWK,0.7619507036814809,0.9187884018038621
+finetune_resnet50,ResNet50 fine-tune,supervised,qwk,QWK,0.8287620300398653,1.0
+vlm_zero_shot_mode2_label_sampling_full_20260302,VLM mode2 sampling,generative,qwk,QWK,0.006079952080689455,0.0
+vlm_lora_finetune_mayo_balanced_full_20260303,VLM LoRA balanced,generative,qwk,QWK,0.8231042276595422,0.9931227353410221
+vit_frozen_logreg,ViT frozen+LR,frozen,mae,MAE,0.3457888493475682,0.8080459770114943
+finetune_resnet50,ResNet50 fine-tune,supervised,mae,MAE,0.24673784104389088,1.0
+vlm_zero_shot_mode2_label_sampling_full_20260302,VLM mode2 sampling,generative,mae,MAE,0.7627520759193357,0.0
+vlm_lora_finetune_mayo_balanced_full_20260303,VLM LoRA balanced,generative,mae,MAE,0.2846975088967972,0.9264367816091953
+vit_frozen_logreg,ViT frozen+LR,frozen,rmse,RMSE,0.6503033328176814,0.8111901651259982
+finetune_resnet50,ResNet50 fine-tune,supervised,rmse,RMSE,0.5189184847657231,1.0
+vlm_zero_shot_mode2_label_sampling_full_20260302,VLM mode2 sampling,generative,rmse,RMSE,1.2147765587883772,0.0
+vlm_lora_finetune_mayo_balanced_full_20260303,VLM LoRA balanced,generative,rmse,RMSE,0.543482902656953,0.9646990976921105

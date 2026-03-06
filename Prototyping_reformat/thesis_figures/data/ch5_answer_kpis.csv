@@ -1,0 +1,8 @@
+kpi_key,kpi_label,value,higher_is_better,panel_label,panel_value
+citation_coverage,Citation coverage,1.0,True,Citation coverage,1.0
+citation_correctness_heuristic,Citation correctness,1.0,True,Citation correctness,1.0
+claim_support_rate_strict,Strict claim support,0.8695652173913043,True,Strict claim support,0.8695652173913043
+citation_link_integrity,Citation link integrity,1.0,True,Citation link integrity,1.0
+hallucination_rate_proxy,Hallucination proxy,0.0,False,Non-hallucination (1-H),1.0
+contradiction_rate_proxy,Contradiction proxy,0.0,False,Non-contradiction (1-C),1.0
+refusal_rate,Refusal rate,0.08,False,Answer issuance (1-R),0.92

@@ -1,0 +1,7 @@
+check_key,check_label,status_bool,status_text
+kb_index_built,KB index built,True,PASS
+wrapper_ran_min_queries,Wrapper ran minimum queries,True,PASS
+pico_eval_exists,PICO eval exists,True,PASS
+retrieval_eval_exists,Retrieval eval exists,True,PASS
+answer_eval_exists,Answer eval exists,True,PASS
+chapter_text_synced,Chapter text synced,True,PASS

@@ -1,0 +1,57 @@
+run_a,run_b,display_a,display_b,n,n01_a_wrong_b_right,n10_a_right_b_wrong,chi2_cc,p_value
+clip_linear_baseline,resnet50_frozen_logreg,CLIP linear,ResNet50 frozen+LR,1686,228,311,12.47495361781076,0.00041244489519385474
+clip_linear_baseline,vit_frozen_logreg,CLIP linear,ViT frozen+LR,1686,251,214,2.7870967741935484,0.0950262463989372
+clip_linear_baseline,finetune_resnet50,CLIP linear,ResNet50 fine-tune,1686,298,139,57.12585812356979,4.087952887767937e-14
+clip_linear_baseline,finetune_vit_or_swin,CLIP linear,ViT/Swin fine-tune,1686,262,235,1.3601609657947686,0.2435095867650766
+clip_linear_baseline,vlm_zero_shot_mayo,CLIP linear,VLM zero-shot,1686,217,420,64.05651491365776,1.2090083139772448e-15
+clip_linear_baseline,vlm_zero_shot_mode2_label_sampling_full_20260302,CLIP linear,VLM mode2 sampling,1686,216,475,96.32995658465991,9.724742252820812e-23
+clip_linear_baseline,vlm_lora_finetune_mayo_balanced_full_20260303,CLIP linear,VLM LoRA balanced,1686,269,183,15.984513274336283,6.386276904793572e-05
+resnet50_frozen_logreg,clip_linear_baseline,ResNet50 frozen+LR,CLIP linear,1686,311,228,12.47495361781076,0.00041244489519385474
+resnet50_frozen_logreg,vit_frozen_logreg,ResNet50 frozen+LR,ViT frozen+LR,1686,351,231,24.331615120274915,8.109705486434339e-07
+resnet50_frozen_logreg,finetune_resnet50,ResNet50 frozen+LR,ResNet50 fine-tune,1686,390,148,107.95724907063197,2.746386805999064e-25
+resnet50_frozen_logreg,finetune_vit_or_swin,ResNet50 frozen+LR,ViT/Swin fine-tune,1686,333,223,21.368705035971225,3.7890581471140714e-06
+resnet50_frozen_logreg,vlm_zero_shot_mayo,ResNet50 frozen+LR,VLM zero-shot,1686,254,374,22.54936305732484,2.0481242713755e-06
+resnet50_frozen_logreg,vlm_zero_shot_mode2_label_sampling_full_20260302,ResNet50 frozen+LR,VLM mode2 sampling,1686,258,434,44.255780346820806,2.881522728984582e-11
+resnet50_frozen_logreg,vlm_lora_finetune_mayo_balanced_full_20260303,ResNet50 frozen+LR,VLM LoRA balanced,1686,380,211,47.756345177664976,4.826197076477925e-12
+vit_frozen_logreg,clip_linear_baseline,ViT frozen+LR,CLIP linear,1686,214,251,2.7870967741935484,0.0950262463989372
+vit_frozen_logreg,resnet50_frozen_logreg,ViT frozen+LR,ResNet50 frozen+LR,1686,231,351,24.331615120274915,8.109705486434339e-07
+vit_frozen_logreg,finetune_resnet50,ViT frozen+LR,ResNet50 fine-tune,1686,278,156,33.735023041474655,6.315338651511023e-09
+vit_frozen_logreg,finetune_vit_or_swin,ViT frozen+LR,ViT/Swin fine-tune,1686,230,240,0.1723404255319149,0.6780401189182237
+vit_frozen_logreg,vlm_zero_shot_mayo,ViT frozen+LR,VLM zero-shot,1686,212,452,86.02560240963855,1.776210714553879e-20
+vit_frozen_logreg,vlm_zero_shot_mode2_label_sampling_full_20260302,ViT frozen+LR,VLM mode2 sampling,1686,204,500,123.61505681818181,1.0228005093029725e-28
+vit_frozen_logreg,vlm_lora_finetune_mayo_balanced_full_20260303,ViT frozen+LR,VLM LoRA balanced,1686,249,200,5.131403118040089,0.02349672573467892
+finetune_resnet50,clip_linear_baseline,ResNet50 fine-tune,CLIP linear,1686,139,298,57.12585812356979,4.087952887767937e-14
+finetune_resnet50,resnet50_frozen_logreg,ResNet50 fine-tune,ResNet50 frozen+LR,1686,148,390,107.95724907063197,2.746386805999064e-25
+finetune_resnet50,vit_frozen_logreg,ResNet50 fine-tune,ViT frozen+LR,1686,156,278,33.735023041474655,6.315338651511023e-09
+finetune_resnet50,finetune_vit_or_swin,ResNet50 fine-tune,ViT/Swin fine-tune,1686,154,286,39.002272727272725,4.2331244871011933e-10
+finetune_resnet50,vlm_zero_shot_mayo,ResNet50 fine-tune,VLM zero-shot,1686,116,478,219.3956228956229,1.2252210639421434e-49
+finetune_resnet50,vlm_zero_shot_mode2_label_sampling_full_20260302,ResNet50 fine-tune,VLM mode2 sampling,1686,125,543,260.312874251497,1.4666185749609745e-58
+finetune_resnet50,vlm_lora_finetune_mayo_balanced_full_20260303,ResNet50 fine-tune,VLM LoRA balanced,1686,160,233,13.19083969465649,0.000281320820096403
+finetune_vit_or_swin,clip_linear_baseline,ViT/Swin fine-tune,CLIP linear,1686,235,262,1.3601609657947686,0.2435095867650766
+finetune_vit_or_swin,resnet50_frozen_logreg,ViT/Swin fine-tune,ResNet50 frozen+LR,1686,223,333,21.368705035971225,3.7890581471140714e-06
+finetune_vit_or_swin,vit_frozen_logreg,ViT/Swin fine-tune,ViT frozen+LR,1686,240,230,0.1723404255319149,0.6780401189182237
+finetune_vit_or_swin,finetune_resnet50,ViT/Swin fine-tune,ResNet50 fine-tune,1686,286,154,39.002272727272725,4.2331244871011933e-10
+finetune_vit_or_swin,vlm_zero_shot_mayo,ViT/Swin fine-tune,VLM zero-shot,1686,303,533,62.72846889952153,2.372612180904619e-15
+finetune_vit_or_swin,vlm_zero_shot_mode2_label_sampling_full_20260302,ViT/Swin fine-tune,VLM mode2 sampling,1686,279,565,96.23815165876778,1.0186294742099545e-22
+finetune_vit_or_swin,vlm_lora_finetune_mayo_balanced_full_20260303,ViT/Swin fine-tune,VLM LoRA balanced,1686,196,137,10.102102102102101,0.0014810029375460206
+vlm_zero_shot_mayo,clip_linear_baseline,VLM zero-shot,CLIP linear,1686,420,217,64.05651491365776,1.2090083139772448e-15
+vlm_zero_shot_mayo,resnet50_frozen_logreg,VLM zero-shot,ResNet50 frozen+LR,1686,374,254,22.54936305732484,2.0481242713755e-06
+vlm_zero_shot_mayo,vit_frozen_logreg,VLM zero-shot,ViT frozen+LR,1686,452,212,86.02560240963855,1.776210714553879e-20
+vlm_zero_shot_mayo,finetune_resnet50,VLM zero-shot,ResNet50 fine-tune,1686,478,116,219.3956228956229,1.2252210639421434e-49
+vlm_zero_shot_mayo,finetune_vit_or_swin,VLM zero-shot,ViT/Swin fine-tune,1686,533,303,62.72846889952153,2.372612180904619e-15
+vlm_zero_shot_mayo,vlm_zero_shot_mode2_label_sampling_full_20260302,VLM zero-shot,VLM mode2 sampling,1686,38,94,22.916666666666668,1.691785847547887e-06
+vlm_zero_shot_mayo,vlm_lora_finetune_mayo_balanced_full_20260303,VLM zero-shot,VLM LoRA balanced,1686,540,251,104.85967130214918,1.310992542908332e-24
+vlm_zero_shot_mode2_label_sampling_full_20260302,clip_linear_baseline,VLM mode2 sampling,CLIP linear,1686,475,216,96.32995658465991,9.724742252820812e-23
+vlm_zero_shot_mode2_label_sampling_full_20260302,resnet50_frozen_logreg,VLM mode2 sampling,ResNet50 frozen+LR,1686,434,258,44.255780346820806,2.881522728984582e-11
+vlm_zero_shot_mode2_label_sampling_full_20260302,vit_frozen_logreg,VLM mode2 sampling,ViT frozen+LR,1686,500,204,123.61505681818181,1.0228005093029725e-28
+vlm_zero_shot_mode2_label_sampling_full_20260302,finetune_resnet50,VLM mode2 sampling,ResNet50 fine-tune,1686,543,125,260.312874251497,1.4666185749609745e-58
+vlm_zero_shot_mode2_label_sampling_full_20260302,finetune_vit_or_swin,VLM mode2 sampling,ViT/Swin fine-tune,1686,565,279,96.23815165876778,1.0186294742099545e-22
+vlm_zero_shot_mode2_label_sampling_full_20260302,vlm_zero_shot_mayo,VLM mode2 sampling,VLM zero-shot,1686,94,38,22.916666666666668,1.691785847547887e-06
+vlm_zero_shot_mode2_label_sampling_full_20260302,vlm_lora_finetune_mayo_balanced_full_20260303,VLM mode2 sampling,VLM LoRA balanced,1686,580,235,145.19754601226992,1.9443421254684784e-33
+vlm_lora_finetune_mayo_balanced_full_20260303,clip_linear_baseline,VLM LoRA balanced,CLIP linear,1686,183,269,15.984513274336283,6.386276904793572e-05
+vlm_lora_finetune_mayo_balanced_full_20260303,resnet50_frozen_logreg,VLM LoRA balanced,ResNet50 frozen+LR,1686,211,380,47.756345177664976,4.826197076477925e-12
+vlm_lora_finetune_mayo_balanced_full_20260303,vit_frozen_logreg,VLM LoRA balanced,ViT frozen+LR,1686,200,249,5.131403118040089,0.02349672573467892
+vlm_lora_finetune_mayo_balanced_full_20260303,finetune_resnet50,VLM LoRA balanced,ResNet50 fine-tune,1686,233,160,13.19083969465649,0.000281320820096403
+vlm_lora_finetune_mayo_balanced_full_20260303,finetune_vit_or_swin,VLM LoRA balanced,ViT/Swin fine-tune,1686,137,196,10.102102102102101,0.0014810029375460206
+vlm_lora_finetune_mayo_balanced_full_20260303,vlm_zero_shot_mayo,VLM LoRA balanced,VLM zero-shot,1686,251,540,104.85967130214918,1.310992542908332e-24
+vlm_lora_finetune_mayo_balanced_full_20260303,vlm_zero_shot_mode2_label_sampling_full_20260302,VLM LoRA balanced,VLM mode2 sampling,1686,235,580,145.19754601226992,1.9443421254684784e-33

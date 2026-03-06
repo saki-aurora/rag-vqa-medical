@@ -1,0 +1,2 @@
+dataset,foreground_ratio_mean,single_component_share,bbox_vs_mask_bbox_iou_mean,note,source_report_path
+Kvasir-SEG (supporting),0.15391,0.819,0.923643,Supporting segmentation context; no tuned-vs-zero-shot pair in report.,/home/aristotle/Desktop/rag-vqa-medical/Prototyping_reformat/DatasetAnalysis/Kvasir_SEG/Kvasir_SEG.md
