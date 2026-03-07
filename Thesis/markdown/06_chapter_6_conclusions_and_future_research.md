@@ -165,47 +165,35 @@ Stating these categories explicitly improves interpretability of the dissertatio
 
 ## 6.9 Future Research Agenda
 
-Future work should proceed in phased, testable increments.
+The future research path emerging from this dissertation is phased and evidence-driven. Rather than proposing a single large expansion, the next stage is best understood as a sequence of connected studies that progressively improve data quality, retrieval-grounded reasoning, and translational validity.
 
 ### 6.9.1 Near-term research priorities
 
-1. Expand Chapter 5 knowledge-base breadth with guideline-level and trial-anchored sources.
-2. Increase PICO and retrieval gold sets with multi-annotator adjudication and agreement reporting.
-3. Improve extraction precision for outcomes/severity anchors without sacrificing recall coverage.
-4. Add clinician-semantic grounding review pipelines beyond lexical overlap heuristics.
+In the near term, the most important limitation to address is evidence coverage and annotation depth in the Chapter 5 wrapper setting. The current knowledge base can be broadened with guideline-level and trial-anchored sources so that retrieval behavior is tested against more realistic clinical evidence variation. At the same time, the PICO and retrieval gold subsets can be expanded through multi-annotator adjudication, with inter-annotator agreement reported explicitly as part of dataset-quality evidence.
+
+A second near-term focus is extraction and grounding quality. The present extractor is intentionally recall-oriented, but future versions should improve precision for outcome and severity-anchor fields without materially reducing recall. In parallel, grounding assessment can move beyond lexical overlap by introducing clinician-semantic review pipelines that better reflect whether synthesized claims preserve intended clinical meaning.
 
 ### 6.9.2 Mid-term robustness and integration priorities
 
-1. Execute controlled wrapper studies with severity context enabled (`has_severity_context=true`) and report incremental effect.
-2. Introduce stronger retrieval supervision and ranking objectives tied to clinician relevance judgments.
-3. Evaluate calibration-aware abstention that jointly considers retrieval confidence, severity uncertainty, and safety triggers.
-4. Extend from frame-level reasoning to temporally coherent sequence/procedure-level inference.
+The mid-term phase is centered on robustness and module integration. A key unresolved question is the measurable contribution of injected severity context, because the frozen Chapter 5 benchmark intentionally used `has_severity_context=false` to isolate wrapper behavior. Controlled studies with severity context enabled can therefore quantify incremental value under fixed evaluation conditions.
+
+Mid-term work also includes stronger retrieval supervision tied to clinician relevance judgments, which should improve ranking quality at low `k` and reduce dependence on broad evidence pooling. In addition, abstention policy can be recalibrated as a joint function of retrieval confidence, severity uncertainty, and safety triggers, so refusal behavior becomes more explicitly risk-calibrated. Finally, moving from frame-level predictions to temporally coherent sequence-level inference is necessary to better represent full-procedure reasoning in colonoscopy workflows.
 
 ### 6.9.3 Long-term translational priorities
 
-1. Conduct multi-center prospective validation under realistic institutional workflow constraints.
-2. Evaluate clinician trust, workload, and explanation usability via structured human factors studies.
-3. Develop governance plans for drift detection, audit cadence, and safety-case maintenance.
-4. Progressively align the system with institutional/regulatory requirements for clinical decision support.
+Long-term progress depends on prospective, multi-center validation under real institutional workflow constraints. Such studies are required to test transportability across device settings, reporting styles, and site-level practice differences that are not represented in single-repository benchmarks.
+
+Equally important is human-factors evaluation of trust calibration, workload effects, and explanation usability, since model utility in clinical settings depends on interaction quality as much as prediction quality. Over the same horizon, governance mechanisms such as drift monitoring, audit cadence, and safety-case maintenance become core system requirements. This naturally leads to progressive alignment with institutional and regulatory expectations for clinical decision-support technologies.
 
 ### 6.9.4 Suggested evaluation extensions
 
-To preserve dissertation-style rigor in future work, the following evaluation extensions are recommended:
-
-1. larger confidence-interval reporting with stratified subgroup analysis;
-2. paired statistical testing in wrapper-level ablations where paired outputs are available;
-3. explicit error-taxonomy tracking for safety-triggered refusals vs genuine low-evidence abstentions;
-4. reporting templates that jointly present utility, safety, and uncertainty rather than utility-only metrics.
+To preserve methodological rigor, future evaluations can be extended in four directions: broader confidence-interval reporting with stratified subgroup analysis; paired statistical testing for wrapper-level ablations where paired outputs are available; explicit error-taxonomy accounting that separates safety-triggered refusals from genuine low-evidence abstentions; and reporting templates that present utility, safety, and uncertainty jointly rather than utility alone.
 
 ### 6.9.5 Recommended Program of Work
 
-A practical next program can be executed in three work packages:
+At program level, this agenda can be organized into three work packages. Work Package A (data and annotation) addresses benchmark diversity, adjudication quality, and agreement reporting. Work Package B (model and retrieval) focuses on severity conditioning, retrieval ranking reliability, and calibrated abstention thresholds. Work Package C (human-in-the-loop evaluation) studies clinician usefulness, trust calibration, and failure-recovery behavior in realistic interaction settings.
 
-1. **Work Package A (Data and annotation):** expand benchmark diversity, strengthen adjudication protocols, and publish agreement statistics.
-2. **Work Package B (Model and retrieval):** improve severity conditioning, retrieval ranking, and calibrated abstention with explicit safety thresholds.
-3. **Work Package C (Human-in-the-loop evaluation):** run structured clinician studies on usefulness, trust calibration, and failure recovery behavior.
-
-This package-based plan converts the future agenda into executable units suitable for grant, lab, or multi-institution collaboration.
+Framed this way, the future agenda remains academically grounded while still being operationally executable in lab, grant, or multi-institution collaborations.
 
 ## 6.10 Final Conclusion
 
